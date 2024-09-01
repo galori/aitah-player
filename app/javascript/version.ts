@@ -1,4 +1,7 @@
 class Version {
+
+  private readonly version: string;
+
   constructor() {
     this.version = '1.0.0';
   }

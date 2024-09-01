@@ -19,6 +19,8 @@
     "build": "webpack --config webpack.config.js"
   },
   "dependencies": {
-    "eslint-webpack-plugin": "^4.2.0"
+    "eslint-webpack-plugin": "^4.2.0",
+    "ts-loader": "^9.5.1",
+    "typescript": "^5.5.4"
   }
 }
