@@ -1,0 +1,10 @@
+{
+  "parser": "@babel/eslint-parser",
+  "extends": ["airbnb"],
+  "parserOptions": {
+      "requireConfigFile": false
+  },
+  "rules": {
+    "no-undef": "error"
+  }
+}

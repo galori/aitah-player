@@ -1,8 +1,6 @@
-import Version from "./version"
+import Version from './version';
 
-// Entry point for the build script in your package.json
-console.log('application.js')
+console.log('application.js');
 
-
-const version = new Version()
-version.logVersion1()
+const version = new Version();
+version.logVersion1234();
