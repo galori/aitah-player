@@ -55,3 +55,5 @@ end
 
 
 gem "jsbundling-rails", "~> 1.3"
+
+gem "rest-client", "~> 2.1"

@@ -1,0 +1,9 @@
+<p style="color: green"><%= notice %></p>
+
+<% content_for :title, "Posts" %>
+
+<ul id="posts" role="list" class="divide-y divide-gray-100 rounded-lg bg-slate-100 p-3">
+  <% @posts.each do |post| %>
+    <%= render partial: 'posts/row', locals: { post: post } %>
+  <% end %>
+</ul>
