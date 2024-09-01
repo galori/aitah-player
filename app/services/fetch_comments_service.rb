@@ -8,16 +8,15 @@ class FetchCommentsService
     uri.path.gsub!(/\/$/,'.json')
     begin
       response = RestClient.get(uri.to_s)
-    rescue => e
-      if e == RestClient::TooManyRequests
-        puts e.body
-        puts e.body
-      end
+    rescue RestClient::TooManyRequests => e
+      Rails.logger.warn("RestClient::TooManyRequests in FetchCommentsService")
     end
+
 
     begin
       json = JSON.parse(response.body)
-      json[1]['data']['children'].each do |comment|
+      json[1]['data']['children'].each_with_index do |comment,i|
+        puts "comment #{i}"
         post.comments.create!(body: comment['data']['body'], author: comment['data']['author'])
       end
     rescue  => e
