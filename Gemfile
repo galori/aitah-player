@@ -53,3 +53,5 @@ group :development do
   gem "error_highlight", ">= 0.4.0", platforms: [:ruby]
 end
 
+
+gem "jsbundling-rails", "~> 1.3"
