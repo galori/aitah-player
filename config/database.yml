@@ -16,21 +16,21 @@ default: &default
   adapter: postgresql
   encoding: unicode
   host: localhost
+  username: aitah_player
   # For details on connection pooling, see Rails configuration guide
   # https://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 
 development:
   <<: *default
-  database: rails_test_jsbundling_development
-  username: rails_test_jsbundling
+  database: aitah_player_development
   password: password1
 
   # The specified database role being used to connect to PostgreSQL.
   # To create additional roles in PostgreSQL see `$ createuser --help`.
   # When left blank, PostgreSQL will use the default role. This is
   # the same name as the operating system user running Rails.
-  #username: rails_test_jsbundling
+  #username: aitah_player
 
   # The password associated with the PostgreSQL role (username).
   #password:
@@ -58,8 +58,7 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: rails_test_jsbundling_test
-  username: rails_test_jsbundling
+  database: aitah_player_test
   password: password1
 
 # As with config/credentials.yml, you never want to store sensitive information,
@@ -84,6 +83,6 @@ test:
 #
 production:
   <<: *default
-  database: rails_test_jsbundling_production
-  username: rails_test_jsbundling
+  database: aitah_player_production
+  username: aitah_player
   password: <%= ENV["RAILS_TEST_JSBUNDLING_DATABASE_PASSWORD"] %>
