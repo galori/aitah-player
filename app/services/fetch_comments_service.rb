@@ -6,7 +6,6 @@ class FetchCommentsService
   def perform
     uri = URI(@post.url)
     uri.path.gsub!(/\/$/,'.json')
-    puts "fetching #{uri.to_s}"
     begin
       response = RestClient.get(uri.to_s)
     rescue => e
