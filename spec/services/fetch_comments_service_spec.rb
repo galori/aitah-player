@@ -11,6 +11,8 @@ RSpec.describe FetchCommentsService, vcr: {record: :once} do
   }
 
   before do
+    fast_retry = Retry.new(overall_multiplier: 0)
+    allow(Retry).to receive(:new).and_return(fast_retry)
     FetchCommentsService.new(post).perform
   end
 

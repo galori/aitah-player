@@ -2,3 +2,8 @@
   <p class="text-2xl mb-7 title"><%= post.title %> by r/<%=post.author %></p>
   <p class="body"><%= post.body_as_html %></p>
 </div>
+
+<div id="comments">
+  <strong><%=post.comments.count %> comments</strong><br/><br/>
+  <%= render partial: 'comments/comment', collection: post.comments, as: :comment %>
+</div>

@@ -5,25 +5,24 @@ class FetchCommentsService
 
   def perform
     uri = URI(@post.url)
-    uri.path.gsub!(/\/$/,'.json')
-    begin
-      response = RestClient.get(uri.to_s)
-    rescue RestClient::TooManyRequests => e
-      Rails.logger.warn("RestClient::TooManyRequests in FetchCommentsService")
+    uri.path.gsub!(/\/$/, '.json')
+    response = Retry.new.backoff do
+      RestClient.get(uri.to_s)
     end
 
-
-    begin
-      json = JSON.parse(response.body)
-      json[1]['data']['children'].each_with_index do |comment,i|
-        puts "comment #{i}"
-        post.comments.create!(body: comment['data']['body'], author: comment['data']['author'])
-      end
-    rescue  => e
-      puts e
+    json = JSON.parse(response.body)
+    comments = json[1]['data']['children']
+    comments.each do |comment|
+      body = comment['data']['body']
+      author = comment['data']['author']
+      post.comments.create!(body: body, author: author)
     end
-    # => "NTA - she wanted to stir some shit up, that’s a hell of a lot of effort to “help”. Also I’d be pissed about how she got Lilys DNA to do this? It didn’t go the way she thought it would so she got mad, your brother is just trying to side with his soon to be wife"
 
+    # comments.each_with_index do |comment, i| post.comments.create!(body: comment['data']['body'], author: comment['data']['author'])
+    # end
+
+    # json[1]['data']['children'].each_with_index do |comment, i| puts "comment #{i}"
+    # end
   end
 
   private
