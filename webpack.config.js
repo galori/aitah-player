@@ -6,12 +6,13 @@ module.exports = {
   mode: "production",
   devtool: "source-map",
   entry: {
-    application: "./app/javascript/application.ts"
+    application: "./app/javascript/application.ts",
+    posts: "./app/javascript/posts.tsx",
   },
   module: {
     rules: [
       {
-        test: /\.ts$/,
+        test: /\.tsx?$/,
         exclude: /node_modules/,
         use: {
           loader: 'ts-loader',
@@ -20,7 +21,7 @@ module.exports = {
     ],
   },
   resolve: {
-    extensions: ['.ts', '.js'],
+    extensions: ['.ts', '.js', '.tsx', '.jsx'],
   },
   output: {
     filename: "[name].js",

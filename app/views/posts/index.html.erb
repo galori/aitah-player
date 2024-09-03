@@ -1,9 +1,6 @@
-<p style="color: green"><%= notice %></p>
+<%= javascript_include_tag "posts", type: "module" %>
+<div class=".react-mounting-point-wrapper" id="root">
 
-<% content_for :title, "Posts" %>
+</div>
 
-<ul id="posts" role="list" class="divide-y divide-gray-100 rounded-lg bg-slate-100 p-3">
-  <% @posts.each do |post| %>
-    <%= render partial: 'posts/row', locals: { post: post } %>
-  <% end %>
-</ul>
+
