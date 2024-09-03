@@ -3,12 +3,11 @@ import PostsList from './PostsList';
 
 const PostsPage: React.FC = () => {
 
-  const postsData = JSON.parse(document.getElementById('posts')!.getAttribute('data-posts')!);
-  console.log(`postsData: ${JSON.stringify(postsData)}`);
+  const posts = JSON.parse(document.getElementById('posts')!.getAttribute('data-posts')!);
   return (
     <div>
       <h1>Posts</h1>
-      <PostsList posts={postsData} />
+      <PostsList posts={posts} />
     </div>
   );
 }

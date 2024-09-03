@@ -2,11 +2,7 @@ import React from 'react';
 import PostRow from './PostRow';
 import { Post } from './types';
 
-interface PostListProps {
-  posts: Post[];
-}
-
-const PostsList: React.FC<PostListProps> = ({posts}) => {
+const PostsList = ({ posts }: { posts: Post[] }) => {
   return (
     <ul id="posts" role="list">
       {posts.map((post) => (

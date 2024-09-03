@@ -1,6 +1,7 @@
 import React from 'react';
+import { Post } from './types';
 
-const PostRow: React.FC<{ post: { id: React.Key; title: string; } }> = ({ post }) => {
+const PostRow: React.FC<{ post: Post }> = ({ post }) => {
   return (
     <li role="listitem">
       {post.title}
