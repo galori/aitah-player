@@ -2,24 +2,15 @@ import React from 'react';
 import PostsList from './PostsList';
 
 const PostsPage: React.FC = () => {
-  const posts = [
-    { id: 1, title: 'Hello, world!' },
-    { id: 2, title: 'Hello, React!' },
-  ];
 
+  const postsData = JSON.parse(document.getElementById('posts')!.getAttribute('data-posts')!);
+  console.log(`postsData: ${JSON.stringify(postsData)}`);
   return (
     <div>
       <h1>Posts</h1>
-      <PostsList posts={posts} />
+      <PostsList posts={postsData} />
     </div>
   );
 }
 
 export default PostsPage;
-
-import ReactDOM from 'react-dom';
-
-const rootElement = document.getElementById('root');
-if (rootElement) {
-  ReactDOM.render(<h1>Hello, world!</h1>, rootElement);
-}
