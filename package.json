@@ -19,8 +19,15 @@
     "build": "webpack --config webpack.config.js"
   },
   "dependencies": {
+    "@fontsource/roboto": "^5.0.14",
+    "@mui/material": "^5.2.7",
+    "@mui/styled-engine": "npm:@mui/styled-engine-sc@latest",
+    "@mui/icons-material": "^5.15.19",
+    "@types/styled-components": "^5.1.2",
     "eslint-webpack-plugin": "^4.2.0",
-    "ts-loader": "^9.5.1",
-    "typescript": "^5.5.4"
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "ts-loader": "^9.4.3",
+    "typescript": "^4.6.3"
   }
 }
