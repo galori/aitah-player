@@ -6,7 +6,7 @@ module.exports = {
   mode: "production",
   devtool: "source-map",
   entry: {
-    application: "./app/javascript/application.ts",
+    App: "./app/javascript/App.tsx",
     posts: "./app/javascript/posts.tsx",
   },
   module: {

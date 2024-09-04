@@ -1,10 +1,11 @@
 import React from 'react';
 import { Post } from './types';
+import { Link } from 'react-router-dom';
 
 const PostRow: React.FC<{ post: Post }> = ({ post }) => {
   return (
     <li role="listitem">
-      <a href={`/posts/${post.id}`}>{post.title}</a>
+      <Link to={`/posts/${post.id}`}>{post.title}</Link>
     </li>
   );
 }
