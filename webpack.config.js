@@ -21,6 +21,9 @@ module.exports = {
   },
   resolve: {
     extensions: ['.ts', '.js', '.tsx', '.jsx'],
+    alias: {
+      '@mui/styled-engine': '@mui/styled-engine-sc'
+    }
   },
   output: {
     filename: "bundle.js",

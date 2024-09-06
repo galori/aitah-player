@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { Post } from './types';
+import Button from '@mui/material/Button';
 
 function PostPage() {
   const { id } = useParams<{ id: string }>();
@@ -34,7 +35,8 @@ function PostPage() {
     <div>
       <h1>{post.title}</h1>
       <p>{post.body}</p>
-      <button onClick={() => window.history.back()}>Back</button>
+
+      <Button variant="contained" href="/">Home1</Button>
     </div>
   );
 }
