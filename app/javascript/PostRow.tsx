@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 const PostRow: React.FC<{ post: Post }> = ({ post }) => {
   return (
     <li role="listitem">
-      <Link to={`/posts/${post.id}`}>{post.title}</Link>
+      <Link to={`/post/${post.id}`}>{post.title}</Link>
     </li>
   );
 }

@@ -6,8 +6,7 @@ function PostsList({ posts }: { posts: Post[] }) {
   return (
     <ul id="posts" role="list">
       {posts.map((post) => (
-        <><b>{post.title}</b><br/></>
-        // <PostRow key={post.id} post={post} />
+        <PostRow key={post.id} post={post} />
       ))}
     </ul>
   );
