@@ -6,8 +6,7 @@ module.exports = {
   mode: "production",
   devtool: "source-map",
   entry: {
-    App: "./app/javascript/App.tsx",
-    posts: "./app/javascript/posts.tsx",
+    App: "./app/javascript/index.tsx"
   },
   module: {
     rules: [
@@ -24,8 +23,8 @@ module.exports = {
     extensions: ['.ts', '.js', '.tsx', '.jsx'],
   },
   output: {
-    filename: "[name].js",
-    sourceMapFilename: "[file].map",
+    filename: "bundle.js",
+    sourceMapFilename: "bundle.map",
     chunkFormat: "module",
     path: path.resolve(__dirname, "app/assets/builds"),
   },

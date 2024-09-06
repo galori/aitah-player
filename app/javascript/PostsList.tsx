@@ -2,11 +2,12 @@ import React from 'react';
 import PostRow from './PostRow';
 import { Post } from './types';
 
-const PostsList = ({ posts }: { posts: Post[] }) => {
+function PostsList({ posts }: { posts: Post[] }) {
   return (
     <ul id="posts" role="list">
       {posts.map((post) => (
-        <PostRow key={post.id} post={post} />
+        <><b>{post.title}</b><br/></>
+        // <PostRow key={post.id} post={post} />
       ))}
     </ul>
   );
