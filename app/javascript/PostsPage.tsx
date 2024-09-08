@@ -1,27 +1,24 @@
 import React from 'react';
 // import PostsList from './PostsList';
-import { Post } from "./types";
-import { Container, Typography, List, ListItem, ListItemText, Paper, AppBar, Toolbar } from '@mui/material';
+import {Post} from "./types";
+import {
+  ListItemButton,
+  Divider,
+  Container,
+  Typography,
+  List,
+  ListItemText,
+  Paper,
+  AppBar,
+  Toolbar,
+  Box
+} from '@mui/material';
 
 function PostsPage() {
   const posts: Post[] = JSON.parse(document.getElementById('posts')!.getAttribute('data-posts')!);
 
-
-  // t.string "author"
-  // t.string "body"
-  // t.string "title"
-  // t.string "url"
-
-  // const redditPosts = [
-  //   { id: 1, title: "TIL that honey never spoils. Archaeologists have found pots of honey in ancient Egyptian tombs that are over 3,000 years old and still perfectly edible." },
-  //   { id: 2, title: "What's a random fact that lives in your head rent-free?" },
-  //   { id: 3, title: "Scientists have successfully created a wormhole on a quantum computer" },
-  //   { id: 4, title: "What's a life hack you think everyone should know?" },
-  //   { id: 5, title: "Redditors who have been clinically dead and then resuscitated, what did you experience while dead?" }
-  // ];
-
   return (
-    <div className="min-h-screen bg-gray-100">
+    <Box sx={{minHeight: '100vh', bgcolor: 'grey.100'}}>
       <AppBar position="static" className="bg-orange-500">
         <Toolbar>
           <Typography variant="h6" className="text-white">
@@ -29,24 +26,36 @@ function PostsPage() {
           </Typography>
         </Toolbar>
       </AppBar>
-      <Container className="mt-8">
-        <Paper className="p-4">
+      <Container sx={{mt: 2}}>
+        <Paper>
           <List>
-            {posts.map((post) => (
-              <ListItem key={post.id} className="mb-2">
-                <ListItemText
-                  primary={
-                    <Typography variant="subtitle1" className="font-semibold">
-                      {post.title} by /u/{post.author}
-                    </Typography>
-                  }
-                />
-              </ListItem>
+            {posts.map((post, index) => (
+              <>
+                <ListItemButton key={post.id} sx={{
+                  py: 2,
+                  borderBottom: index < posts.length - 1 ? '1px solid' : 'none',
+                  borderColor: 'grey.300',
+                }}>
+                  <ListItemText
+                    primary={
+                      <>
+                        <Typography variant="subtitle1" component="span" className="font-semibold">
+                          {post.title}
+                        </Typography>
+                        {' '}
+                        <Typography variant="body2" component="span" color="text.secondary">
+                          by /u/{post.author}
+                        </Typography>
+                      </>
+                    }
+                  />
+                </ListItemButton>
+              </>
             ))}
           </List>
         </Paper>
       </Container>
-    </div>);
+    </Box>);
 }
 
 export default PostsPage;
