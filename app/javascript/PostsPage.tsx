@@ -1,5 +1,6 @@
 import React from 'react';
 // import PostsList from './PostsList';
+import { useNavigate } from 'react-router-dom';
 import {Post} from "./types";
 import {
   ListItemButton,
@@ -15,7 +16,12 @@ import {
 } from '@mui/material';
 
 function PostsPage() {
+  const navigate = useNavigate();
   const posts: Post[] = JSON.parse(document.getElementById('posts')!.getAttribute('data-posts')!);
+
+  const handlePostClick = (postId: number) => {
+    navigate(`/post/${postId}`);
+  };
 
   return (
     <Box sx={{minHeight: '100vh', bgcolor: 'grey.100'}}>
@@ -26,7 +32,7 @@ function PostsPage() {
           </Typography>
         </Toolbar>
       </AppBar>
-      <Container maxWidth={false} disableGutters sx={{mt: 2, mx: 0, px: 0}}>
+      <Container maxWidth={false} disableGutters sx={{my: 0, mx: 0, px: 0}}>
         <Paper sx={{width: '100%', boxShadow: 'none'}}>
           <List>
             {posts.map((post, index) => (
@@ -34,8 +40,10 @@ function PostsPage() {
                 <ListItemButton key={post.id} sx={{
                   py: 2,
                   borderBottom: index < posts.length - 1 ? '1px solid' : 'none',
-                  borderColor: 'grey.300',
-                }}>
+                  borderColor: 'grey.300'
+                }}
+                onClick={() => handlePostClick(post.id)}
+                >
                   <ListItemText
                     primary={
                       <>
@@ -44,7 +52,7 @@ function PostsPage() {
                         </Typography>
                         {' '}
                         <Typography variant="body2" component="span" color="text.secondary">
-                          byaa /u/{post.author}
+                          by /u/{post.author}
                         </Typography>
                       </>
                     }
