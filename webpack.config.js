@@ -1,44 +1,48 @@
-const path    = require("path")
-const webpack = require("webpack")
-const ESLintPlugin = require('eslint-webpack-plugin');
+const path = require('path');
+const webpack = require('webpack');
 
 module.exports = {
-  mode: "production",
-  devtool: "source-map",
+  mode: 'production',
+  devtool: 'source-map',
   entry: {
-    App: "./app/javascript/index.tsx"
+    application: './app/javascript/index.tsx'
   },
   module: {
     rules: [
       {
-        test: /\.tsx?$/,
+        test: /\.(js|jsx|ts|tsx)$/,
         exclude: /node_modules/,
-        use: {
-          loader: 'ts-loader',
-        },
+        use: ['babel-loader'],
+      },
+      {
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader'],
+      },
+      {
+        test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[name].[ext]',
+              outputPath: 'assets',
+            },
+          },
+        ],
       },
     ],
   },
-  resolve: {
-    extensions: ['.ts', '.js', '.tsx', '.jsx'],
-    alias: {
-      '@mui/styled-engine': '@mui/styled-engine-sc'
-    }
-  },
   output: {
-    filename: "bundle.js",
-    sourceMapFilename: "bundle.map",
-    chunkFormat: "module",
-    path: path.resolve(__dirname, "app/assets/builds"),
+    filename: '[name].js',
+    sourceMapFilename: '[name].js.map',
+    path: path.resolve(__dirname, 'app/assets/builds'),
   },
   plugins: [
-    new ESLintPlugin({
-      extensions: ['js'],
-      exclude: 'node_modules',
-      fix: true,
-    }),
     new webpack.optimize.LimitChunkCountPlugin({
       maxChunks: 1
     })
-  ]
-}
+  ],
+  resolve: {
+    extensions: ['.js', '.jsx', '.ts', '.tsx'],
+  }
+};
