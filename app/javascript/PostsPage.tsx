@@ -26,8 +26,8 @@ function PostsPage() {
           </Typography>
         </Toolbar>
       </AppBar>
-      <Container sx={{mt: 2}}>
-        <Paper>
+      <Container maxWidth={false} disableGutters sx={{mt: 2, mx: 0, px: 0}}>
+        <Paper sx={{width: '100%', boxShadow: 'none'}}>
           <List>
             {posts.map((post, index) => (
               <>

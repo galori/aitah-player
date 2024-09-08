@@ -1,11 +1,17 @@
 {
   "parser": "@babel/eslint-parser",
-  "extends": ["airbnb"],
+  "extends": [
+    "eslint:recommended",
+    "airbnb",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:react/recommended"
+  ],
   "parserOptions": {
       "requireConfigFile": false
   },
   "rules": {
     "no-undef": "error",
     "no-unused-vars": "warn"
-  }
+  },
+  "plugins": ["@typescript-eslint", "react"]
 }

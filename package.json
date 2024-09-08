@@ -20,10 +20,15 @@
     "file-loader": "^6.2.0",
     "style-loader": "^4.0.0",
     "webpack": "^5.94.0",
-    "webpack-cli": "^5.1.4"
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^5.1.0"
   },
   "scripts": {
-    "build": "webpack --config webpack.config.js",
+    "start": "webpack serve --mode development",
+    "build:dev": "yarn type-check && webpack --mode development",
+    "build": "yarn type-check && webpack --mode production",
+    "type-check": "tsc --noEmit",
+    "build-old": "yarn type-check && webpack --config webpack.config.js",
     "lint": "eslint 'app/javascript/**/*.{js,jsx,ts,tsx}'",
     "lint:fix": "eslint 'app/javascript/**/*.{js,jsx,ts,tsx}' --fix"
   },
@@ -39,7 +44,7 @@
     "react-dom": "17",
     "react-router-dom": "^6.26.1",
     "styled-components": "^6.1.13",
-    "ts-loader": "^9.4.3",
+    "ts-loader": "^9.5.1",
     "typescript": "^5.5.4"
   }
 }
