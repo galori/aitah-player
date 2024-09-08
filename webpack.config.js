@@ -15,6 +15,18 @@ module.exports = (env, argv) => {
         {
           test: /\.(js|jsx|ts|tsx)$/,
           exclude: /node_modules/,
+          use: {
+            loader: 'babel-loader',
+            options: {
+              cacheDirectory: true,
+              cacheCompression: false,
+              envName: isProduction ? 'production' : 'development'
+            }
+          }
+        },
+        {
+          test: /\.(js|jsx|ts|tsx)$/,
+          exclude: /node_modules/,
           use: ['babel-loader'],
         },
         {
@@ -48,22 +60,52 @@ module.exports = (env, argv) => {
       new webpack.DefinePlugin({
         'process.env.NODE_ENV': JSON.stringify(isProduction ? 'production' : 'development'),
       }),
+      new webpack.HotModuleReplacementPlugin()
     ],
     resolve: {
       extensions: ['.js', '.jsx', '.ts', '.tsx'],
     },
     devServer: {
-      static: path.join(__dirname, 'app/assets/builds'),
+      setupMiddlewares: (middlewares, devServer) => {
+        if (!devServer) {
+          throw new Error('webpack-dev-server is not defined');
+        }
+
+        // Example: Logging each request to the console
+        devServer.app.use((req, res, next) => {
+          console.log(`[Request] ${req.method} ${req.url}`);
+          next();
+        });
+
+        return middlewares;
+      },
+      liveReload: false,
+      static: {
+        directory: path.join(__dirname, 'app/assets/builds'),
+        publicPath: '/assets/',
+      },
       compress: true,
       port: 9000,
       hot: true,
       devMiddleware: {
         index: false, // specify to enable root proxying
+        writeToDisk: true, // Write files to disk in dev mode, so Rails can serve static assets
       },
       proxy: [
         {
           context: () => true,
           target: 'http://localhost:3000',
+          changeOrigin: true,
+          bypass: function(req, res, proxyOptions) {
+            if (req.headers.accept.indexOf('application/json') !== -1) {
+              return null; // Let the proxy handle API requests
+            }
+            if (req.url.indexOf('/assets/') === 0) {
+              return req.url; // Serve webpack assets directly
+            }
+            // For all other requests, let Rails handle it
+            return null;
+          }
         },
       ]
     }
