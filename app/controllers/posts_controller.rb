@@ -1,5 +1,4 @@
 class PostsController < ApplicationController
-  before_action :set_post, only: %i[ show edit update destroy ]
 
   # GET /posts or /posts.json
   def index
@@ -8,6 +7,9 @@ class PostsController < ApplicationController
 
   # GET /posts/1 or /posts/1.json
   def show
+    post = Post.find(params[:id]).decorate
+    @post = PostPresenter.new(post)
+    puts @post.as_json
   end
 
   # GET /posts/new

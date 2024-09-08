@@ -44,7 +44,9 @@ function PostPage() {
       </AppBar>
       <Container maxWidth={false} disableGutters sx={{my: 0, mx: 0, px: 0}}>
         <Paper sx={{width: '100%', boxShadow: 'none', px: 4, py: 2}}>
-          <p>{post.body}</p>
+          {post.sentences.map((segment, index) => (
+            <Typography key={index} paragraph dangerouslySetInnerHTML={{__html: segment}} />
+          ))}
           <Button variant="contained" href="/">Home1</Button>
         </Paper>
 
