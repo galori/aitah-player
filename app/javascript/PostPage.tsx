@@ -1,10 +1,12 @@
-import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
-import { Post } from './types';
-import Button from '@mui/material/Button';
+import React, {useEffect, useState} from 'react';
+import {useParams} from 'react-router-dom';
+import {Post} from './types';
+import {Container, Typography, Paper, AppBar, Toolbar, Box, Button} from '@mui/material';
+
+import {} from "@mui/material";
 
 function PostPage() {
-  const { id } = useParams<{ id: string }>();
+  const {id} = useParams<{ id: string }>();
   const [post, setPost] = useState<Post | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -32,12 +34,22 @@ function PostPage() {
   if (!post) return <p>No post found</p>;
 
   return (
-    <div>
-      <h1>{post.title}</h1>
-      <p>{post.body}</p>
+    <Box sx={{minHeight: '100vh', bgcolor: 'grey.100'}}>
+      <AppBar position="static" className="bg-orange-500">
+        <Toolbar>
+          <Typography variant="h6" className="text-white">
+            {post.title}
+          </Typography>
+        </Toolbar>
+      </AppBar>
+      <Container maxWidth={false} disableGutters sx={{my: 0, mx: 0, px: 0}}>
+        <Paper sx={{width: '100%', boxShadow: 'none', px: 4, py: 2}}>
+          <p>{post.body}</p>
+          <Button variant="contained" href="/">Home1</Button>
+        </Paper>
 
-      <Button variant="contained" href="/">Home1</Button>
-    </div>
+      </Container>
+    </Box>
   );
 }
 
