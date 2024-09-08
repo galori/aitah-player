@@ -5,8 +5,6 @@ module.exports = (env, argv) => {
   const isProduction = argv.mode === 'production';
 
   return {
-    mode: 'production',
-    devtool: 'source-map',
     entry: {
       application: './app/javascript/index.tsx'
     },
@@ -41,6 +39,7 @@ module.exports = (env, argv) => {
       filename: '[name].js',
       sourceMapFilename: '[name].js.map',
       path: path.resolve(__dirname, 'app/assets/builds'),
+      publicPath: '/assets/',
     },
     plugins: [
       new webpack.optimize.LimitChunkCountPlugin({
@@ -57,7 +56,16 @@ module.exports = (env, argv) => {
       static: path.join(__dirname, 'app/assets/builds'),
       compress: true,
       port: 9000,
-      hot: true
+      hot: true,
+      devMiddleware: {
+        index: false, // specify to enable root proxying
+      },
+      proxy: [
+        {
+          context: () => true,
+          target: 'http://localhost:3000',
+        },
+      ]
     }
   }
 };

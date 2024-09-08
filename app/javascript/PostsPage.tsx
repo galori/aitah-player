@@ -44,7 +44,7 @@ function PostsPage() {
                         </Typography>
                         {' '}
                         <Typography variant="body2" component="span" color="text.secondary">
-                          by /u/{post.author}
+                          byby /u/{post.author}
                         </Typography>
                       </>
                     }
