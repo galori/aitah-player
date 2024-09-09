@@ -44,10 +44,13 @@ function PostPage() {
       </AppBar>
       <Container maxWidth={false} disableGutters sx={{my: 0, mx: 0, px: 0}}>
         <Paper sx={{width: '100%', boxShadow: 'none', px: 4, py: 2}}>
-          {post.sentences.map((segment, index) => (
-            <Typography key={index} paragraph dangerouslySetInnerHTML={{__html: segment}} />
+          <Typography component='span' sx={{px: 0.2, display: 'block'}}>
+          {post.sentences.map((sentence, index) => (
+
+            <Box className="sentence" key={'sentence-' + index} dangerouslySetInnerHTML={{__html: sentence}} sx={{px: (index == 0 ? 0 : 0.3), display: 'inline'}}></Box>
           ))}
-          <Button variant="contained" href="/">Home1</Button>
+          </Typography>
+          <Button variant="contained" href="/" sx={{mt: 2}}>Home1</Button>
         </Paper>
 
       </Container>
