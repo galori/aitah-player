@@ -1,5 +1,5 @@
 export interface Post {
-  body_segments_as_html: string[];
+  sentences: string[];
   author: string;
   id: number;
   title: string;
