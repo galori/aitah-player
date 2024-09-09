@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 // import PostsList from './PostsList';
 import { useNavigate } from 'react-router-dom';
 import {Post} from "./types";
@@ -17,11 +17,35 @@ import {
 
 function PostsPage() {
   const navigate = useNavigate();
-  const posts: Post[] = JSON.parse(document.getElementById('posts')!.getAttribute('data-posts')!);
+  const [posts, setPost] = React.useState<Post[]>([]);
+  const [loading, setLoading] = React.useState(true);
+  const [error, setError] = React.useState<string | null>(null);
 
   const handlePostClick = (postId: number) => {
     navigate(`/post/${postId}`);
   };
+
+  useEffect(() => {
+    fetch('api/posts.json')
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Failed to fetch post');
+        }
+        return response.json();
+      })
+      .then(data => {
+        setPost(data);
+        setLoading(false);
+      })
+      .catch(err => {
+        setError(err.message);
+        setLoading(false);
+      });
+  }, []);
+
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error: {error}</p>;
+  if (posts.length === 0) return <p>No posts found</p>;
 
   return (
     <Box sx={{minHeight: '100vh', bgcolor: 'grey.100'}}>

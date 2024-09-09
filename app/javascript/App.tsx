@@ -12,8 +12,6 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 const theme = createTheme();
 
-const App = () => <div>Hello, React!</div>;
-
 const root = document.getElementById('root');
 
 document.addEventListener('DOMContentLoaded', () => {

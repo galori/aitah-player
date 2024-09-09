@@ -9,5 +9,8 @@ Rails.application.routes.draw do
 
   root to: "posts#index"
 
+  namespace :api do
+    resources :posts, only: [:index, :show]
+  end
   # root 'home#index'
 end

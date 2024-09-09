@@ -72,6 +72,10 @@ module.exports = (env, argv) => {
       static: {
         directory: path.join(__dirname, 'app/assets/builds'),
       },
+      proxy : [{
+        context: ['/api'],
+        target: 'http://localhost:3000'
+      }],
       hot: true,
       open: true,
       historyApiFallback: true

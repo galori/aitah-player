@@ -12,7 +12,7 @@ function PostPage() {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    fetch(`/posts/${id}.json`)
+    fetch(`/api/posts/${id}.json`)
       .then(response => {
         if (!response.ok) {
           throw new Error('Failed to fetch post');
@@ -38,7 +38,7 @@ function PostPage() {
       <AppBar position="static" className="bg-orange-500">
         <Toolbar>
           <Typography variant="h6" className="text-white">
-            {post.title}
+            Title: {post.title}
           </Typography>
         </Toolbar>
       </AppBar>
