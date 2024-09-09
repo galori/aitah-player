@@ -2,8 +2,7 @@ import React, {useEffect, useState} from 'react';
 import {useParams} from 'react-router-dom';
 import {Post} from './types';
 import {Container, Typography, Paper, AppBar, Toolbar, Box, Button} from '@mui/material';
-
-import {} from "@mui/material";
+import Speech from './Speech';
 
 function PostPage() {
   const {id} = useParams<{ id: string }>();
@@ -44,6 +43,8 @@ function PostPage() {
       </AppBar>
       <Container maxWidth={false} disableGutters sx={{my: 0, mx: 0, px: 0}}>
         <Paper sx={{width: '100%', boxShadow: 'none', px: 4, py: 2}}>
+          <Speech />
+
           <Typography component='span' sx={{px: 0.2, display: 'block'}}>
           {post.sentences.map((sentence, index) => (
 
