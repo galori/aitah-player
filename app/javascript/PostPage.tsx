@@ -3,6 +3,7 @@ import {useParams} from 'react-router-dom';
 import {Post} from './types';
 import {Container, Typography, Paper, AppBar, Toolbar, Box, Button} from '@mui/material';
 import Speech from './Speech';
+import Sentence from "./Sentence";
 
 function PostPage() {
   const {id} = useParams<{ id: string }>();
@@ -47,8 +48,7 @@ function PostPage() {
 
           <Typography component='span' sx={{px: 0.2, display: 'block'}}>
           {post.sentences.map((sentence, index) => (
-
-            <Box className="sentence" key={'sentence-' + index} dangerouslySetInnerHTML={{__html: sentence}} sx={{px: (index == 0 ? 0 : 0.3), display: 'inline'}}></Box>
+            <Sentence key={'sentence-' + index} text={sentence} index={index} />
           ))}
           </Typography>
           <Button variant="contained" href="/" sx={{mt: 2}}>Home1</Button>

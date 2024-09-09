@@ -10,8 +10,26 @@ interface SpeechProps {
 
 function Speech({sx}: SpeechProps) {
 
+  const speech = new SpeechSynthesisUtterance();
+
+  const [playbackState, setPlaybackState] = React.useState('play');
+
+  const handlePlaybackChange = (
+    event: React.MouseEvent<HTMLElement>,
+    newPlaybackState: string,
+  ) => {
+    if (newPlaybackState === 'pause') {
+      speechSynthesis.pause();
+    } else if (newPlaybackState === 'play') {
+      speechSynthesis.resume();
+    }
+    setPlaybackState(newPlaybackState);
+  }
+
   useEffect(() => {
-    startTextToSpeech();
+    if (playbackState === 'play') {
+      startTextToSpeech();
+    }
   });
 
   // iterate through all span.sentence elements and read them out loud
@@ -30,7 +48,7 @@ function Speech({sx}: SpeechProps) {
   const readText = async (text: string) => {
     return new Promise((resolve, reject) => {
       console.log(`starting to read ${text}`);
-      const speech = new SpeechSynthesisUtterance();
+
       speech.text = text;
       speech.volume = 1;
       speech.rate = 1;
@@ -40,18 +58,22 @@ function Speech({sx}: SpeechProps) {
         console.log('finished reading');
         resolve(null);
       }
-      // speechSynthesis.speak(speech);
+      speechSynthesis.speak(speech);
     });
   }
 
 
   return (
     <Box sx={sx}>
-      <ToggleButtonGroup>
-        <ToggleButton value="Play" sx={ playbackButtonStyles }>
+      <ToggleButtonGroup
+        value={playbackState}
+        exclusive
+        onChange={handlePlaybackChange}
+      >
+        <ToggleButton value="play" sx={ playbackButtonStyles }>
           <PlayArrowIcon sx={ playbackIconStyles }/>
         </ToggleButton>
-        <ToggleButton value="Play" sx={ playbackButtonStyles }>
+        <ToggleButton value="pause" sx={ playbackButtonStyles }>
           <PauseIcon  sx={ playbackIconStyles }/>
         </ToggleButton>
       </ToggleButtonGroup>
