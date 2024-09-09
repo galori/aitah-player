@@ -10,6 +10,7 @@ function PostPage() {
   const [post, setPost] = useState<Post | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [currentlyReading, setCurrentlyReading] = useState<number | null>(null);
 
   useEffect(() => {
     fetch(`/api/posts/${id}.json`)
@@ -37,7 +38,7 @@ function PostPage() {
     <Box sx={{minHeight: '100vh', bgcolor: 'grey.100'}}>
       <AppBar position="static" className="bg-orange-500">
         <Toolbar>
-          <Speech sx={{px: 2}} />
+          <Speech sx={{px: 2}} setCurrentlyReading={setCurrentlyReading} />
           <Typography variant="h6" className="text-white">
             Title: {post.title}
           </Typography>
@@ -48,7 +49,12 @@ function PostPage() {
 
           <Typography component='span' sx={{px: 0.2, display: 'block'}}>
           {post.sentences.map((sentence, index) => (
-            <Sentence key={'sentence-' + index} text={sentence} index={index} />
+            <Sentence
+              key={'sentence-' + index}
+              text={sentence}
+              index={index}
+              currentlyReading={currentlyReading === index}
+            />
           ))}
           </Typography>
           <Button variant="contained" href="/" sx={{mt: 2}}>Home1</Button>
