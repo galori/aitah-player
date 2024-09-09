@@ -14,6 +14,9 @@ const theme = createTheme();
 
 const root = document.getElementById('root');
 
+const App = () => <div>Hello, React2!</div>;
+
+
 document.addEventListener('DOMContentLoaded', () => {
   ReactDOM.render(
     <React.StrictMode>
@@ -22,7 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
         <Router>
           <div>
             <Routes>
-              <Route path="/" element={< PostsPage />} />
+              <Route path="/" element={< App />} />
               <Route path="/post/:id" element={< PostPage />} />
             </Routes>
           </div>

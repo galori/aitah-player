@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
         <Router>
           <div>
             <Routes>
-              <Route path="/" element={< PostsPage />}/>
+              <Route path="/" element={< App/>}/>
               <Route path="/post/:id" element={< PostPage/>}/>
             </Routes>
           </div>

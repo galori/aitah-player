@@ -1,12 +1,13 @@
 const path = require('path');
 const webpack = require('webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = (env, argv) => {
   const isProduction = argv.mode === 'production';
 
   return {
     entry: {
-      application: './app/javascript/index.tsx'
+      application: '/app/javascript/App.tsx'
     },
     mode: isProduction ? 'production' : 'development',
     devtool: isProduction ? 'source-map' : 'eval-source-map',
@@ -60,7 +61,9 @@ module.exports = (env, argv) => {
       new webpack.DefinePlugin({
         'process.env.NODE_ENV': JSON.stringify(isProduction ? 'production' : 'development'),
       }),
-      new webpack.HotModuleReplacementPlugin()
+      new HtmlWebpackPlugin({
+        template: 'app/javascript/templates/index.html',
+      }),
     ],
     resolve: {
       extensions: ['.js', '.jsx', '.ts', '.tsx'],
@@ -68,11 +71,10 @@ module.exports = (env, argv) => {
     devServer: {
       static: {
         directory: path.join(__dirname, 'app/assets/builds'),
-        publicPath: '/assets/',
       },
-      compress: true,
-      port: 9000,
-      hot: true
+      hot: true,
+      open: true,
+      historyApiFallback: true
     }
   }
 };
