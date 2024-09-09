@@ -36,6 +36,7 @@ function PostPage() {
     <Box sx={{minHeight: '100vh', bgcolor: 'grey.100'}}>
       <AppBar position="static" className="bg-orange-500">
         <Toolbar>
+          <Speech sx={{px: 2}} />
           <Typography variant="h6" className="text-white">
             Title: {post.title}
           </Typography>
@@ -43,7 +44,6 @@ function PostPage() {
       </AppBar>
       <Container maxWidth={false} disableGutters sx={{my: 0, mx: 0, px: 0}}>
         <Paper sx={{width: '100%', boxShadow: 'none', px: 4, py: 2}}>
-          <Speech />
 
           <Typography component='span' sx={{px: 0.2, display: 'block'}}>
           {post.sentences.map((sentence, index) => (

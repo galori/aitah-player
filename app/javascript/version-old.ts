@@ -1,4 +1,4 @@
-class Version {
+class VersionOld {
 
   private readonly version: string;
 
@@ -11,4 +11,4 @@ class Version {
   }
 }
 
-export default Version;
+export default VersionOld;
