@@ -1,6 +1,6 @@
-import React, { useEffect } from 'react';
+import React, {useEffect} from 'react';
 // import PostsList from './PostsList';
-import { useNavigate } from 'react-router-dom';
+import {useNavigate} from 'react-router-dom';
 import {Post} from "./types";
 import {
   ListItemButton,
@@ -60,29 +60,27 @@ function PostsPage() {
         <Paper sx={{width: '100%', boxShadow: 'none'}}>
           <List>
             {posts.map((post, index) => (
-              <>
-                <ListItemButton key={post.id} sx={{
-                  py: 2,
-                  borderBottom: index < posts.length - 1 ? '1px solid' : 'none',
-                  borderColor: 'grey.300'
-                }}
-                onClick={() => handlePostClick(post.id)}
-                >
-                  <ListItemText
-                    primary={
-                      <>
-                        <Typography variant="subtitle1" component="span" className="font-semibold">
-                          {post.title}
-                        </Typography>
-                        {' '}
-                        <Typography variant="body2" component="span" color="text.secondary">
-                          by /u/{post.author}
-                        </Typography>
-                      </>
-                    }
-                  />
-                </ListItemButton>
-              </>
+              <ListItemButton key={'post-' + post.id} sx={{
+                py: 2,
+                borderBottom: index < posts.length - 1 ? '1px solid' : 'none',
+                borderColor: 'grey.300'
+              }}
+                              onClick={() => handlePostClick(post.id)}
+              >
+                <ListItemText
+                  primary={
+                    <>
+                      <Typography variant="subtitle1" component="span" className="font-semibold">
+                        {post.title}
+                      </Typography>
+                      {' '}
+                      <Typography variant="body2" component="span" color="text.secondary">
+                        by /u/{post.author}
+                      </Typography>
+                    </>
+                  }
+                />
+              </ListItemButton>
             ))}
           </List>
         </Paper>

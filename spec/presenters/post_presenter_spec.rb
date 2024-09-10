@@ -7,7 +7,7 @@ RSpec.describe PostPresenter do
       title: "Update 1: AITAH for starting the divorce process after finding out my daughter isn’t mine"
   )}
 
-  describe '#body_sgements_as_html' do
+  context '#body_sgements_as_html' do
     it 'returns the body as HTML' do
       expect(described_class.new(post).body_segments_as_html).to eq([
         "<p>We have been together for<br>\n8 months and official 4.</p>\n",
@@ -24,6 +24,20 @@ RSpec.describe PostPresenter do
           "I love him honestly and everything was great.",
           "We met each other’s family and friends and the whole thing."
          ])
+    end
+
+    it 'strips URLs' do
+      post = create(:post, body: "I love this site: https://www.reddit.com")
+      expect(described_class.new(post).body_as_speech_segments).to eq([
+        "I love this site: link_removed"
+      ])
+    end
+
+    it 'changes acronyms separated by dots to acronyms separated by the word dot' do
+      post = create(:post, body: "I love this site a.m. and F.B.I.")
+      expect(described_class.new(post).body_as_speech_segments).to eq([
+        "I love this site am and FBI"
+      ])
     end
   end
 

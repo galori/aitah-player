@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import {useParams} from 'react-router-dom';
 import {Post} from './types';
 import {Container, Typography, Paper, AppBar, Toolbar, Box, Button} from '@mui/material';
-import Speech from './Speech';
+import SpeechControls from './SpeechControls';
 import Sentence from "./Sentence";
 
 function PostPage() {
@@ -38,7 +38,7 @@ function PostPage() {
     <Box sx={{minHeight: '100vh', bgcolor: 'grey.100'}}>
       <AppBar position="static" className="bg-orange-500">
         <Toolbar>
-          <Speech sx={{px: 2}} setCurrentlyReading={setCurrentlyReading} />
+          <SpeechControls sx={{px: 2}} setCurrentlyReading={setCurrentlyReading} />
           <Typography variant="h6" className="text-white">
             Title: {post.title}
           </Typography>
