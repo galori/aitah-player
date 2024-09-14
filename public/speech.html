@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EasySpeech Test</title>
+</head>
+<body>
+<button id="speakButton">Speak</button>
+<script src="https://cdn.jsdelivr.net/npm/easy-speech/dist/EasySpeech.iife.js"></script>
+<script type="module">
+  // document.getElementById('speakButton').addEventListener('click', async () => {
+    try {
+      await EasySpeech.init(); // required
+    } catch (error) {
+      if (error instanceof SpeechSynthesisErrorEvent) {
+        if (error.error === 'not-allowed') {
+          console.error('Speech synthesis is not allowed. Please check your browser settings.');
+        } else {
+          console.error('Speech synthesis failed:', error);
+        }
+      } else {
+        console.error('An unexpected error occurred:', error);
+      }    }
+
+  try {
+    await EasySpeech.speak({ text: 'Hello, world' });
+  } catch (error) {
+    if (error instanceof SpeechSynthesisErrorEvent) {
+      if (error.error === 'not-allowed') {
+        console.error('speak synthesis is not allowed. Please check your browser settings.');
+      } else {
+        console.error('Speech synthesis failed:', error);
+      }
+    } else {
+      console.error('An unexpected error occurred:', error);
+    }    }
+
+
+  // });
+</script>
+</body>
+</html>

@@ -3,6 +3,7 @@ import {Box, SxProps, Theme, ToggleButton, ToggleButtonGroup} from "@mui/materia
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 import PauseIcon from '@mui/icons-material/Pause';
 import { playbackButtonStyles, playbackIconStyles } from './styles';
+import EasySpeech from 'easy-speech';
 
 interface SpeechProps {
   sx?: SxProps<Theme>,
@@ -12,98 +13,56 @@ interface SpeechProps {
 function SpeechControls({sx, setCurrentlyReading}: SpeechProps) {
 
   const [playbackState, setPlaybackState] = React.useState('play');
+  const [isReading, setIsReading] = React.useState(false);
 
   const handlePlaybackChange = (
     event: React.MouseEvent<HTMLElement>,
     newPlaybackState: string,
   ) => {
     if (newPlaybackState === 'pause') {
-      speechSynthesis.pause();
+      EasySpeech.stop();
+      setIsReading(false);
     } else if (newPlaybackState === 'play') {
-      speechSynthesis.resume();
     }
     setPlaybackState(newPlaybackState);
   }
 
   useEffect(() => {
-    console.log('in useEffect');
-    if (playbackState === 'play') {
-      voicesReady().then(speechReady).then(startTextToSpeech);
-    }
-
-    return () => {
-      speechSynthesis.cancel();
-    }
-  }, [playbackState]);
-
-  const speechReady = async () => {
-    return new Promise((resolve, reject) => {
-      const checkForSpeech = () => {
-        if (speechSynthesis.speaking && !speechSynthesis.paused) {
-          console.log('speech is on, cancelling');
-          speechSynthesis.cancel();
-          setTimeout(checkForSpeech, 100);
-        } else {
-          resolve(null);
-        }
+    const initializeSpeech = async () => {
+      if (playbackState === 'play' && !isReading) {
+        await EasySpeech.init(); // required argument
+        await startTextToSpeech();
       }
-      checkForSpeech();
-    });
-  }
+    };
+    initializeSpeech();
+  }, [playbackState, isReading]);
 
-  const voicesReady = async () => {
-    return new Promise((resolve, reject) => {
-      const checkForVoices = () => {
-        if (speechSynthesis.getVoices().length) {
-          resolve(null);
-        } else {
-          setTimeout(checkForVoices, 100);
-        }
-      }
-      checkForVoices();
-    });
-  }
-
-
-  // iterate through all span.sentence elements and read them out loud
   const startTextToSpeech = async () => {
-    console.log('startTextToSpeech');
     const sentences = document.querySelectorAll('div.sentence');
     let index = 0;
     for (const sentence of sentences) {
       const text = sentence.textContent || "n/a";
       if (text !== null) {
-        // console.log('speaking text:', text);
         setCurrentlyReading(index);
-        await readText(text);
+        const wasSuccessful = await readText(text);
+        if (!wasSuccessful) {
+          return;
+        }
         index++;
       }
     }
   }
 
   const readText = async (text: string) => {
-    return new Promise((resolve, reject) => {
-
-      const speech = new SpeechSynthesisUtterance();
-
-      speech.text = text;
-      speech.volume = 1;
-      speech.rate = 1;
-      speech.pitch = 1;
-      speech.lang = 'en-US';
-      speech.onend = () => {
-        resolve(null);
-      }
-
-      // set the reading voice to US, american female
-      const voices = window.speechSynthesis.getVoices();
-      // find female, US voice
-      speech.voice = voices.find(voice => voice.lang === 'en-US' && voice.name === 'Google US English') || voices[0];
-
-      // speech.voice = voices.find(voice => voice.lang === 'en-US') || voices[0];
-
-      speechSynthesis.speak(speech);
-    });
+    try {
+      await EasySpeech.speak({text: text});
+      setIsReading(true);
+      return true;
+    } catch (error) {
+      setIsReading(false);
+      setPlaybackState('pause');
+      return false;
+    }
   }
 
 
