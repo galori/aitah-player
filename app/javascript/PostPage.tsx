@@ -38,7 +38,7 @@ function PostPage() {
     <Box sx={{minHeight: '100vh', bgcolor: 'grey.100'}}>
       <AppBar position="static" className="bg-orange-500">
         <Toolbar>
-          <SpeechControls sx={{px: 2}} setCurrentlyReading={setCurrentlyReading} />
+          <SpeechControls sx={{px: 2}} setCurrentlyReading={setCurrentlyReading} currentlyReading={currentlyReading} />
           <Typography variant="h6" className="text-white">
             Title: {post.title}
           </Typography>
