@@ -57,7 +57,7 @@ function PostPage() {
             />
           ))}
           </Typography>
-          <Button variant="contained" href="/" sx={{mt: 2}}>Home1</Button>
+          <Button variant="contained" href="/" sx={{mt: 2}}>Home</Button>
         </Paper>
 
       </Container>

@@ -12,35 +12,75 @@ interface SpeechProps {
 
 function SpeechControls({sx, setCurrentlyReading}: SpeechProps) {
 
-  const [playbackState, setPlaybackState] = React.useState('play');
-  const [isReading, setIsReading] = React.useState(false);
+  type EasySpeechState = 'playing' | 'paused' | 'stopped';
+  type PlaybackControlsState = 'play' | 'pause';
+
+  const [playbackControlsState, setPlaybackControlsState] = React.useState<PlaybackControlsState>('play');
+  const [easySpeechState, setEasySpeechState] = React.useState<EasySpeechState>('stopped');
+  const [initialized, setInitialized] = React.useState<Boolean>(false);
+  const [attemptedToAutoInitialize, setAttemptedToAutoInitialize] = React.useState<Boolean>(false);
 
   const handlePlaybackChange = (
     event: React.MouseEvent<HTMLElement>,
     newPlaybackState: string,
   ) => {
+    console.log('handlePlaybackChange called. newPlaybackState: ', newPlaybackState);
     if (newPlaybackState === 'pause') {
-      EasySpeech.stop();
-      setIsReading(false);
-    } else if (newPlaybackState === 'play') {
+      if (easySpeechState === 'playing') {
+        EasySpeech.pause();
+        setEasySpeechState('paused');
+        setPlaybackControlsState('pause');
+      }
     }
-    setPlaybackState(newPlaybackState);
+
+    if (newPlaybackState === 'play') {
+      setPlaybackControlsState('play');
+      console.log('play pressed');
+      if (easySpeechState === 'paused') {
+        console.log('paused right now, lets resume');
+        EasySpeech.resume();
+        setEasySpeechState('playing');
+      } else {
+        initializeSpeech();
+      }
+    }
+
+    // if (newPlaybackState === 'pause') {
+    //   if (isEasySpeechReading) {
+    //     EasySpeech.pause();
+    //     setIsEasySpeechPaused(true);
+    //     setIsEasySpeechReading(false);
+    //     setIsReading(false);
+    //   } else if (isReading) {
+    //     setIsReading(false);
+    //   }
+    // } else if (newPlaybackState === 'play') {
+    //
+    //
+    // }
+    // setPlaybackState(newPlaybackState);
   }
 
   useEffect(() => {
-    const initializeSpeech = async () => {
-      if (playbackState === 'play' && !isReading) {
-        await EasySpeech.init(); // required argument
-        await startTextToSpeech();
-      }
-    };
-    initializeSpeech();
-  }, [playbackState, isReading]);
+    if (!initialized && !attemptedToAutoInitialize) {
+      setAttemptedToAutoInitialize(true);
+      initializeSpeech();
+    }
+  });
+
+  const initializeSpeech = async () => {
+    if (!initialized) {
+      setInitialized(true);
+      await EasySpeech.init({maxTimeout: 10000, interval: 1000});
+      await startTextToSpeech();
+    }
+  };
 
   const startTextToSpeech = async () => {
     const sentences = document.querySelectorAll('div.sentence');
     let index = 0;
     for (const sentence of sentences) {
+      console.log('sentence: ', sentence);
       const text = sentence.textContent || "n/a";
       if (text !== null) {
         setCurrentlyReading(index);
@@ -55,22 +95,26 @@ function SpeechControls({sx, setCurrentlyReading}: SpeechProps) {
 
   const readText = async (text: string) => {
     try {
+      setEasySpeechState('playing');
       await EasySpeech.speak({text: text});
-      setIsReading(true);
       return true;
     } catch (error) {
-      setIsReading(false);
-      setPlaybackState('pause');
+      console.log('caught error: ', error);
+      if (error.error === 'not-allowed') {
+        console.log('not-allowed error');
+        setEasySpeechState('stopped');
+        setPlaybackControlsState('pause');
+        setInitialized(false);
+      }
       return false;
     }
   }
 
-
   return (
     <Box sx={sx}>
-      <div>{'playbackState: ' + playbackState}</div>
+      <div>{'playbackControlsState: ' + playbackControlsState }</div>
       <ToggleButtonGroup
-        value={playbackState}
+        value={playbackControlsState}
         exclusive
         onChange={handlePlaybackChange}
       >
