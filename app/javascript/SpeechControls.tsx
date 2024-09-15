@@ -4,6 +4,8 @@ import { PlayArrow, Pause, FastForward, FastRewind } from '@mui/icons-material';
 import { playbackButtonStyles, playbackIconStyles } from './styles';
 import EasySpeech from 'easy-speech';
 
+(window as any).EasySpeech = EasySpeech;
+
 interface SpeechProps {
   sx?: SxProps<Theme>,
   setCurrentlyReading: (index: number | null) => void,

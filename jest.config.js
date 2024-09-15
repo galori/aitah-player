@@ -4,5 +4,5 @@ module.exports = {
     // Handle asset imports (images, CSS, etc.)
     '\\.(css|less)$': 'identity-obj-proxy',
   },
-  setupFilesAfterEnv: ['@testing-library/jest-dom'],
+  setupFilesAfterEnv: ['@testing-library/jest-dom', './jest.setup.js'],
 };
