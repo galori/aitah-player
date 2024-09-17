@@ -38,7 +38,8 @@
     "build-old": "yarn type-check && webpack --config webpack.config.js",
     "lint": "eslint 'app/javascript/**/*.{js,jsx,ts,tsx}'",
     "lint:fix": "eslint 'app/javascript/**/*.{js,jsx,ts,tsx}' --fix",
-    "test": "jest"
+    "test": "jest",
+    "test:debug": "node --inspect-brk ./node_modules/.bin/jest"
   },
   "dependencies": {
     "@emotion/react": "^11.13.3",
@@ -46,7 +47,6 @@
     "@fontsource/roboto": "^5.0.14",
     "@mui/icons-material": "^5.15.19",
     "@mui/material": "^6.0.2",
-    "@types/easy-speech": "^1.2.4",
     "@types/jest": "^29.5.13",
     "@types/react": "^18.3.5",
     "@types/react-dom": "^18.3.0",
@@ -55,6 +55,7 @@
     "react-dom": "17",
     "react-router-dom": "^6.26.1",
     "styled-components": "^6.1.13",
+    "ts-jest": "^29.2.5",
     "ts-loader": "^9.5.1",
     "typescript": "^5.5.4"
   }

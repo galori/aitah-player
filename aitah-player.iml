@@ -534,6 +534,7 @@
           <RakeTaskImpl description="Run all specs in spec directory (excluding plugin specs)" fullCommand="spec" id="spec" />
           <RakeTaskImpl id="spec">
             <subtasks>
+              <RakeTaskImpl description="Run the code examples in spec/lib" fullCommand="spec:lib" id="lib" />
               <RakeTaskImpl description="Run the code examples in spec/presenters" fullCommand="spec:presenters" id="presenters" />
               <RakeTaskImpl description="Run the code examples in spec/services" fullCommand="spec:services" id="services" />
               <RakeTaskImpl description="Run the code examples in spec/system" fullCommand="spec:system" id="system" />
