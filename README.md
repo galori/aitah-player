@@ -1,24 +1,15 @@
-# README
+# AITAH-player
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+commands: 
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+```bash
+    "start": "webpack serve --mode development",
+    "build:dev": "yarn type-check && webpack --mode development",
+    "build": "yarn type-check && webpack --mode production",
+    "type-check": "tsc --noEmit",
+    "build-old": "yarn type-check && webpack --config webpack.config.js",
+    "lint": "eslint 'app/javascript/**/*.{js,jsx,ts,tsx}'",
+    "lint:fix": "eslint 'app/javascript/**/*.{js,jsx,ts,tsx}' --fix",
+    "test": "jest",
+    "test:debug": "node --inspect-brk ./node_modules/.bin/jest"
+```

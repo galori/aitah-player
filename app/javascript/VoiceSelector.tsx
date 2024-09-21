@@ -1,35 +1,39 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useContext} from 'react';
 import EasySpeech from 'easy-speech';
-import {Box, Paper} from "@mui/material";
-import {Link} from "react-router-dom";
+import {Box, Button, Paper} from "@mui/material";
+import { useVoiceContext } from "./UseVoiceContext";
+import { Voice, Countries, VoicesByCountry } from "./types";
+import {useNavigate} from "react-router-dom";
 
-function VoiceSelector({setSelectedVoice}: {setSelectedVoice: (voice: string) => void}) {
+function VoiceSelector({visible, onClose, ready} : { visible: boolean, onClose: () => void, ready: boolean }) {
 
   const [countries, setCountries] = useState<Countries>(new Set());
   const [country, setCountry] = useState<string | null>(null);
-  const [voices, setVoices] = useState<{[key: string]: Set<string>}>({});
+  const [voicesByCountry, setVoicesByCountry] = useState<VoicesByCountry>({});
   const [loading, setLoading] = useState(true);
   const [alreadyFetched, setAlreadyFetched] = useState(false);
+  const [selectedVoice, setSelectedVoice] = useState<Voice | null>(null);
 
-  console.log('DEBUGDEBUG in VoiceSelector()');
+  const { voice, setVoice } = useVoiceContext();
+
+  useEffect(() => {
+    if (selectedVoice && ready) {
+      setVoice(selectedVoice);
+    }
+  }, [ready, selectedVoice]);
 
   useEffect(() => {
     if (country === null) return;
-    const firstVoiceInCountry = voices[country].values().next().value;
+    const firstVoiceInCountry = voicesByCountry[country].values().next().value;
     setSelectedVoice(firstVoiceInCountry);
   }, [country]);
 
   useEffect(() => {
-    console.log('DEBUGDEBUG in useEffect()');
     async function fetchCountries() {
       try {
-        console.log('DEBUGDEBUG in useEffect(), before fetchCountriesFromAPI');
         await fetchCountriesFromAPI();
-        console.log('DEBUGDEBUG after fetchCountriesFromAPI');
       } catch (error) {
-        console.error('DEBUGDEBUG Error fetching countries:', error);
       } finally {
-        console.log('DEBUGDEBUG setting loading to false');
         setLoading(false); // Step 2: Set loading to false when done
       }
     }
@@ -40,33 +44,34 @@ function VoiceSelector({setSelectedVoice}: {setSelectedVoice: (voice: string) =>
     }
   });
 
-  type Voice = { name: string; lang: string; }
-  type Voices = { [key: string]: Set<string> };
-  type Countries = Set<string>;
 
   const fetchCountriesFromAPI = async () => {
     return new Promise(async (resolve, reject) => {
-      debugger;
-      await EasySpeech.init({maxTimeout: 10000, interval: 1000});
+      await EasySpeech.init({maxTimeout: 1000, interval: 100});
       // @ts-ignore
       const voicesFromAPI = await EasySpeech.filterVoices({language: 'en'});
-      const voicesTmp: Voices = {};
+      const voicesByCountryTmp: VoicesByCountry = {};
       const countriesTmp: Countries = new Set();
 
       voicesFromAPI.forEach((voice: Voice) => {
         const country = voice.lang.substring(3, 5);
-        voicesTmp[country] = voicesTmp[country] || new Set();
-        voicesTmp[country].add(voice.name);
-
+        voicesByCountryTmp[country] = voicesByCountryTmp[country] || new Set();
+        voicesByCountryTmp[country].add(voice);
         countriesTmp.add(country);
       });
 
-      setVoices(voicesTmp);
+      setVoicesByCountry(voicesByCountryTmp);
       const firstCountry = countriesTmp.values().next().value;
       setCountry(firstCountry);
       setCountries(countriesTmp);
-      const firstVoiceInCountry = voicesTmp[firstCountry].values().next().value;
+      const firstVoiceInCountry = voicesByCountryTmp[firstCountry].values().next().value;
       setSelectedVoice(firstVoiceInCountry);
+
+      if (!voice || voice.name == 'none') {
+        console.log('VoiceSelector.tsx; setting voice to firstVoiceInCountry', firstVoiceInCountry);
+        setVoice(firstVoiceInCountry);
+      }
+
       setLoading(false);
       resolve(null);
     });
@@ -74,16 +79,21 @@ function VoiceSelector({setSelectedVoice}: {setSelectedVoice: (voice: string) =>
 
   if (loading) return <p>Loading...</p>;
 
+  const handleClick = (voice: Voice) => {
+    setSelectedVoice(voice);
+    onClose();
+  }
+
   return (
-    <Box>
+    <Box sx={{display: visible ? 'block' : 'none'}}>
       <Paper>
         {[...countries].map((country, index) => (
-          <Link key={country + '-' + String(index)} to="http://google.com" onClick={() => setCountry(country)}>{country}</Link>
+          <Button key={country + '-' + String(index)} onClick={() => setCountry(country)}>{country}</Button>
         ))}
       </Paper>
       <Paper>
-        { country != null && [...voices[country]].map((voice, index) => (
-          <div key={voice + '-' + String(index)}>{voice}</div>
+        { country != null && [...voicesByCountry[country]].map((voice, index) => (
+          <Button key={voice.name + '-' + String(index)} onClick={() => handleClick(voice)}>{voice.name}</Button>
         ))}
       </Paper>
     </Box>

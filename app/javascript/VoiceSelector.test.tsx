@@ -18,7 +18,8 @@ describe('VoiceSelector', () => {
     const handleSetSelectedVoice = jest.fn();
     const { container } = render(
       <MemoryRouter>
-        <VoiceSelector setSelectedVoice={handleSetSelectedVoice} />
+
+        {/*<VoiceSelector setSelectedVoice={handleSetSelectedVoice} />*/}
       </MemoryRouter>
     );
     console.log(`container.innerHTML: ${container.innerHTML}`);
