@@ -1,7 +1,6 @@
-import React, {useEffect} from 'react';
+import React, { useEffect } from 'react';
 // import PostsList from './PostsList';
-import {useNavigate} from 'react-router-dom';
-import {Post} from "./types";
+import { useNavigate } from 'react-router-dom';
 import {
   ListItemButton,
   Divider,
@@ -12,8 +11,9 @@ import {
   Paper,
   AppBar,
   Toolbar,
-  Box
+  Box,
 } from '@mui/material';
+import { Post } from './types';
 
 function PostsPage() {
   const navigate = useNavigate();
@@ -27,28 +27,35 @@ function PostsPage() {
 
   useEffect(() => {
     fetch('api/posts.json')
-      .then(response => {
+      .then((response) => {
         if (!response.ok) {
           throw new Error('Failed to fetch post');
         }
         return response.json();
       })
-      .then(data => {
+      .then((data) => {
         setPost(data);
         setLoading(false);
       })
-      .catch(err => {
+      .catch((err) => {
         setError(err.message);
         setLoading(false);
       });
   }, []);
 
   if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error: {error}</p>;
+  if (error) {
+    return (
+      <p>
+        Error:
+        {error}
+      </p>
+    );
+  }
   if (posts.length === 0) return <p>No posts found</p>;
 
   return (
-    <Box sx={{minHeight: '100vh', bgcolor: 'grey.100'}}>
+    <Box sx={{ minHeight: '100vh', bgcolor: 'grey.100' }}>
       <AppBar position="static" className="bg-orange-500">
         <Toolbar>
           <Typography variant="h6" className="text-white">
@@ -56,36 +63,40 @@ function PostsPage() {
           </Typography>
         </Toolbar>
       </AppBar>
-      <Container maxWidth={false} disableGutters sx={{my: 0, mx: 0, px: 0}}>
-        <Paper sx={{width: '100%', boxShadow: 'none'}}>
+      <Container maxWidth={false} disableGutters sx={{ my: 0, mx: 0, px: 0 }}>
+        <Paper sx={{ width: '100%', boxShadow: 'none' }}>
           <List>
             {posts.map((post, index) => (
-              <ListItemButton key={'post-' + post.id} sx={{
-                py: 2,
-                borderBottom: index < posts.length - 1 ? '1px solid' : 'none',
-                borderColor: 'grey.300'
-              }}
-                              onClick={() => handlePostClick(post.id)}
+              <ListItemButton
+                key={`post-${post.id}`}
+                sx={{
+                  py: 2,
+                  borderBottom: index < posts.length - 1 ? '1px solid' : 'none',
+                  borderColor: 'grey.300',
+                }}
+                onClick={() => handlePostClick(post.id)}
               >
                 <ListItemText
-                  primary={
+                  primary={(
                     <>
                       <Typography variant="subtitle1" component="span" className="font-semibold">
                         {post.title}
                       </Typography>
                       {' '}
                       <Typography variant="body2" component="span" color="text.secondary">
-                        by /u/{post.author}
+                        by /u/
+                        {post.author}
                       </Typography>
                     </>
-                  }
+                  )}
                 />
               </ListItemButton>
             ))}
           </List>
         </Paper>
       </Container>
-    </Box>);
+    </Box>
+  );
 }
 
 export default PostsPage;

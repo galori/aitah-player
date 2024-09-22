@@ -12,8 +12,7 @@ interface VoiceProviderProps {
   children: React.ReactNode;
 }
 
-const VoiceProvider = ({ children } : VoiceProviderProps ) => {
-
+function VoiceProvider({ children } : VoiceProviderProps) {
   const [voice, setVoice] = React.useState<Voice | null>(null);
 
   return (

@@ -1,6 +1,9 @@
 const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
+const ESLintPlugin = require('eslint-webpack-plugin');
+
 
 module.exports = (env, argv) => {
   const isProduction = argv.mode === 'production';
@@ -63,6 +66,17 @@ module.exports = (env, argv) => {
       }),
       new HtmlWebpackPlugin({
         template: 'app/javascript/templates/index.html',
+      }),
+      new ForkTsCheckerWebpackPlugin({
+        async: false,
+        typescript: {
+          configFile: './tsconfig.json', // path to your tsconfig.json
+        },
+      }),
+      new ESLintPlugin({
+        extensions: ['js', 'jsx', 'ts', 'tsx'],
+        files: './app/javascript/**/*',
+        fix: true,
       }),
     ],
     resolve: {
