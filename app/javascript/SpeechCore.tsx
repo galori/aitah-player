@@ -1,21 +1,29 @@
-import React, {useEffect, useState} from "react";
-import Speech from "./Speech";
-import { useVoiceContext } from "./UseVoiceContext";
+import { useEffect, useState } from "react";
+import Speech from "./speech";
+import useVoiceContext from "./UseVoiceContext";
+import { Voice } from "./types";
 
-function SpeechCore() {
+interface SpeechCoreProps {
+  setCountries: (countries: Set<string>) => void;
+  setVoicesByCountry: (voicesByCountry: { [key: string]: Set<Voice> }) => void;
+}
 
+function SpeechCore({ setCountries, setVoicesByCountry }: SpeechCoreProps) {
   const [initialized, setInitialized] = useState(false);
-  const { voice, setVoice } = useVoiceContext();
+  const { setVoice } = useVoiceContext();
 
   useEffect(() => {
     if (!initialized) {
       const init = async () => {
-        await Speech.ready(setVoice);
+        const speech = new Speech();
+        await speech.init({ setVoice, setCountries, setVoicesByCountry });
         setInitialized(true);
-      }
+      };
       init().catch(console.error);
     }
+  }, [initialized, setInitialized, setVoice, setCountries, setVoicesByCountry]);
 
-  }, [initialized, setInitialized]);
-  return (<></>)
+  return null;
 }
+
+export default SpeechCore;

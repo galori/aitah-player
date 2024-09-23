@@ -9,8 +9,7 @@ import {
 import { FastForward, FastRewind, Pause, PlayArrow } from "@mui/icons-material";
 import EasySpeech from "easy-speech";
 import { playbackButtonStyles, playbackIconStyles } from "./styles";
-import { useVoiceContext } from "./UseVoiceContext";
-import Speech from "./Speech";
+import useVoiceContext from "./UseVoiceContext";
 
 declare global {
   interface Window {
@@ -123,7 +122,6 @@ function SpeechControls({
       console.log("SpeachControls.tx initializeSpeech() !initialized");
 
       setInitialized(true);
-      await Speech.ready;
       await startTextToSpeech();
     }
   }, [initialized, startTextToSpeech]);
@@ -166,26 +164,14 @@ function SpeechControls({
   };
 
   useEffect(() => {
-    console.log(
-      "SpeachControls.tx useEffect() before !initialized && !attemptedToAutoInitialize",
-    );
-    if (!initialized && !attemptedToAutoInitialize) {
-      console.log(
-        "SpeachControls.tx useEffect() !initialized && !attemptedToAutoInitialize",
-      );
+    if (voice && !initialized && !attemptedToAutoInitialize) {
       setAttemptedToAutoInitialize(true);
-      initializeSpeech();
+      initializeSpeech().catch(console.error);
     }
-  }, [initialized, attemptedToAutoInitialize, initializeSpeech]);
+  }, [voice, initialized, attemptedToAutoInitialize, initializeSpeech]);
 
   useEffect(() => {
-    console.log(
-      "SpeachControls.tx useEffect() before !currentlyReading !=== null",
-    );
     if (currentlyReading !== null) {
-      console.log(
-        "SpeachControls.tx useEffect() after !currentlyReading !=== null",
-      );
       if (currentlyReading >= sentences.length) {
         setPlaybackControlsState("pause");
         setEasySpeechState("stopped");

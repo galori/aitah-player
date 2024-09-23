@@ -11,6 +11,7 @@ import PostsPage from "./PostsPage";
 import PostPage from "./PostPage";
 import { Voice } from "./types";
 import { VoiceContext } from "./VoiceProvider";
+import SpeechCore from "./SpeechCore";
 
 const theme = createTheme();
 
@@ -24,6 +25,10 @@ function App() {
   };
 
   const [voice, setVoice] = useState<Voice | null>(defaultVoice);
+  const setCountries = useState(new Set<string>())[1];
+  const setVoicesByCountry = useState<{
+    [key: string]: Set<Voice>;
+  }>({})[1];
 
   const voiceProviderValue = useMemo(
     () => ({ voice, setVoice }),
@@ -44,6 +49,10 @@ function App() {
             </div>
           </Router>
         </ThemeProvider>
+        <SpeechCore
+          setCountries={setCountries}
+          setVoicesByCountry={setVoicesByCountry}
+        />
       </VoiceContext.Provider>
     </React.StrictMode>
   );

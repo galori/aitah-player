@@ -41,8 +41,9 @@ module.exports = (env, argv) => {
           test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/,
           use: [
             {
-              loader: 'file-loader',
+              loader: 'url-loader',
               options: {
+                limit: 10000,
                 name: '[name].[ext]',
                 outputPath: 'assets',
               },
@@ -80,6 +81,9 @@ module.exports = (env, argv) => {
       }),
     ],
     resolve: {
+      alias: {
+        '@fontsource': path.resolve(__dirname, 'node_modules/@fontsource'),
+      },
       extensions: ['.js', '.jsx', '.ts', '.tsx'],
     },
     devServer: {

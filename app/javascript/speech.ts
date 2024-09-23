@@ -1,46 +1,25 @@
 import EasySpeech from "easy-speech";
 import type EasySpeechType from "./types/easy-speech-extension";
 import { Voice } from "./types";
-import { useVoiceContext } from "./UseVoiceContext";
 
-const { setVoice } = useVoiceContext();
+interface SpeechInitProps {
+  setVoice: (voice: Voice) => void;
+  setCountries: (countries: Set<string>) => void;
+  setVoicesByCountry: (voicesByCountry: { [key: string]: Set<Voice> }) => void;
+}
 
 class Speech {
-  private static instance: Speech;
-
-  private isReady: boolean = false;
-
   private countries: Set<string> = new Set();
 
   private voicesByCountry: { [key: string]: Set<Voice> } = {};
 
   private country: string | null = null;
 
-  public ready: Promise<void>;
-
-  private resolveReady!: () => void;
-
-  private constructor() {
-    this.ready = new Promise<void>((resolve) => {
-      this.resolveReady = resolve;
-    });
-    this.init();
-  }
-
-  private async init() {
-    this.initEasySpeech();
-    this.isReady = true;
-    this.resolveReady();
-  }
-
-  public static getInstance(): Speech {
-    if (!Speech.instance) {
-      Speech.instance = new Speech();
-    }
-    return Speech.instance;
-  }
-
-  private async initEasySpeech() {
+  public async init({
+    setVoice,
+    setCountries,
+    setVoicesByCountry,
+  }: SpeechInitProps) {
     await EasySpeech.init({ maxTimeout: 1000, interval: 100 });
 
     const voicesFromAPI = await (
@@ -59,8 +38,10 @@ class Speech {
     if (this.country) {
       const voice = this.voicesByCountry[this.country].values().next().value;
       setVoice(voice);
+      setCountries(this.countries);
+      setVoicesByCountry(this.voicesByCountry);
     }
   }
 }
 
-export default Speech.getInstance();
+export default Speech;

@@ -3,6 +3,17 @@
     {
       "files": ["app/javascript/**/*.tsx"],
       "rules": {}
+    },
+    {
+      "files": ["**/*.html"],
+      "parser": "espree",
+      "rules": {}
+    },
+    {
+      "files": ["app/javascript/templates/**/*.html"],
+      "rules": {
+        "react/react-in-jsx-scope": "off"
+      }
     }
   ],
   "parser": "@typescript-eslint/parser",
@@ -21,7 +32,8 @@
     "sourceType": "module",
     "ecmaFeatures": {
       "jsx": true
-    }
+    },
+    "extraFileExtensions": [".html"]
   },
   "env": {
     "browser": true,

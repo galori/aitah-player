@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import {
   Container,
   Typography,
@@ -8,12 +8,12 @@ import {
   Toolbar,
   Box,
   Button,
-} from '@mui/material';
-import { Post } from './types';
-import SpeechControls from './SpeechControls';
-import Sentence from './Sentence';
-import CurrentVoice from './CurrentVoice';
-import VoiceSelector from './VoiceSelector';
+} from "@mui/material";
+import { Post } from "./types";
+import SpeechControls from "./SpeechControls";
+import Sentence from "./Sentence";
+import CurrentVoice from "./CurrentVoice";
+import VoiceSelector from "./VoiceSelector";
 
 function PostPage() {
   const { id } = useParams<{ id: string }>();
@@ -22,13 +22,12 @@ function PostPage() {
   const [error, setError] = useState<string | null>(null);
   const [currentlyReading, setCurrentlyReading] = useState<number | null>(null);
   const [showVoiceSelector, setShowVoiceSelector] = useState(false);
-  const [speechControlsReady, setSpeechControlsReady] = useState(false);
 
   useEffect(() => {
     fetch(`/api/posts/${id}.json`)
       .then((response) => {
         if (!response.ok) {
-          throw new Error('Failed to fetch post');
+          throw new Error("Failed to fetch post");
         }
         return response.json();
       })
@@ -54,7 +53,7 @@ function PostPage() {
   if (!post) return <p>No post found</p>;
 
   return (
-    <Box sx={{ minHeight: '100vh', bgcolor: 'grey.100' }}>
+    <Box sx={{ minHeight: "100vh", bgcolor: "grey.100" }}>
       <AppBar position="static" className="bg-orange-500">
         <Toolbar>
           <SpeechControls
@@ -63,9 +62,7 @@ function PostPage() {
             currentlyReading={currentlyReading}
           />
           <Typography variant="h6" className="text-white">
-            Title:
-            {' '}
-            {post.title}
+            Title: {post.title}
           </Typography>
           <Paper sx={{ mx: 2, px: 2 }}>
             <CurrentVoice
@@ -83,21 +80,21 @@ function PostPage() {
           my: 0,
           mx: 0,
           px: 0,
-          display: showVoiceSelector ? 'none' : 'block',
+          display: showVoiceSelector ? "none" : "block",
         }}
       >
         <Paper
           sx={{
-            width: '100%',
-            boxShadow: 'none',
+            width: "100%",
+            boxShadow: "none",
             px: 4,
             py: 2,
           }}
         >
-          <Typography component="span" sx={{ px: 0.2, display: 'block' }}>
+          <Typography component="span" sx={{ px: 0.2, display: "block" }}>
             {post.sentences.map((sentence, index) => (
               <Sentence
-                key={`sentence-${index}`}
+                key={`sentence-${index}`} // eslint-disable-line react/no-array-index-key
                 text={sentence}
                 index={index}
                 currentlyReading={currentlyReading === index}
@@ -113,7 +110,6 @@ function PostPage() {
         <VoiceSelector
           visible={showVoiceSelector}
           onClose={() => setShowVoiceSelector(false)}
-          ready={speechControlsReady}
         />
       </Container>
     </Box>

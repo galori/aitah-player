@@ -1,5 +1,5 @@
-import React from 'react';
-import { Voice } from './types';
+import React, { useMemo } from "react";
+import { Voice } from "./types";
 
 interface VoiceContextType {
   voice: Voice | null;
@@ -12,11 +12,15 @@ interface VoiceProviderProps {
   children: React.ReactNode;
 }
 
-function VoiceProvider({ children } : VoiceProviderProps) {
+function VoiceProvider({ children }: VoiceProviderProps) {
   const [voice, setVoice] = React.useState<Voice | null>(null);
 
+  const oiceContextMemo = useMemo(
+    () => ({ voice, setVoice }),
+    [voice, setVoice],
+  );
   return (
-    <VoiceContext.Provider value={{ voice, setVoice }}>
+    <VoiceContext.Provider value={oiceContextMemo}>
       {children}
     </VoiceContext.Provider>
   );

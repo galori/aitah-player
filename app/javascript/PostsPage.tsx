@@ -1,9 +1,7 @@
 import React, { useEffect } from 'react';
-// import PostsList from './PostsList';
 import { useNavigate } from 'react-router-dom';
 import {
   ListItemButton,
-  Divider,
   Container,
   Typography,
   List,
