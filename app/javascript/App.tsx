@@ -25,14 +25,14 @@ function App() {
   };
 
   const [voice, setVoice] = useState<Voice | null>(defaultVoice);
-  const setCountries = useState(new Set<string>())[1];
-  const setVoicesByCountry = useState<{
+  const [countries, setCountries] = useState(new Set<string>());
+  const [voicesByCountry, setVoicesByCountry] = useState<{
     [key: string]: Set<Voice>;
-  }>({})[1];
+  }>({});
 
   const voiceProviderValue = useMemo(
-    () => ({ voice, setVoice }),
-    [voice, setVoice],
+    () => ({ voice, setVoice, countries, voicesByCountry }),
+    [voice, setVoice, countries, voicesByCountry],
   );
 
   return (
