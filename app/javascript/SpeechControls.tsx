@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect } from "react";
+import React, {useCallback, useEffect, useRef} from "react";
 import {
   Box,
   SxProps,
@@ -6,9 +6,9 @@ import {
   ToggleButton,
   ToggleButtonGroup,
 } from "@mui/material";
-import { FastForward, FastRewind, Pause, PlayArrow } from "@mui/icons-material";
+import {FastForward, FastRewind, Pause, PlayArrow} from "@mui/icons-material";
 import EasySpeech from "easy-speech";
-import { playbackButtonStyles, playbackIconStyles } from "./styles";
+import {playbackButtonStyles, playbackIconStyles} from "./styles";
 import useVoiceContext from "./UseVoiceContext";
 
 declare global {
@@ -26,22 +26,25 @@ interface SpeechProps {
 }
 
 function SpeechControls({
-  sx = {},
-  setCurrentlyReading,
-  currentlyReading,
-}: SpeechProps) {
+                          sx = {},
+                          setCurrentlyReading,
+                          currentlyReading,
+                        }: SpeechProps) {
   type EasySpeechState = "playing" | "paused" | "stopped";
-  type PlaybackControlsState = "play" | "pause";
+  type PlaybackState = "play" | "pause";
 
-  const [playbackControlsState, setPlaybackControlsState] =
-    React.useState<PlaybackControlsState>("play");
+  const [playbackState, setPlaybackState] =
+    React.useState<PlaybackState>("play");
   const [easySpeechState, setEasySpeechState] =
     React.useState<EasySpeechState>("stopped");
   const [initialized, setInitialized] = React.useState<boolean>(false);
   const [attemptedToAutoInitialize, setAttemptedToAutoInitialize] =
     React.useState<boolean>(false);
   const sentences = document.querySelectorAll("div.sentence");
-  const { voice } = useVoiceContext();
+  const {voice} = useVoiceContext();
+
+  const prevCurrentlyReadingRef = useRef<number | null>(null);
+  // const prevPlaybackStateRef = useRef<PlaybackState>("play");
 
   if (!voice) {
     throw new Error("VoiceContext voice is null");
@@ -53,28 +56,18 @@ function SpeechControls({
 
   const readText = useCallback(
     async (text: string) => {
+      console.log("SpeechControls.tsx : readText()");
       try {
-        console.log("SpeachControls.tx readText()");
-
-        setEasySpeechState("playing");
-        console.log(
-          "SpeachControls.tx readText() before EasySpeech.speak() voice: ",
-          voice,
-        );
-        await EasySpeech.speak({ text, voice });
-        console.log("SpeachControls.tx readText() after EasySpeech.speak()");
+        console.log("SpeechControls.tsx : readText() try{}");
+        await EasySpeech.speak({text, voice});
         return true;
       } catch (error) {
-        console.log("SpeachControls.tx readText() catch(error)", error);
-
+        console.log("SpeechControls.tsx : readText() catch{}");
         const easySpeechError = error as EasySpeechError;
         if (easySpeechError.error === "not-allowed") {
-          console.log(
-            "SpeachControls.tx readText() easySpeechError.error === not-allowed",
-          );
-
           setEasySpeechState("stopped");
-          setPlaybackControlsState("pause");
+          console.log('setting setPlaybackState("pause")');
+          setPlaybackState("pause");
           setInitialized(false);
           setCurrentlyReading(null);
         }
@@ -84,7 +77,7 @@ function SpeechControls({
     [
       setCurrentlyReading,
       setInitialized,
-      setPlaybackControlsState,
+      setPlaybackState,
       setEasySpeechState,
       voice,
     ],
@@ -94,118 +87,130 @@ function SpeechControls({
     console.log("SpeachControls.tx playCurrentSentence()");
 
     if (currentlyReading !== null) {
-      console.log(
-        "SpeachControls.tx playCurrentSentence() currentlyReading !== null",
-      );
       const sentence = sentences[currentlyReading];
       const text = sentence.textContent || "n/a";
       const wasSuccessful = await readText(text);
       if (wasSuccessful) {
-        console.log("SpeachControls.tx playCurrentSentence() wasSuccessful");
-
         setCurrentlyReading(currentlyReading + 1);
       }
     } else {
-      console.log("SpeachControls.tx playCurrentSentence() !wasSuccessful");
       throw new Error("currentlyReading is null");
     }
   }, [currentlyReading, sentences, readText, setCurrentlyReading]);
 
-  const startTextToSpeech = useCallback(async () => {
-    setCurrentlyReading(0);
-  }, [setCurrentlyReading]);
-
   const initializeSpeech = useCallback(async () => {
-    console.log("SpeachControls.tx initializeSpeech()");
-
     if (!initialized) {
-      console.log("SpeachControls.tx initializeSpeech() !initialized");
-
       setInitialized(true);
-      await startTextToSpeech();
+      setEasySpeechState("playing");
+      setCurrentlyReading(0);
     }
-  }, [initialized, startTextToSpeech]);
+  }, [initialized, setCurrentlyReading, setEasySpeechState]);
 
   const handlePlaybackChange = (
     event: React.MouseEvent<HTMLElement>,
     newPlaybackState: string,
   ) => {
-    console.log(`newPlaybackState: ${newPlaybackState}`);
+    console.log(`SpeechControls.tsx : newPlaybackState: ${newPlaybackState}`);
 
     if (newPlaybackState === "pause") {
+      console.log("SpeechControls.tsx : newPlaybackState === pause");
       if (easySpeechState === "playing") {
+        console.log("SpeechControls.tsx : easySpeechState === playing. Pausing EasySpeech");
         EasySpeech.pause();
         setEasySpeechState("paused");
-        setPlaybackControlsState("pause");
+        console.log(`setEasySpeechState == ${easySpeechState}`);
+        setPlaybackState("pause");
       }
     }
 
     if (newPlaybackState === "play") {
-      setPlaybackControlsState("play");
-      if (easySpeechState === "paused") {
-        EasySpeech.resume();
-        setEasySpeechState("playing");
-      } else {
+      setPlaybackState("play");
+      if (!initialized) {
         initializeSpeech();
+      } else {
+        if (easySpeechState === "stopped") {
+          setEasySpeechState("playing");
+          playCurrentSentence().catch(console.error);
+        }
+        if (easySpeechState === "paused") {
+          EasySpeech.resume();
+          setEasySpeechState("playing");
+        }
       }
     }
 
     if (newPlaybackState === "fast-forward") {
       if (currentlyReading !== null) {
         setCurrentlyReading(currentlyReading + 1);
+        if (easySpeechState === "paused") {
+          setEasySpeechState("stopped");
+          EasySpeech.cancel();
+        }
       }
     }
 
     if (newPlaybackState === "fast-rewind") {
       if (currentlyReading !== null && currentlyReading > 0) {
         setCurrentlyReading(currentlyReading - 1);
+        if (easySpeechState === "paused") {
+          setEasySpeechState("stopped");
+          EasySpeech.cancel();
+        }
       }
     }
   };
 
   useEffect(() => {
+    console.log("SpeechControls.tsx : useEffect(() for voice. voice: ", voice);
     if (voice && !initialized && !attemptedToAutoInitialize) {
+      console.log("SpeechControls.tsx : useEffect(() for voice. In condition");
       setAttemptedToAutoInitialize(true);
       initializeSpeech().catch(console.error);
     }
   }, [voice, initialized, attemptedToAutoInitialize, initializeSpeech]);
 
   useEffect(() => {
-    if (currentlyReading !== null) {
+    console.log("SpeechControls.tsx : useEffect(() for currentlyReading. currentlyReading: ", currentlyReading, " prevCurrentlyReadingRef.current: ", prevCurrentlyReadingRef.current);
+    if (currentlyReading !== null && currentlyReading !== prevCurrentlyReadingRef.current && playbackState === "play") {
       if (currentlyReading >= sentences.length) {
-        setPlaybackControlsState("pause");
+        setPlaybackState("pause");
         setEasySpeechState("stopped");
         setCurrentlyReading(null);
       } else {
         playCurrentSentence();
       }
     }
+
+    prevCurrentlyReadingRef.current = currentlyReading;
   }, [
     currentlyReading,
     playCurrentSentence,
     sentences.length,
     setCurrentlyReading,
+    playbackState
   ]);
 
   return (
     <Box sx={sx}>
-      <div>{`playbackControlsState: ${playbackControlsState}`}</div>
+      <div>{`playbackState: ${playbackState}`}</div>
+      <div>{`easySpeechState: ${easySpeechState}`}</div>
+
       <ToggleButtonGroup
-        value={playbackControlsState}
+        value={playbackState}
         exclusive
         onChange={handlePlaybackChange}
       >
         <ToggleButton value="fast-rewind" sx={playbackButtonStyles}>
-          <FastRewind sx={playbackIconStyles} />
+          <FastRewind sx={playbackIconStyles}/>
         </ToggleButton>
         <ToggleButton value="play" sx={playbackButtonStyles}>
-          <PlayArrow sx={playbackIconStyles} />
+          <PlayArrow sx={playbackIconStyles}/>
         </ToggleButton>
         <ToggleButton value="pause" sx={playbackButtonStyles}>
-          <Pause sx={playbackIconStyles} />
+          <Pause sx={playbackIconStyles}/>
         </ToggleButton>
         <ToggleButton value="fast-forward" sx={playbackButtonStyles}>
-          <FastForward sx={playbackIconStyles} />
+          <FastForward sx={playbackIconStyles}/>
         </ToggleButton>
       </ToggleButtonGroup>
     </Box>

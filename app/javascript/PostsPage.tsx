@@ -18,12 +18,14 @@ function PostsPage() {
   const [posts, setPost] = React.useState<Post[]>([]);
   const [loading, setLoading] = React.useState(true);
   const [error, setError] = React.useState<string | null>(null);
+  const [alreadyFetched, setAlreadyFetched] = React.useState<boolean>(false);
 
   const handlePostClick = (postId: number) => {
     navigate(`/post/${postId}`);
   };
 
   useEffect(() => {
+    if (alreadyFetched) return;
     fetch('api/posts.json')
       .then((response) => {
         if (!response.ok) {
@@ -39,7 +41,8 @@ function PostsPage() {
         setError(err.message);
         setLoading(false);
       });
-  }, []);
+    setAlreadyFetched(true);
+  }, [setPost, setLoading, setError, alreadyFetched]);
 
   if (loading) return <p>Loading...</p>;
   if (error) {

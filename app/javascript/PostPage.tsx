@@ -22,8 +22,10 @@ function PostPage() {
   const [error, setError] = useState<string | null>(null);
   const [currentlyReading, setCurrentlyReading] = useState<number | null>(null);
   const [showVoiceSelector, setShowVoiceSelector] = useState(false);
+  const [alreadyFetched, setAlreadyFetched] = useState<boolean>(false);
 
   useEffect(() => {
+    if (alreadyFetched) return;
     fetch(`/api/posts/${id}.json`)
       .then((response) => {
         if (!response.ok) {
@@ -39,17 +41,11 @@ function PostPage() {
         setError(err.message);
         setLoading(false);
       });
-  }, [id]);
+    setAlreadyFetched(true);
+  }, [id, setPost, setLoading, setError, alreadyFetched]);
 
   if (loading) return <p>Loading...</p>;
-  if (error) {
-    return (
-      <p>
-        Error:
-        {error}
-      </p>
-    );
-  }
+  if (error) return (<p>Error:{error}</p>);
   if (!post) return <p>No post found</p>;
 
   return (

@@ -17,10 +17,10 @@ function SpeechCore({ setCountries, setVoicesByCountry }: SpeechCoreProps) {
       const init = async () => {
         const speech = new Speech();
         await speech.init({ setVoice, setCountries, setVoicesByCountry });
-        setInitialized(true);
       };
       init().catch(console.error);
     }
+    setInitialized(true);
   }, [initialized, setInitialized, setVoice, setCountries, setVoicesByCountry]);
 
   return null;

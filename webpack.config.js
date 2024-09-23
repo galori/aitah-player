@@ -4,7 +4,6 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 const ESLintPlugin = require('eslint-webpack-plugin');
 
-
 module.exports = (env, argv) => {
   const isProduction = argv.mode === 'production';
 
@@ -38,17 +37,18 @@ module.exports = (env, argv) => {
           use: ['style-loader', 'css-loader'],
         },
         {
-          test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/,
-          use: [
-            {
-              loader: 'url-loader',
-              options: {
-                limit: 10000,
-                name: '[name].[ext]',
-                outputPath: 'assets',
-              },
-            },
-          ],
+          test: /\.(woff|woff2|eot|ttf|otf)$/i,
+          type: 'asset/resource',
+          generator: {
+            filename: 'fonts/[name][ext]'
+          }
+        },
+        {
+          test: /\.(png|jpg|gif|svg)$/,
+          type: 'asset/resource',
+          generator: {
+            filename: 'images/[name][ext]'
+          }
         },
       ],
     },
@@ -56,7 +56,7 @@ module.exports = (env, argv) => {
       filename: '[name].js',
       sourceMapFilename: '[name].js.map',
       path: path.resolve(__dirname, 'app/assets/builds'),
-      publicPath: '/assets/',
+      publicPath: '/',
     },
     plugins: [
       new webpack.optimize.LimitChunkCountPlugin({
@@ -71,7 +71,7 @@ module.exports = (env, argv) => {
       new ForkTsCheckerWebpackPlugin({
         async: false,
         typescript: {
-          configFile: './tsconfig.json', // path to your tsconfig.json
+          configFile: './tsconfig.json',
         },
       }),
       new ESLintPlugin({
@@ -90,7 +90,7 @@ module.exports = (env, argv) => {
       static: {
         directory: path.join(__dirname, 'app/assets/builds'),
       },
-      proxy : [{
+      proxy: [{
         context: ['/api'],
         target: 'http://localhost:3000'
       }],

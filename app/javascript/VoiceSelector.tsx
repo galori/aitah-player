@@ -27,12 +27,13 @@ function VoiceSelector({
     }
   }, [country, voicesByCountry, setVoice]);
 
-  if (loading) return <p>Loading...</p>;
 
   const handleClick = (newVoice: Voice) => {
     setVoice(newVoice);
     onClose();
   };
+
+  if (loading && visible) return <p>Loading...</p>;
 
   return (
     <Box sx={{ display: visible ? "block" : "none" }}>
