@@ -4,6 +4,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 const ESLintPlugin = require('eslint-webpack-plugin');
 
+const config = require('./app/javascript/initialize/config');
+
 module.exports = (env, argv) => {
   const isProduction = argv.mode === 'production';
 
@@ -92,11 +94,14 @@ module.exports = (env, argv) => {
       },
       proxy: [{
         context: ['/api'],
-        target: 'http://localhost:3000'
+        target: config.RAILS_API_URL
       }],
       hot: true,
       open: true,
       historyApiFallback: true
+    },
+    stats: {
+      children: true
     }
   }
 };

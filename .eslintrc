@@ -12,7 +12,8 @@
     {
       "files": ["app/javascript/templates/**/*.html"],
       "rules": {
-        "react/react-in-jsx-scope": "off"
+        "react/react-in-jsx-scope": "off",
+        "react/jsx-filename-extension": "off"
       }
     }
   ],
@@ -54,7 +55,7 @@
     "no-undef": "error",
     "no-unused-vars": "off",
     "@typescript-eslint/no-unused-vars": ["warn"],
-    "react/jsx-filename-extension": [1, { "extensions": [".tsx", ".ts"] }],
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx", ".ts", ".tsx"] }],
     "import/no-unresolved": "off",
     "no-console": "off",
     "react/require-default-props": ["error", { "ignoreFunctionalComponents": true }],

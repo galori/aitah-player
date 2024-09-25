@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
-import { Box, Button, Container, Paper } from "@mui/material";
+import {Box, Button, Container, Paper, ToggleButton, ToggleButtonGroup} from "@mui/material";
+import countryCodeToFlagEmoji from "country-code-to-flag-emoji";
 import useVoiceContext from "./UseVoiceContext";
 import { Voice } from "./types";
 
@@ -47,22 +48,14 @@ function VoiceSelector({
 
   return (
     <Container>
-      <div>
-        loading: {String(loading)} visible: {String(visible)}
-      </div>
       <Box sx={{ display: visible ? "block" : "none" }}>
-        <span>countries: {countries.size}</span>
         <Paper>
-          {[...countries].map((eachCountry, index) => (
-            <>
-              <div>Country: {eachCountry}</div>
-              <Button
-                key={`${eachCountry}-${String(index)}`}
-                onClick={() => setCountry(eachCountry)}
-              >
-                {eachCountry}
-              </Button>
-            </>
+          {[...countries].map((eachCountry) => (
+            <ToggleButtonGroup value={country} exclusive>
+                <ToggleButton value={eachCountry} onClick={() => setCountry(eachCountry)} key={eachCountry}>
+                    {countryCodeToFlagEmoji(eachCountry)}
+                </ToggleButton>
+              </ToggleButtonGroup>
           ))}
         </Paper>
         <Paper>

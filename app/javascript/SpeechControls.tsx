@@ -10,6 +10,7 @@ import {FastForward, FastRewind, Pause, PlayArrow} from "@mui/icons-material";
 import EasySpeech from "easy-speech";
 import {playbackButtonStyles, playbackIconStyles} from "./styles";
 import useVoiceContext from "./UseVoiceContext";
+import {SHOULD_AUTO_PLAY} from "./initialize/config";
 
 declare global {
   interface Window {
@@ -162,7 +163,7 @@ function SpeechControls({
 
   useEffect(() => {
     console.log("SpeechControls.tsx : useEffect(() for voice. voice: ", voice);
-    if (voice && !initialized && !attemptedToAutoInitialize) {
+    if (voice && !initialized && !attemptedToAutoInitialize && SHOULD_AUTO_PLAY) {
       console.log("SpeechControls.tsx : useEffect(() for voice. In condition");
       setAttemptedToAutoInitialize(true);
       initializeSpeech().catch(console.error);
