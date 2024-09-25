@@ -10,7 +10,7 @@ import {FastForward, FastRewind, Pause, PlayArrow} from "@mui/icons-material";
 import EasySpeech from "easy-speech";
 import {playbackButtonStyles, playbackIconStyles} from "./styles";
 import useVoiceContext from "./UseVoiceContext";
-import {SHOULD_AUTO_PLAY} from "./initialize/config";
+import { SHOULD_AUTO_PLAY } from "./initialize/config";
 
 declare global {
   interface Window {
@@ -45,7 +45,6 @@ function SpeechControls({
   const {voice} = useVoiceContext();
 
   const prevCurrentlyReadingRef = useRef<number | null>(null);
-  // const prevPlaybackStateRef = useRef<PlaybackState>("play");
 
   if (!voice) {
     throw new Error("VoiceContext voice is null");
@@ -167,6 +166,9 @@ function SpeechControls({
       console.log("SpeechControls.tsx : useEffect(() for voice. In condition");
       setAttemptedToAutoInitialize(true);
       initializeSpeech().catch(console.error);
+    } else {
+      // setEasySpeechState("stopped");
+      setPlaybackState("pause");
     }
   }, [voice, initialized, attemptedToAutoInitialize, initializeSpeech]);
 

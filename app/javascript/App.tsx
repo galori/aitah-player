@@ -25,14 +25,15 @@ function App() {
   };
 
   const [voice, setVoice] = useState<Voice | null>(defaultVoice);
+  const [country, setCountry] = useState<string | null>(null);
   const [countries, setCountries] = useState(new Set<string>());
   const [voicesByCountry, setVoicesByCountry] = useState<{
     [key: string]: Set<Voice>;
   }>({});
 
   const voiceProviderValue = useMemo(
-    () => ({ voice, setVoice, countries, voicesByCountry }),
-    [voice, setVoice, countries, voicesByCountry],
+    () => ({ voice, setVoice, country, setCountry, countries, setCountries, voicesByCountry, setVoicesByCountry }),
+    [voice, setVoice, country, setCountry, countries, setCountries, voicesByCountry, setVoicesByCountry],
   );
 
   return (
@@ -49,10 +50,7 @@ function App() {
             </div>
           </Router>
         </ThemeProvider>
-        <SpeechCore
-          setCountries={setCountries}
-          setVoicesByCountry={setVoicesByCountry}
-        />
+        <SpeechCore />
       </VoiceContext.Provider>
     </React.StrictMode>
   );

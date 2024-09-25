@@ -5,8 +5,12 @@ import { VoiceContext } from "./VoiceProvider";
 export interface VoiceContextType {
   voice: Voice | null;
   setVoice: (voice: Voice) => void;
+  country: string | null;
+  setCountry: (country: string) => void;
   countries: Set<string>;
+  setCountries: (countries: Set<string>) => void;
   voicesByCountry: { [key: string]: Set<Voice> };
+  setVoicesByCountry: (voicesByCountry: { [key: string]: Set<Voice> }) => void;
 }
 
 function useVoiceContext(): VoiceContextType {

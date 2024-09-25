@@ -1,27 +1,24 @@
 import EasySpeech from "easy-speech";
 import type EasySpeechType from "./types/easy-speech-extension";
 import { Voice } from "./types";
+import { VoiceContextType } from "./UseVoiceContext";
 
 interface SpeechInitProps {
-  setVoice: (voice: Voice) => void;
-  setCountries: (countries: Set<string>) => void;
-  setVoicesByCountry: (voicesByCountry: { [key: string]: Set<Voice> }) => void;
+  voiceContext: VoiceContextType;
 }
 
 class Speech {
   private countries: Set<string> = new Set();
 
-  private voicesByCountry: { [key: string]: Set<Voice> } = {};
-
   private country: string | null = null;
 
-  public async init({
-    setVoice,
-    setCountries,
-    setVoicesByCountry,
-  }: SpeechInitProps) {
+  private voicesByCountry: { [key: string]: Set<Voice> } = {};
+
+  public async init({ voiceContext }: SpeechInitProps) {
     await EasySpeech.init({ maxTimeout: 1000, interval: 100 });
 
+    const { setCountry, setVoice, setCountries, setVoicesByCountry } =
+      voiceContext;
     const voicesFromAPI = await (
       EasySpeech as typeof EasySpeechType
     ).filterVoices({ language: "en" });
@@ -36,6 +33,7 @@ class Speech {
 
     this.country = this.countries.values().next().value;
     if (this.country) {
+      setCountry(this.country);
       const voice = this.voicesByCountry[this.country].values().next().value;
       setVoice(voice);
       setCountries(this.countries);
