@@ -33,13 +33,6 @@ function VoiceSelector({visible, onClose,}: { visible: boolean; onClose: () => v
     onClose();
   };
 
-  console.log(
-    "VoiceSelector.tsx : VoiceSelector(). visible:",
-    visible,
-    "loading:",
-    loading,
-  );
-
   if (loading && visible) return <p>Loading...</p>;
 
   return (
@@ -48,15 +41,12 @@ function VoiceSelector({visible, onClose,}: { visible: boolean; onClose: () => v
         <StyledPaperVoiceSelector>
           <Box sx={{display: 'flex', flexDirection: 'row'}}>
             <ToggleButtonGroup value={country} exclusive sx={{height: 'fit-content', display: 'flex'}}>
-              {[...countries].map((eachCountry) => {
-                console.log('eachCountry:', eachCountry);
-                return (
+              {[...countries].map((eachCountry) => (
                   <StyledToggleButtonFlags value={eachCountry} onClick={() => setCountry(eachCountry)}
                                            key={eachCountry}>
                     {countryCodeToFlagEmoji(eachCountry)}
                   </StyledToggleButtonFlags>
-                );
-              })}
+                ))}
             </ToggleButtonGroup>
           </Box>
           <Box sx={{py: 2, display: 'flex', flexDirection: 'column'}}>

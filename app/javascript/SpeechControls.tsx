@@ -11,6 +11,7 @@ import EasySpeech from "easy-speech";
 import {playbackButtonStyles, playbackIconStyles} from "./styles";
 import useVoiceContext from "./UseVoiceContext";
 import { SHOULD_AUTO_PLAY } from "./initialize/config";
+import {Voice} from "./types";
 
 declare global {
   interface Window {
@@ -45,6 +46,7 @@ function SpeechControls({
   const {voice} = useVoiceContext();
 
   const prevCurrentlyReadingRef = useRef<number | null>(null);
+  const prevVoiceRef = useRef<Voice | null>(null);
 
   if (!voice) {
     throw new Error("VoiceContext voice is null");
@@ -161,14 +163,17 @@ function SpeechControls({
   };
 
   useEffect(() => {
-    console.log("SpeechControls.tsx : useEffect(() for voice. voice: ", voice);
-    if (voice && !initialized && !attemptedToAutoInitialize && SHOULD_AUTO_PLAY) {
-      console.log("SpeechControls.tsx : useEffect(() for voice. In condition");
-      setAttemptedToAutoInitialize(true);
-      initializeSpeech().catch(console.error);
-    } else {
-      // setEasySpeechState("stopped");
-      setPlaybackState("pause");
+    if (voice && prevVoiceRef.current !== voice) {
+      console.log("SpeechControls.tsx : useEffect(() for voice. voice: ", voice);
+      if (!initialized && !attemptedToAutoInitialize) {
+        if (SHOULD_AUTO_PLAY) {
+          setAttemptedToAutoInitialize(true);
+          initializeSpeech().catch(console.error);
+        } else {
+          setPlaybackState("pause");
+          setEasySpeechState("stopped");
+        }
+      }
     }
   }, [voice, initialized, attemptedToAutoInitialize, initializeSpeech]);
 
