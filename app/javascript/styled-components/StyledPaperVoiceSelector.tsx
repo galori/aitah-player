@@ -6,7 +6,7 @@ const StyledPaperVoiceSelector = styled(Paper)`
     width: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: top;
+    justify-content: flex-start;
     align-items: center;
     padding-top: 16px;
 `;

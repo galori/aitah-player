@@ -1,5 +1,5 @@
 import React from "react";
-import { Button } from "@mui/material";
+import {Button, Chip} from "@mui/material";
 import useVoiceContext from "./UseVoiceContext";
 
 function CurrentVoice({ onClick }: { onClick: () => void }) {
@@ -7,8 +7,8 @@ function CurrentVoice({ onClick }: { onClick: () => void }) {
 
   return (
     <Button onClick={onClick}>
-      Current voice:
-      {voice?.name}
+      Voice:
+      <Chip label={voice?.name} sx={{px: 1,mx: 2, backgroundColor: '#104e8a', color: 'white'}} />
     </Button>
   );
 }
