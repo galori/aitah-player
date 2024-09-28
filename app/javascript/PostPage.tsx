@@ -6,14 +6,13 @@ import {
   Paper,
   AppBar,
   Toolbar,
-  Box,
-  Button,
+  Box
 } from "@mui/material";
 import { Post } from "./types";
 import SpeechControls from "./SpeechControls";
-import Sentence from "./Sentence";
 import CurrentVoice from "./CurrentVoice";
 import VoiceSelector from "./VoiceSelector";
+import PostBody from "./PostBody";
 
 function PostPage() {
   const { id } = useParams<{ id: string }>();
@@ -79,28 +78,7 @@ function PostPage() {
           display: showVoiceSelector ? "none" : "block",
         }}
       >
-        <Paper
-          sx={{
-            width: "100%",
-            boxShadow: "none",
-            px: 4,
-            py: 2,
-          }}
-        >
-          <Typography component="span" sx={{ px: 0.2, display: "block" }}>
-            {post.sentences.map((sentence, index) => (
-              <Sentence
-                key={`sentence-${index}`} // eslint-disable-line react/no-array-index-key
-                text={sentence}
-                index={index}
-                currentlyReading={currentlyReading === index}
-              />
-            ))}
-          </Typography>
-          <Button variant="contained" href="/" sx={{ mt: 2 }}>
-            Home
-          </Button>
-        </Paper>
+        <PostBody post={post} currentlyReading={currentlyReading} />
       </Container>
       <Container>
         <VoiceSelector
