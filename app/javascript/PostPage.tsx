@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import {
   Container,
@@ -8,34 +8,21 @@ import {
   Toolbar,
   Box
 } from "@mui/material";
-import { Post } from "./types";
 import SpeechControls from "./SpeechControls";
 import CurrentVoice from "./CurrentVoice";
 import VoiceSelector from "./VoiceSelector";
 import PostBody from "./PostBody";
 import Comments from "./Comments";
-import FetchPost from "./fetch/fetchPost";
 
 function PostPage() {
   const { id } = useParams<{ id: string }>();
-  const [post, setPost] = useState<Post | null>(null);
-  const [loading, setLoading] = useState(true);
   const [currentlyReading, setCurrentlyReading] = useState<number | null>(null);
   const [showVoiceSelector, setShowVoiceSelector] = useState(false);
-  const [alreadyFetched, setAlreadyFetched] = useState<boolean>(false);
+  const [title, setTitle] = useState<string | null>(null);
 
-  useEffect(() => {
-    if (alreadyFetched || !id) return;
-    const performFetch = async () => {
-      await new FetchPost(id, setPost).fetch();
-      setLoading(false);
-      setAlreadyFetched(true);
-    }
-    performFetch().catch(console.error);
-  }, [id, setPost, setLoading, alreadyFetched]);
-
-  if (loading) return <p>Loading...</p>;
-  if (!post) return <p>No post found</p>;
+  if (!id) {
+    throw new Error("No post ID provided");
+  }
 
   return (
     <Box sx={{ minHeight: "100vh", bgcolor: "grey.100" }}>
@@ -47,7 +34,7 @@ function PostPage() {
             currentlyReading={currentlyReading}
           />
           <Typography variant="h6" className="text-white">
-            Title: {post.title}
+            Title: {title}
           </Typography>
           <Paper sx={{ mx: 2, px: 2 }}>
             <CurrentVoice
@@ -68,8 +55,8 @@ function PostPage() {
           display: showVoiceSelector ? "none" : "block",
         }}
       >
-        <PostBody post={post} currentlyReading={currentlyReading} />
-        <Comments post={post} currentlyReading={currentlyReading} />
+        <PostBody postId={id} currentlyReading={currentlyReading} setTitle={setTitle} />
+        <Comments postId={id} currentlyReading={currentlyReading} />
       </Container>
       <Container>
         <VoiceSelector

@@ -1,14 +1,37 @@
 import {Button, Paper, Typography} from "@mui/material";
-import React from "react";
+import React, {useEffect, useState} from "react";
 import Sentence from "./Sentence";
 import {Post} from "./types";
+import FetchPost from "./fetch/FetchPost";
 
 export interface PostPageProps {
-  post: Post;
+  postId: string;
   currentlyReading: number | null;
+  setTitle: (title: string) => void;
 }
 
-function PostPage({post, currentlyReading}: PostPageProps) {
+function PostBody({postId, currentlyReading, setTitle}: PostPageProps) {
+
+  const [loading, setLoading] = useState(true);
+  const [alreadyFetched, setAlreadyFetched] = useState<boolean>(false);
+  const [post, setPost] = useState<Post | undefined>(undefined);
+
+  useEffect(() => {
+    if (alreadyFetched || !postId) return;
+    const performFetch = async () => {
+      await new FetchPost(postId, setPost).fetch();
+      setLoading(false);
+      setAlreadyFetched(true);
+      if (post) {
+        setTitle(post.title);
+      }
+    }
+    performFetch().catch(console.error);
+  }, [postId, setPost, setLoading, alreadyFetched, post, setTitle]);
+
+  if (loading) return <p>Loading...</p>;
+  if (!post) return <p>No post found</p>;
+
   return (
     <Paper
       sx={{
@@ -35,4 +58,4 @@ function PostPage({post, currentlyReading}: PostPageProps) {
   )
 }
 
-export default PostPage;
+export default PostBody;

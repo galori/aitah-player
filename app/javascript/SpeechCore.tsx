@@ -5,7 +5,6 @@ import useVoiceContext from "./UseVoiceContext";
 function SpeechCore() {
   const [initialized, setInitialized] = useState(false);
   const voiceContext = useVoiceContext();
-  // const { voice, country, setVoice, setCountry, setCountries, setVoicesByCountry } = useVoiceContext();
 
   useEffect(() => {
     if (!initialized) {
