@@ -8,7 +8,8 @@ class FetchPostsService
         title: data['title'],
         body: data['selftext'],
         author: data['author'],
-        url: data['url']
+        url: data['url'],
+        score: data['score']
       )
 
       begin
