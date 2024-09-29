@@ -14,38 +14,27 @@ import CurrentVoice from "./CurrentVoice";
 import VoiceSelector from "./VoiceSelector";
 import PostBody from "./PostBody";
 import Comments from "./Comments";
+import FetchPost from "./fetch/fetchPost";
 
 function PostPage() {
   const { id } = useParams<{ id: string }>();
   const [post, setPost] = useState<Post | null>(null);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
   const [currentlyReading, setCurrentlyReading] = useState<number | null>(null);
   const [showVoiceSelector, setShowVoiceSelector] = useState(false);
   const [alreadyFetched, setAlreadyFetched] = useState<boolean>(false);
 
   useEffect(() => {
-    if (alreadyFetched) return;
-    fetch(`/api/posts/${id}.json`)
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error("Failed to fetch post");
-        }
-        return response.json();
-      })
-      .then((data) => {
-        setPost(data);
-        setLoading(false);
-      })
-      .catch((err) => {
-        setError(err.message);
-        setLoading(false);
-      });
-    setAlreadyFetched(true);
-  }, [id, setPost, setLoading, setError, alreadyFetched]);
+    if (alreadyFetched || !id) return;
+    const performFetch = async () => {
+      await new FetchPost(id, setPost).fetch();
+      setLoading(false);
+      setAlreadyFetched(true);
+    }
+    performFetch().catch(console.error);
+  }, [id, setPost, setLoading, alreadyFetched]);
 
   if (loading) return <p>Loading...</p>;
-  if (error) return (<p>Error:{error}</p>);
   if (!post) return <p>No post found</p>;
 
   return (
