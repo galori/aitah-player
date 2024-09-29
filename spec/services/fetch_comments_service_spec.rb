@@ -25,4 +25,10 @@ RSpec.describe FetchCommentsService, vcr: {record: :once} do
     expect(Comment.count).to eq(34)
   end
 
+  it 'downloads child comments' do
+    top_comments = post.comments.where(parent_id: nil).order(score: :desc).first
+    expect(top_comments.replies.length).to eq(1)
+    expect(top_comments.replies.first.body).to include("In 2009 a Yale graduate student")
+  end
+
 end

@@ -13,6 +13,7 @@ import SpeechControls from "./SpeechControls";
 import CurrentVoice from "./CurrentVoice";
 import VoiceSelector from "./VoiceSelector";
 import PostBody from "./PostBody";
+import Comments from "./Comments";
 
 function PostPage() {
   const { id } = useParams<{ id: string }>();
@@ -79,6 +80,7 @@ function PostPage() {
         }}
       >
         <PostBody post={post} currentlyReading={currentlyReading} />
+        <Comments post={post} currentlyReading={currentlyReading} />
       </Container>
       <Container>
         <VoiceSelector
