@@ -19,7 +19,7 @@ class FetchCommentsService
 
   def add_comments(comments, parent = nil)
     comments.each do |comment|
-      comment_data =
+      next if comment['kind'] == 'more'
       body = comment['data']['body']
       author = comment['data']['author']
       score = comment['data']['score']

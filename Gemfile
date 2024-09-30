@@ -15,6 +15,9 @@ gem "jsbundling-rails", "~> 1.3"
 gem "rest-client", "~> 2.1"
 
 group :development, :test do
+  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'pry-byebug'
+
   gem "debug", platforms: %i[ mri windows ]
   gem 'rspec-rails'
   gem 'vcr'
@@ -32,3 +35,5 @@ group :development do
 end
 
 
+
+gem "dockerfile-rails", ">= 1.6", :group => :development

@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe FetchCommentsService, vcr: {record: :once} do
+RSpec.describe FetchCommentsService, vcr: {record: :once, cassette_name: 'FetchCommentsService/downloads_comments_for_a_reddit_post'} do
   let(:post) { Post.create(
     title: 'AITAH for laughing in my SILs face when she DNA',
     body: 'AITAH for laughing in my SILs face when she DNA',
@@ -29,6 +29,10 @@ RSpec.describe FetchCommentsService, vcr: {record: :once} do
     top_comments = post.comments.where(parent_id: nil).order(score: :desc).first
     expect(top_comments.replies.length).to eq(1)
     expect(top_comments.replies.first.body).to include("In 2009 a Yale graduate student")
+  end
+
+  it 'does not create empty comments' do
+    expect(Comment.where(body: nil).count).to eq(0)
   end
 
 end
