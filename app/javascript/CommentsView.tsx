@@ -1,6 +1,7 @@
 import React, {useEffect} from 'react';
-import {Paper} from "@mui/material";
+import {Box, Paper, Stack, Typography} from "@mui/material";
 import FetchComments, {Comments} from "./fetch/FetchComments";
+import Sentence from "./Sentence";
 
 export interface CommentsViewProps {
   postId: string;
@@ -24,12 +25,26 @@ function CommentsView({postId, currentlyReading}: CommentsViewProps) {
 
   return (
     <Paper sx={{width: "100%", boxShadow: "none", px: 4, py: 2}}>
-      <div>
-        { comments && (
-         <h1>{comments.length} Currently reading: {currentlyReading}</h1>
-        )}
-      </div>
-      );
+      <Typography variant="h2">Comments</Typography>
+      <Typography component="span" sx={{px: 0.2, display: "block"}}>
+        <Stack spacing={2}>
+          {comments && comments.map((comment, index) => (
+            <Paper elevation={1} sx={{p: 2, bgcolor: 'background.paper'}}>
+
+              <Sentence
+                key={`sentence-${index}`} // eslint-disable-line react/no-array-index-key
+                index={index}
+                currentlyReading={currentlyReading === index}>
+                <>
+                  <Box>by <strong>{comment.author}</strong> ({comment.score} upvotes)</Box>
+                  <Box>{comment.body}</Box>
+                </>
+
+              </Sentence>
+            </Paper>
+          ))}
+        </Stack>
+      </Typography>
     </Paper>
   )
 }

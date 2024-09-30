@@ -63,9 +63,8 @@ function VoiceSelector({visible, onClose,}: { visible: boolean; onClose: () => v
                 [...voicesByCountry[country]].map((eachVoice, index) => {
                   const selected = eachVoice.name === voice?.name;
                   return (
-                    <Grid size={numberOfVoices === 1 ? 12 : 6} sx={{display: 'flex', justifyContent: 'center'}}>
+                    <Grid size={numberOfVoices === 1 ? 12 : 6} sx={{display: 'flex', justifyContent: 'center'}} key={`${eachVoice.name}-${String(index)}`}>
                       <Chip
-                        key={`${eachVoice.name}-${String(index)}`}
                         onClick={() => (!selected && handleClick(eachVoice))}
                         label={
                           <Typography variant="body1" color="textPrimary">

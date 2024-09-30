@@ -45,10 +45,11 @@ function PostBody({postId, currentlyReading, setTitle}: PostPageProps) {
         {post.sentences.map((sentence, index) => (
           <Sentence
             key={`sentence-${index}`} // eslint-disable-line react/no-array-index-key
-            text={sentence}
             index={index}
             currentlyReading={currentlyReading === index}
-          />
+          >
+            {sentence}
+          </Sentence>
         ))}
       </Typography>
       <Button variant="contained" href="/" sx={{mt: 2}}>
