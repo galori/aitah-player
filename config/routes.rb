@@ -10,7 +10,9 @@ Rails.application.routes.draw do
   root to: "posts#index"
 
   namespace :api do
-    resources :posts, only: [:index, :show]
+    resources :posts, only: [:index, :show] do
+      resources :comments, only: [:index]
+    end
   end
   # root 'home#index'
 end
