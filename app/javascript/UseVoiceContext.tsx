@@ -11,6 +11,8 @@ export interface VoiceContextType {
   setCountries: (countries: Set<string>) => void;
   voicesByCountry: { [key: string]: Set<Voice> };
   setVoicesByCountry: (voicesByCountry: { [key: string]: Set<Voice> }) => void;
+  setSpeechReady: ((speechReady: boolean) => void);
+  speechReady: (boolean);
 }
 
 function useVoiceContext(): VoiceContextType {

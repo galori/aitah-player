@@ -17,7 +17,7 @@ class Speech {
   public async init({ voiceContext }: SpeechInitProps) {
     await EasySpeech.init({ maxTimeout: 1000, interval: 100 });
 
-    const { setCountry, setVoice, setCountries, setVoicesByCountry } =
+    const { setCountry, setVoice, setCountries, setVoicesByCountry, setSpeechReady } =
       voiceContext;
     const voicesFromAPI = await (
       EasySpeech as typeof EasySpeechType
@@ -38,6 +38,7 @@ class Speech {
       setVoice(voice);
       setCountries(this.countries);
       setVoicesByCountry(this.voicesByCountry);
+      setSpeechReady(true);
     }
   }
 }

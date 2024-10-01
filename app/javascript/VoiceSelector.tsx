@@ -12,29 +12,33 @@ import StyledBoxVoiceSelector from "./styled-components/StyledBoxVoiceSelector";
 function VoiceSelector({visible, onClose,}: { visible: boolean; onClose: () => void; }) {
   const [loading, setLoading] = useState(true);
 
-  const {voice, setVoice, country, setCountry, countries, voicesByCountry} = useVoiceContext();
+  const {voice, setVoice, country, setCountry, countries, voicesByCountry, speechReady} = useVoiceContext();
   const prevCountryRef = useRef<string | null>(null);
 
   useEffect(() => {
-    if (country !== prevCountryRef.current && country !== null) {
-      const firstVoiceInCountry = voicesByCountry[country]
-        .values()
-        .next().value;
-      setVoice(firstVoiceInCountry);
+    if (speechReady) {
+      if (country !== prevCountryRef.current && country !== null) {
+        const firstVoiceInCountry = voicesByCountry[country]
+          .values()
+          .next().value;
+        setVoice(firstVoiceInCountry);
+        prevCountryRef.current = country;
+      }
     }
-  }, [country, voicesByCountry, setVoice]);
+  }, [country, voicesByCountry, setVoice, speechReady]);
 
   useEffect(() => {
-    if (loading && voicesByCountry && countries) {
+    if (speechReady && loading && voicesByCountry && countries) {
+      console.log('setting loading to false. voicesByCountry:',voicesByCountry,'countries',countries);
       setLoading(false);
     }
-  }, [voicesByCountry, countries, loading]);
+  }, [voicesByCountry, countries, loading, speechReady]);
 
   const handleClick = (newVoice: Voice) => {
     setVoice(newVoice);
   };
 
-  if (loading && visible) return <p>Loading...</p>;
+  if (!speechReady || loading) return <p>Loading...</p>;
 
   const numberOfVoices = country ? voicesByCountry[country]?.size : 0;
 
