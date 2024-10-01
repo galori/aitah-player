@@ -1,5 +1,5 @@
 import {Button, Paper, Typography} from "@mui/material";
-import React, {useEffect, useState} from "react";
+import React, {useEffect, useRef, useState} from "react";
 import Sentence from "./Sentence";
 import {Post} from "./types";
 import FetchPost from "./fetch/FetchPost";
@@ -15,6 +15,7 @@ function PostBody({postId, currentlyReading, setTitle}: PostPageProps) {
   const [loading, setLoading] = useState(true);
   const [alreadyFetched, setAlreadyFetched] = useState<boolean>(false);
   const [post, setPost] = useState<Post | undefined>(undefined);
+  const prevPostRef = useRef<Post | null>(null);
 
   useEffect(() => {
     if (alreadyFetched || !postId) return;
@@ -22,12 +23,19 @@ function PostBody({postId, currentlyReading, setTitle}: PostPageProps) {
       await new FetchPost(postId, setPost).fetch();
       setLoading(false);
       setAlreadyFetched(true);
-      if (post) {
-        setTitle(post.title);
-      }
     }
     performFetch().catch(console.error);
   }, [postId, setPost, setLoading, alreadyFetched, post, setTitle]);
+
+  useEffect(() => {
+    if (post) {
+      if (prevPostRef.current !== post) {
+        setTitle(post.title);
+      }
+      prevPostRef.current = post;
+    }
+  }, [post, setTitle]);
+
 
   if (loading) return <p>Loading...</p>;
   if (!post) return <p>No post found</p>;

@@ -175,6 +175,8 @@ function SpeechControls({
         }
       }
     }
+
+    prevVoiceRef.current = voice;
   }, [voice, initialized, attemptedToAutoInitialize, initializeSpeech]);
 
   useEffect(() => {
@@ -200,9 +202,6 @@ function SpeechControls({
 
   return (
     <Box sx={sx}>
-      <div>{`playbackState: ${playbackState}`}</div>
-      <div>{`easySpeechState: ${easySpeechState}`}</div>
-
       <ToggleButtonGroup
         value={playbackState}
         exclusive
