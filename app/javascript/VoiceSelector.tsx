@@ -4,7 +4,7 @@ import Grid from "@mui/material/Grid2";
 import countryCodeToFlagEmoji from "country-code-to-flag-emoji";
 import useVoiceContext from "./UseVoiceContext";
 import {Voice} from "./types";
-import StyledToggleButtonFlags from "./styled-components/StyledToggleButtonFlags";
+import StyledFlagToggleButton from "./styled-components/StyledFlagToggleButton";
 import StyledPaperVoiceSelector from "./styled-components/StyledPaperVoiceSelector";
 import StyledBoxVoiceSelector from "./styled-components/StyledBoxVoiceSelector";
 
@@ -52,12 +52,15 @@ function VoiceSelector({visible, onClose,}: { visible: boolean; onClose: () => v
           </Fab>
 
           <Box sx={{display: 'flex', flexDirection: 'row'}}>
-            <ToggleButtonGroup value={country} exclusive sx={{height: 'fit-content', display: 'flex'}}>
-              {[...countries].map((eachCountry) => (
-                <StyledToggleButtonFlags value={eachCountry} onClick={() => setCountry(eachCountry)}
+            <ToggleButtonGroup value={country}
+                               exclusive
+                               sx={{height: 'fit-content', display: 'flex', flexGrow: 1, width: '100%'}}
+            >
+              {[...countries].slice(0,3).map((eachCountry) => (
+                <StyledFlagToggleButton value={eachCountry} onClick={() => setCountry(eachCountry)}
                                          key={eachCountry}>
                   {countryCodeToFlagEmoji(eachCountry)}
-                </StyledToggleButtonFlags>
+                </StyledFlagToggleButton>
               ))}
             </ToggleButtonGroup>
           </Box>
