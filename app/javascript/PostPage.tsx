@@ -1,18 +1,10 @@
 import React, { useState } from "react";
 import { useParams } from "react-router-dom";
-import {
-  Container,
-  Typography,
-  Paper,
-  AppBar,
-  Toolbar,
-  Box
-} from "@mui/material";
-import SpeechControls from "./SpeechControls";
-import CurrentVoice from "./CurrentVoice";
+import {Container, Box} from "@mui/material";
 import VoiceSelector from "./VoiceSelector";
 import PostBody from "./PostBody";
 import CommentsView from "./CommentsView";
+import PostHeader from "./PostHeader";
 
 function PostPage() {
   const { id } = useParams<{ id: string }>();
@@ -26,25 +18,7 @@ function PostPage() {
 
   return (
     <Box sx={{ minHeight: "100vh", bgcolor: "grey.100" }}>
-      <AppBar position="static" className="bg-orange-500">
-        <Toolbar>
-          <SpeechControls
-            sx={{ px: 2 }}
-            setCurrentlyReading={setCurrentlyReading}
-            currentlyReading={currentlyReading}
-          />
-          <Typography variant="h6" className="text-white">
-            Title: {title}
-          </Typography>
-          <Paper sx={{ mx: 2, px: 2 }}>
-            <CurrentVoice
-              onClick={() => {
-                setShowVoiceSelector(true);
-              }}
-            />
-          </Paper>
-        </Toolbar>
-      </AppBar>
+      <PostHeader setCurrentlyReading={setCurrentlyReading} currentlyReading={currentlyReading} title={title} setShowVoiceSelector={setShowVoiceSelector} />
       <Container
         maxWidth={false}
         disableGutters
