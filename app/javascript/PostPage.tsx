@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useParams } from "react-router-dom";
-import {Container, Box} from "@mui/material";
+import {Container, Box } from "@mui/material";
 import VoiceSelector from "./VoiceSelector";
 import PostBody from "./PostBody";
 import CommentsView from "./CommentsView";
@@ -32,12 +32,10 @@ function PostPage() {
         <PostBody postId={id} currentlyReading={currentlyReading} setTitle={setTitle} />
         <CommentsView postId={id} currentlyReading={currentlyReading} />
       </Container>
-      <Container>
-        <VoiceSelector
-          visible={showVoiceSelector}
-          onClose={() => setShowVoiceSelector(false)}
-        />
-      </Container>
+      <VoiceSelector
+        visible={showVoiceSelector}
+        onClose={() => setShowVoiceSelector(false)}
+      />
     </Box>
   );
 }

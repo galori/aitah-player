@@ -21,7 +21,6 @@ class Speech {
           return voice.name === 'Fiona';
         });
 
-        // console.log(utterance.voice);
         window.speechSynthesis.speak(utterance);
 
         utterance.onerror = function(event) {

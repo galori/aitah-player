@@ -58,17 +58,13 @@ function SpeechControls({
 
   const readText = useCallback(
     async (text: string) => {
-      console.log("SpeechControls.tsx : readText()");
       try {
-        console.log("SpeechControls.tsx : readText() try{}");
         await EasySpeech.speak({text, voice});
         return true;
       } catch (error) {
-        console.log("SpeechControls.tsx : readText() catch{}");
         const easySpeechError = error as EasySpeechError;
         if (easySpeechError.error === "not-allowed") {
           setEasySpeechState("stopped");
-          console.log('setting setPlaybackState("pause")');
           setPlaybackState("pause");
           setInitialized(false);
           setCurrentlyReading(null);
@@ -86,7 +82,6 @@ function SpeechControls({
   );
 
   const playCurrentSentence = useCallback(async () => {
-    console.log("SpeachControls.tx playCurrentSentence()");
 
     if (currentlyReading !== null) {
       const sentence = sentences[currentlyReading];
@@ -112,15 +107,11 @@ function SpeechControls({
     event: React.MouseEvent<HTMLElement>,
     newPlaybackState: string,
   ) => {
-    console.log(`SpeechControls.tsx : newPlaybackState: ${newPlaybackState}`);
 
     if (newPlaybackState === "pause") {
-      console.log("SpeechControls.tsx : newPlaybackState === pause");
       if (easySpeechState === "playing") {
-        console.log("SpeechControls.tsx : easySpeechState === playing. Pausing EasySpeech");
         EasySpeech.pause();
         setEasySpeechState("paused");
-        console.log(`setEasySpeechState == ${easySpeechState}`);
         setPlaybackState("pause");
       }
     }
@@ -164,7 +155,6 @@ function SpeechControls({
 
   useEffect(() => {
     if (voice && prevVoiceRef.current !== voice) {
-      console.log("SpeechControls.tsx : useEffect(() for voice. voice: ", voice);
       if (!initialized && !attemptedToAutoInitialize) {
         if (SHOULD_AUTO_PLAY) {
           setAttemptedToAutoInitialize(true);
@@ -180,7 +170,6 @@ function SpeechControls({
   }, [voice, initialized, attemptedToAutoInitialize, initializeSpeech]);
 
   useEffect(() => {
-    console.log("SpeechControls.tsx : useEffect(() for currentlyReading. currentlyReading: ", currentlyReading, " prevCurrentlyReadingRef.current: ", prevCurrentlyReadingRef.current);
     if (currentlyReading !== null && currentlyReading !== prevCurrentlyReadingRef.current && playbackState === "play") {
       if (currentlyReading >= sentences.length) {
         setPlaybackState("pause");

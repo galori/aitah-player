@@ -1,5 +1,5 @@
 import React, {useState, useEffect, useRef} from "react";
-import {Box, Chip, Container, Fab, ToggleButtonGroup, Typography} from "@mui/material";
+import {Box, Chip, Fab, ToggleButtonGroup, Typography} from "@mui/material";
 import Grid from "@mui/material/Grid2";
 import countryCodeToFlagEmoji from "country-code-to-flag-emoji";
 import useVoiceContext from "./UseVoiceContext";
@@ -29,7 +29,6 @@ function VoiceSelector({visible, onClose,}: { visible: boolean; onClose: () => v
 
   useEffect(() => {
     if (speechReady && loading && voicesByCountry && countries) {
-      console.log('setting loading to false. voicesByCountry:',voicesByCountry,'countries',countries);
       setLoading(false);
     }
   }, [voicesByCountry, countries, loading, speechReady]);
@@ -43,50 +42,46 @@ function VoiceSelector({visible, onClose,}: { visible: boolean; onClose: () => v
   const numberOfVoices = country ? voicesByCountry[country]?.size : 0;
 
   return (
-    <Container sx={{display: visible ? "block" : "none"}}>
+    <StyledPaperVoiceSelector sx={{display: visible ? "block" : "none", m: 1}}>
+      <Fab color="secondary" aria-label="add" sx={{m: 2, float: 'left'}}>
+        <Typography variant="body2" onClick={onClose}>CLOSE</Typography>
+      </Fab>
 
-      <Box >
-        <StyledPaperVoiceSelector>
-          <Fab color="secondary" aria-label="add" sx={{my: 1, float: 'left'}}>
-            <Typography variant="body2" onClick={onClose}>CLOSE</Typography>
-          </Fab>
-
-          <Box sx={{display: 'flex', flexDirection: 'row'}}>
-            <ToggleButtonGroup value={country}
-                               exclusive
-                               sx={{height: 'fit-content', display: 'flex', flexGrow: 1, width: '100%'}}
-            >
-              {[...countries].slice(0,3).map((eachCountry) => (
-                <StyledFlagToggleButton value={eachCountry} onClick={() => setCountry(eachCountry)}
-                                         key={eachCountry}>
-                  {countryCodeToFlagEmoji(eachCountry)}
-                </StyledFlagToggleButton>
-              ))}
-            </ToggleButtonGroup>
-          </Box>
-          <StyledBoxVoiceSelector>
-            <Grid container spacing={5} sx={{my: 2}}>
-              {country != null &&
-                [...voicesByCountry[country]].map((eachVoice, index) => {
-                  const selected = eachVoice.name === voice?.name;
-                  return (
-                    <Grid size={numberOfVoices === 1 ? 12 : 6} sx={{display: 'flex', justifyContent: 'center'}} key={`${eachVoice.name}-${String(index)}`}>
-                      <Chip
-                        onClick={() => (!selected && handleClick(eachVoice))}
-                        label={
-                          <Typography variant="body1" color="textPrimary">
-                            {eachVoice.name}
-                          </Typography>
-                        } variant={selected ? "filled" : "outlined"} sx={{my: 1}}
-                      />
-                    </Grid>
-                  )
-                })}
-            </Grid>
-          </StyledBoxVoiceSelector>
-        </StyledPaperVoiceSelector>
+      <Box sx={{display: 'flex', flexDirection: 'row'}}>
+        <ToggleButtonGroup value={country}
+                           exclusive
+                           sx={{height: 'fit-content', display: 'flex', flexGrow: 1, width: '80%', mx: 1}}
+        >
+          {[...countries].map((eachCountry) => (
+            <StyledFlagToggleButton value={eachCountry} onClick={() => setCountry(eachCountry)}
+                                    key={eachCountry}>
+              {countryCodeToFlagEmoji(eachCountry)}
+            </StyledFlagToggleButton>
+          ))}
+        </ToggleButtonGroup>
       </Box>
-    </Container>
+      <StyledBoxVoiceSelector>
+        <Grid container spacing={5} sx={{my: 2}}>
+          {country != null &&
+            [...voicesByCountry[country]].map((eachVoice, index) => {
+              const selected = eachVoice.name === voice?.name;
+              return (
+                <Grid size={numberOfVoices === 1 ? 12 : 6} sx={{display: 'flex', justifyContent: 'center'}}
+                      key={`${eachVoice.name}-${String(index)}`}>
+                  <Chip
+                    onClick={() => (!selected && handleClick(eachVoice))}
+                    label={
+                      <Typography variant="body1" color="textPrimary">
+                        {eachVoice.name}
+                      </Typography>
+                    } variant={selected ? "filled" : "outlined"} sx={{my: 1}}
+                  />
+                </Grid>
+              )
+            })}
+        </Grid>
+      </StyledBoxVoiceSelector>
+    </StyledPaperVoiceSelector>
   );
 }
 
