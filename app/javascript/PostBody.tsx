@@ -43,10 +43,11 @@ function PostBody({postId, currentlyReading, setTitle}: PostPageProps) {
   return (
     <Paper
       sx={{
-        width: "100%",
+        // width: "100%",
         boxShadow: "none",
-        px: 4,
+        px: 2,
         py: 2,
+        m: 1
       }}
     >
       <Typography component="span" sx={{px: 0.2, display: "block"}}>

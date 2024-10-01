@@ -12,17 +12,15 @@ export interface PostHeaderProps {
 
 function PostHeader({setCurrentlyReading, currentlyReading, title, setShowVoiceSelector} : PostHeaderProps) {
   return (
-    <AppBar position="static" className="bg-orange-500">
-      <Toolbar>
+    <>
+    <AppBar position="static" className="bg-orange-500" sx={{p: 1}}>
+      <Toolbar sx={{ display: 'flex', flexDirection: 'column'}}>
         <SpeechControls
-          sx={{ px: 2 }}
+          sx={{ px: 2, my: 1 }}
           setCurrentlyReading={setCurrentlyReading}
           currentlyReading={currentlyReading}
         />
-        <Typography variant="h6" className="text-white">
-          Title: {title}
-        </Typography>
-        <Paper sx={{ mx: 2, px: 2 }}>
+        <Paper sx={{ mx: 2, px: 2}}>
           <CurrentVoice
             onClick={() => {
               setShowVoiceSelector(true);
@@ -31,6 +29,10 @@ function PostHeader({setCurrentlyReading, currentlyReading, title, setShowVoiceS
         </Paper>
       </Toolbar>
     </AppBar>
+    <Paper sx={{m: 1, p: 1}}>
+      <Typography variant="h6" className="text-white">{title}</Typography>
+    </Paper>
+    </>
   );
 }
 
