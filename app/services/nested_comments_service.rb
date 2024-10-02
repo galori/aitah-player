@@ -29,6 +29,7 @@ class NestedCommentsService
     nested = {
       body: comment.body,
       author: comment.author,
+      score: comment.score,
       replies: []
     }
 
