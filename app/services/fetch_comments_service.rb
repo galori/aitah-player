@@ -26,8 +26,8 @@ class FetchCommentsService
       new_comment = Comment.create!(body: body, author: author, post: post, parent: parent, score: score)
       replies = comment.dig('data','replies')
       if replies.present?
-        comments = replies.dig('data','children')
-        add_comments(comments, new_comment) if comments.present?
+        reply_comments = replies.dig('data','children')
+        add_comments(reply_comments, new_comment) if comments.present?
       end
     end
   end

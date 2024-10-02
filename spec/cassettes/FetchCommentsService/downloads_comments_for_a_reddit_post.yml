@@ -7252,4 +7252,353 @@ http_interactions:
         "lki7ak0", "lklgixg", "lkhsf3q", "lkkpzdv", "lkiedgk", "lkhvm2s"]}}], "before":
         null}}]'
   recorded_at: Sat, 31 Aug 2024 04:30:38 GMT
+- request:
+    method: get
+    uri: https://www.reddit.com/r/AITAH/comments/1fu4aoo/aitah_parents_at_school_edition.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - "*/*"
+      User-Agent:
+      - rest-client/2.1.0 (darwin23 arm64) ruby/3.1.6p260
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Host:
+      - www.reddit.com
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '21401'
+      X-Ua-Compatible:
+      - IE=edge
+      Content-Type:
+      - application/json; charset=UTF-8
+      Expires:
+      - "-1"
+      Cache-Control:
+      - private, s-maxage=0, max-age=0, must-revalidate, no-store
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Expose-Headers:
+      - X-Moose
+      X-Ratelimit-Used:
+      - '4'
+      X-Ratelimit-Remaining:
+      - '96.0'
+      X-Ratelimit-Reset:
+      - '212'
+      Accept-Ranges:
+      - bytes
+      Date:
+      - Wed, 02 Oct 2024 03:36:27 GMT
+      Via:
+      - 1.1 varnish
+      Vary:
+      - accept-encoding
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubdomains
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      Set-Cookie:
+      - csv=2; Max-Age=63072000; Domain=.reddit.com; Path=/; Secure; SameSite=None
+      - edgebucket=FoSLIqAZfflRPSSf5O; Domain=reddit.com; Max-Age=63071999; Path=/;  secure
+      - loid=0000000019zahu62lm.2.1727840187433.Z0FBQUFBQm1fTC03UmhBMGhfaklKcURtUmFVcmYyUWl5dGFYdWZUMEM4ZUNmbDRtYVhCc3VJOFFvcXdkT1VSRmtiZlNGeUR1aHlrX1pvNXFINmw0X2J3LW85dG9HQi1QbUFFanFtaExqc0hFVE1SbXVGeTZrZlM2VU1BQ0NFQ1YyUjB0WG5lc2dyaHA;
+        Domain=reddit.com; Max-Age=63071999; Path=/; expires=Fri, 02-Oct-2026 03:36:27
+        GMT; secure; SameSite=None; Secure
+      - session_tracker=bcdrnqlloqnrdglmda.0.1727840187441.Z0FBQUFBQm1fTC03WDFRRUhXX201UUpQNFFyX0s3UWxWdGZmMmxtQU96WVZWUEZnQ0V2bENWMHNPOTY1OXZIeS1XcHJtQzNQa1Y2elFVWFV5UXo0V0NRZng2blRWNXdLU0ZDUkExelZLVHp0UVdsYzlkMnEwNTdxak1xdmlKc0VSQmJ5cV9Pc3FsczA;
+        Domain=reddit.com; Max-Age=7199; Path=/; expires=Wed, 02-Oct-2024 05:36:27
+        GMT; secure; SameSite=None; Secure
+      Server:
+      - snooserv
+      Report-To:
+      - '{"group": "w3-reporting-nel", "max_age": 14400, "include_subdomains": true,  "endpoints":
+        [{ "url": "https://w3-reporting-nel.reddit.com/reports" }]}, {"group": "w3-reporting",
+        "max_age": 14400, "include_subdomains": true, "endpoints": [{ "url": "https://w3-reporting.reddit.com/reports"
+        }]}, {"group": "w3-reporting-csp", "max_age": 14400, "include_subdomains":
+        true, "endpoints": [{ "url": "https://w3-reporting-csp.reddit.com/reports"
+        }]}'
+      Nel:
+      - '{"report_to": "w3-reporting-nel", "max_age": 14400, "include_subdomains":
+        false, "success_fraction": 1.0, "failure_fraction": 1.0}'
+    body:
+      encoding: ASCII-8BIT
+      string: '[{"kind": "Listing", "data": {"after": null, "dist": 1, "modhash":
+        "", "geo_filter": "", "children": [{"kind": "t3", "data": {"approved_at_utc":
+        null, "subreddit": "AITAH", "selftext": "I work at an elementary school. I
+        am also a parent of a student at said school. I am also a PTO board member.
+        We are deep in prep of our Halloween Festival and the other parents on the
+        planning team (my child''s classmates) are acting in a vacuum, making plans
+        without approval, refusing to communicate, then getting upset with me when
+        I have to tell them no due to school rules or conflicts. They are being cliquey,
+        only allowing THEIR kids to work the fun booths, taking advantage of their
+        access when this is supposed to be a collaborarive effort with all 5th graders.
+        Today, one of them deleted another student off the volunteer list and replaced
+        the name with their child''s. When I asked why she did this, she replied with
+        \"what makes you think I removed X?\". \nUmmm google sheets has an edit history
+        feature that SHOWS you did. \ud83e\udd26\ud83c\udffb\u200d\u2640\ufe0f so
+        I removed editing access for her. \nShe then texts \"interesting way to collaborate.\"\nSo
+        I went off. \n\"Truthfully i''ve been feeling passive agressively attacked
+        by you for several weeks now. If that isn''t your intention, that''s just
+        how comments are coming across. I understand that often times texts are hard
+        because there is no tone, but case in point is your comment earlier today
+        asking why I think you removed X. I did not Think you did so, you actually
+        did so. You''re comment implied that I was making assumptions about your actions.
+        \nYou have not been very collaborative this entire process. I know nothing
+        about what''s going on with the haunted house yet you come to me with demands
+        about use of time and space and then get upset with me when I tell you that''s
+        not possible. Collaboration happens before plans are made so that everybody
+        can get what they need.\"\n\nAITAH?\nThanks. ", "user_reports": [], "saved":
+        false, "mod_reason_title": null, "gilded": 0, "clicked": false, "title": "AITAH
+        parents at school edition", "link_flair_richtext": [], "subreddit_name_prefixed":
+        "r/AITAH", "hidden": false, "pwls": 6, "link_flair_css_class": null, "downs":
+        0, "thumbnail_height": null, "top_awarded_type": null, "parent_whitelist_status":
+        "all_ads", "hide_score": false, "name": "t3_1fu4aoo", "quarantine": false,
+        "link_flair_text_color": "dark", "upvote_ratio": 0.86, "author_flair_background_color":
+        null, "subreddit_type": "public", "ups": 5, "total_awards_received": 0, "media_embed":
+        {}, "thumbnail_width": null, "author_flair_template_id": null, "is_original_content":
+        false, "author_fullname": "t2_r2mzjl7ii", "secure_media": null, "is_reddit_media_domain":
+        false, "is_meta": false, "category": null, "secure_media_embed": {}, "link_flair_text":
+        null, "can_mod_post": false, "score": 5, "approved_by": null, "is_created_from_ads_ui":
+        false, "author_premium": false, "thumbnail": "self", "edited": false, "author_flair_css_class":
+        null, "author_flair_richtext": [], "gildings": {}, "content_categories": null,
+        "is_self": true, "mod_note": null, "created": 1727831156.0, "link_flair_type":
+        "text", "wls": 6, "removed_by_category": null, "banned_by": null, "author_flair_type":
+        "text", "domain": "self.AITAH", "allow_live_comments": false, "selftext_html":
+        "&lt;!-- SC_OFF --&gt;&lt;div class=\"md\"&gt;&lt;p&gt;I work at an elementary
+        school. I am also a parent of a student at said school. I am also a PTO board
+        member. We are deep in prep of our Halloween Festival and the other parents
+        on the planning team (my child&amp;#39;s classmates) are acting in a vacuum,
+        making plans without approval, refusing to communicate, then getting upset
+        with me when I have to tell them no due to school rules or conflicts. They
+        are being cliquey, only allowing THEIR kids to work the fun booths, taking
+        advantage of their access when this is supposed to be a collaborarive effort
+        with all 5th graders. Today, one of them deleted another student off the volunteer
+        list and replaced the name with their child&amp;#39;s. When I asked why she
+        did this, she replied with &amp;quot;what makes you think I removed X?&amp;quot;.
+        \nUmmm google sheets has an edit history feature that SHOWS you did. \ud83e\udd26\ud83c\udffb\u200d\u2640\ufe0f
+        so I removed editing access for her. \nShe then texts &amp;quot;interesting
+        way to collaborate.&amp;quot;\nSo I went off. \n&amp;quot;Truthfully i&amp;#39;ve
+        been feeling passive agressively attacked by you for several weeks now. If
+        that isn&amp;#39;t your intention, that&amp;#39;s just how comments are coming
+        across. I understand that often times texts are hard because there is no tone,
+        but case in point is your comment earlier today asking why I think you removed
+        X. I did not Think you did so, you actually did so. You&amp;#39;re comment
+        implied that I was making assumptions about your actions. \nYou have not been
+        very collaborative this entire process. I know nothing about what&amp;#39;s
+        going on with the haunted house yet you come to me with demands about use
+        of time and space and then get upset with me when I tell you that&amp;#39;s
+        not possible. Collaboration happens before plans are made so that everybody
+        can get what they need.&amp;quot;&lt;/p&gt;\n\n&lt;p&gt;AITAH?\nThanks. &lt;/p&gt;\n&lt;/div&gt;&lt;!--
+        SC_ON --&gt;", "likes": null, "suggested_sort": null, "banned_at_utc": null,
+        "view_count": null, "archived": false, "no_follow": false, "is_crosspostable":
+        false, "pinned": false, "over_18": false, "all_awardings": [], "awarders":
+        [], "media_only": false, "can_gild": false, "spoiler": false, "locked": false,
+        "author_flair_text": null, "treatment_tags": [], "visited": false, "removed_by":
+        null, "num_reports": null, "distinguished": null, "subreddit_id": "t5_446kys",
+        "author_is_blocked": false, "mod_reason_by": null, "removal_reason": null,
+        "link_flair_background_color": "", "id": "1fu4aoo", "is_robot_indexable":
+        true, "num_duplicates": 0, "report_reasons": null, "author": "das-wunderland",
+        "discussion_type": null, "num_comments": 6, "send_replies": true, "media":
+        null, "contest_mode": false, "author_patreon_flair": false, "author_flair_text_color":
+        null, "permalink": "/r/AITAH/comments/1fu4aoo/aitah_parents_at_school_edition/",
+        "whitelist_status": "all_ads", "stickied": false, "url": "https://www.reddit.com/r/AITAH/comments/1fu4aoo/aitah_parents_at_school_edition/",
+        "subreddit_subscribers": 2358106, "created_utc": 1727831156.0, "num_crossposts":
+        0, "mod_reports": [], "is_video": false}}], "before": null}}, {"kind": "Listing",
+        "data": {"after": null, "dist": null, "modhash": "", "geo_filter": "", "children":
+        [{"kind": "t1", "data": {"subreddit_id": "t5_446kys", "approved_at_utc": null,
+        "author_is_blocked": false, "comment_type": null, "awarders": [], "mod_reason_by":
+        null, "banned_by": null, "author_flair_type": "text", "total_awards_received":
+        0, "subreddit": "AITAH", "author_flair_template_id": null, "likes": null,
+        "replies": {"kind": "Listing", "data": {"after": null, "dist": null, "modhash":
+        "", "geo_filter": "", "children": [{"kind": "t1", "data": {"subreddit_id":
+        "t5_446kys", "approved_at_utc": null, "author_is_blocked": false, "comment_type":
+        null, "awarders": [], "mod_reason_by": null, "banned_by": null, "author_flair_type":
+        "text", "total_awards_received": 0, "subreddit": "AITAH", "author_flair_template_id":
+        null, "likes": null, "replies": {"kind": "Listing", "data": {"after": null,
+        "dist": null, "modhash": "", "geo_filter": "", "children": [{"kind": "t1",
+        "data": {"subreddit_id": "t5_446kys", "approved_at_utc": null, "author_is_blocked":
+        false, "comment_type": null, "awarders": [], "mod_reason_by": null, "banned_by":
+        null, "author_flair_type": "text", "total_awards_received": 0, "subreddit":
+        "AITAH", "author_flair_template_id": null, "likes": null, "replies": "", "user_reports":
+        [], "saved": false, "id": "lpwoz2t", "banned_at_utc": null, "mod_reason_title":
+        null, "gilded": 0, "archived": false, "collapsed_reason_code": null, "no_follow":
+        true, "author": "HunterandGatherer100", "can_mod_post": false, "send_replies":
+        true, "parent_id": "t1_lpwoji9", "score": 2, "author_fullname": "t2_kw1ijcmkr",
+        "removal_reason": null, "approved_by": null, "mod_note": null, "all_awardings":
+        [], "body": "Yeah, but you need to care because you need them to work with
+        you.  I\u2019m not saying you have to be best friends with these people, but
+        in order for you to do your job they need to communicate with you and they\u2019ve
+        cut off communication.  Remember, you\u2019re all there for the children not
+        yourselves.  \n\nI still would have another meeting. This time I would take
+        meeting notes and I would make sure after the meeting was over that I emailed
+        the meeting notes to everybody that was there confirming the plans.", "edited":
+        false, "top_awarded_type": null, "downs": 0, "author_flair_css_class": null,
+        "name": "t1_lpwoz2t", "is_submitter": false, "collapsed": false, "author_flair_richtext":
+        [], "author_patreon_flair": false, "body_html": "&lt;div class=\"md\"&gt;&lt;p&gt;Yeah,
+        but you need to care because you need them to work with you.  I\u2019m not
+        saying you have to be best friends with these people, but in order for you
+        to do your job they need to communicate with you and they\u2019ve cut off
+        communication.  Remember, you\u2019re all there for the children not yourselves.  &lt;/p&gt;\n\n&lt;p&gt;I
+        still would have another meeting. This time I would take meeting notes and
+        I would make sure after the meeting was over that I emailed the meeting notes
+        to everybody that was there confirming the plans.&lt;/p&gt;\n&lt;/div&gt;",
+        "gildings": {}, "collapsed_reason": null, "distinguished": null, "associated_award":
+        null, "stickied": false, "author_premium": false, "can_gild": false, "link_id":
+        "t3_1fu4aoo", "unrepliable_reason": null, "author_flair_text_color": null,
+        "score_hidden": false, "permalink": "/r/AITAH/comments/1fu4aoo/aitah_parents_at_school_edition/lpwoz2t/",
+        "subreddit_type": "public", "locked": false, "report_reasons": null, "created":
+        1727832020.0, "author_flair_text": null, "treatment_tags": [], "created_utc":
+        1727832020.0, "subreddit_name_prefixed": "r/AITAH", "controversiality": 0,
+        "depth": 2, "author_flair_background_color": null, "collapsed_because_crowd_control":
+        null, "mod_reports": [], "num_reports": null, "ups": 2}}], "before": null}},
+        "user_reports": [], "saved": false, "id": "lpwoji9", "banned_at_utc": null,
+        "mod_reason_title": null, "gilded": 0, "archived": false, "collapsed_reason_code":
+        null, "no_follow": false, "author": "das-wunderland", "can_mod_post": false,
+        "created_utc": 1727831860.0, "send_replies": true, "parent_id": "t1_lpwne2x",
+        "score": 4, "author_fullname": "t2_r2mzjl7ii", "removal_reason": null, "approved_by":
+        null, "mod_note": null, "all_awardings": [], "body": "You are right, they
+        don''t like me, but that part I could care less about. We still need to work
+        together and be respectful. We have had 3 planning meetings. Each time I walk
+        away thinking we are all on the same page. Then, more shit happens. \nAs for
+        removing editing access, it is my spreadsheet, and I''m the one inputting
+        all volunteers based on their survey responses. So when someone comes in and
+        changes things it really effs it up, ya know?  Imagine scheduling 65 people
+        over 6 shifts in 20 positions. It is tedious. \nThis is a sub committee of
+        the board so other members not involved.", "edited": false, "top_awarded_type":
+        null, "author_flair_css_class": null, "name": "t1_lpwoji9", "is_submitter":
+        true, "downs": 0, "author_flair_richtext": [], "author_patreon_flair": false,
+        "body_html": "&lt;div class=\"md\"&gt;&lt;p&gt;You are right, they don&amp;#39;t
+        like me, but that part I could care less about. We still need to work together
+        and be respectful. We have had 3 planning meetings. Each time I walk away
+        thinking we are all on the same page. Then, more shit happens. \nAs for removing
+        editing access, it is my spreadsheet, and I&amp;#39;m the one inputting all
+        volunteers based on their survey responses. So when someone comes in and changes
+        things it really effs it up, ya know?  Imagine scheduling 65 people over 6
+        shifts in 20 positions. It is tedious. \nThis is a sub committee of the board
+        so other members not involved.&lt;/p&gt;\n&lt;/div&gt;", "gildings": {}, "collapsed_reason":
+        null, "distinguished": null, "associated_award": null, "stickied": false,
+        "author_premium": false, "can_gild": false, "link_id": "t3_1fu4aoo", "unrepliable_reason":
+        null, "author_flair_text_color": null, "score_hidden": false, "permalink":
+        "/r/AITAH/comments/1fu4aoo/aitah_parents_at_school_edition/lpwoji9/", "subreddit_type":
+        "public", "locked": false, "report_reasons": null, "created": 1727831860.0,
+        "author_flair_text": null, "treatment_tags": [], "collapsed": false, "subreddit_name_prefixed":
+        "r/AITAH", "controversiality": 0, "depth": 1, "author_flair_background_color":
+        null, "collapsed_because_crowd_control": null, "mod_reports": [], "num_reports":
+        null, "ups": 4}}], "before": null}}, "user_reports": [], "saved": false, "id":
+        "lpwne2x", "banned_at_utc": null, "mod_reason_title": null, "gilded": 0, "archived":
+        false, "collapsed_reason_code": null, "no_follow": false, "author": "HunterandGatherer100",
+        "can_mod_post": false, "created_utc": 1727831425.0, "send_replies": true,
+        "parent_id": "t3_1fu4aoo", "score": 3, "author_fullname": "t2_kw1ijcmkr",
+        "approved_by": null, "mod_note": null, "all_awardings": [], "collapsed": false,
+        "body": "I don\u2019t know a nice way to say this, but these people don\u2019t
+        like you that\u2019s why they\u2019re going around you.  And you\u2019re not
+        helping yourself out by doing things like removing editing access from spreadsheets.  I
+        would probably just send a group email not a single text to one person that
+        you would like to do a planning meeting in person to work out all of the details
+        so that you can all be heard and get the event details down. Where are all
+        the other PTO board members? Why aren\u2019t they involved in this?", "edited":
+        false, "top_awarded_type": null, "author_flair_css_class": null, "name": "t1_lpwne2x",
+        "is_submitter": false, "downs": 0, "author_flair_richtext": [], "author_patreon_flair":
+        false, "body_html": "&lt;div class=\"md\"&gt;&lt;p&gt;I don\u2019t know a
+        nice way to say this, but these people don\u2019t like you that\u2019s why
+        they\u2019re going around you.  And you\u2019re not helping yourself out by
+        doing things like removing editing access from spreadsheets.  I would probably
+        just send a group email not a single text to one person that you would like
+        to do a planning meeting in person to work out all of the details so that
+        you can all be heard and get the event details down. Where are all the other
+        PTO board members? Why aren\u2019t they involved in this?&lt;/p&gt;\n&lt;/div&gt;",
+        "removal_reason": null, "collapsed_reason": null, "distinguished": null, "associated_award":
+        null, "stickied": false, "author_premium": false, "can_gild": false, "gildings":
+        {}, "unrepliable_reason": null, "author_flair_text_color": null, "score_hidden":
+        false, "permalink": "/r/AITAH/comments/1fu4aoo/aitah_parents_at_school_edition/lpwne2x/",
+        "subreddit_type": "public", "locked": false, "report_reasons": null, "created":
+        1727831425.0, "author_flair_text": null, "treatment_tags": [], "link_id":
+        "t3_1fu4aoo", "subreddit_name_prefixed": "r/AITAH", "controversiality": 0,
+        "depth": 0, "author_flair_background_color": null, "collapsed_because_crowd_control":
+        null, "mod_reports": [], "num_reports": null, "ups": 3}}, {"kind": "t1", "data":
+        {"subreddit_id": "t5_446kys", "approved_at_utc": null, "author_is_blocked":
+        false, "comment_type": null, "awarders": [], "mod_reason_by": null, "banned_by":
+        null, "author_flair_type": "text", "total_awards_received": 0, "subreddit":
+        "AITAH", "author_flair_template_id": null, "likes": null, "replies": {"kind":
+        "Listing", "data": {"after": null, "dist": null, "modhash": "", "geo_filter":
+        "", "children": [{"kind": "t1", "data": {"subreddit_id": "t5_446kys", "approved_at_utc":
+        null, "author_is_blocked": false, "comment_type": null, "awarders": [], "mod_reason_by":
+        null, "banned_by": null, "author_flair_type": "text", "total_awards_received":
+        0, "subreddit": "AITAH", "author_flair_template_id": null, "likes": null,
+        "replies": "", "user_reports": [], "saved": false, "id": "lpwo3q7", "banned_at_utc":
+        null, "mod_reason_title": null, "gilded": 0, "archived": false, "collapsed_reason_code":
+        null, "no_follow": true, "author": "das-wunderland", "can_mod_post": false,
+        "created_utc": 1727831693.0, "send_replies": true, "parent_id": "t1_lpwn8dh",
+        "score": 1, "author_fullname": "t2_r2mzjl7ii", "removal_reason": null, "approved_by":
+        null, "mod_note": null, "all_awardings": [], "body": "Power plays!!! Yes,
+        that''s it exactly.", "edited": false, "top_awarded_type": null, "author_flair_css_class":
+        null, "name": "t1_lpwo3q7", "is_submitter": true, "downs": 0, "author_flair_richtext":
+        [], "author_patreon_flair": false, "body_html": "&lt;div class=\"md\"&gt;&lt;p&gt;Power
+        plays!!! Yes, that&amp;#39;s it exactly.&lt;/p&gt;\n&lt;/div&gt;", "gildings":
+        {}, "collapsed_reason": null, "distinguished": null, "associated_award": null,
+        "stickied": false, "author_premium": false, "can_gild": false, "link_id":
+        "t3_1fu4aoo", "unrepliable_reason": null, "author_flair_text_color": null,
+        "score_hidden": false, "permalink": "/r/AITAH/comments/1fu4aoo/aitah_parents_at_school_edition/lpwo3q7/",
+        "subreddit_type": "public", "locked": false, "report_reasons": null, "created":
+        1727831693.0, "author_flair_text": null, "treatment_tags": [], "collapsed":
+        false, "subreddit_name_prefixed": "r/AITAH", "controversiality": 0, "depth":
+        1, "author_flair_background_color": null, "collapsed_because_crowd_control":
+        null, "mod_reports": [], "num_reports": null, "ups": 1}}], "before": null}},
+        "user_reports": [], "saved": false, "id": "lpwn8dh", "banned_at_utc": null,
+        "mod_reason_title": null, "gilded": 0, "archived": false, "collapsed_reason_code":
+        null, "no_follow": true, "author": "foolish-heart-s2", "can_mod_post": false,
+        "created_utc": 1727831363.0, "send_replies": true, "parent_id": "t3_1fu4aoo",
+        "score": 1, "author_fullname": "t2_zz7h9gsa5", "approved_by": null, "mod_note":
+        null, "all_awardings": [], "collapsed": false, "body": "Everyone Sucks. My
+        worst nightmares are parents getting caught over petty issues and tripping
+        over each other with the tiny power plays.", "edited": false, "top_awarded_type":
+        null, "author_flair_css_class": null, "name": "t1_lpwn8dh", "is_submitter":
+        false, "downs": 0, "author_flair_richtext": [], "author_patreon_flair": false,
+        "body_html": "&lt;div class=\"md\"&gt;&lt;p&gt;Everyone Sucks. My worst nightmares
+        are parents getting caught over petty issues and tripping over each other
+        with the tiny power plays.&lt;/p&gt;\n&lt;/div&gt;", "removal_reason": null,
+        "collapsed_reason": null, "distinguished": null, "associated_award": null,
+        "stickied": false, "author_premium": false, "can_gild": false, "gildings":
+        {}, "unrepliable_reason": null, "author_flair_text_color": null, "score_hidden":
+        false, "permalink": "/r/AITAH/comments/1fu4aoo/aitah_parents_at_school_edition/lpwn8dh/",
+        "subreddit_type": "public", "locked": false, "report_reasons": null, "created":
+        1727831363.0, "author_flair_text": null, "treatment_tags": [], "link_id":
+        "t3_1fu4aoo", "subreddit_name_prefixed": "r/AITAH", "controversiality": 0,
+        "depth": 0, "author_flair_background_color": null, "collapsed_because_crowd_control":
+        null, "mod_reports": [], "num_reports": null, "ups": 1}}, {"kind": "t1", "data":
+        {"subreddit_id": "t5_446kys", "approved_at_utc": null, "author_is_blocked":
+        false, "comment_type": null, "awarders": [], "mod_reason_by": null, "banned_by":
+        null, "author_flair_type": "text", "total_awards_received": 0, "subreddit":
+        "AITAH", "author_flair_template_id": null, "likes": null, "replies": "", "user_reports":
+        [], "saved": false, "id": "lpwnol5", "banned_at_utc": null, "mod_reason_title":
+        null, "gilded": 0, "archived": false, "collapsed_reason_code": null, "no_follow":
+        true, "author": "Asaneth", "can_mod_post": false, "created_utc": 1727831535.0,
+        "send_replies": true, "parent_id": "t3_1fu4aoo", "score": 2, "author_fullname":
+        "t2_5fwa0ivl", "approved_by": null, "mod_note": null, "all_awardings": [],
+        "collapsed": false, "body": "NTA.  Sounds like you have your hands full.",
+        "edited": false, "top_awarded_type": null, "author_flair_css_class": null,
+        "name": "t1_lpwnol5", "is_submitter": false, "downs": 0, "author_flair_richtext":
+        [], "author_patreon_flair": false, "body_html": "&lt;div class=\"md\"&gt;&lt;p&gt;NTA.  Sounds
+        like you have your hands full.&lt;/p&gt;\n&lt;/div&gt;", "removal_reason":
+        null, "collapsed_reason": null, "distinguished": null, "associated_award":
+        null, "stickied": false, "author_premium": false, "can_gild": false, "gildings":
+        {}, "unrepliable_reason": null, "author_flair_text_color": null, "score_hidden":
+        false, "permalink": "/r/AITAH/comments/1fu4aoo/aitah_parents_at_school_edition/lpwnol5/",
+        "subreddit_type": "public", "locked": false, "report_reasons": null, "created":
+        1727831535.0, "author_flair_text": null, "treatment_tags": [], "link_id":
+        "t3_1fu4aoo", "subreddit_name_prefixed": "r/AITAH", "controversiality": 0,
+        "depth": 0, "author_flair_background_color": null, "collapsed_because_crowd_control":
+        null, "mod_reports": [], "num_reports": null, "ups": 2}}], "before": null}}]'
+  recorded_at: Wed, 02 Oct 2024 03:36:27 GMT
 recorded_with: VCR 6.3.1

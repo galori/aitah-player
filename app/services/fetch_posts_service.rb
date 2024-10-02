@@ -1,6 +1,6 @@
 class FetchPostsService
-  def perform
-    response = RestClient.get('https://www.reddit.com/r/aitah/top.json?limit=25')
+  def perform(limit: 25)
+    response = RestClient.get("https://www.reddit.com/r/aitah/top.json?limit=#{limit}")
     json = JSON::parse(response.body)
     json['data']['children'].each do |child|
       data = child['data']
