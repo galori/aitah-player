@@ -4,6 +4,7 @@ class NestedCommentsService
 
 
   def perform(post:, levels: )
+    @levels = levels
     comments = Comment.where(post: post).to_a
 
     @by_id = {}
@@ -15,14 +16,16 @@ class NestedCommentsService
 
     @nested = []
     top_level_comments.sort_by{|c| -1 * c.score}.each do |comment|
-      @nested << nest(comment)
+      @nested << nest(comment, 1)
     end
     @nested
   end
 
   private
 
-  def nest(comment)
+  def nest(comment, level)
+    return if level > @levels
+
     nested = {
       body: comment.body,
       author: comment.author,
@@ -30,12 +33,12 @@ class NestedCommentsService
     }
 
     comment.replies.each do |reply|
-      nested[:replies] << nest(reply)
+      nested[:replies] << nest(reply, level+1)
     end
 
-    nested.delete(:replies) if nested[:replies].empty?
+    nested.delete(:replies) if nested[:replies].compact.empty?
     nested
   end
 
-  attr_accessor :top_level_comments, :by_id, :nested
+  attr_accessor :top_level_comments, :by_id, :nested, :levels
 end
