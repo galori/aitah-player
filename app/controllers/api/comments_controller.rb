@@ -4,7 +4,8 @@ module Api
   class CommentsController < ApplicationController
     def index
       @post = Post.find(params[:post_id])
-      render json: @post.comments.to_json
+      json = NestedCommentsService.new.perform(post: @post, levels: 3)
+      render json: json
     end
   end
 end
