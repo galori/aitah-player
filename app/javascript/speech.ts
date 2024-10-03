@@ -25,7 +25,6 @@ class Speech {
     ).filterVoices({language: "en"});
 
     voicesFromAPI.forEach((voice: Voice) => {
-      console.log(voice);
       const country = voice.lang.substring(3, 5);
       this.voicesByCountry[country] =
         this.voicesByCountry[country] || new Set();

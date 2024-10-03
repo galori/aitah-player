@@ -1,11 +1,48 @@
 import React, {useEffect} from 'react';
-import {Box, Paper, Stack, Typography} from "@mui/material";
-import FetchComments, {Comments} from "./fetch/FetchComments";
-import Sentence from "./Sentence";
+import {Paper, Stack, Typography} from "@mui/material";
+import FetchComments, { Comments, Comment } from "./fetch/FetchComments";
+// import Sentence from "./Sentence";
 
 export interface CommentsViewProps {
   postId: string;
   currentlyReading: number | null;
+}
+
+export interface IStackEntryType {
+  comment:Comment;
+  depth:number;
+}
+
+type StackEntryType = (IStackEntryType | undefined);
+
+type StackType = StackEntryType[];
+
+const renderComments = (comments:Comments) => {
+  const result: React.ReactElement[] = [];
+
+  const stack:StackType = comments.map(comment => ({ comment, depth: 0 }));
+
+  while (stack.length > 0) {
+    const stackEntry = stack.pop();
+
+    if (stackEntry) {
+      const {comment, depth} = stackEntry;
+
+      result.unshift(
+        <div key={result.length} style={{marginLeft: `${depth * 60}px`}}>
+          <p><strong>{comment.author}</strong> ({comment.score} upvotes)</p>
+          <p>{comment.body}</p>
+        </div>
+      )
+
+      if (comment.replies) {
+        stack.push(...comment.replies.map(reply => ({ comment: reply, depth: depth+1})));
+      }
+    }
+
+  }
+
+  return result;
 }
 
 function CommentsView({postId, currentlyReading}: CommentsViewProps) {
@@ -15,11 +52,10 @@ function CommentsView({postId, currentlyReading}: CommentsViewProps) {
 
   useEffect(() => {
     if (alreadyFetched || !postId) return;
-    const performFetch = async () => {
-      const fetchComments = new FetchComments(postId, setComments);
-      await fetchComments.performFetch();
+    const callFetch = async () => {
+      await new FetchComments(postId, setComments).performFetch();
     }
-    performFetch().catch(console.error);
+    callFetch().catch(console.error);
     setAlreadyFetched(true);
   }, [postId, currentlyReading, setAlreadyFetched, alreadyFetched]);
 
@@ -28,25 +64,7 @@ function CommentsView({postId, currentlyReading}: CommentsViewProps) {
       <Typography variant="h2">Comments</Typography>
       <Typography component="span" sx={{px: 0.2, display: "block"}}>
         <Stack spacing={2}>
-          {comments && comments.map((comment, index) => (
-            <Paper
-              elevation={1}
-              sx={{p: 2, bgcolor: 'background.paper'}}
-              key={`sentence-outer-${index}`} // eslint-disable-line react/no-array-index-key
-            >
-
-              <Sentence
-                key={`sentence-${index}`} // eslint-disable-line react/no-array-index-key
-                index={index}
-                currentlyReading={currentlyReading === index}>
-                <>
-                  <Box>by <strong>{comment.author}</strong> ({comment.score} upvotes)</Box>
-                  <Box>{comment.body}</Box>
-                </>
-
-              </Sentence>
-            </Paper>
-          ))}
+          { comments && renderComments(comments)}
         </Stack>
       </Typography>
     </Paper>

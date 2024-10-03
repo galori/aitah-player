@@ -1,8 +1,10 @@
+
 export interface Comment {
   body: string;
   author: string;
   postedAt: string;
   score: number;
+  replies: Comment[];
 }
 
 export type Comments = Comment[];
