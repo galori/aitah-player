@@ -1,6 +1,6 @@
 
 export interface Comment {
-  body: string;
+  sentences: string[];
   author: string;
   postedAt: string;
   score: number;

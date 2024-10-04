@@ -7,34 +7,35 @@ import FetchPost from "./fetch/FetchPost";
 export interface PostPageProps {
   postId: string;
   currentlyReading: number | null;
-  setTitle: (title: string) => void;
+  post: Post | null;
+  setPost: (post:Post) => void;
 }
 
-function PostBody({postId, currentlyReading, setTitle}: PostPageProps) {
+function PostBody({postId, currentlyReading, post, setPost}: PostPageProps) {
 
   const [loading, setLoading] = useState(true);
   const [alreadyFetched, setAlreadyFetched] = useState<boolean>(false);
-  const [post, setPost] = useState<Post | undefined>(undefined);
   const prevPostRef = useRef<Post | null>(null);
 
   useEffect(() => {
     if (alreadyFetched || !postId) return;
     const performFetch = async () => {
       await new FetchPost(postId, setPost).fetch();
+      console.log('fetched post');
       setLoading(false);
       setAlreadyFetched(true);
     }
     performFetch().catch(console.error);
-  }, [postId, setPost, setLoading, alreadyFetched, post, setTitle]);
+  }, [postId, setPost, setLoading, alreadyFetched, post]);
 
   useEffect(() => {
     if (post) {
       if (prevPostRef.current !== post) {
-        setTitle(post.title);
+        setPost(post);
       }
       prevPostRef.current = post;
     }
-  }, [post, setTitle]);
+  }, [post, setPost]);
 
 
   if (loading) return <p>Loading...</p>;

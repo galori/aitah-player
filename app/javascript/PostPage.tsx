@@ -5,20 +5,19 @@ import VoiceSelector from "./VoiceSelector";
 import PostBody from "./PostBody";
 import CommentsView from "./CommentsView";
 import PostHeader from "./PostHeader";
+import {Post} from "./types";
 
 function PostPage() {
   const { id } = useParams<{ id: string }>();
   const [currentlyReading, setCurrentlyReading] = useState<number | null>(null);
   const [showVoiceSelector, setShowVoiceSelector] = useState(false);
-  const [title, setTitle] = useState<string | null>(null);
+  const [post, setPost] = useState<Post | null>(null);
 
-  if (!id) {
-    throw new Error("No post ID provided");
-  }
+  if (!id) throw new Error("No post ID provided");
 
   return (
     <Box sx={{ minHeight: "100vh", bgcolor: "grey.100" }}>
-      <PostHeader setCurrentlyReading={setCurrentlyReading} currentlyReading={currentlyReading} title={title} setShowVoiceSelector={setShowVoiceSelector} />
+      <PostHeader setCurrentlyReading={setCurrentlyReading} currentlyReading={currentlyReading} title={post?.title} setShowVoiceSelector={setShowVoiceSelector} />
       <Container
         maxWidth={false}
         disableGutters
@@ -29,7 +28,7 @@ function PostPage() {
           display: showVoiceSelector ? "none" : "block",
         }}
       >
-        <PostBody postId={id} currentlyReading={currentlyReading} setTitle={setTitle} />
+        <PostBody postId={id} currentlyReading={currentlyReading} setPost={setPost} post={post} />
         <CommentsView postId={id} currentlyReading={currentlyReading} />
       </Container>
       <VoiceSelector

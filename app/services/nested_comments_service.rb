@@ -5,7 +5,7 @@ class NestedCommentsService
 
   def perform(post:, levels: )
     @levels = levels
-    comments = Comment.where(post: post).to_a
+    comments = Comment.decorate(Comment.where(post: post)).to_a
 
     @by_id = {}
     @top_level_comments = []
@@ -27,13 +27,13 @@ class NestedCommentsService
     return if level > @levels
 
     nested = {
-      body: comment.body,
+      sentences: comment.sentences,
       author: comment.author,
       score: comment.score,
       replies: []
     }
 
-    comment.replies.each do |reply|
+    Comment.decorate(comment.replies).each do |reply|
       nested[:replies] << nest(reply, level+1)
     end
 

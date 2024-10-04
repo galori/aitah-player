@@ -6,7 +6,7 @@ import CurrentVoice from "./CurrentVoice";
 export interface PostHeaderProps {
   setCurrentlyReading: ((index:number | null) => void);
   currentlyReading: number | null;
-  title: string | null;
+  title: string | undefined;
   setShowVoiceSelector: ((showVoiceSelector:boolean) => void);
 }
 

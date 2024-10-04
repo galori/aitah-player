@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class PostPresenter < SimpleDelegator
 
   def body_segments_as_html

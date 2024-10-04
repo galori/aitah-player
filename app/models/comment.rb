@@ -1,4 +1,6 @@
 class Comment < ApplicationRecord
+  include Presentable
+
 
   belongs_to :post
   has_many :replies, class_name: 'Comment', foreign_key: 'parent_id', dependent: :destroy
@@ -9,5 +11,12 @@ class Comment < ApplicationRecord
 
   def top_level?
     parent_id.nil?
+  end
+
+  def to_json
+    {a:1}
+  end
+  def as_json
+    {a:1}
   end
 end
