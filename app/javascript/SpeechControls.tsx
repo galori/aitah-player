@@ -82,9 +82,8 @@ function SpeechControls({
   );
 
   const playCurrentSentence = useCallback(async () => {
-
     if (currentlyReading !== null) {
-      const sentence = sentences[currentlyReading];
+      const sentence = sentences[currentlyReading-1];
       const text = sentence.textContent || "n/a";
       const wasSuccessful = await readText(text);
       if (wasSuccessful) {
@@ -99,7 +98,7 @@ function SpeechControls({
     if (!initialized) {
       setInitialized(true);
       setEasySpeechState("playing");
-      setCurrentlyReading(0);
+      setCurrentlyReading(1);
     }
   }, [initialized, setCurrentlyReading, setEasySpeechState]);
 

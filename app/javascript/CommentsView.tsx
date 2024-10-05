@@ -15,18 +15,24 @@ function CommentsView({currentlyReading, post}: CommentsViewProps) {
   const [comments, setComments] = React.useState<Comment[] | undefined>(undefined);
 
   function renderComments() {
-    return comments?.map((comment:Comment) => (
-        <Stack key={Math.random()} spacing={2}>
-          <Typography variant="h4">{comment.author} ({comment.score} upvotes)</Typography>
-          <Typography variant="body1" component="span">
-            {comment.sentences.map((sentence:FlatSentence, index:number) =>
-              <Sentence key={sentence.sentenceIndex} index={index} currentlyReading={currentlyReading} sentenceIndex={sentence.sentenceIndex}>
-                {sentence.text}
-              </Sentence>
-            )}
-          </Typography>
-        </Stack>
-      ))
+    if (!post) return <p>Loading..</p>
+    return comments?.map((comment: Comment) => (
+      <Stack key={Math.random()} spacing={2}>
+        <Typography variant="h4">{comment.author} ({comment.score} upvotes)</Typography>
+        <Typography variant="body1" component="span">
+          {comment.sentences.map((sentence: FlatSentence, index: number) => {
+              const sentenceIndex = (sentence.sentenceIndex ?? 0) + post.sentences.length;
+              return (
+                <Sentence key={sentenceIndex} indexInParent={index} currentlyReading={currentlyReading}
+                          sentenceIndex={sentenceIndex}>
+                  {sentence.text}
+                </Sentence>
+              );
+            }
+          )}
+        </Typography>
+      </Stack>
+    ))
   }
 
   useEffect(() => {

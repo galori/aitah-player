@@ -51,16 +51,18 @@ function PostBody({postId, currentlyReading, post, setPost}: PostPageProps) {
       }}
     >
       <Typography component="span" sx={{px: 0.2, display: "block"}}>
-        {post.sentences.map((sentence, index) => (
+        {post.sentences.map((sentence, index) => {
+          const sentenceIndex = index + 1;
+          return (
           <Sentence
-            key={`sentence-${index}`} // eslint-disable-line react/no-array-index-key
-            index={index}
+            key={`sentence-${sentenceIndex}`} // eslint-disable-line react/no-array-index-key
+            indexInParent={index}
             currentlyReading={currentlyReading}
-            sentenceIndex={index}
+            sentenceIndex={sentenceIndex}
           >
             {sentence}
           </Sentence>
-        ))}
+        )})}
       </Typography>
       <Button variant="contained" href="/" sx={{mt: 2}}>
         Home
