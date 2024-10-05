@@ -18,14 +18,19 @@ function CommentsView({currentlyReading, post}: CommentsViewProps) {
 
   function renderComments() {
     if (!post) return <p>Loading..</p>
+    const sentenceIndexOffset = post.sentences.length;
     return comments?.map((comment: Comment) => (
       <Box key={Math.random()} sx={{
-        '&&': { marginLeft: `${comment.depth * NESTED_INDENT_PIXELS}px` } // the && increases specificity to override the default margin
-      }} >
-        <Typography variant="h4">{comment.author} ({comment.score} upvotes)</Typography>
+        '&&': {marginLeft: `${comment.depth * NESTED_INDENT_PIXELS}px`} // the && increases specificity to override the default margin
+      }}>
+
+        <Sentence indexInParent={0} currentlyReading={currentlyReading}
+                  sentenceIndex={(comment.sentenceIndexForAuthor ?? 0) + sentenceIndexOffset}>
+          <strong>{comment.depth === 0 ? 'Top comment' : 'Reply'} by {comment.author}</strong> ({comment.score} votes):
+        </Sentence>
         <Typography variant="body1" component="span">
           {comment.sentences.map((sentence: FlatSentence, index: number) => {
-              const sentenceIndex = (sentence.sentenceIndex ?? 0) + post.sentences.length;
+              const sentenceIndex = (sentence.sentenceIndex ?? 0) + sentenceIndexOffset;
               return (
                 <Sentence key={sentenceIndex} indexInParent={index} currentlyReading={currentlyReading}
                           sentenceIndex={sentenceIndex}>

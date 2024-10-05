@@ -19,6 +19,7 @@ export interface Comment {
   score: number;
   postedAt: string;
   depth: number;
+  sentenceIndexForAuthor: number | null;
 }
 
 export interface FetchCommentsProps {
@@ -52,6 +53,8 @@ class FetchComments {
   private numberSentences() {
     let sentenceCounter = 0;
     this.comments.forEach((comment:Comment) => {
+      sentenceCounter += 1; // leave a space between comments for the author
+      comment.sentenceIndexForAuthor = sentenceCounter; // eslint-disable-line no-param-reassign
       comment.sentences.forEach((sentence:FlatSentence) => {
         sentenceCounter += 1;
         sentence.sentenceIndex = sentenceCounter; // eslint-disable-line no-param-reassign
@@ -78,7 +81,8 @@ class FetchComments {
           author: rawComment.author,
           score: rawComment.score,
           postedAt: rawComment.postedAt,
-          depth
+          depth,
+          sentenceIndexForAuthor: null
         }
         results.unshift(flatComment);
 
