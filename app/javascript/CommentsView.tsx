@@ -1,8 +1,10 @@
 import React, {useEffect} from 'react';
-import {Paper, Stack, Typography} from "@mui/material";
+import {Box, Paper, Stack, Typography} from "@mui/material";
 import FetchComments, {Comment, FlatSentence} from "./fetch/FetchComments";
 import Sentence from "./Sentence";
 import {Post} from "./types";
+
+const NESTED_INDENT_PIXELS = 40;
 
 export interface CommentsViewProps {
   currentlyReading: number | null;
@@ -17,7 +19,9 @@ function CommentsView({currentlyReading, post}: CommentsViewProps) {
   function renderComments() {
     if (!post) return <p>Loading..</p>
     return comments?.map((comment: Comment) => (
-      <Stack key={Math.random()} spacing={2}>
+      <Box key={Math.random()} sx={{
+        '&&': { marginLeft: `${comment.depth * NESTED_INDENT_PIXELS}px` } // the && increases specificity to override the default margin
+      }} >
         <Typography variant="h4">{comment.author} ({comment.score} upvotes)</Typography>
         <Typography variant="body1" component="span">
           {comment.sentences.map((sentence: FlatSentence, index: number) => {
@@ -31,7 +35,7 @@ function CommentsView({currentlyReading, post}: CommentsViewProps) {
             }
           )}
         </Typography>
-      </Stack>
+      </Box>
     ))
   }
 
