@@ -42,7 +42,7 @@ function VoiceSelector({visible, onClose,}: { visible: boolean; onClose: () => v
   const numberOfVoices = country ? voicesByCountry[country]?.size : 0;
 
   return (
-    <StyledPaperVoiceSelector sx={{display: visible ? "block" : "none", m: 1}}>
+    <StyledPaperVoiceSelector sx={{display: visible ? "flex" : "none", m: 1}} data-is-visible={visible}>
       <Fab color="secondary" aria-label="add" sx={{m: 2, float: 'left'}}>
         <Typography variant="body2" onClick={onClose}>CLOSE</Typography>
       </Fab>

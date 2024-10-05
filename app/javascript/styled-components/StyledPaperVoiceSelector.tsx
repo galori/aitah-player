@@ -3,7 +3,6 @@ import Paper from '@mui/material/Paper';
 
 const StyledPaperVoiceSelector = styled(Paper)`
     height: 100vh;
-    display: flex;
     flex-direction: column;
     justify-content: flex-start;
 `;
