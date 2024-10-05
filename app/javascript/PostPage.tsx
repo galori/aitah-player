@@ -29,7 +29,7 @@ function PostPage() {
         }}
       >
         <PostBody postId={id} currentlyReading={currentlyReading} setPost={setPost} post={post} />
-        <CommentsView postId={id} currentlyReading={currentlyReading} />
+        <CommentsView currentlyReading={currentlyReading} post={post} />
       </Container>
       <VoiceSelector
         visible={showVoiceSelector}

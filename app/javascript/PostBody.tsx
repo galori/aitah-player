@@ -21,7 +21,6 @@ function PostBody({postId, currentlyReading, post, setPost}: PostPageProps) {
     if (alreadyFetched || !postId) return;
     const performFetch = async () => {
       await new FetchPost(postId, setPost).fetch();
-      console.log('fetched post');
       setLoading(false);
       setAlreadyFetched(true);
     }
@@ -56,7 +55,8 @@ function PostBody({postId, currentlyReading, post, setPost}: PostPageProps) {
           <Sentence
             key={`sentence-${index}`} // eslint-disable-line react/no-array-index-key
             index={index}
-            currentlyReading={currentlyReading === index}
+            currentlyReading={currentlyReading}
+            sentenceIndex={index}
           >
             {sentence}
           </Sentence>
