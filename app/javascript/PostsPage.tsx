@@ -13,7 +13,7 @@ import {
 } from '@mui/material';
 import { Post } from './types';
 
-function PostsPage() {
+function PostsPage({version}: {version: React.MutableRefObject<string | null>}) {
   const navigate = useNavigate();
   const [posts, setPost] = React.useState<Post[]>([]);
   const [loading, setLoading] = React.useState(true);
@@ -59,6 +59,7 @@ function PostsPage() {
     <Box sx={{ minHeight: '100vh', bgcolor: 'grey.100' }}>
       <AppBar position="static" className="bg-orange-500">
         <Toolbar>
+          <Box sx={{ position: 'absolute', right: '3px', top: '3px' }}>v{version.current}</Box>
           <Typography variant="h6" className="text-white">
             Reddit Top Posts
           </Typography>

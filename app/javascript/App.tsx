@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from "react";
+import React, {useState, useMemo, useRef, useEffect} from "react";
 import ReactDOM from "react-dom";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -31,11 +31,19 @@ function App() {
     [key: string]: Set<Voice>;
   }>({});
   const [speechReady, setSpeechReady] = useState<boolean>(false);
+  const version = useRef<string | null>(null);
 
   const voiceProviderValue = useMemo(
     () => ({ voice, setVoice, country, setCountry, countries, setCountries, voicesByCountry, setVoicesByCountry, speechReady, setSpeechReady }),
     [voice, setVoice, country, setCountry, countries, setCountries, voicesByCountry, setVoicesByCountry, speechReady, setSpeechReady],
   );
+
+  useEffect(() => {
+    if (!version.current) {
+      version.current = new URLSearchParams(window.location.search).get('v');
+    }
+
+  }, [version]);
 
   return (
     <React.StrictMode>
@@ -45,8 +53,8 @@ function App() {
           <Router>
             <div>
               <Routes>
-                <Route path="/" element={<PostsPage />} />
-                <Route path="/post/:id" element={<PostPage />} />
+                <Route path="/" element={<PostsPage version={version} />} />
+                <Route path="/post/:id" element={<PostPage version={version} />} />
               </Routes>
             </div>
           </Router>

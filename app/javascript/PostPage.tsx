@@ -7,7 +7,7 @@ import CommentsView from "./CommentsView";
 import PostHeader from "./PostHeader";
 import {Post} from "./types";
 
-function PostPage() {
+function PostPage({ version }: { version: React.MutableRefObject<string | null> }) {
   const { id } = useParams<{ id: string }>();
   const [currentlyReading, setCurrentlyReading] = useState<number | null>(null);
   const [showVoiceSelector, setShowVoiceSelector] = useState(false);
@@ -17,7 +17,7 @@ function PostPage() {
 
   return (
     <Box sx={{ minHeight: "100vh", bgcolor: "grey.100" }}>
-      <PostHeader setCurrentlyReading={setCurrentlyReading} currentlyReading={currentlyReading} title={post?.title} setShowVoiceSelector={setShowVoiceSelector} />
+      <PostHeader setCurrentlyReading={setCurrentlyReading} currentlyReading={currentlyReading} title={post?.title} setShowVoiceSelector={setShowVoiceSelector} version={version} />
       <Container
         maxWidth={false}
         disableGutters

@@ -1,5 +1,5 @@
 import React from 'react';
-import {AppBar, Paper, Toolbar, Typography} from "@mui/material";
+import {AppBar, Box, Paper, Toolbar, Typography} from "@mui/material";
 import SpeechControls from "./SpeechControls";
 import CurrentVoice from "./CurrentVoice";
 
@@ -8,13 +8,16 @@ export interface PostHeaderProps {
   currentlyReading: number | null;
   title: string | undefined;
   setShowVoiceSelector: ((showVoiceSelector:boolean) => void);
+  version: React.MutableRefObject<string | null>;
 }
 
-function PostHeader({setCurrentlyReading, currentlyReading, title, setShowVoiceSelector} : PostHeaderProps) {
+function PostHeader({setCurrentlyReading, currentlyReading, title, setShowVoiceSelector, version} : PostHeaderProps) {
+
   return (
     <>
     <AppBar position="static" className="bg-orange-500" sx={{p: 1, position: 'fixed'}}>
       <Toolbar sx={{ display: 'flex', flexDirection: 'column'}}>
+        <Box sx={{position: 'absolute', right: '3px', top: '3px'}}>v{version.current ?? ''}</Box>
         <SpeechControls
           sx={{ px: 2, my: 1 }}
           setCurrentlyReading={setCurrentlyReading}

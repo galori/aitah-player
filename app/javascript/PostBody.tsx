@@ -1,5 +1,6 @@
 import {Button, Paper, Typography} from "@mui/material";
 import React, {useEffect, useRef, useState} from "react";
+import {useNavigate} from "react-router-dom";
 import Sentence from "./Sentence";
 import {Post} from "./types";
 import FetchPost from "./fetch/FetchPost";
@@ -16,6 +17,7 @@ function PostBody({postId, currentlyReading, post, setPost}: PostPageProps) {
   const [loading, setLoading] = useState(true);
   const [alreadyFetched, setAlreadyFetched] = useState<boolean>(false);
   const prevPostRef = useRef<Post | null>(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (alreadyFetched || !postId) return;
@@ -64,7 +66,7 @@ function PostBody({postId, currentlyReading, post, setPost}: PostPageProps) {
           </Sentence>
         )})}
       </Typography>
-      <Button variant="contained" href="/" sx={{mt: 2}}>
+      <Button variant="contained" href="" sx={{mt: 2}} onClick={() => navigate('/')}>
         Home
       </Button>
     </Paper>
