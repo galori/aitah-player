@@ -10,7 +10,7 @@ import {FastForward, FastRewind, Pause, PlayArrow} from "@mui/icons-material";
 import EasySpeech from "easy-speech";
 import {playbackButtonStyles, playbackIconStyles} from "./styles";
 import useVoiceContext from "./UseVoiceContext";
-import { SHOULD_AUTO_PLAY } from "./initialize/config";
+import { SHOULD_AUTO_PLAY, DEBUG } from "./initialize/config";
 import {Voice} from "./types";
 import iOS from "./iOS";
 
@@ -26,7 +26,7 @@ function SpeechControls({
                           currentlyReading,
                         }: SpeechProps) {
   type EasySpeechState = "playing" | "paused" | "stopped";
-  type PlaybackState = "play" | "pause";
+  type PlaybackState = "play" | "pause" | "fast-forward" | "fast-rewind";
 
   const [playbackState, setPlaybackState] =
     React.useState<PlaybackState>("play");
@@ -83,9 +83,10 @@ function SpeechControls({
       setEasySpeechState("playing");
 
       const sentence = sentences[currentlyReading-1];
-      const text = sentence.textContent || "n/a";
+      const text = sentence.textContent ?? "";
       const wasSuccessful = await readText(text);
       if (wasSuccessful) {
+        setPlaybackState("play");
         setCurrentlyReading(currentlyReading + 1);
       }
     } else {
@@ -103,8 +104,10 @@ function SpeechControls({
 
   const handlePlaybackChange = (
     event: React.MouseEvent<HTMLElement>,
-    newPlaybackState: string,
+    newPlaybackState: PlaybackState,
   ) => {
+
+    setPlaybackState(newPlaybackState);
 
     if (newPlaybackState === "pause") {
       if (easySpeechState === "playing") {
@@ -114,7 +117,6 @@ function SpeechControls({
           EasySpeech.pause();
         }
         setEasySpeechState("paused");
-        setPlaybackState("pause");
       }
     }
 
@@ -181,7 +183,7 @@ function SpeechControls({
   }, [voice, initialized, attemptedToAutoInitialize, initializeSpeech]);
 
   useEffect(() => {
-    if (currentlyReading !== null && currentlyReading !== prevCurrentlyReadingRef.current && playbackState === "play") {
+    if (currentlyReading && currentlyReading !== prevCurrentlyReadingRef.current) {
       if (currentlyReading >= sentences.length) {
         setPlaybackState("pause");
         setEasySpeechState("stopped");
@@ -202,7 +204,7 @@ function SpeechControls({
 
   return (
     <Box sx={sx}>
-      <Container sx={{position: 'fixed', left: '2px', top: '2px'}}>{playbackState} | {easySpeechState} | {currentlyReading} </Container>
+      { DEBUG && <Container sx={{position: 'fixed', left: '2px', top: '2px'}}>{playbackState} | {easySpeechState} | {currentlyReading} </Container> }
       <ToggleButtonGroup
         value={playbackState}
         exclusive

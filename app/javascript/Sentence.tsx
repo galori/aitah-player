@@ -1,5 +1,6 @@
 import React, {ReactNode} from "react";
 import {Box, Container} from "@mui/material";
+import {DEBUG} from "./initialize/config";
 
 interface SentenceProps {
   indexInParent: number;
@@ -10,6 +11,7 @@ interface SentenceProps {
 
 function Sentence({ indexInParent, currentlyReading, children, sentenceIndex }: SentenceProps) {
   const shouldHighlight = (currentlyReading === sentenceIndex);
+  const conditionalStyles = DEBUG ? { border: '1px black solid', padding: '1px !important' } : {};
   return (
     <Box
       className="sentence"
@@ -19,11 +21,10 @@ function Sentence({ indexInParent, currentlyReading, children, sentenceIndex }: 
         px: indexInParent === 0 ? 0 : 0.3,
         display: "inline",
         backgroundColor: shouldHighlight ? "lightgray" : "transparent",
-        borderRight: "3px solid blue",
-        borderLeft: "3px solid blue",
+        ...conditionalStyles
       }}
     >
-      <Container component="span" sx={{border: '1px black solid', padding: '1px !important'}}>{sentenceIndex}</Container>
+      { DEBUG && <Container component="span" sx={{border: '1px black solid', padding: '1px !important'}}>{sentenceIndex}</Container>}
       <Container component="span" sx={{padding: '0px 2px !important'}}>{children}</Container>
     </Box>
   );
