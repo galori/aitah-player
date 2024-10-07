@@ -98,7 +98,20 @@ module.exports = (env, argv) => {
       }],
       hot: true,
       open: true,
-      historyApiFallback: true
+      historyApiFallback: true,
+      allowedHosts: [
+        'localhost',
+        '.ngrok-free.app',
+        '192.168.1.132'
+      ],
+      client: {
+        webSocketURL: {
+          hostname: '0.0.0.0',
+          pathname: '/ws',
+          port: 8080,
+        },
+      },
+      webSocketServer: 'ws'
     },
     stats: {
       children: true

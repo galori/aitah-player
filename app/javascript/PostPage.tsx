@@ -17,7 +17,7 @@ function PostPage({ version }: { version: React.MutableRefObject<string | null> 
 
   return (
     <Box sx={{ minHeight: "100vh", bgcolor: "grey.100" }}>
-      <PostHeader setCurrentlyReading={setCurrentlyReading} currentlyReading={currentlyReading} title={post?.title} setShowVoiceSelector={setShowVoiceSelector} version={version} />
+      <PostHeader setCurrentlyReading={setCurrentlyReading} currentlyReading={currentlyReading} post={post} setShowVoiceSelector={setShowVoiceSelector} version={version} />
       <Container
         maxWidth={false}
         disableGutters

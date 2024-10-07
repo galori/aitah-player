@@ -1,17 +1,18 @@
 import React, {useState, useMemo, useRef, useEffect} from "react";
 import ReactDOM from "react-dom";
-import { ThemeProvider, createTheme } from "@mui/material/styles";
+import {ThemeProvider, createTheme} from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 import "@fontsource/roboto/300.css";
 import "@fontsource/roboto/400.css";
 import "@fontsource/roboto/500.css";
 import "@fontsource/roboto/700.css";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import {BrowserRouter as Router, Route, Routes} from "react-router-dom";
 import PostsPage from "./PostsPage";
 import PostPage from "./PostPage";
-import { Voice } from "./types";
-import { VoiceContext } from "./VoiceProvider";
+import {Voice} from "./types";
+import {VoiceContext} from "./VoiceProvider";
 import SpeechCore from "./SpeechCore";
+import IOSBridge from './iosBridge';
 
 const theme = createTheme();
 
@@ -32,9 +33,21 @@ function App() {
   }>({});
   const [speechReady, setSpeechReady] = useState<boolean>(false);
   const version = useRef<string | null>(null);
+  const iosBridgeInitialized = useRef<boolean>(false);
 
   const voiceProviderValue = useMemo(
-    () => ({ voice, setVoice, country, setCountry, countries, setCountries, voicesByCountry, setVoicesByCountry, speechReady, setSpeechReady }),
+    () => ({
+      voice,
+      setVoice,
+      country,
+      setCountry,
+      countries,
+      setCountries,
+      voicesByCountry,
+      setVoicesByCountry,
+      speechReady,
+      setSpeechReady
+    }),
     [voice, setVoice, country, setCountry, countries, setCountries, voicesByCountry, setVoicesByCountry, speechReady, setSpeechReady],
   );
 
@@ -45,21 +58,29 @@ function App() {
 
   }, [version]);
 
+  useEffect(() => {
+    if (!iosBridgeInitialized.current) {
+      IOSBridge.setup();
+      iosBridgeInitialized.current = true;
+      console.log('bridge   setup;');
+    }
+  }, [iosBridgeInitialized]);
+
   return (
     <React.StrictMode>
       <VoiceContext.Provider value={voiceProviderValue}>
         <ThemeProvider theme={theme}>
-          <CssBaseline />
+          <CssBaseline/>
           <Router>
             <div>
               <Routes>
-                <Route path="/" element={<PostsPage version={version} />} />
-                <Route path="/post/:id" element={<PostPage version={version} />} />
+                <Route path="/" element={<PostsPage version={version}/>}/>
+                <Route path="/post/:id" element={<PostPage version={version}/>}/>
               </Routes>
             </div>
           </Router>
         </ThemeProvider>
-        <SpeechCore />
+        <SpeechCore/>
       </VoiceContext.Provider>
     </React.StrictMode>
   );
@@ -68,5 +89,5 @@ function App() {
 const root = document.getElementById("root");
 
 document.addEventListener("DOMContentLoaded", () => {
-  ReactDOM.render(<App />, root);
+  ReactDOM.render(<App/>, root);
 });

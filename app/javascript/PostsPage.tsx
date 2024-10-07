@@ -60,6 +60,7 @@ function PostsPage({version}: {version: React.MutableRefObject<string | null>}) 
       <AppBar position="static" className="bg-orange-500">
         <Toolbar>
           <Box sx={{ position: 'absolute', right: '3px', top: '3px' }}>v{version.current}</Box>
+          <Box sx={{ position: 'absolute', left: '0px', top: '3px' }} id="top-label">-</Box>
           <Typography variant="h6" className="text-white">
             Reddit Top Posts
           </Typography>

@@ -36,7 +36,7 @@
     "webpack-dev-server": "^5.1.0"
   },
   "scripts": {
-    "start": "webpack serve --mode development --config webpack.config.js",
+    "start": "webpack serve --host 0.0.0.0 --mode development --config webpack.config.js",
     "build:dev": "yarn type-check && webpack --mode development",
     "build": "yarn type-check && webpack --mode production",
     "type-check": "tsc --noEmit",

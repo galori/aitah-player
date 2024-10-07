@@ -54,7 +54,7 @@ function PostBody({postId, currentlyReading, post, setPost}: PostPageProps) {
     >
       <Typography component="span" sx={{px: 0.2, display: "block"}}>
         {post.sentences.map((sentence, index) => {
-          const sentenceIndex = index + 1;
+          const sentenceIndex = index + 2; // 1 is the title + author
           return (
           <Sentence
             key={`sentence-${sentenceIndex}`} // eslint-disable-line react/no-array-index-key

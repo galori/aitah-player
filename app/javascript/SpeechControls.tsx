@@ -1,6 +1,6 @@
 import React, {useCallback, useEffect, useRef} from "react";
 import {
-  Box,
+  Box, Container,
   SxProps,
   Theme,
   ToggleButton,
@@ -12,14 +12,7 @@ import {playbackButtonStyles, playbackIconStyles} from "./styles";
 import useVoiceContext from "./UseVoiceContext";
 import { SHOULD_AUTO_PLAY } from "./initialize/config";
 import {Voice} from "./types";
-
-declare global {
-  interface Window {
-    EasySpeech: typeof EasySpeech;
-  }
-}
-
-window.EasySpeech = EasySpeech;
+import iOS from "./iOS";
 
 interface SpeechProps {
   sx?: SxProps<Theme>;
@@ -59,7 +52,11 @@ function SpeechControls({
   const readText = useCallback(
     async (text: string) => {
       try {
-        await EasySpeech.speak({text, voice});
+        if (iOS.isWebView()) {
+          await iOS.speak(text);
+        } else {
+          await EasySpeech.speak({text, voice});
+        }
         return true;
       } catch (error) {
         const easySpeechError = error as EasySpeechError;
@@ -77,12 +74,14 @@ function SpeechControls({
       setInitialized,
       setPlaybackState,
       setEasySpeechState,
-      voice,
-    ],
+      voice
+    ]
   );
 
   const playCurrentSentence = useCallback(async () => {
     if (currentlyReading !== null) {
+      setEasySpeechState("playing");
+
       const sentence = sentences[currentlyReading-1];
       const text = sentence.textContent || "n/a";
       const wasSuccessful = await readText(text);
@@ -109,7 +108,11 @@ function SpeechControls({
 
     if (newPlaybackState === "pause") {
       if (easySpeechState === "playing") {
-        EasySpeech.pause();
+        if (iOS.isWebView()) {
+          iOS.pause();
+        } else {
+          EasySpeech.pause();
+        }
         setEasySpeechState("paused");
         setPlaybackState("pause");
       }
@@ -121,11 +124,14 @@ function SpeechControls({
         initializeSpeech();
       } else {
         if (easySpeechState === "stopped") {
-          setEasySpeechState("playing");
           playCurrentSentence().catch(console.error);
         }
         if (easySpeechState === "paused") {
-          EasySpeech.resume();
+          if (iOS.isWebView()) {
+            iOS.continue();
+          } else {
+            EasySpeech.resume();
+          }
           setEasySpeechState("playing");
         }
       }
@@ -133,19 +139,25 @@ function SpeechControls({
 
     if (newPlaybackState === "fast-forward") {
       if (currentlyReading !== null) {
-        setCurrentlyReading(currentlyReading + 1);
-        if (easySpeechState === "paused") {
+        if (easySpeechState === "paused" || easySpeechState === "playing") {
           setEasySpeechState("stopped");
-          EasySpeech.cancel();
+          if (iOS.isWebView()) {
+            iOS.stop();
+          } else {
+            EasySpeech.cancel();
+          }
         }
+        setCurrentlyReading(currentlyReading + 1);
       }
     }
 
     if (newPlaybackState === "fast-rewind") {
       if (currentlyReading !== null && currentlyReading > 0) {
         setCurrentlyReading(currentlyReading - 1);
-        if (easySpeechState === "paused") {
-          setEasySpeechState("stopped");
+        setEasySpeechState("stopped");
+        if (iOS.isWebView()) {
+          iOS.stop();
+        } else {
           EasySpeech.cancel();
         }
       }
@@ -190,6 +202,7 @@ function SpeechControls({
 
   return (
     <Box sx={sx}>
+      <Container sx={{position: 'fixed', left: '2px', top: '2px'}}>{playbackState} / {easySpeechState}</Container>
       <ToggleButtonGroup
         value={playbackState}
         exclusive
