@@ -23,12 +23,14 @@ class PostPresenter < SimpleDelegator
 
   alias_method :sentences, :body_as_speech_segments
 
+  # the #show action is rendered by a .builder file
   def as_json
     {
       id: id,
-      title: title,
+      aaa: title,
       sentences: sentences,
-      author: author
+      aaaaa: 'aaa',
+      score: score
     }
   end
 end
