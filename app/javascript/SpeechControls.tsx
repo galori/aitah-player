@@ -202,7 +202,7 @@ function SpeechControls({
 
   return (
     <Box sx={sx}>
-      <Container sx={{position: 'fixed', left: '2px', top: '2px'}}>{playbackState} / {easySpeechState}</Container>
+      <Container sx={{position: 'fixed', left: '2px', top: '2px'}}>{playbackState} | {easySpeechState} | {currentlyReading} </Container>
       <ToggleButtonGroup
         value={playbackState}
         exclusive

@@ -1,5 +1,5 @@
 import React, {ReactNode} from "react";
-import { Box } from "@mui/material";
+import {Box, Container} from "@mui/material";
 
 interface SentenceProps {
   indexInParent: number;
@@ -23,7 +23,8 @@ function Sentence({ indexInParent, currentlyReading, children, sentenceIndex }: 
         borderLeft: "3px solid blue",
       }}
     >
-      {children}
+      <Container component="span" sx={{border: '1px black solid', padding: '1px !important'}}>{sentenceIndex}</Container>
+      <Container component="span" sx={{padding: '0px 2px !important'}}>{children}</Container>
     </Box>
   );
 }

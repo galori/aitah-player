@@ -30,12 +30,6 @@ function PostHeader({
         sx={{ p: 1, position: "fixed" }}
       >
         <Toolbar sx={{ display: "flex", flexDirection: "column" }}>
-          <Box
-            sx={{ position: "absolute", left: "3px", top: "3px" }}
-            id="top-label"
-          >
-            {currentlyReading}
-          </Box>
           <Box sx={{ position: "absolute", right: "3px", top: "3px" }}>
             v{version.current ?? ""}
           </Box>
