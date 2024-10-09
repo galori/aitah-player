@@ -6,13 +6,14 @@ import {
   ToggleButton,
   ToggleButtonGroup,
 } from "@mui/material";
-import {FastForward, FastRewind, Pause, PlayArrow} from "@mui/icons-material";
 import EasySpeech from "easy-speech";
-import {playbackButtonStyles, playbackIconStyles} from "./styles";
-import useVoiceContext from "./UseVoiceContext";
-import { SHOULD_AUTO_PLAY, DEBUG } from "./initialize/config";
-import {Voice} from "./types";
+import {FastForward, FastRewind, Pause, PlayArrow} from "@mui/icons-material";
+import {SHOULD_AUTO_PLAY, DEBUG} from "./initialize/config";
 import iOS from "./iOS";
+import {playbackButtonStyles, playbackIconStyles} from "./styles";
+import {Voice} from "./types";
+import useVoiceContext from "./UseVoiceContext";
+
 
 interface SpeechProps {
   sx?: SxProps<Theme>;
@@ -20,11 +21,13 @@ interface SpeechProps {
   currentlyReading: number | null;
 }
 
+
 function SpeechControls({
                           sx = {},
                           setCurrentlyReading,
                           currentlyReading,
                         }: SpeechProps) {
+
   type EasySpeechState = "playing" | "paused" | "stopped";
   type PlaybackState = "play" | "pause" | "fast-forward" | "fast-rewind";
 
@@ -37,7 +40,6 @@ function SpeechControls({
     React.useState<boolean>(false);
   const sentences = document.querySelectorAll("div.sentence");
   const {voice} = useVoiceContext();
-
   const prevCurrentlyReadingRef = useRef<number | null>(null);
   const prevVoiceRef = useRef<Voice | null>(null);
 
@@ -78,29 +80,62 @@ function SpeechControls({
     ]
   );
 
+  const initializeSpeech = useCallback(async () => {
+    if (DEBUG) {
+      console.log('initializeSpeech');
+    }
+    if (!initialized) {
+      if (DEBUG) {
+        console.log('initializing');
+      }
+      setInitialized(true);
+      if (iOS.isWebView()) {
+        iOS.stop();
+      }
+      setEasySpeechState("playing");
+      setCurrentlyReading(1);
+    } else if (DEBUG) {
+      console.log('already initialized');
+    }
+  }, [initialized, setCurrentlyReading, setEasySpeechState]);
+
+
+  useEffect(() => {
+    if (voice && prevVoiceRef.current !== voice) {
+      if (!initialized && !attemptedToAutoInitialize) {
+        if (SHOULD_AUTO_PLAY) {
+          setAttemptedToAutoInitialize(true);
+          initializeSpeech().catch(console.error);
+        } else {
+          setPlaybackState("pause");
+          setEasySpeechState("stopped");
+        }
+      }
+    }
+
+    prevVoiceRef.current = voice;
+  }, [voice, initialized, attemptedToAutoInitialize, initializeSpeech]);
+
+
   const playCurrentSentence = useCallback(async () => {
+    console.log('playCurrentSentence. currentlyReading:', currentlyReading);
+
     if (currentlyReading !== null) {
       setEasySpeechState("playing");
+      setPlaybackState("play");
 
-      const sentence = sentences[currentlyReading-1];
+      const sentence = sentences[currentlyReading - 1];
       const text = sentence.textContent ?? "";
       const wasSuccessful = await readText(text);
       if (wasSuccessful) {
-        setPlaybackState("play");
         setCurrentlyReading(currentlyReading + 1);
       }
     } else {
       throw new Error("currentlyReading is null");
     }
+
   }, [currentlyReading, sentences, readText, setCurrentlyReading]);
 
-  const initializeSpeech = useCallback(async () => {
-    if (!initialized) {
-      setInitialized(true);
-      setEasySpeechState("playing");
-      setCurrentlyReading(1);
-    }
-  }, [initialized, setCurrentlyReading, setEasySpeechState]);
 
   const handlePlaybackChange = (
     event: React.MouseEvent<HTMLElement>,
@@ -121,7 +156,6 @@ function SpeechControls({
     }
 
     if (newPlaybackState === "play") {
-      setPlaybackState("play");
       if (!initialized) {
         initializeSpeech();
       } else {
@@ -152,35 +186,7 @@ function SpeechControls({
         setCurrentlyReading(currentlyReading + 1);
       }
     }
-
-    if (newPlaybackState === "fast-rewind") {
-      if (currentlyReading !== null && currentlyReading > 0) {
-        setCurrentlyReading(currentlyReading - 1);
-        setEasySpeechState("stopped");
-        if (iOS.isWebView()) {
-          iOS.stop();
-        } else {
-          EasySpeech.cancel();
-        }
-      }
-    }
   };
-
-  useEffect(() => {
-    if (voice && prevVoiceRef.current !== voice) {
-      if (!initialized && !attemptedToAutoInitialize) {
-        if (SHOULD_AUTO_PLAY) {
-          setAttemptedToAutoInitialize(true);
-          initializeSpeech().catch(console.error);
-        } else {
-          setPlaybackState("pause");
-          setEasySpeechState("stopped");
-        }
-      }
-    }
-
-    prevVoiceRef.current = voice;
-  }, [voice, initialized, attemptedToAutoInitialize, initializeSpeech]);
 
   useEffect(() => {
     if (currentlyReading && currentlyReading !== prevCurrentlyReadingRef.current) {
@@ -204,7 +210,11 @@ function SpeechControls({
 
   return (
     <Box sx={sx}>
-      { DEBUG && <Container sx={{position: 'fixed', left: '2px', top: '2px'}}>{playbackState} | {easySpeechState} | {currentlyReading} </Container> }
+      {DEBUG && <Container sx={{
+        position: 'fixed',
+        left: '2px',
+        top: '2px'
+      }}>{playbackState} | {easySpeechState} | {currentlyReading} </Container>}
       <ToggleButtonGroup
         value={playbackState}
         exclusive
