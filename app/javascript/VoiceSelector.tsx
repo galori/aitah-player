@@ -7,7 +7,19 @@ import {Voice} from "./types";
 import StyledFlagToggleButton from "./styled-components/StyledFlagToggleButton";
 import StyledPaperVoiceSelector from "./styled-components/StyledPaperVoiceSelector";
 import StyledBoxVoiceSelector from "./styled-components/StyledBoxVoiceSelector";
+import iOS from "./iOS";
 
+class IOSDefaultVoice implements Voice {
+  name: string = "iOS Default Voice";
+
+  lang: string = "en-US";
+
+  localService: boolean = false;
+
+  default: boolean = true;
+
+  voiceURI: string = "iOS Default Voice";
+}
 
 function VoiceSelector({visible, onClose,}: { visible: boolean; onClose: () => void; }) {
   const [loading, setLoading] = useState(true);
@@ -17,6 +29,10 @@ function VoiceSelector({visible, onClose,}: { visible: boolean; onClose: () => v
 
   useEffect(() => {
     if (speechReady) {
+      if (iOS.isWebView()) {
+        const iOSVoice:Voice = new IOSDefaultVoice();
+        setVoice(iOSVoice);
+      }
       if (country !== prevCountryRef.current && country !== null) {
         const firstVoiceInCountry = voicesByCountry[country]
           .values()

@@ -89,9 +89,6 @@ function SpeechControls({
         console.log('initializing');
       }
       setInitialized(true);
-      if (iOS.isWebView()) {
-        iOS.stop();
-      }
       setEasySpeechState("playing");
       setCurrentlyReading(1);
     } else if (DEBUG) {
@@ -174,17 +171,22 @@ function SpeechControls({
     }
 
     if (newPlaybackState === "fast-forward") {
-      if (currentlyReading !== null) {
-        if (easySpeechState === "paused" || easySpeechState === "playing") {
-          setEasySpeechState("stopped");
-          if (iOS.isWebView()) {
-            iOS.stop();
-          } else {
-            EasySpeech.cancel();
+      setPlaybackState("play");
+      const fastForward = () => {
+        if (currentlyReading !== null) {
+          if (easySpeechState === "paused" || easySpeechState === "playing") {
+            setEasySpeechState("stopped");
+            if (iOS.isWebView()) {
+              iOS.stop();
+            } else {
+              EasySpeech.cancel();
+            }
           }
+          setCurrentlyReading(currentlyReading + 1);
         }
-        setCurrentlyReading(currentlyReading + 1);
       }
+
+      setTimeout(fastForward, 10000);
     }
   };
 
