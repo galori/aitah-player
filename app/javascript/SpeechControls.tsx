@@ -42,6 +42,7 @@ function SpeechControls({
   const {voice} = useVoiceContext();
   const prevCurrentlyReadingRef = useRef<number | null>(null);
   const prevVoiceRef = useRef<Voice | null>(null);
+  const latestReadTextIdRef = useRef<number>(0); // Ref to track the latest readText call
 
   if (!voice) {
     throw new Error("VoiceContext voice is null");
@@ -53,13 +54,32 @@ function SpeechControls({
 
   const readText = useCallback(
     async (text: string) => {
+      latestReadTextIdRef.current += 1;
+      const currentReadId = latestReadTextIdRef.current;
+
       try {
         if (iOS.isWebView()) {
-          await iOS.speak(text);
-        } else {
+          const wasSuccessful = await new Promise<boolean>((resolve) => {
+            const handler = () => {
+              if (currentReadId === latestReadTextIdRef.current) {
+                console.log('resolving readText with true');
+                resolve(true);
+              } else {
+                console.log('resolving readText with false');
+                resolve(false);
+              }
+              window.removeEventListener("speech-done", handler);
+            };
+            window.addEventListener("speech-done", handler);
+            if (DEBUG) console.log("speak: ", text);
+            window.webkit.messageHandlers.speakHandler.postMessage(text);
+          });
+          console.log('readText returning wasSuccessful:', wasSuccessful);
+          return wasSuccessful;
+        } 
           await EasySpeech.speak({text, voice});
-        }
-        return true;
+          return true;
+        
       } catch (error) {
         const easySpeechError = error as EasySpeechError;
         if (easySpeechError.error === "not-allowed") {
@@ -125,7 +145,10 @@ function SpeechControls({
       const text = sentence.textContent ?? "";
       const wasSuccessful = await readText(text);
       if (wasSuccessful) {
+        console.log('readText wasSuccessful:', wasSuccessful, 'increasing currentlyReading from', currentlyReading, 'to', currentlyReading + 1);
         setCurrentlyReading(currentlyReading + 1);
+      } else {
+        console.log('readText wasSuccessful:', wasSuccessful, 'not increasing currentlyReading');
       }
     } else {
       throw new Error("currentlyReading is null");
@@ -171,26 +194,15 @@ function SpeechControls({
     }
 
     if (newPlaybackState === "fast-forward") {
+      console.log('fast-forward. currentlyReading:', currentlyReading);
       setPlaybackState("play");
-      const fastForward = () => {
-        if (currentlyReading !== null) {
-          if (easySpeechState === "paused" || easySpeechState === "playing") {
-            setEasySpeechState("stopped");
-            if (iOS.isWebView()) {
-              iOS.stop();
-            } else {
-              EasySpeech.cancel();
-            }
-          }
-          setCurrentlyReading(currentlyReading + 1);
-        }
-      }
 
-      setTimeout(fastForward, 10000);
+      setCurrentlyReading((currentlyReading ?? 0) + 1);
     }
   };
 
   useEffect(() => {
+    console.log('useEffect for currentlyReading = ', currentlyReading, 'prevCurrentlyReadingRef.current = ', prevCurrentlyReadingRef.current);
     if (currentlyReading && currentlyReading !== prevCurrentlyReadingRef.current) {
       if (currentlyReading >= sentences.length) {
         setPlaybackState("pause");
