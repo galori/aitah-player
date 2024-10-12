@@ -73,6 +73,7 @@
     <orderEntry type="library" scope="PROVIDED" name="irb (v1.14.0, rbenv: 3.1.6) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="jbuilder (v2.12.0, rbenv: 3.1.6) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="jsbundling-rails (v1.3.1, rbenv: 3.1.6) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="json-pointer (v0.0.1, rbenv: 3.1.6) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="launchy (v2.5.0, rbenv: 3.1.6) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="logger (v1.6.0, rbenv: 3.1.6) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="loofah (v2.22.0, rbenv: 3.1.6) [gem]" level="application" />

@@ -13,6 +13,7 @@ gem "tzinfo-data", platforms: %i[ windows jruby ]
 gem "bootsnap", require: false
 gem "jsbundling-rails", "~> 1.3"
 gem "rest-client", "~> 2.1"
+gem "json-pointer"
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

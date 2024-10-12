@@ -1,9 +1,9 @@
 import React from "react";
-import { AppBar, Box, Paper, Toolbar, Typography } from "@mui/material";
+import { AppBar, Box, Paper, Toolbar } from "@mui/material";
 import SpeechControls from "./SpeechControls";
 import CurrentVoice from "./CurrentVoice";
 import { Post } from "./types";
-import Sentence from "./Sentence";
+import PostTitle from "./components/PostTitle";
 
 export interface PostHeaderProps {
   setCurrentlyReading: (index: number | null) => void;
@@ -48,15 +48,8 @@ function PostHeader({
         </Toolbar>
       </AppBar>
       <Paper sx={{ m: 1, px: 1, mt: 0, paddingTop: "129px" }}>
-        <Typography variant="h6" className="text-white">
-          <Sentence
-            indexInParent={0}
-            currentlyReading={currentlyReading}
-            sentenceIndex={1}
-          >
-            <strong>{post.title}</strong> by {post.author} ({post.score} votes)
-          </Sentence>
-        </Typography>
+        <PostTitle currentlyReading={currentlyReading} post={post} />
+
       </Paper>
     </>
   );

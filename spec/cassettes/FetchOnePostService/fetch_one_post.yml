@@ -1,0 +1,1902 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://www.reddit.com/r/aitah/comments/1g1m2eo.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - "*/*"
+      User-Agent:
+      - rest-client/2.1.0 (darwin23 arm64) ruby/3.1.6p260
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Host:
+      - www.reddit.com
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '147945'
+      X-Ua-Compatible:
+      - IE=edge
+      Content-Type:
+      - application/json; charset=UTF-8
+      Expires:
+      - "-1"
+      Cache-Control:
+      - private, s-maxage=0, max-age=0, must-revalidate, no-store
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Expose-Headers:
+      - X-Moose
+      X-Ratelimit-Used:
+      - '1'
+      X-Ratelimit-Remaining:
+      - '99.0'
+      X-Ratelimit-Reset:
+      - '437'
+      Accept-Ranges:
+      - bytes
+      Date:
+      - Sat, 12 Oct 2024 01:42:42 GMT
+      Via:
+      - 1.1 varnish
+      Vary:
+      - accept-encoding
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubdomains
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      Set-Cookie:
+      - csv=2; Max-Age=63072000; Domain=.reddit.com; Path=/; Secure; SameSite=None
+      - edgebucket=cBDVRXvtsTfJA5bgPj; Domain=reddit.com; Max-Age=63071999; Path=/;  secure
+      - loid=000000001anrcq67ca.2.1728697362134.Z0FBQUFBQm5DZFFTWXgyY29pYXlsSU9Ec09Fb0tVVXBNb0FMLXRyMm91VTROaFNkNHZsZzhORzVwd3JjbkZHV3c4MmZRTmV2ckE1Q18wTGhZMGlJdklsRmEzQThZYVc4T1hnVWJPUjJGWEl3REZocUV5R0dxbUdqVzhtNzZ2dHpjRFRNX2JWYk83cnU;
+        Domain=reddit.com; Max-Age=63071999; Path=/; expires=Mon, 12-Oct-2026 01:42:42
+        GMT; secure; SameSite=None; Secure
+      - session_tracker=jinpjfmrnhlhdnmjpr.0.1728697362144.Z0FBQUFBQm5DZFFTZndqRFRxUVJSLXdZQXdpbVRqV2Vvd1J6Z0lDQXY3MHlQWXh6X2lhUnVhRW5wWGJpaUxVVnlOelZlZDRtTUkyTmJ0cmtma1J2M2dHQTZ3SkR1b2FBOWR5NTlpcFFjLUNJbGxNMTltdFA4LU9aYTlfdXlUOW01VElLTl9jU2VQeGg;
+        Domain=reddit.com; Max-Age=7199; Path=/; expires=Sat, 12-Oct-2024 03:42:42
+        GMT; secure; SameSite=None; Secure
+      Server:
+      - snooserv
+      Report-To:
+      - '{"group": "w3-reporting-nel", "max_age": 14400, "include_subdomains": true,  "endpoints":
+        [{ "url": "https://w3-reporting-nel.reddit.com/reports" }]}, {"group": "w3-reporting",
+        "max_age": 14400, "include_subdomains": true, "endpoints": [{ "url": "https://w3-reporting.reddit.com/reports"
+        }]}, {"group": "w3-reporting-csp", "max_age": 14400, "include_subdomains":
+        true, "endpoints": [{ "url": "https://w3-reporting-csp.reddit.com/reports"
+        }]}'
+      Nel:
+      - '{"report_to": "w3-reporting-nel", "max_age": 14400, "include_subdomains":
+        false, "success_fraction": 1.0, "failure_fraction": 1.0}'
+    body:
+      encoding: ASCII-8BIT
+      string: '[{"kind": "Listing", "data": {"after": null, "dist": 1, "modhash":
+        "", "geo_filter": "", "children": [{"kind": "t3", "data": {"approved_at_utc":
+        null, "subreddit": "AITAH", "selftext": "I (26F) have been dating my boyfriend,
+        Tom (28M), for almost three years. About two years ago, we moved in together
+        in the city, trying to start fresh and build careers for ourselves. Tom worked
+        in marketing while I worked as an event planner. Things were going pretty
+        well for both of us until about six months ago when Tom lost his job due to
+        downsizing. He\u2019s been really stressed out since then, struggling to find
+        work and becoming increasingly anxious. I\u2019ve been doing my best to support
+        him, covering more of our rent and bills while also encouraging him to keep
+        applying for jobs.\n\nRecently, Tom came to me with the idea that we should
+        move back to our hometown because the cost of living is cheaper, and he can
+        stay with his parents while job hunting. I get that he\u2019s overwhelmed,
+        but I\u2019ve built something here. I\u2019ve finally gotten a promotion at
+        my job, and I\u2019m genuinely happy with where I am. Leaving everything behind
+        to move back just doesn\u2019t feel like the right choice for me.\n\nTom got
+        upset when I told him I didn\u2019t want to move. He started saying I wasn\u2019t
+        supporting him and that I could easily pay for the move since I\u2019m still
+        working and have some savings. I offered to continue covering more of our
+        bills while he looked for something new, but he insists that moving back is
+        the only solution. It\u2019s like he\u2019s not considering how much I\u2019ve
+        worked for my career here or what I\u2019d be giving up. Now there\u2019s
+        this awkward tension between us. He\u2019s been cold and distant, like I\u2019ve
+        somehow failed him by not wanting to uproot my life.\n\nI love Tom, but it
+        feels unfair that I should have to give up everything I\u2019ve built just
+        because he\u2019s in a tough spot. Am I the asshole for not wanting to move
+        and refusing to pay for his way back home?", "user_reports": [], "saved":
+        false, "mod_reason_title": null, "gilded": 0, "clicked": false, "title": "AITA
+        for refusing to help my boyfriend move back home after he lost his job?",
+        "link_flair_richtext": [], "subreddit_name_prefixed": "r/AITAH", "hidden":
+        false, "pwls": 6, "link_flair_css_class": null, "downs": 0, "thumbnail_height":
+        null, "top_awarded_type": null, "parent_whitelist_status": "all_ads", "hide_score":
+        false, "name": "t3_1g1m2eo", "quarantine": false, "link_flair_text_color":
+        "dark", "upvote_ratio": 0.96, "author_flair_background_color": null, "subreddit_type":
+        "public", "ups": 60, "total_awards_received": 0, "media_embed": {}, "thumbnail_width":
+        null, "author_flair_template_id": null, "is_original_content": false, "author_fullname":
+        "t2_12l6ibpyy6", "secure_media": null, "is_reddit_media_domain": false, "is_meta":
+        false, "category": null, "secure_media_embed": {}, "link_flair_text": null,
+        "can_mod_post": false, "score": 60, "approved_by": null, "is_created_from_ads_ui":
+        false, "author_premium": false, "thumbnail": "self", "edited": false, "author_flair_css_class":
+        null, "author_flair_richtext": [], "gildings": {}, "content_categories": null,
+        "is_self": true, "mod_note": null, "created": 1728686224.0, "link_flair_type":
+        "text", "wls": 6, "removed_by_category": null, "banned_by": null, "author_flair_type":
+        "text", "domain": "self.AITAH", "allow_live_comments": false, "selftext_html":
+        "&lt;!-- SC_OFF --&gt;&lt;div class=\"md\"&gt;&lt;p&gt;I (26F) have been dating
+        my boyfriend, Tom (28M), for almost three years. About two years ago, we moved
+        in together in the city, trying to start fresh and build careers for ourselves.
+        Tom worked in marketing while I worked as an event planner. Things were going
+        pretty well for both of us until about six months ago when Tom lost his job
+        due to downsizing. He\u2019s been really stressed out since then, struggling
+        to find work and becoming increasingly anxious. I\u2019ve been doing my best
+        to support him, covering more of our rent and bills while also encouraging
+        him to keep applying for jobs.&lt;/p&gt;\n\n&lt;p&gt;Recently, Tom came to
+        me with the idea that we should move back to our hometown because the cost
+        of living is cheaper, and he can stay with his parents while job hunting.
+        I get that he\u2019s overwhelmed, but I\u2019ve built something here. I\u2019ve
+        finally gotten a promotion at my job, and I\u2019m genuinely happy with where
+        I am. Leaving everything behind to move back just doesn\u2019t feel like the
+        right choice for me.&lt;/p&gt;\n\n&lt;p&gt;Tom got upset when I told him I
+        didn\u2019t want to move. He started saying I wasn\u2019t supporting him and
+        that I could easily pay for the move since I\u2019m still working and have
+        some savings. I offered to continue covering more of our bills while he looked
+        for something new, but he insists that moving back is the only solution. It\u2019s
+        like he\u2019s not considering how much I\u2019ve worked for my career here
+        or what I\u2019d be giving up. Now there\u2019s this awkward tension between
+        us. He\u2019s been cold and distant, like I\u2019ve somehow failed him by
+        not wanting to uproot my life.&lt;/p&gt;\n\n&lt;p&gt;I love Tom, but it feels
+        unfair that I should have to give up everything I\u2019ve built just because
+        he\u2019s in a tough spot. Am I the asshole for not wanting to move and refusing
+        to pay for his way back home?&lt;/p&gt;\n&lt;/div&gt;&lt;!-- SC_ON --&gt;",
+        "likes": null, "suggested_sort": null, "banned_at_utc": null, "view_count":
+        null, "archived": false, "no_follow": false, "is_crosspostable": false, "pinned":
+        false, "over_18": false, "all_awardings": [], "awarders": [], "media_only":
+        false, "can_gild": false, "spoiler": false, "locked": false, "author_flair_text":
+        null, "treatment_tags": [], "visited": false, "removed_by": null, "num_reports":
+        null, "distinguished": null, "subreddit_id": "t5_446kys", "author_is_blocked":
+        false, "mod_reason_by": null, "removal_reason": null, "link_flair_background_color":
+        "", "id": "1g1m2eo", "is_robot_indexable": true, "num_duplicates": 0, "report_reasons":
+        null, "author": "Particular_Lime_5478", "discussion_type": null, "num_comments":
+        64, "send_replies": true, "media": null, "contest_mode": false, "author_patreon_flair":
+        false, "author_flair_text_color": null, "permalink": "/r/AITAH/comments/1g1m2eo/aita_for_refusing_to_help_my_boyfriend_move_back/",
+        "whitelist_status": "all_ads", "stickied": false, "url": "https://www.reddit.com/r/AITAH/comments/1g1m2eo/aita_for_refusing_to_help_my_boyfriend_move_back/",
+        "subreddit_subscribers": 2404856, "created_utc": 1728686224.0, "num_crossposts":
+        0, "mod_reports": [], "is_video": false}}], "before": null}}, {"kind": "Listing",
+        "data": {"after": null, "dist": null, "modhash": "", "geo_filter": "", "children":
+        [{"kind": "t1", "data": {"subreddit_id": "t5_446kys", "approved_at_utc": null,
+        "author_is_blocked": false, "comment_type": null, "awarders": [], "mod_reason_by":
+        null, "banned_by": null, "author_flair_type": "text", "total_awards_received":
+        0, "subreddit": "AITAH", "author_flair_template_id": null, "likes": null,
+        "replies": {"kind": "Listing", "data": {"after": null, "dist": null, "modhash":
+        "", "geo_filter": "", "children": [{"kind": "t1", "data": {"subreddit_id":
+        "t5_446kys", "approved_at_utc": null, "author_is_blocked": false, "comment_type":
+        null, "awarders": [], "mod_reason_by": null, "banned_by": null, "author_flair_type":
+        "text", "total_awards_received": 0, "subreddit": "AITAH", "author_flair_template_id":
+        null, "likes": null, "replies": {"kind": "Listing", "data": {"after": null,
+        "dist": null, "modhash": "", "geo_filter": "", "children": [{"kind": "t1",
+        "data": {"subreddit_id": "t5_446kys", "approved_at_utc": null, "author_is_blocked":
+        false, "comment_type": null, "awarders": [], "mod_reason_by": null, "banned_by":
+        null, "author_flair_type": "text", "total_awards_received": 0, "subreddit":
+        "AITAH", "author_flair_template_id": null, "likes": null, "replies": "", "user_reports":
+        [], "saved": false, "id": "lrhl8f4", "banned_at_utc": null, "mod_reason_title":
+        null, "gilded": 0, "archived": false, "collapsed_reason_code": null, "no_follow":
+        false, "author": "bino0526", "can_mod_post": false, "send_replies": true,
+        "parent_id": "t1_lrhho6w", "score": 28, "author_fullname": "t2_114o40i3wg",
+        "removal_reason": null, "approved_by": null, "mod_note": null, "all_awardings":
+        [], "body": "Let Tom move back home. \nAsk yourself if you will have the same
+        opportunities there that you currently have. If the answer is NO, then you
+        know that moving is not a viable option for you.", "edited": false, "top_awarded_type":
+        null, "downs": 0, "author_flair_css_class": null, "name": "t1_lrhl8f4", "is_submitter":
+        false, "collapsed": false, "author_flair_richtext": [], "author_patreon_flair":
+        false, "body_html": "&lt;div class=\"md\"&gt;&lt;p&gt;Let Tom move back home.
+        \nAsk yourself if you will have the same opportunities there that you currently
+        have. If the answer is NO, then you know that moving is not a viable option
+        for you.&lt;/p&gt;\n&lt;/div&gt;", "gildings": {}, "collapsed_reason": null,
+        "distinguished": null, "associated_award": null, "stickied": false, "author_premium":
+        false, "can_gild": false, "link_id": "t3_1g1m2eo", "unrepliable_reason": null,
+        "author_flair_text_color": null, "score_hidden": false, "permalink": "/r/AITAH/comments/1g1m2eo/aita_for_refusing_to_help_my_boyfriend_move_back/lrhl8f4/",
+        "subreddit_type": "public", "locked": false, "report_reasons": null, "created":
+        1728688463.0, "author_flair_text": null, "treatment_tags": [], "created_utc":
+        1728688463.0, "subreddit_name_prefixed": "r/AITAH", "controversiality": 0,
+        "depth": 2, "author_flair_background_color": null, "collapsed_because_crowd_control":
+        null, "mod_reports": [], "num_reports": null, "ups": 28}}, {"kind": "t1",
+        "data": {"subreddit_id": "t5_446kys", "approved_at_utc": null, "author_is_blocked":
+        false, "comment_type": null, "awarders": [], "mod_reason_by": null, "banned_by":
+        null, "author_flair_type": "text", "total_awards_received": 0, "subreddit":
+        "AITAH", "author_flair_template_id": null, "likes": null, "replies": "", "user_reports":
+        [], "saved": false, "id": "lrhjo5z", "banned_at_utc": null, "mod_reason_title":
+        null, "gilded": 0, "archived": false, "collapsed_reason_code": null, "no_follow":
+        false, "author": "Brilliant-Square3260", "can_mod_post": false, "send_replies":
+        true, "parent_id": "t1_lrhho6w", "score": 13, "author_fullname": "t2_dqotw1v9",
+        "removal_reason": null, "approved_by": null, "mod_note": null, "all_awardings":
+        [], "body": "My collecting unemployment is more important than your job?",
+        "edited": false, "top_awarded_type": null, "downs": 0, "author_flair_css_class":
+        null, "name": "t1_lrhjo5z", "is_submitter": false, "collapsed": false, "author_flair_richtext":
+        [], "author_patreon_flair": false, "body_html": "&lt;div class=\"md\"&gt;&lt;p&gt;My
+        collecting unemployment is more important than your job?&lt;/p&gt;\n&lt;/div&gt;",
+        "gildings": {}, "collapsed_reason": null, "distinguished": null, "associated_award":
+        null, "stickied": false, "author_premium": false, "can_gild": false, "link_id":
+        "t3_1g1m2eo", "unrepliable_reason": null, "author_flair_text_color": null,
+        "score_hidden": false, "permalink": "/r/AITAH/comments/1g1m2eo/aita_for_refusing_to_help_my_boyfriend_move_back/lrhjo5z/",
+        "subreddit_type": "public", "locked": false, "report_reasons": null, "created":
+        1728687840.0, "author_flair_text": null, "treatment_tags": [], "created_utc":
+        1728687840.0, "subreddit_name_prefixed": "r/AITAH", "controversiality": 0,
+        "depth": 2, "author_flair_background_color": null, "collapsed_because_crowd_control":
+        null, "mod_reports": [], "num_reports": null, "ups": 13}}, {"kind": "t1",
+        "data": {"subreddit_id": "t5_446kys", "approved_at_utc": null, "author_is_blocked":
+        false, "comment_type": null, "awarders": [], "mod_reason_by": null, "banned_by":
+        null, "author_flair_type": "text", "total_awards_received": 0, "subreddit":
+        "AITAH", "author_flair_template_id": null, "likes": null, "replies": "", "user_reports":
+        [], "saved": false, "id": "lrho6ot", "banned_at_utc": null, "mod_reason_title":
+        null, "gilded": 0, "archived": false, "collapsed_reason_code": null, "no_follow":
+        false, "author": "Fredredphooey", "can_mod_post": false, "send_replies": true,
+        "parent_id": "t1_lrhho6w", "score": 8, "author_fullname": "t2_1mfduruc", "removal_reason":
+        null, "approved_by": null, "mod_note": null, "all_awardings": [], "body":
+        "Unfortunately, that''s the reality of it. He doesn''t care about your success
+        except as it allows you to pay for his life, his move, and his needs. Please
+        find a new partner who isn''t a gold diggering bum.\u00a0", "edited": false,
+        "top_awarded_type": null, "downs": 0, "author_flair_css_class": null, "name":
+        "t1_lrho6ot", "is_submitter": false, "collapsed": false, "author_flair_richtext":
+        [], "author_patreon_flair": false, "body_html": "&lt;div class=\"md\"&gt;&lt;p&gt;Unfortunately,
+        that&amp;#39;s the reality of it. He doesn&amp;#39;t care about your success
+        except as it allows you to pay for his life, his move, and his needs. Please
+        find a new partner who isn&amp;#39;t a gold diggering bum.\u00a0&lt;/p&gt;\n&lt;/div&gt;",
+        "gildings": {}, "collapsed_reason": null, "distinguished": null, "associated_award":
+        null, "stickied": false, "author_premium": false, "can_gild": false, "link_id":
+        "t3_1g1m2eo", "unrepliable_reason": null, "author_flair_text_color": null,
+        "score_hidden": false, "permalink": "/r/AITAH/comments/1g1m2eo/aita_for_refusing_to_help_my_boyfriend_move_back/lrho6ot/",
+        "subreddit_type": "public", "locked": false, "report_reasons": null, "created":
+        1728689649.0, "author_flair_text": null, "treatment_tags": [], "created_utc":
+        1728689649.0, "subreddit_name_prefixed": "r/AITAH", "controversiality": 0,
+        "depth": 2, "author_flair_background_color": null, "collapsed_because_crowd_control":
+        null, "mod_reports": [], "num_reports": null, "ups": 8}}, {"kind": "t1", "data":
+        {"subreddit_id": "t5_446kys", "approved_at_utc": null, "author_is_blocked":
+        false, "comment_type": null, "awarders": [], "mod_reason_by": null, "banned_by":
+        null, "author_flair_type": "text", "total_awards_received": 0, "subreddit":
+        "AITAH", "author_flair_template_id": null, "likes": null, "replies": "", "user_reports":
+        [], "saved": false, "id": "lrhoi27", "banned_at_utc": null, "mod_reason_title":
+        null, "gilded": 0, "archived": false, "collapsed_reason_code": null, "no_follow":
+        false, "author": "JadieJang", "can_mod_post": false, "send_replies": true,
+        "parent_id": "t1_lrhho6w", "score": 9, "author_fullname": "t2_gosn2fhj", "removal_reason":
+        null, "approved_by": null, "mod_note": null, "all_awardings": [], "body":
+        "OP, everyone seems to be dancing around the real issue though, which is that
+        your relationship is over if you don''t go with him. Accept that, send him
+        off, with thanks for the good times, and get on with your upward trajectory.",
+        "edited": false, "top_awarded_type": null, "downs": 0, "author_flair_css_class":
+        null, "name": "t1_lrhoi27", "is_submitter": false, "collapsed": false, "author_flair_richtext":
+        [], "author_patreon_flair": false, "body_html": "&lt;div class=\"md\"&gt;&lt;p&gt;OP,
+        everyone seems to be dancing around the real issue though, which is that your
+        relationship is over if you don&amp;#39;t go with him. Accept that, send him
+        off, with thanks for the good times, and get on with your upward trajectory.&lt;/p&gt;\n&lt;/div&gt;",
+        "gildings": {}, "collapsed_reason": null, "distinguished": null, "associated_award":
+        null, "stickied": false, "author_premium": false, "can_gild": false, "link_id":
+        "t3_1g1m2eo", "unrepliable_reason": null, "author_flair_text_color": null,
+        "score_hidden": false, "permalink": "/r/AITAH/comments/1g1m2eo/aita_for_refusing_to_help_my_boyfriend_move_back/lrhoi27/",
+        "subreddit_type": "public", "locked": false, "report_reasons": null, "created":
+        1728689778.0, "author_flair_text": null, "treatment_tags": [], "created_utc":
+        1728689778.0, "subreddit_name_prefixed": "r/AITAH", "controversiality": 0,
+        "depth": 2, "author_flair_background_color": null, "collapsed_because_crowd_control":
+        null, "mod_reports": [], "num_reports": null, "ups": 9}}, {"kind": "t1", "data":
+        {"subreddit_id": "t5_446kys", "approved_at_utc": null, "author_is_blocked":
+        false, "comment_type": null, "awarders": [], "mod_reason_by": null, "banned_by":
+        null, "author_flair_type": "text", "total_awards_received": 0, "subreddit":
+        "AITAH", "author_flair_template_id": null, "likes": null, "replies": "", "user_reports":
+        [], "saved": false, "id": "lri5jwf", "banned_at_utc": null, "mod_reason_title":
+        null, "gilded": 0, "archived": false, "collapsed_reason_code": null, "no_follow":
+        true, "author": "Thisisthenextone", "can_mod_post": false, "send_replies":
+        true, "parent_id": "t1_lrhho6w", "score": 1, "author_fullname": "t2_bdxhqmvqk",
+        "removal_reason": null, "approved_by": null, "mod_note": null, "all_awardings":
+        [], "body": "So [what about your husband](https://old.reddit.com/r/AITAH/comments/1fzx82d/aita_for_refusing_to_follow_my_husbands_strict/)?",
+        "edited": false, "top_awarded_type": null, "downs": 0, "author_flair_css_class":
+        null, "name": "t1_lri5jwf", "is_submitter": false, "collapsed": false, "author_flair_richtext":
+        [], "author_patreon_flair": false, "body_html": "&lt;div class=\"md\"&gt;&lt;p&gt;So
+        &lt;a href=\"https://old.reddit.com/r/AITAH/comments/1fzx82d/aita_for_refusing_to_follow_my_husbands_strict/\"&gt;what
+        about your husband&lt;/a&gt;?&lt;/p&gt;\n&lt;/div&gt;", "gildings": {}, "collapsed_reason":
+        null, "distinguished": null, "associated_award": null, "stickied": false,
+        "author_premium": false, "can_gild": false, "link_id": "t3_1g1m2eo", "unrepliable_reason":
+        null, "author_flair_text_color": null, "score_hidden": false, "permalink":
+        "/r/AITAH/comments/1g1m2eo/aita_for_refusing_to_help_my_boyfriend_move_back/lri5jwf/",
+        "subreddit_type": "public", "locked": false, "report_reasons": null, "created":
+        1728696895.0, "author_flair_text": null, "treatment_tags": [], "created_utc":
+        1728696895.0, "subreddit_name_prefixed": "r/AITAH", "controversiality": 0,
+        "depth": 2, "author_flair_background_color": null, "collapsed_because_crowd_control":
+        null, "mod_reports": [], "num_reports": null, "ups": 1}}], "before": null}},
+        "user_reports": [], "saved": false, "id": "lrhho6w", "banned_at_utc": null,
+        "mod_reason_title": null, "gilded": 0, "archived": false, "collapsed_reason_code":
+        null, "no_follow": false, "author": "Particular_Lime_5478", "can_mod_post":
+        false, "created_utc": 1728687046.0, "send_replies": true, "parent_id": "t1_lrhg8tn",
+        "score": 48, "author_fullname": "t2_12l6ibpyy6", "removal_reason": null, "approved_by":
+        null, "mod_note": null, "all_awardings": [], "body": "I won''t. I have worked
+        too hard and it hurts to see that he doesn''t seem to care about my personal
+        achievements only thinking about himself", "edited": false, "top_awarded_type":
+        null, "author_flair_css_class": null, "name": "t1_lrhho6w", "is_submitter":
+        true, "downs": 0, "author_flair_richtext": [], "author_patreon_flair": false,
+        "body_html": "&lt;div class=\"md\"&gt;&lt;p&gt;I won&amp;#39;t. I have worked
+        too hard and it hurts to see that he doesn&amp;#39;t seem to care about my
+        personal achievements only thinking about himself&lt;/p&gt;\n&lt;/div&gt;",
+        "gildings": {}, "collapsed_reason": null, "distinguished": null, "associated_award":
+        null, "stickied": false, "author_premium": false, "can_gild": false, "link_id":
+        "t3_1g1m2eo", "unrepliable_reason": null, "author_flair_text_color": null,
+        "score_hidden": false, "permalink": "/r/AITAH/comments/1g1m2eo/aita_for_refusing_to_help_my_boyfriend_move_back/lrhho6w/",
+        "subreddit_type": "public", "locked": false, "report_reasons": null, "created":
+        1728687046.0, "author_flair_text": null, "treatment_tags": [], "collapsed":
+        false, "subreddit_name_prefixed": "r/AITAH", "controversiality": 0, "depth":
+        1, "author_flair_background_color": null, "collapsed_because_crowd_control":
+        null, "mod_reports": [], "num_reports": null, "ups": 48}}, {"kind": "t1",
+        "data": {"subreddit_id": "t5_446kys", "approved_at_utc": null, "author_is_blocked":
+        false, "comment_type": null, "awarders": [], "mod_reason_by": null, "banned_by":
+        null, "author_flair_type": "text", "total_awards_received": 0, "subreddit":
+        "AITAH", "author_flair_template_id": null, "likes": null, "replies": "", "user_reports":
+        [], "saved": false, "id": "lrhnocj", "banned_at_utc": null, "mod_reason_title":
+        null, "gilded": 0, "archived": false, "collapsed_reason_code": null, "no_follow":
+        false, "author": "FunSprinkles8", "can_mod_post": false, "created_utc": 1728689439.0,
+        "send_replies": true, "parent_id": "t1_lrhg8tn", "score": 4, "author_fullname":
+        "t2_u3mqlsi", "removal_reason": null, "approved_by": null, "mod_note": null,
+        "all_awardings": [], "body": "&gt;I offered to continue covering more of our
+        bills while he looked for something new, but he insists that moving back is
+        the only solution.\n\nExactly, don''t let him gaslight you OP. You''ve provided
+        a completely reasonable solution. Moving back is not the only one. And him
+        claiming you won''t support him, is utter BS. You are offering to support
+        him. He just isn''t getting the support how HE wants it. \n\nIt sucks he is
+        being a selfish a-hole, but him being stressed out, doesn''t excuse his behavior.
+        NTA, and keep holding your ground.", "edited": false, "top_awarded_type":
+        null, "author_flair_css_class": null, "name": "t1_lrhnocj", "is_submitter":
+        false, "downs": 0, "author_flair_richtext": [], "author_patreon_flair": false,
+        "body_html": "&lt;div class=\"md\"&gt;&lt;blockquote&gt;\n&lt;p&gt;I offered
+        to continue covering more of our bills while he looked for something new,
+        but he insists that moving back is the only solution.&lt;/p&gt;\n&lt;/blockquote&gt;\n\n&lt;p&gt;Exactly,
+        don&amp;#39;t let him gaslight you OP. You&amp;#39;ve provided a completely
+        reasonable solution. Moving back is not the only one. And him claiming you
+        won&amp;#39;t support him, is utter BS. You are offering to support him. He
+        just isn&amp;#39;t getting the support how HE wants it. &lt;/p&gt;\n\n&lt;p&gt;It
+        sucks he is being a selfish a-hole, but him being stressed out, doesn&amp;#39;t
+        excuse his behavior. NTA, and keep holding your ground.&lt;/p&gt;\n&lt;/div&gt;",
+        "gildings": {}, "collapsed_reason": null, "distinguished": null, "associated_award":
+        null, "stickied": false, "author_premium": false, "can_gild": false, "link_id":
+        "t3_1g1m2eo", "unrepliable_reason": null, "author_flair_text_color": null,
+        "score_hidden": false, "permalink": "/r/AITAH/comments/1g1m2eo/aita_for_refusing_to_help_my_boyfriend_move_back/lrhnocj/",
+        "subreddit_type": "public", "locked": false, "report_reasons": null, "created":
+        1728689439.0, "author_flair_text": null, "treatment_tags": [], "collapsed":
+        false, "subreddit_name_prefixed": "r/AITAH", "controversiality": 0, "depth":
+        1, "author_flair_background_color": null, "collapsed_because_crowd_control":
+        null, "mod_reports": [], "num_reports": null, "ups": 4}}, {"kind": "t1", "data":
+        {"subreddit_id": "t5_446kys", "approved_at_utc": null, "author_is_blocked":
+        false, "comment_type": null, "awarders": [], "mod_reason_by": null, "banned_by":
+        null, "author_flair_type": "text", "total_awards_received": 0, "subreddit":
+        "AITAH", "author_flair_template_id": null, "likes": null, "replies": "", "user_reports":
+        [], "saved": false, "id": "lrhtk4y", "banned_at_utc": null, "mod_reason_title":
+        null, "gilded": 0, "archived": false, "collapsed_reason_code": null, "no_follow":
+        true, "author": "Alishas_Horrorr", "can_mod_post": false, "created_utc": 1728691863.0,
+        "send_replies": true, "parent_id": "t1_lrhg8tn", "score": 2, "author_fullname":
+        "t2_17o8qfwk0a", "removal_reason": null, "approved_by": null, "mod_note":
+        null, "all_awardings": [], "body": "Exactly, don''t let anyone make you feel
+        like you have to sacrifice your career and success for a relationship. Keep
+        hustling and prioritizing your goals.", "edited": false, "top_awarded_type":
+        null, "author_flair_css_class": null, "name": "t1_lrhtk4y", "is_submitter":
+        false, "downs": 0, "author_flair_richtext": [], "author_patreon_flair": false,
+        "body_html": "&lt;div class=\"md\"&gt;&lt;p&gt;Exactly, don&amp;#39;t let
+        anyone make you feel like you have to sacrifice your career and success for
+        a relationship. Keep hustling and prioritizing your goals.&lt;/p&gt;\n&lt;/div&gt;",
+        "gildings": {}, "collapsed_reason": null, "distinguished": null, "associated_award":
+        null, "stickied": false, "author_premium": false, "can_gild": false, "link_id":
+        "t3_1g1m2eo", "unrepliable_reason": null, "author_flair_text_color": null,
+        "score_hidden": false, "permalink": "/r/AITAH/comments/1g1m2eo/aita_for_refusing_to_help_my_boyfriend_move_back/lrhtk4y/",
+        "subreddit_type": "public", "locked": false, "report_reasons": null, "created":
+        1728691863.0, "author_flair_text": null, "treatment_tags": [], "collapsed":
+        false, "subreddit_name_prefixed": "r/AITAH", "controversiality": 0, "depth":
+        1, "author_flair_background_color": null, "collapsed_because_crowd_control":
+        null, "mod_reports": [], "num_reports": null, "ups": 2}}], "before": null}},
+        "user_reports": [], "saved": false, "id": "lrhg8tn", "banned_at_utc": null,
+        "mod_reason_title": null, "gilded": 0, "archived": false, "collapsed_reason_code":
+        null, "no_follow": false, "author": "No-Main-4152", "can_mod_post": false,
+        "created_utc": 1728686487.0, "send_replies": true, "parent_id": "t3_1g1m2eo",
+        "score": 104, "author_fullname": "t2_12o3e474tp", "approved_by": null, "mod_note":
+        null, "all_awardings": [], "collapsed": false, "body": "NTA. Don''t let him
+        gaslight you into giving up everything you have worked for noting that you
+        mentioned you just got a promotion you surely can''t give up everything just
+        like that", "edited": false, "top_awarded_type": null, "author_flair_css_class":
+        null, "name": "t1_lrhg8tn", "is_submitter": false, "downs": 0, "author_flair_richtext":
+        [], "author_patreon_flair": false, "body_html": "&lt;div class=\"md\"&gt;&lt;p&gt;NTA.
+        Don&amp;#39;t let him gaslight you into giving up everything you have worked
+        for noting that you mentioned you just got a promotion you surely can&amp;#39;t
+        give up everything just like that&lt;/p&gt;\n&lt;/div&gt;", "removal_reason":
+        null, "collapsed_reason": null, "distinguished": null, "associated_award":
+        null, "stickied": false, "author_premium": false, "can_gild": false, "gildings":
+        {}, "unrepliable_reason": null, "author_flair_text_color": null, "score_hidden":
+        false, "permalink": "/r/AITAH/comments/1g1m2eo/aita_for_refusing_to_help_my_boyfriend_move_back/lrhg8tn/",
+        "subreddit_type": "public", "locked": false, "report_reasons": null, "created":
+        1728686487.0, "author_flair_text": null, "treatment_tags": [], "link_id":
+        "t3_1g1m2eo", "subreddit_name_prefixed": "r/AITAH", "controversiality": 0,
+        "depth": 0, "author_flair_background_color": null, "collapsed_because_crowd_control":
+        null, "mod_reports": [], "num_reports": null, "ups": 104}}, {"kind": "t1",
+        "data": {"subreddit_id": "t5_446kys", "approved_at_utc": null, "author_is_blocked":
+        false, "comment_type": null, "awarders": [], "mod_reason_by": null, "banned_by":
+        null, "author_flair_type": "text", "total_awards_received": 0, "subreddit":
+        "AITAH", "author_flair_template_id": null, "likes": null, "replies": {"kind":
+        "Listing", "data": {"after": null, "dist": null, "modhash": "", "geo_filter":
+        "", "children": [{"kind": "t1", "data": {"subreddit_id": "t5_446kys", "approved_at_utc":
+        null, "author_is_blocked": false, "comment_type": null, "awarders": [], "mod_reason_by":
+        null, "banned_by": null, "author_flair_type": "text", "total_awards_received":
+        0, "subreddit": "AITAH", "author_flair_template_id": null, "likes": null,
+        "replies": {"kind": "Listing", "data": {"after": null, "dist": null, "modhash":
+        "", "geo_filter": "", "children": [{"kind": "t1", "data": {"subreddit_id":
+        "t5_446kys", "approved_at_utc": null, "author_is_blocked": false, "comment_type":
+        null, "awarders": [], "mod_reason_by": null, "banned_by": null, "author_flair_type":
+        "text", "total_awards_received": 0, "subreddit": "AITAH", "author_flair_template_id":
+        null, "likes": null, "replies": "", "user_reports": [], "saved": false, "id":
+        "lrhro8i", "banned_at_utc": null, "mod_reason_title": null, "gilded": 0, "archived":
+        false, "collapsed_reason_code": null, "no_follow": true, "author": "Exact_Purchase765",
+        "can_mod_post": false, "send_replies": true, "parent_id": "t1_lrhi3pr", "score":
+        1, "author_fullname": "t2_887tpohq", "removal_reason": null, "approved_by":
+        null, "mod_note": null, "all_awardings": [], "body": "Granny hug.  \ud83d\udc75\n\nOP
+        - of all of the people who will travel through your life there is only one
+        who will be there every single day.  She needs and deserves the rewards for
+        her hard work.  She *earned* them.  Keep being her #1 supporter.", "edited":
+        false, "top_awarded_type": null, "downs": 0, "author_flair_css_class": null,
+        "name": "t1_lrhro8i", "is_submitter": false, "collapsed": false, "author_flair_richtext":
+        [], "author_patreon_flair": false, "body_html": "&lt;div class=\"md\"&gt;&lt;p&gt;Granny
+        hug.  \ud83d\udc75&lt;/p&gt;\n\n&lt;p&gt;OP - of all of the people who will
+        travel through your life there is only one who will be there every single
+        day.  She needs and deserves the rewards for her hard work.  She &lt;em&gt;earned&lt;/em&gt;
+        them.  Keep being her #1 supporter.&lt;/p&gt;\n&lt;/div&gt;", "gildings":
+        {}, "collapsed_reason": null, "distinguished": null, "associated_award": null,
+        "stickied": false, "author_premium": false, "can_gild": false, "link_id":
+        "t3_1g1m2eo", "unrepliable_reason": null, "author_flair_text_color": null,
+        "score_hidden": false, "permalink": "/r/AITAH/comments/1g1m2eo/aita_for_refusing_to_help_my_boyfriend_move_back/lrhro8i/",
+        "subreddit_type": "public", "locked": false, "report_reasons": null, "created":
+        1728691081.0, "author_flair_text": null, "treatment_tags": [], "created_utc":
+        1728691081.0, "subreddit_name_prefixed": "r/AITAH", "controversiality": 0,
+        "depth": 2, "author_flair_background_color": null, "collapsed_because_crowd_control":
+        null, "mod_reports": [], "num_reports": null, "ups": 1}}], "before": null}},
+        "user_reports": [], "saved": false, "id": "lrhi3pr", "banned_at_utc": null,
+        "mod_reason_title": null, "gilded": 0, "archived": false, "collapsed_reason_code":
+        null, "no_follow": false, "author": "Particular_Lime_5478", "can_mod_post":
+        false, "created_utc": 1728687217.0, "send_replies": true, "parent_id": "t1_lrhg1le",
+        "score": 18, "author_fullname": "t2_12l6ibpyy6", "removal_reason": null, "approved_by":
+        null, "mod_note": null, "all_awardings": [], "body": "I literally  worked
+        hard to get where I am and I am so cautious about giving everything up because
+        I don''t know what I whether I will ever be able to get this far again", "edited":
+        false, "top_awarded_type": null, "author_flair_css_class": null, "name": "t1_lrhi3pr",
+        "is_submitter": true, "downs": 0, "author_flair_richtext": [], "author_patreon_flair":
+        false, "body_html": "&lt;div class=\"md\"&gt;&lt;p&gt;I literally  worked
+        hard to get where I am and I am so cautious about giving everything up because
+        I don&amp;#39;t know what I whether I will ever be able to get this far again&lt;/p&gt;\n&lt;/div&gt;",
+        "gildings": {}, "collapsed_reason": null, "distinguished": null, "associated_award":
+        null, "stickied": false, "author_premium": false, "can_gild": false, "link_id":
+        "t3_1g1m2eo", "unrepliable_reason": null, "author_flair_text_color": null,
+        "score_hidden": false, "permalink": "/r/AITAH/comments/1g1m2eo/aita_for_refusing_to_help_my_boyfriend_move_back/lrhi3pr/",
+        "subreddit_type": "public", "locked": false, "report_reasons": null, "created":
+        1728687217.0, "author_flair_text": null, "treatment_tags": [], "collapsed":
+        false, "subreddit_name_prefixed": "r/AITAH", "controversiality": 0, "depth":
+        1, "author_flair_background_color": null, "collapsed_because_crowd_control":
+        null, "mod_reports": [], "num_reports": null, "ups": 18}}, {"kind": "t1",
+        "data": {"subreddit_id": "t5_446kys", "approved_at_utc": null, "author_is_blocked":
+        false, "comment_type": null, "awarders": [], "mod_reason_by": null, "banned_by":
+        null, "author_flair_type": "text", "total_awards_received": 0, "subreddit":
+        "AITAH", "author_flair_template_id": null, "likes": null, "replies": "", "user_reports":
+        [], "saved": false, "id": "lri5m4m", "banned_at_utc": null, "mod_reason_title":
+        null, "gilded": 0, "archived": false, "collapsed_reason_code": null, "no_follow":
+        true, "author": "Thisisthenextone", "can_mod_post": false, "created_utc":
+        1728696922.0, "send_replies": true, "parent_id": "t1_lrhg1le", "score": 1,
+        "author_fullname": "t2_bdxhqmvqk", "removal_reason": null, "approved_by":
+        null, "mod_note": null, "all_awardings": [], "body": "It''s [fake](https://old.reddit.com/r/AITAH/comments/1fzx82d/aita_for_refusing_to_follow_my_husbands_strict/).  OP
+        is posting for attention.", "edited": false, "top_awarded_type": null, "author_flair_css_class":
+        null, "name": "t1_lri5m4m", "is_submitter": false, "downs": 0, "author_flair_richtext":
+        [], "author_patreon_flair": false, "body_html": "&lt;div class=\"md\"&gt;&lt;p&gt;It&amp;#39;s
+        &lt;a href=\"https://old.reddit.com/r/AITAH/comments/1fzx82d/aita_for_refusing_to_follow_my_husbands_strict/\"&gt;fake&lt;/a&gt;.  OP
+        is posting for attention.&lt;/p&gt;\n&lt;/div&gt;", "gildings": {}, "collapsed_reason":
+        null, "distinguished": null, "associated_award": null, "stickied": false,
+        "author_premium": false, "can_gild": false, "link_id": "t3_1g1m2eo", "unrepliable_reason":
+        null, "author_flair_text_color": null, "score_hidden": false, "permalink":
+        "/r/AITAH/comments/1g1m2eo/aita_for_refusing_to_help_my_boyfriend_move_back/lri5m4m/",
+        "subreddit_type": "public", "locked": false, "report_reasons": null, "created":
+        1728696922.0, "author_flair_text": null, "treatment_tags": [], "collapsed":
+        false, "subreddit_name_prefixed": "r/AITAH", "controversiality": 0, "depth":
+        1, "author_flair_background_color": null, "collapsed_because_crowd_control":
+        null, "mod_reports": [], "num_reports": null, "ups": 1}}], "before": null}},
+        "user_reports": [], "saved": false, "id": "lrhg1le", "banned_at_utc": null,
+        "mod_reason_title": null, "gilded": 0, "archived": false, "collapsed_reason_code":
+        null, "no_follow": false, "author": "Provocative_Fritzy", "can_mod_post":
+        false, "created_utc": 1728686410.0, "send_replies": true, "parent_id": "t3_1g1m2eo",
+        "score": 27, "author_fullname": "t2_19w4vdwawb", "approved_by": null, "mod_note":
+        null, "all_awardings": [], "collapsed": false, "body": "NTA. You''ve worked
+        hard to establish your career and find happiness in the city. It''s reasonable
+        to not want to give that up, especially when the move is primarily for his
+        benefit.", "edited": false, "top_awarded_type": null, "author_flair_css_class":
+        null, "name": "t1_lrhg1le", "is_submitter": false, "downs": 0, "author_flair_richtext":
+        [], "author_patreon_flair": false, "body_html": "&lt;div class=\"md\"&gt;&lt;p&gt;NTA.
+        You&amp;#39;ve worked hard to establish your career and find happiness in
+        the city. It&amp;#39;s reasonable to not want to give that up, especially
+        when the move is primarily for his benefit.&lt;/p&gt;\n&lt;/div&gt;", "removal_reason":
+        null, "collapsed_reason": null, "distinguished": null, "associated_award":
+        null, "stickied": false, "author_premium": false, "can_gild": false, "gildings":
+        {}, "unrepliable_reason": null, "author_flair_text_color": null, "score_hidden":
+        false, "permalink": "/r/AITAH/comments/1g1m2eo/aita_for_refusing_to_help_my_boyfriend_move_back/lrhg1le/",
+        "subreddit_type": "public", "locked": false, "report_reasons": null, "created":
+        1728686410.0, "author_flair_text": null, "treatment_tags": [], "link_id":
+        "t3_1g1m2eo", "subreddit_name_prefixed": "r/AITAH", "controversiality": 0,
+        "depth": 0, "author_flair_background_color": null, "collapsed_because_crowd_control":
+        null, "mod_reports": [], "num_reports": null, "ups": 27}}, {"kind": "t1",
+        "data": {"subreddit_id": "t5_446kys", "approved_at_utc": null, "author_is_blocked":
+        false, "comment_type": null, "awarders": [], "mod_reason_by": null, "banned_by":
+        null, "author_flair_type": "text", "total_awards_received": 0, "subreddit":
+        "AITAH", "author_flair_template_id": null, "likes": null, "replies": "", "user_reports":
+        [], "saved": false, "id": "lrhgwyx", "banned_at_utc": null, "mod_reason_title":
+        null, "gilded": 0, "archived": false, "collapsed_reason_code": null, "no_follow":
+        false, "author": "teresajs", "can_mod_post": false, "created_utc": 1728686748.0,
+        "send_replies": true, "parent_id": "t3_1g1m2eo", "score": 20, "author_fullname":
+        "t2_o73pu", "approved_by": null, "mod_note": null, "all_awardings": [], "collapsed":
+        false, "body": "NTA\n\n\nTom can move home without you.\u00a0\u00a0\n\n\nYou
+        aren''t married.\u00a0 Don''t pay for his move and don''t pay for any of his
+        personal expenses.\u00a0 You aren''t his spouse and you aren''t his parent.",
+        "edited": false, "top_awarded_type": null, "author_flair_css_class": null,
+        "name": "t1_lrhgwyx", "is_submitter": false, "downs": 0, "author_flair_richtext":
+        [], "author_patreon_flair": false, "body_html": "&lt;div class=\"md\"&gt;&lt;p&gt;NTA&lt;/p&gt;\n\n&lt;p&gt;Tom
+        can move home without you.\u00a0\u00a0&lt;/p&gt;\n\n&lt;p&gt;You aren&amp;#39;t
+        married.\u00a0 Don&amp;#39;t pay for his move and don&amp;#39;t pay for any
+        of his personal expenses.\u00a0 You aren&amp;#39;t his spouse and you aren&amp;#39;t
+        his parent.&lt;/p&gt;\n&lt;/div&gt;", "removal_reason": null, "collapsed_reason":
+        null, "distinguished": null, "associated_award": null, "stickied": false,
+        "author_premium": false, "can_gild": false, "gildings": {}, "unrepliable_reason":
+        null, "author_flair_text_color": null, "score_hidden": false, "permalink":
+        "/r/AITAH/comments/1g1m2eo/aita_for_refusing_to_help_my_boyfriend_move_back/lrhgwyx/",
+        "subreddit_type": "public", "locked": false, "report_reasons": null, "created":
+        1728686748.0, "author_flair_text": null, "treatment_tags": [], "link_id":
+        "t3_1g1m2eo", "subreddit_name_prefixed": "r/AITAH", "controversiality": 0,
+        "depth": 0, "author_flair_background_color": null, "collapsed_because_crowd_control":
+        null, "mod_reports": [], "num_reports": null, "ups": 20}}, {"kind": "t1",
+        "data": {"subreddit_id": "t5_446kys", "approved_at_utc": null, "author_is_blocked":
+        false, "comment_type": null, "awarders": [], "mod_reason_by": null, "banned_by":
+        null, "author_flair_type": "text", "total_awards_received": 0, "subreddit":
+        "AITAH", "author_flair_template_id": null, "likes": null, "replies": {"kind":
+        "Listing", "data": {"after": null, "dist": null, "modhash": "", "geo_filter":
+        "", "children": [{"kind": "t1", "data": {"subreddit_id": "t5_446kys", "approved_at_utc":
+        null, "author_is_blocked": false, "comment_type": null, "awarders": [], "mod_reason_by":
+        null, "banned_by": null, "author_flair_type": "text", "total_awards_received":
+        0, "subreddit": "AITAH", "author_flair_template_id": null, "likes": null,
+        "replies": {"kind": "Listing", "data": {"after": null, "dist": null, "modhash":
+        "", "geo_filter": "", "children": [{"kind": "t1", "data": {"subreddit_id":
+        "t5_446kys", "approved_at_utc": null, "author_is_blocked": false, "comment_type":
+        null, "awarders": [], "mod_reason_by": null, "banned_by": null, "author_flair_type":
+        "text", "total_awards_received": 0, "subreddit": "AITAH", "author_flair_template_id":
+        null, "likes": null, "replies": "", "user_reports": [], "saved": false, "id":
+        "lrhz1fi", "banned_at_utc": null, "mod_reason_title": null, "gilded": 0, "archived":
+        false, "collapsed_reason_code": null, "no_follow": true, "author": "recyclopath_",
+        "can_mod_post": false, "send_replies": true, "parent_id": "t1_lrhjn8o", "score":
+        1, "author_fullname": "t2_jk77d", "removal_reason": null, "approved_by": null,
+        "mod_note": null, "all_awardings": [], "body": "Because he views you as an
+        accessory to his life. Not a partner.", "edited": false, "top_awarded_type":
+        null, "downs": 0, "author_flair_css_class": null, "name": "t1_lrhz1fi", "is_submitter":
+        false, "collapsed": false, "author_flair_richtext": [], "author_patreon_flair":
+        false, "body_html": "&lt;div class=\"md\"&gt;&lt;p&gt;Because he views you
+        as an accessory to his life. Not a partner.&lt;/p&gt;\n&lt;/div&gt;", "gildings":
+        {}, "collapsed_reason": null, "distinguished": null, "associated_award": null,
+        "stickied": false, "author_premium": false, "can_gild": false, "link_id":
+        "t3_1g1m2eo", "unrepliable_reason": null, "author_flair_text_color": null,
+        "score_hidden": false, "permalink": "/r/AITAH/comments/1g1m2eo/aita_for_refusing_to_help_my_boyfriend_move_back/lrhz1fi/",
+        "subreddit_type": "public", "locked": false, "report_reasons": null, "created":
+        1728694121.0, "author_flair_text": null, "treatment_tags": [], "created_utc":
+        1728694121.0, "subreddit_name_prefixed": "r/AITAH", "controversiality": 0,
+        "depth": 2, "author_flair_background_color": null, "collapsed_because_crowd_control":
+        null, "mod_reports": [], "num_reports": null, "ups": 1}}, {"kind": "t1", "data":
+        {"subreddit_id": "t5_446kys", "approved_at_utc": null, "author_is_blocked":
+        false, "comment_type": null, "awarders": [], "mod_reason_by": null, "banned_by":
+        null, "author_flair_type": "text", "total_awards_received": 0, "subreddit":
+        "AITAH", "author_flair_template_id": null, "likes": null, "replies": "", "user_reports":
+        [], "saved": false, "id": "lri5h7q", "banned_at_utc": null, "mod_reason_title":
+        null, "gilded": 0, "archived": false, "collapsed_reason_code": null, "no_follow":
+        true, "author": "Thisisthenextone", "can_mod_post": false, "send_replies":
+        true, "parent_id": "t1_lrhjn8o", "score": 1, "author_fullname": "t2_bdxhqmvqk",
+        "removal_reason": null, "approved_by": null, "mod_note": null, "all_awardings":
+        [], "body": "Soooo......\n\n[What about your husband](https://old.reddit.com/r/AITAH/comments/1fzx82d/aita_for_refusing_to_follow_my_husbands_strict/)?",
+        "edited": false, "top_awarded_type": null, "downs": 0, "author_flair_css_class":
+        null, "name": "t1_lri5h7q", "is_submitter": false, "collapsed": false, "author_flair_richtext":
+        [], "author_patreon_flair": false, "body_html": "&lt;div class=\"md\"&gt;&lt;p&gt;Soooo......&lt;/p&gt;\n\n&lt;p&gt;&lt;a
+        href=\"https://old.reddit.com/r/AITAH/comments/1fzx82d/aita_for_refusing_to_follow_my_husbands_strict/\"&gt;What
+        about your husband&lt;/a&gt;?&lt;/p&gt;\n&lt;/div&gt;", "gildings": {}, "collapsed_reason":
+        null, "distinguished": null, "associated_award": null, "stickied": false,
+        "author_premium": false, "can_gild": false, "link_id": "t3_1g1m2eo", "unrepliable_reason":
+        null, "author_flair_text_color": null, "score_hidden": false, "permalink":
+        "/r/AITAH/comments/1g1m2eo/aita_for_refusing_to_help_my_boyfriend_move_back/lri5h7q/",
+        "subreddit_type": "public", "locked": false, "report_reasons": null, "created":
+        1728696862.0, "author_flair_text": null, "treatment_tags": [], "created_utc":
+        1728696862.0, "subreddit_name_prefixed": "r/AITAH", "controversiality": 0,
+        "depth": 2, "author_flair_background_color": null, "collapsed_because_crowd_control":
+        null, "mod_reports": [], "num_reports": null, "ups": 1}}], "before": null}},
+        "user_reports": [], "saved": false, "id": "lrhjn8o", "banned_at_utc": null,
+        "mod_reason_title": null, "gilded": 0, "archived": false, "collapsed_reason_code":
+        null, "no_follow": false, "author": "Particular_Lime_5478", "can_mod_post":
+        false, "created_utc": 1728687830.0, "send_replies": true, "parent_id": "t1_lrhgxkf",
+        "score": 4, "author_fullname": "t2_12l6ibpyy6", "removal_reason": null, "approved_by":
+        null, "mod_note": null, "all_awardings": [], "body": "I also wonder why he
+        thought I would easily give up everything he knows I have worked so hard for
+        and yes I am sure there is nothing for me back at me", "edited": false, "top_awarded_type":
+        null, "author_flair_css_class": null, "name": "t1_lrhjn8o", "is_submitter":
+        true, "downs": 0, "author_flair_richtext": [], "author_patreon_flair": false,
+        "body_html": "&lt;div class=\"md\"&gt;&lt;p&gt;I also wonder why he thought
+        I would easily give up everything he knows I have worked so hard for and yes
+        I am sure there is nothing for me back at me&lt;/p&gt;\n&lt;/div&gt;", "gildings":
+        {}, "collapsed_reason": null, "distinguished": null, "associated_award": null,
+        "stickied": false, "author_premium": false, "can_gild": false, "link_id":
+        "t3_1g1m2eo", "unrepliable_reason": null, "author_flair_text_color": null,
+        "score_hidden": false, "permalink": "/r/AITAH/comments/1g1m2eo/aita_for_refusing_to_help_my_boyfriend_move_back/lrhjn8o/",
+        "subreddit_type": "public", "locked": false, "report_reasons": null, "created":
+        1728687830.0, "author_flair_text": null, "treatment_tags": [], "collapsed":
+        false, "subreddit_name_prefixed": "r/AITAH", "controversiality": 0, "depth":
+        1, "author_flair_background_color": null, "collapsed_because_crowd_control":
+        null, "mod_reports": [], "num_reports": null, "ups": 4}}], "before": null}},
+        "user_reports": [], "saved": false, "id": "lrhgxkf", "banned_at_utc": null,
+        "mod_reason_title": null, "gilded": 0, "archived": false, "collapsed_reason_code":
+        null, "no_follow": false, "author": "Licorice-e", "can_mod_post": false, "created_utc":
+        1728686755.0, "send_replies": true, "parent_id": "t3_1g1m2eo", "score": 13,
+        "author_fullname": "t2_omdnu1ixs", "approved_by": null, "mod_note": null,
+        "all_awardings": [], "collapsed": false, "body": "NTA. If roles were reversed
+        I doubt he would have done what he is asking you to do for him. Plus incase
+        you guys go back to his home what will you be doing over there", "edited":
+        false, "top_awarded_type": null, "author_flair_css_class": null, "name": "t1_lrhgxkf",
+        "is_submitter": false, "downs": 0, "author_flair_richtext": [], "author_patreon_flair":
+        false, "body_html": "&lt;div class=\"md\"&gt;&lt;p&gt;NTA. If roles were reversed
+        I doubt he would have done what he is asking you to do for him. Plus incase
+        you guys go back to his home what will you be doing over there&lt;/p&gt;\n&lt;/div&gt;",
+        "removal_reason": null, "collapsed_reason": null, "distinguished": null, "associated_award":
+        null, "stickied": false, "author_premium": false, "can_gild": false, "gildings":
+        {}, "unrepliable_reason": null, "author_flair_text_color": null, "score_hidden":
+        false, "permalink": "/r/AITAH/comments/1g1m2eo/aita_for_refusing_to_help_my_boyfriend_move_back/lrhgxkf/",
+        "subreddit_type": "public", "locked": false, "report_reasons": null, "created":
+        1728686755.0, "author_flair_text": null, "treatment_tags": [], "link_id":
+        "t3_1g1m2eo", "subreddit_name_prefixed": "r/AITAH", "controversiality": 0,
+        "depth": 0, "author_flair_background_color": null, "collapsed_because_crowd_control":
+        null, "mod_reports": [], "num_reports": null, "ups": 13}}, {"kind": "t1",
+        "data": {"subreddit_id": "t5_446kys", "approved_at_utc": null, "author_is_blocked":
+        false, "comment_type": null, "awarders": [], "mod_reason_by": null, "banned_by":
+        null, "author_flair_type": "text", "total_awards_received": 0, "subreddit":
+        "AITAH", "author_flair_template_id": null, "likes": null, "replies": {"kind":
+        "Listing", "data": {"after": null, "dist": null, "modhash": "", "geo_filter":
+        "", "children": [{"kind": "t1", "data": {"subreddit_id": "t5_446kys", "approved_at_utc":
+        null, "author_is_blocked": false, "comment_type": null, "awarders": [], "mod_reason_by":
+        null, "banned_by": null, "author_flair_type": "text", "total_awards_received":
+        0, "subreddit": "AITAH", "author_flair_template_id": null, "likes": null,
+        "replies": "", "user_reports": [], "saved": false, "id": "lrhvj70", "banned_at_utc":
+        null, "mod_reason_title": null, "gilded": 0, "archived": false, "collapsed_reason_code":
+        null, "no_follow": true, "author": "Sure-Ingenuity6714", "can_mod_post": false,
+        "created_utc": 1728692676.0, "send_replies": true, "parent_id": "t1_lrhg1n3",
+        "score": 1, "author_fullname": "t2_vu17ac1f0", "removal_reason": null, "approved_by":
+        null, "mod_note": null, "all_awardings": [], "body": "Fuck off bot!", "edited":
+        false, "top_awarded_type": null, "author_flair_css_class": null, "name": "t1_lrhvj70",
+        "is_submitter": false, "downs": 0, "author_flair_richtext": [], "author_patreon_flair":
+        false, "body_html": "&lt;div class=\"md\"&gt;&lt;p&gt;Fuck off bot!&lt;/p&gt;\n&lt;/div&gt;",
+        "gildings": {}, "collapsed_reason": null, "distinguished": null, "associated_award":
+        null, "stickied": false, "author_premium": false, "can_gild": false, "link_id":
+        "t3_1g1m2eo", "unrepliable_reason": null, "author_flair_text_color": null,
+        "score_hidden": false, "permalink": "/r/AITAH/comments/1g1m2eo/aita_for_refusing_to_help_my_boyfriend_move_back/lrhvj70/",
+        "subreddit_type": "public", "locked": false, "report_reasons": null, "created":
+        1728692676.0, "author_flair_text": null, "treatment_tags": [], "collapsed":
+        false, "subreddit_name_prefixed": "r/AITAH", "controversiality": 0, "depth":
+        1, "author_flair_background_color": null, "collapsed_because_crowd_control":
+        null, "mod_reports": [], "num_reports": null, "ups": 1}}], "before": null}},
+        "user_reports": [], "saved": false, "id": "lrhg1n3", "banned_at_utc": null,
+        "mod_reason_title": null, "gilded": 0, "archived": false, "collapsed_reason_code":
+        null, "no_follow": false, "author": "Inviting-Alice", "can_mod_post": false,
+        "created_utc": 1728686411.0, "send_replies": true, "parent_id": "t3_1g1m2eo",
+        "score": 7, "author_fullname": "t2_19aiwnev56", "approved_by": null, "mod_note":
+        null, "all_awardings": [], "collapsed": false, "body": "You are NTA. It''s
+        understandable that Tom wants to move back home, but he''s being unreasonable
+        by expecting you to give up your career and support him while he figures things
+        out. You''ve offered a compromise, and he needs to respect your needs and
+        choices as well.", "edited": false, "top_awarded_type": null, "author_flair_css_class":
+        null, "name": "t1_lrhg1n3", "is_submitter": false, "downs": 0, "author_flair_richtext":
+        [], "author_patreon_flair": false, "body_html": "&lt;div class=\"md\"&gt;&lt;p&gt;You
+        are NTA. It&amp;#39;s understandable that Tom wants to move back home, but
+        he&amp;#39;s being unreasonable by expecting you to give up your career and
+        support him while he figures things out. You&amp;#39;ve offered a compromise,
+        and he needs to respect your needs and choices as well.&lt;/p&gt;\n&lt;/div&gt;",
+        "removal_reason": null, "collapsed_reason": null, "distinguished": null, "associated_award":
+        null, "stickied": false, "author_premium": false, "can_gild": false, "gildings":
+        {}, "unrepliable_reason": null, "author_flair_text_color": null, "score_hidden":
+        false, "permalink": "/r/AITAH/comments/1g1m2eo/aita_for_refusing_to_help_my_boyfriend_move_back/lrhg1n3/",
+        "subreddit_type": "public", "locked": false, "report_reasons": null, "created":
+        1728686411.0, "author_flair_text": null, "treatment_tags": [], "link_id":
+        "t3_1g1m2eo", "subreddit_name_prefixed": "r/AITAH", "controversiality": 0,
+        "depth": 0, "author_flair_background_color": null, "collapsed_because_crowd_control":
+        null, "mod_reports": [], "num_reports": null, "ups": 7}}, {"kind": "t1", "data":
+        {"subreddit_id": "t5_446kys", "approved_at_utc": null, "author_is_blocked":
+        false, "comment_type": null, "awarders": [], "mod_reason_by": null, "banned_by":
+        null, "author_flair_type": "text", "total_awards_received": 0, "subreddit":
+        "AITAH", "author_flair_template_id": null, "likes": null, "replies": "", "user_reports":
+        [], "saved": false, "id": "lrhirxd", "banned_at_utc": null, "mod_reason_title":
+        null, "gilded": 0, "archived": false, "collapsed_reason_code": null, "no_follow":
+        false, "author": "Main-Yogurtcloset242", "can_mod_post": false, "created_utc":
+        1728687482.0, "send_replies": true, "parent_id": "t3_1g1m2eo", "score": 3,
+        "author_fullname": "t2_acbgrpy6m", "approved_by": null, "mod_note": null,
+        "all_awardings": [], "collapsed": false, "body": "NTA. It''s selfish to not
+        only want you uproot your life, but use your savings to do it.", "edited":
+        false, "top_awarded_type": null, "author_flair_css_class": null, "name": "t1_lrhirxd",
+        "is_submitter": false, "downs": 0, "author_flair_richtext": [], "author_patreon_flair":
+        false, "body_html": "&lt;div class=\"md\"&gt;&lt;p&gt;NTA. It&amp;#39;s selfish
+        to not only want you uproot your life, but use your savings to do it.&lt;/p&gt;\n&lt;/div&gt;",
+        "removal_reason": null, "collapsed_reason": null, "distinguished": null, "associated_award":
+        null, "stickied": false, "author_premium": false, "can_gild": false, "gildings":
+        {}, "unrepliable_reason": null, "author_flair_text_color": null, "score_hidden":
+        false, "permalink": "/r/AITAH/comments/1g1m2eo/aita_for_refusing_to_help_my_boyfriend_move_back/lrhirxd/",
+        "subreddit_type": "public", "locked": false, "report_reasons": null, "created":
+        1728687482.0, "author_flair_text": null, "treatment_tags": [], "link_id":
+        "t3_1g1m2eo", "subreddit_name_prefixed": "r/AITAH", "controversiality": 0,
+        "depth": 0, "author_flair_background_color": null, "collapsed_because_crowd_control":
+        null, "mod_reports": [], "num_reports": null, "ups": 3}}, {"kind": "t1", "data":
+        {"subreddit_id": "t5_446kys", "approved_at_utc": null, "author_is_blocked":
+        false, "comment_type": null, "awarders": [], "mod_reason_by": null, "banned_by":
+        null, "author_flair_type": "text", "total_awards_received": 0, "subreddit":
+        "AITAH", "author_flair_template_id": null, "likes": null, "replies": "", "user_reports":
+        [], "saved": false, "id": "lrhixzh", "banned_at_utc": null, "mod_reason_title":
+        null, "gilded": 0, "archived": false, "collapsed_reason_code": null, "no_follow":
+        false, "author": "Nefarious-kitten", "can_mod_post": false, "created_utc":
+        1728687550.0, "send_replies": true, "parent_id": "t3_1g1m2eo", "score": 5,
+        "author_fullname": "t2_gve4wcg3", "approved_by": null, "mod_note": null, "all_awardings":
+        [], "collapsed": false, "body": "NTA.\n\nYou\u2019ve done your best to be
+        a supportive partner. It seems he\u2019s wanting to go back to a formerly
+        safe and comfortable environment. That want isn\u2019t necessarily wrong but
+        him making unilateral decisions for you both is. \n\nStand your ground. It
+        sounds like you both no longer want the same things and some time apart may
+        be for the best.", "edited": false, "top_awarded_type": null, "author_flair_css_class":
+        null, "name": "t1_lrhixzh", "is_submitter": false, "downs": 0, "author_flair_richtext":
+        [], "author_patreon_flair": false, "body_html": "&lt;div class=\"md\"&gt;&lt;p&gt;NTA.&lt;/p&gt;\n\n&lt;p&gt;You\u2019ve
+        done your best to be a supportive partner. It seems he\u2019s wanting to go
+        back to a formerly safe and comfortable environment. That want isn\u2019t
+        necessarily wrong but him making unilateral decisions for you both is. &lt;/p&gt;\n\n&lt;p&gt;Stand
+        your ground. It sounds like you both no longer want the same things and some
+        time apart may be for the best.&lt;/p&gt;\n&lt;/div&gt;", "removal_reason":
+        null, "collapsed_reason": null, "distinguished": null, "associated_award":
+        null, "stickied": false, "author_premium": false, "can_gild": false, "gildings":
+        {}, "unrepliable_reason": null, "author_flair_text_color": null, "score_hidden":
+        false, "permalink": "/r/AITAH/comments/1g1m2eo/aita_for_refusing_to_help_my_boyfriend_move_back/lrhixzh/",
+        "subreddit_type": "public", "locked": false, "report_reasons": null, "created":
+        1728687550.0, "author_flair_text": null, "treatment_tags": [], "link_id":
+        "t3_1g1m2eo", "subreddit_name_prefixed": "r/AITAH", "controversiality": 0,
+        "depth": 0, "author_flair_background_color": null, "collapsed_because_crowd_control":
+        null, "mod_reports": [], "num_reports": null, "ups": 5}}, {"kind": "t1", "data":
+        {"subreddit_id": "t5_446kys", "approved_at_utc": null, "author_is_blocked":
+        false, "comment_type": null, "awarders": [], "mod_reason_by": null, "banned_by":
+        null, "author_flair_type": "text", "total_awards_received": 0, "subreddit":
+        "AITAH", "author_flair_template_id": null, "likes": null, "replies": "", "user_reports":
+        [], "saved": false, "id": "lrhju4l", "banned_at_utc": null, "mod_reason_title":
+        null, "gilded": 0, "archived": false, "collapsed_reason_code": null, "no_follow":
+        false, "author": "doug5209", "can_mod_post": false, "created_utc": 1728687906.0,
+        "send_replies": true, "parent_id": "t3_1g1m2eo", "score": 5, "author_fullname":
+        "t2_1v0etcv8", "approved_by": null, "mod_note": null, "all_awardings": [],
+        "collapsed": false, "body": "NTA, you would, justifiably, resent him forever",
+        "edited": false, "top_awarded_type": null, "author_flair_css_class": null,
+        "name": "t1_lrhju4l", "is_submitter": false, "downs": 0, "author_flair_richtext":
+        [], "author_patreon_flair": false, "body_html": "&lt;div class=\"md\"&gt;&lt;p&gt;NTA,
+        you would, justifiably, resent him forever&lt;/p&gt;\n&lt;/div&gt;", "removal_reason":
+        null, "collapsed_reason": null, "distinguished": null, "associated_award":
+        null, "stickied": false, "author_premium": false, "can_gild": false, "gildings":
+        {}, "unrepliable_reason": null, "author_flair_text_color": null, "score_hidden":
+        false, "permalink": "/r/AITAH/comments/1g1m2eo/aita_for_refusing_to_help_my_boyfriend_move_back/lrhju4l/",
+        "subreddit_type": "public", "locked": false, "report_reasons": null, "created":
+        1728687906.0, "author_flair_text": null, "treatment_tags": [], "link_id":
+        "t3_1g1m2eo", "subreddit_name_prefixed": "r/AITAH", "controversiality": 0,
+        "depth": 0, "author_flair_background_color": null, "collapsed_because_crowd_control":
+        null, "mod_reports": [], "num_reports": null, "ups": 5}}, {"kind": "t1", "data":
+        {"subreddit_id": "t5_446kys", "approved_at_utc": null, "author_is_blocked":
+        false, "comment_type": null, "awarders": [], "mod_reason_by": null, "banned_by":
+        null, "author_flair_type": "text", "total_awards_received": 0, "subreddit":
+        "AITAH", "author_flair_template_id": null, "likes": null, "replies": "", "user_reports":
+        [], "saved": false, "id": "lrhk4fn", "banned_at_utc": null, "mod_reason_title":
+        null, "gilded": 0, "archived": false, "collapsed_reason_code": null, "no_follow":
+        false, "author": "Used_Mark_7911", "can_mod_post": false, "created_utc": 1728688021.0,
+        "send_replies": true, "parent_id": "t3_1g1m2eo", "score": 6, "author_fullname":
+        "t2_jzprnh8s", "approved_by": null, "mod_note": null, "all_awardings": [],
+        "collapsed": false, "body": "NTA \n\nHe\u2019s feeling bad about himself and
+        thinks sabotaging your success will somehow even things out for him.   \n\nDon\u2019t
+        make yourself smaller for him.", "edited": false, "top_awarded_type": null,
+        "author_flair_css_class": null, "name": "t1_lrhk4fn", "is_submitter": false,
+        "downs": 0, "author_flair_richtext": [], "author_patreon_flair": false, "body_html":
+        "&lt;div class=\"md\"&gt;&lt;p&gt;NTA &lt;/p&gt;\n\n&lt;p&gt;He\u2019s feeling
+        bad about himself and thinks sabotaging your success will somehow even things
+        out for him.   &lt;/p&gt;\n\n&lt;p&gt;Don\u2019t make yourself smaller for
+        him.&lt;/p&gt;\n&lt;/div&gt;", "removal_reason": null, "collapsed_reason":
+        null, "distinguished": null, "associated_award": null, "stickied": false,
+        "author_premium": false, "can_gild": false, "gildings": {}, "unrepliable_reason":
+        null, "author_flair_text_color": null, "score_hidden": false, "permalink":
+        "/r/AITAH/comments/1g1m2eo/aita_for_refusing_to_help_my_boyfriend_move_back/lrhk4fn/",
+        "subreddit_type": "public", "locked": false, "report_reasons": null, "created":
+        1728688021.0, "author_flair_text": null, "treatment_tags": [], "link_id":
+        "t3_1g1m2eo", "subreddit_name_prefixed": "r/AITAH", "controversiality": 0,
+        "depth": 0, "author_flair_background_color": null, "collapsed_because_crowd_control":
+        null, "mod_reports": [], "num_reports": null, "ups": 6}}, {"kind": "t1", "data":
+        {"subreddit_id": "t5_446kys", "approved_at_utc": null, "author_is_blocked":
+        false, "comment_type": null, "awarders": [], "mod_reason_by": null, "banned_by":
+        null, "author_flair_type": "text", "total_awards_received": 0, "subreddit":
+        "AITAH", "author_flair_template_id": null, "likes": null, "replies": {"kind":
+        "Listing", "data": {"after": null, "dist": null, "modhash": "", "geo_filter":
+        "", "children": [{"kind": "t1", "data": {"subreddit_id": "t5_446kys", "approved_at_utc":
+        null, "author_is_blocked": false, "comment_type": null, "awarders": [], "mod_reason_by":
+        null, "banned_by": null, "author_flair_type": "text", "total_awards_received":
+        0, "subreddit": "AITAH", "author_flair_template_id": null, "likes": null,
+        "replies": {"kind": "Listing", "data": {"after": null, "dist": null, "modhash":
+        "", "geo_filter": "", "children": [{"kind": "t1", "data": {"subreddit_id":
+        "t5_446kys", "approved_at_utc": null, "author_is_blocked": false, "comment_type":
+        null, "awarders": [], "mod_reason_by": null, "banned_by": null, "author_flair_type":
+        "text", "total_awards_received": 0, "subreddit": "AITAH", "author_flair_template_id":
+        null, "likes": null, "replies": "", "user_reports": [], "saved": false, "id":
+        "lrhk560", "banned_at_utc": null, "mod_reason_title": null, "gilded": 0, "archived":
+        false, "collapsed_reason_code": null, "no_follow": false, "author": "Odd-Outcome450",
+        "can_mod_post": false, "send_replies": true, "parent_id": "t1_lrhigc8", "score":
+        4, "author_fullname": "t2_v7lgbxmc", "removal_reason": null, "approved_by":
+        null, "mod_note": null, "all_awardings": [], "body": "It\u2019s okay to move
+        on from someone you cared about. I had to do it when my former partner wanted
+        me to give up my career and stop advancing.", "edited": false, "top_awarded_type":
+        null, "downs": 0, "author_flair_css_class": null, "name": "t1_lrhk560", "is_submitter":
+        false, "collapsed": false, "author_flair_richtext": [], "author_patreon_flair":
+        false, "body_html": "&lt;div class=\"md\"&gt;&lt;p&gt;It\u2019s okay to move
+        on from someone you cared about. I had to do it when my former partner wanted
+        me to give up my career and stop advancing.&lt;/p&gt;\n&lt;/div&gt;", "gildings":
+        {}, "collapsed_reason": null, "distinguished": null, "associated_award": null,
+        "stickied": false, "author_premium": false, "can_gild": false, "link_id":
+        "t3_1g1m2eo", "unrepliable_reason": null, "author_flair_text_color": null,
+        "score_hidden": false, "permalink": "/r/AITAH/comments/1g1m2eo/aita_for_refusing_to_help_my_boyfriend_move_back/lrhk560/",
+        "subreddit_type": "public", "locked": false, "report_reasons": null, "created":
+        1728688029.0, "author_flair_text": null, "treatment_tags": [], "created_utc":
+        1728688029.0, "subreddit_name_prefixed": "r/AITAH", "controversiality": 0,
+        "depth": 2, "author_flair_background_color": null, "collapsed_because_crowd_control":
+        null, "mod_reports": [], "num_reports": null, "ups": 4}}, {"kind": "t1", "data":
+        {"subreddit_id": "t5_446kys", "approved_at_utc": null, "author_is_blocked":
+        false, "comment_type": null, "awarders": [], "mod_reason_by": null, "banned_by":
+        null, "author_flair_type": "text", "total_awards_received": 0, "subreddit":
+        "AITAH", "author_flair_template_id": null, "likes": null, "replies": "", "user_reports":
+        [], "saved": false, "id": "lrhutx5", "banned_at_utc": null, "mod_reason_title":
+        null, "gilded": 0, "archived": false, "collapsed_reason_code": null, "no_follow":
+        true, "author": "Sure-Ingenuity6714", "can_mod_post": false, "send_replies":
+        true, "parent_id": "t1_lrhigc8", "score": 1, "author_fullname": "t2_vu17ac1f0",
+        "removal_reason": null, "approved_by": null, "mod_note": null, "all_awardings":
+        [], "body": "Is he looking for another job or what?   Tom is never going to
+        get a fair crack of the whip down here, you will be told he is abusing you
+        shortly.   There is no gaslighting here FFS.  He wants to move home and you
+        do not. You could help him move home if you are able, try long distance or
+        split up.  Not helping him move seems pretty spiteful really but not sure
+        of the costs involved!!", "edited": false, "top_awarded_type": null, "downs":
+        0, "author_flair_css_class": null, "name": "t1_lrhutx5", "is_submitter": false,
+        "collapsed": false, "author_flair_richtext": [], "author_patreon_flair": false,
+        "body_html": "&lt;div class=\"md\"&gt;&lt;p&gt;Is he looking for another job
+        or what?   Tom is never going to get a fair crack of the whip down here, you
+        will be told he is abusing you shortly.   There is no gaslighting here FFS.  He
+        wants to move home and you do not. You could help him move home if you are
+        able, try long distance or split up.  Not helping him move seems pretty spiteful
+        really but not sure of the costs involved!!&lt;/p&gt;\n&lt;/div&gt;", "gildings":
+        {}, "collapsed_reason": null, "distinguished": null, "associated_award": null,
+        "stickied": false, "author_premium": false, "can_gild": false, "link_id":
+        "t3_1g1m2eo", "unrepliable_reason": null, "author_flair_text_color": null,
+        "score_hidden": false, "permalink": "/r/AITAH/comments/1g1m2eo/aita_for_refusing_to_help_my_boyfriend_move_back/lrhutx5/",
+        "subreddit_type": "public", "locked": false, "report_reasons": null, "created":
+        1728692387.0, "author_flair_text": null, "treatment_tags": [], "created_utc":
+        1728692387.0, "subreddit_name_prefixed": "r/AITAH", "controversiality": 0,
+        "depth": 2, "author_flair_background_color": null, "collapsed_because_crowd_control":
+        null, "mod_reports": [], "num_reports": null, "ups": 1}}, {"kind": "t1", "data":
+        {"subreddit_id": "t5_446kys", "approved_at_utc": null, "author_is_blocked":
+        false, "comment_type": null, "awarders": [], "mod_reason_by": null, "banned_by":
+        null, "author_flair_type": "text", "total_awards_received": 0, "subreddit":
+        "AITAH", "author_flair_template_id": null, "likes": null, "replies": "", "user_reports":
+        [], "saved": false, "id": "lri5sm7", "banned_at_utc": null, "mod_reason_title":
+        null, "gilded": 0, "archived": false, "collapsed_reason_code": null, "no_follow":
+        true, "author": "Thisisthenextone", "can_mod_post": false, "send_replies":
+        true, "parent_id": "t1_lrhigc8", "score": 1, "author_fullname": "t2_bdxhqmvqk",
+        "removal_reason": null, "approved_by": null, "mod_note": null, "all_awardings":
+        [], "body": "So you care about your boyfriend [but do you care about your
+        husband](https://old.reddit.com/r/AITAH/comments/1fzx82d/aita_for_refusing_to_follow_my_husbands_strict/)?\n\nOr
+        is there some 3rd option?", "edited": false, "top_awarded_type": null, "downs":
+        0, "author_flair_css_class": null, "name": "t1_lri5sm7", "is_submitter": false,
+        "collapsed": false, "author_flair_richtext": [], "author_patreon_flair": false,
+        "body_html": "&lt;div class=\"md\"&gt;&lt;p&gt;So you care about your boyfriend
+        &lt;a href=\"https://old.reddit.com/r/AITAH/comments/1fzx82d/aita_for_refusing_to_follow_my_husbands_strict/\"&gt;but
+        do you care about your husband&lt;/a&gt;?&lt;/p&gt;\n\n&lt;p&gt;Or is there
+        some 3rd option?&lt;/p&gt;\n&lt;/div&gt;", "gildings": {}, "collapsed_reason":
+        null, "distinguished": null, "associated_award": null, "stickied": false,
+        "author_premium": false, "can_gild": false, "link_id": "t3_1g1m2eo", "unrepliable_reason":
+        null, "author_flair_text_color": null, "score_hidden": false, "permalink":
+        "/r/AITAH/comments/1g1m2eo/aita_for_refusing_to_help_my_boyfriend_move_back/lri5sm7/",
+        "subreddit_type": "public", "locked": false, "report_reasons": null, "created":
+        1728697002.0, "author_flair_text": null, "treatment_tags": [], "created_utc":
+        1728697002.0, "subreddit_name_prefixed": "r/AITAH", "controversiality": 0,
+        "depth": 2, "author_flair_background_color": null, "collapsed_because_crowd_control":
+        null, "mod_reports": [], "num_reports": null, "ups": 1}}], "before": null}},
+        "user_reports": [], "saved": false, "id": "lrhigc8", "banned_at_utc": null,
+        "mod_reason_title": null, "gilded": 0, "archived": false, "collapsed_reason_code":
+        null, "no_follow": false, "author": "Particular_Lime_5478", "can_mod_post":
+        false, "created_utc": 1728687355.0, "send_replies": true, "parent_id": "t1_lrhgpn7",
+        "score": 7, "author_fullname": "t2_12l6ibpyy6", "removal_reason": null, "approved_by":
+        null, "mod_note": null, "all_awardings": [], "body": "I am slowly realizing
+        that we might have different priorities which is so hurtful because I truly
+        cared about this man", "edited": false, "top_awarded_type": null, "author_flair_css_class":
+        null, "name": "t1_lrhigc8", "is_submitter": true, "downs": 0, "author_flair_richtext":
+        [], "author_patreon_flair": false, "body_html": "&lt;div class=\"md\"&gt;&lt;p&gt;I
+        am slowly realizing that we might have different priorities which is so hurtful
+        because I truly cared about this man&lt;/p&gt;\n&lt;/div&gt;", "gildings":
+        {}, "collapsed_reason": null, "distinguished": null, "associated_award": null,
+        "stickied": false, "author_premium": false, "can_gild": false, "link_id":
+        "t3_1g1m2eo", "unrepliable_reason": null, "author_flair_text_color": null,
+        "score_hidden": false, "permalink": "/r/AITAH/comments/1g1m2eo/aita_for_refusing_to_help_my_boyfriend_move_back/lrhigc8/",
+        "subreddit_type": "public", "locked": false, "report_reasons": null, "created":
+        1728687355.0, "author_flair_text": null, "treatment_tags": [], "collapsed":
+        false, "subreddit_name_prefixed": "r/AITAH", "controversiality": 0, "depth":
+        1, "author_flair_background_color": null, "collapsed_because_crowd_control":
+        null, "mod_reports": [], "num_reports": null, "ups": 7}}], "before": null}},
+        "user_reports": [], "saved": false, "id": "lrhgpn7", "banned_at_utc": null,
+        "mod_reason_title": null, "gilded": 0, "archived": false, "collapsed_reason_code":
+        null, "no_follow": false, "author": "Odd-Outcome450", "can_mod_post": false,
+        "created_utc": 1728686669.0, "send_replies": true, "parent_id": "t3_1g1m2eo",
+        "score": 3, "author_fullname": "t2_v7lgbxmc", "approved_by": null, "mod_note":
+        null, "all_awardings": [], "collapsed": false, "body": "NTA it might be good
+        to move on. He can pivot to another field and be productive.", "edited": false,
+        "top_awarded_type": null, "author_flair_css_class": null, "name": "t1_lrhgpn7",
+        "is_submitter": false, "downs": 0, "author_flair_richtext": [], "author_patreon_flair":
+        false, "body_html": "&lt;div class=\"md\"&gt;&lt;p&gt;NTA it might be good
+        to move on. He can pivot to another field and be productive.&lt;/p&gt;\n&lt;/div&gt;",
+        "removal_reason": null, "collapsed_reason": null, "distinguished": null, "associated_award":
+        null, "stickied": false, "author_premium": false, "can_gild": false, "gildings":
+        {}, "unrepliable_reason": null, "author_flair_text_color": null, "score_hidden":
+        false, "permalink": "/r/AITAH/comments/1g1m2eo/aita_for_refusing_to_help_my_boyfriend_move_back/lrhgpn7/",
+        "subreddit_type": "public", "locked": false, "report_reasons": null, "created":
+        1728686669.0, "author_flair_text": null, "treatment_tags": [], "link_id":
+        "t3_1g1m2eo", "subreddit_name_prefixed": "r/AITAH", "controversiality": 0,
+        "depth": 0, "author_flair_background_color": null, "collapsed_because_crowd_control":
+        null, "mod_reports": [], "num_reports": null, "ups": 3}}, {"kind": "t1", "data":
+        {"subreddit_id": "t5_446kys", "approved_at_utc": null, "author_is_blocked":
+        false, "comment_type": null, "awarders": [], "mod_reason_by": null, "banned_by":
+        null, "author_flair_type": "text", "total_awards_received": 0, "subreddit":
+        "AITAH", "author_flair_template_id": null, "likes": null, "replies": {"kind":
+        "Listing", "data": {"after": null, "dist": null, "modhash": "", "geo_filter":
+        "", "children": [{"kind": "t1", "data": {"subreddit_id": "t5_446kys", "approved_at_utc":
+        null, "author_is_blocked": false, "comment_type": null, "awarders": [], "mod_reason_by":
+        null, "banned_by": null, "author_flair_type": "text", "total_awards_received":
+        0, "subreddit": "AITAH", "author_flair_template_id": null, "likes": null,
+        "replies": "", "user_reports": [], "saved": false, "id": "lrhsmdz", "banned_at_utc":
+        null, "mod_reason_title": null, "gilded": 0, "archived": false, "collapsed_reason_code":
+        null, "no_follow": true, "author": "RugbyLock", "can_mod_post": false, "created_utc":
+        1728691472.0, "send_replies": true, "parent_id": "t1_lrhijmz", "score": 1,
+        "author_fullname": "t2_9bkxp", "removal_reason": null, "approved_by": null,
+        "mod_note": null, "all_awardings": [], "body": "This.", "edited": false, "top_awarded_type":
+        null, "author_flair_css_class": null, "name": "t1_lrhsmdz", "is_submitter":
+        false, "downs": 0, "author_flair_richtext": [], "author_patreon_flair": false,
+        "body_html": "&lt;div class=\"md\"&gt;&lt;p&gt;This.&lt;/p&gt;\n&lt;/div&gt;",
+        "gildings": {}, "collapsed_reason": null, "distinguished": null, "associated_award":
+        null, "stickied": false, "author_premium": false, "can_gild": false, "link_id":
+        "t3_1g1m2eo", "unrepliable_reason": null, "author_flair_text_color": null,
+        "score_hidden": false, "permalink": "/r/AITAH/comments/1g1m2eo/aita_for_refusing_to_help_my_boyfriend_move_back/lrhsmdz/",
+        "subreddit_type": "public", "locked": false, "report_reasons": null, "created":
+        1728691472.0, "author_flair_text": null, "treatment_tags": [], "collapsed":
+        false, "subreddit_name_prefixed": "r/AITAH", "controversiality": 0, "depth":
+        1, "author_flair_background_color": null, "collapsed_because_crowd_control":
+        null, "mod_reports": [], "num_reports": null, "ups": 1}}], "before": null}},
+        "user_reports": [], "saved": false, "id": "lrhijmz", "banned_at_utc": null,
+        "mod_reason_title": null, "gilded": 0, "archived": false, "collapsed_reason_code":
+        null, "no_follow": false, "author": "AgonistPhD", "can_mod_post": false, "created_utc":
+        1728687392.0, "send_replies": true, "parent_id": "t3_1g1m2eo", "score": 3,
+        "author_fullname": "t2_j9nmpv868", "approved_by": null, "mod_note": null,
+        "all_awardings": [], "collapsed": false, "body": "He wants you also to be
+        unemployed, just so he can live with his parents? When your career is actually
+        going well? The fuck is he even thinking?! NTA, but he sure is. That or really,
+        really stupid; I can''t tell which.", "edited": false, "top_awarded_type":
+        null, "author_flair_css_class": null, "name": "t1_lrhijmz", "is_submitter":
+        false, "downs": 0, "author_flair_richtext": [], "author_patreon_flair": false,
+        "body_html": "&lt;div class=\"md\"&gt;&lt;p&gt;He wants you also to be unemployed,
+        just so he can live with his parents? When your career is actually going well?
+        The fuck is he even thinking?! NTA, but he sure is. That or really, really
+        stupid; I can&amp;#39;t tell which.&lt;/p&gt;\n&lt;/div&gt;", "removal_reason":
+        null, "collapsed_reason": null, "distinguished": null, "associated_award":
+        null, "stickied": false, "author_premium": false, "can_gild": false, "gildings":
+        {}, "unrepliable_reason": null, "author_flair_text_color": null, "score_hidden":
+        false, "permalink": "/r/AITAH/comments/1g1m2eo/aita_for_refusing_to_help_my_boyfriend_move_back/lrhijmz/",
+        "subreddit_type": "public", "locked": false, "report_reasons": null, "created":
+        1728687392.0, "author_flair_text": null, "treatment_tags": [], "link_id":
+        "t3_1g1m2eo", "subreddit_name_prefixed": "r/AITAH", "controversiality": 0,
+        "depth": 0, "author_flair_background_color": null, "collapsed_because_crowd_control":
+        null, "mod_reports": [], "num_reports": null, "ups": 3}}, {"kind": "t1", "data":
+        {"subreddit_id": "t5_446kys", "approved_at_utc": null, "author_is_blocked":
+        false, "comment_type": null, "awarders": [], "mod_reason_by": null, "banned_by":
+        null, "author_flair_type": "text", "total_awards_received": 0, "subreddit":
+        "AITAH", "author_flair_template_id": null, "likes": null, "replies": "", "user_reports":
+        [], "saved": false, "id": "lrhilv3", "banned_at_utc": null, "mod_reason_title":
+        null, "gilded": 0, "archived": false, "collapsed_reason_code": null, "no_follow":
+        false, "author": "ItaliaEyez", "can_mod_post": false, "created_utc": 1728687416.0,
+        "send_replies": true, "parent_id": "t3_1g1m2eo", "score": 3, "author_fullname":
+        "t2_ng1o0p42", "approved_by": null, "mod_note": null, "all_awardings": [],
+        "collapsed": false, "body": "Nta, and he needs to grow up. Welcome to adulting.",
+        "edited": false, "top_awarded_type": null, "author_flair_css_class": null,
+        "name": "t1_lrhilv3", "is_submitter": false, "downs": 0, "author_flair_richtext":
+        [], "author_patreon_flair": false, "body_html": "&lt;div class=\"md\"&gt;&lt;p&gt;Nta,
+        and he needs to grow up. Welcome to adulting.&lt;/p&gt;\n&lt;/div&gt;", "removal_reason":
+        null, "collapsed_reason": null, "distinguished": null, "associated_award":
+        null, "stickied": false, "author_premium": false, "can_gild": false, "gildings":
+        {}, "unrepliable_reason": null, "author_flair_text_color": null, "score_hidden":
+        false, "permalink": "/r/AITAH/comments/1g1m2eo/aita_for_refusing_to_help_my_boyfriend_move_back/lrhilv3/",
+        "subreddit_type": "public", "locked": false, "report_reasons": null, "created":
+        1728687416.0, "author_flair_text": null, "treatment_tags": [], "link_id":
+        "t3_1g1m2eo", "subreddit_name_prefixed": "r/AITAH", "controversiality": 0,
+        "depth": 0, "author_flair_background_color": null, "collapsed_because_crowd_control":
+        null, "mod_reports": [], "num_reports": null, "ups": 3}}, {"kind": "t1", "data":
+        {"subreddit_id": "t5_446kys", "approved_at_utc": null, "author_is_blocked":
+        false, "comment_type": null, "awarders": [], "mod_reason_by": null, "banned_by":
+        null, "author_flair_type": "text", "total_awards_received": 0, "subreddit":
+        "AITAH", "author_flair_template_id": null, "likes": null, "replies": "", "user_reports":
+        [], "saved": false, "id": "lrhiq9c", "banned_at_utc": null, "mod_reason_title":
+        null, "gilded": 0, "archived": false, "collapsed_reason_code": null, "no_follow":
+        false, "author": "misssylvania", "can_mod_post": false, "created_utc": 1728687464.0,
+        "send_replies": true, "parent_id": "t3_1g1m2eo", "score": 5, "author_fullname":
+        "t2_w3vt6t0g", "approved_by": null, "mod_note": null, "all_awardings": [],
+        "collapsed": false, "body": "NTA. If Tom had any decency, he would realize
+        that you\u2019re settled into a job that you love and are advancing in (as
+        well as being in a city that you really like), and uprooting you both would
+        be harmful to you. He could take you up on your offer to continue paying rent
+        and bills or he can go back to your hometown himself, but it\u2019s not fair
+        to you to pick up and leave as well. Quite frankly, it\u2019s selfish on his
+        part to even make that request and then punish you for it by being cold. Whatever
+        happens between you and Tom, I hope you stand your ground and continue to
+        live your best life where you\u2019re now established.", "edited": false,
+        "top_awarded_type": null, "author_flair_css_class": null, "name": "t1_lrhiq9c",
+        "is_submitter": false, "downs": 0, "author_flair_richtext": [], "author_patreon_flair":
+        false, "body_html": "&lt;div class=\"md\"&gt;&lt;p&gt;NTA. If Tom had any
+        decency, he would realize that you\u2019re settled into a job that you love
+        and are advancing in (as well as being in a city that you really like), and
+        uprooting you both would be harmful to you. He could take you up on your offer
+        to continue paying rent and bills or he can go back to your hometown himself,
+        but it\u2019s not fair to you to pick up and leave as well. Quite frankly,
+        it\u2019s selfish on his part to even make that request and then punish you
+        for it by being cold. Whatever happens between you and Tom, I hope you stand
+        your ground and continue to live your best life where you\u2019re now established.&lt;/p&gt;\n&lt;/div&gt;",
+        "removal_reason": null, "collapsed_reason": null, "distinguished": null, "associated_award":
+        null, "stickied": false, "author_premium": false, "can_gild": false, "gildings":
+        {}, "unrepliable_reason": null, "author_flair_text_color": null, "score_hidden":
+        false, "permalink": "/r/AITAH/comments/1g1m2eo/aita_for_refusing_to_help_my_boyfriend_move_back/lrhiq9c/",
+        "subreddit_type": "public", "locked": false, "report_reasons": null, "created":
+        1728687464.0, "author_flair_text": null, "treatment_tags": [], "link_id":
+        "t3_1g1m2eo", "subreddit_name_prefixed": "r/AITAH", "controversiality": 0,
+        "depth": 0, "author_flair_background_color": null, "collapsed_because_crowd_control":
+        null, "mod_reports": [], "num_reports": null, "ups": 5}}, {"kind": "t1", "data":
+        {"subreddit_id": "t5_446kys", "approved_at_utc": null, "author_is_blocked":
+        false, "comment_type": null, "awarders": [], "mod_reason_by": null, "banned_by":
+        null, "author_flair_type": "text", "total_awards_received": 0, "subreddit":
+        "AITAH", "author_flair_template_id": null, "likes": null, "replies": "", "user_reports":
+        [], "saved": false, "id": "lrhioc4", "banned_at_utc": null, "mod_reason_title":
+        null, "gilded": 0, "archived": false, "collapsed_reason_code": null, "no_follow":
+        true, "author": "PenelopeShoots", "can_mod_post": false, "created_utc": 1728687443.0,
+        "send_replies": true, "parent_id": "t3_1g1m2eo", "score": 3, "author_fullname":
+        "t2_1v2w0blk", "approved_by": null, "mod_note": null, "all_awardings": [],
+        "collapsed": false, "body": "Why should you both move back to his hometown
+        so he can live with his parents? He can do that on his own. Does he just want
+        you to pay for his return home? Offer to do that (or offer him a ticket home
+        to visit his parents, then break up with him while he''s there and tell him
+        his stuff is being fedexed to him).", "edited": false, "top_awarded_type":
+        null, "author_flair_css_class": null, "name": "t1_lrhioc4", "is_submitter":
+        false, "downs": 0, "author_flair_richtext": [], "author_patreon_flair": false,
+        "body_html": "&lt;div class=\"md\"&gt;&lt;p&gt;Why should you both move back
+        to his hometown so he can live with his parents? He can do that on his own.
+        Does he just want you to pay for his return home? Offer to do that (or offer
+        him a ticket home to visit his parents, then break up with him while he&amp;#39;s
+        there and tell him his stuff is being fedexed to him).&lt;/p&gt;\n&lt;/div&gt;",
+        "removal_reason": null, "collapsed_reason": null, "distinguished": null, "associated_award":
+        null, "stickied": false, "author_premium": false, "can_gild": false, "gildings":
+        {}, "unrepliable_reason": null, "author_flair_text_color": null, "score_hidden":
+        false, "permalink": "/r/AITAH/comments/1g1m2eo/aita_for_refusing_to_help_my_boyfriend_move_back/lrhioc4/",
+        "subreddit_type": "public", "locked": false, "report_reasons": null, "created":
+        1728687443.0, "author_flair_text": null, "treatment_tags": [], "link_id":
+        "t3_1g1m2eo", "subreddit_name_prefixed": "r/AITAH", "controversiality": 0,
+        "depth": 0, "author_flair_background_color": null, "collapsed_because_crowd_control":
+        null, "mod_reports": [], "num_reports": null, "ups": 3}}, {"kind": "t1", "data":
+        {"subreddit_id": "t5_446kys", "approved_at_utc": null, "author_is_blocked":
+        false, "comment_type": null, "awarders": [], "mod_reason_by": null, "banned_by":
+        null, "author_flair_type": "text", "total_awards_received": 0, "subreddit":
+        "AITAH", "author_flair_template_id": null, "likes": null, "replies": "", "user_reports":
+        [], "saved": false, "id": "lrhktxi", "banned_at_utc": null, "mod_reason_title":
+        null, "gilded": 0, "archived": false, "collapsed_reason_code": null, "no_follow":
+        true, "author": "BlueGreen_1956", "can_mod_post": false, "created_utc": 1728688302.0,
+        "send_replies": true, "parent_id": "t3_1g1m2eo", "score": 2, "author_fullname":
+        "t2_ih1su4wn4", "approved_by": null, "mod_note": null, "all_awardings": [],
+        "collapsed": false, "body": "NAH\n\nWhat''s the problem?  You can stay where
+        you are, and Tom can move back home.\n\nThis is not rocket science.", "edited":
+        false, "top_awarded_type": null, "author_flair_css_class": null, "name": "t1_lrhktxi",
+        "is_submitter": false, "downs": 0, "author_flair_richtext": [], "author_patreon_flair":
+        false, "body_html": "&lt;div class=\"md\"&gt;&lt;p&gt;NAH&lt;/p&gt;\n\n&lt;p&gt;What&amp;#39;s
+        the problem?  You can stay where you are, and Tom can move back home.&lt;/p&gt;\n\n&lt;p&gt;This
+        is not rocket science.&lt;/p&gt;\n&lt;/div&gt;", "removal_reason": null, "collapsed_reason":
+        null, "distinguished": null, "associated_award": null, "stickied": false,
+        "author_premium": false, "can_gild": false, "gildings": {}, "unrepliable_reason":
+        null, "author_flair_text_color": null, "score_hidden": false, "permalink":
+        "/r/AITAH/comments/1g1m2eo/aita_for_refusing_to_help_my_boyfriend_move_back/lrhktxi/",
+        "subreddit_type": "public", "locked": false, "report_reasons": null, "created":
+        1728688302.0, "author_flair_text": null, "treatment_tags": [], "link_id":
+        "t3_1g1m2eo", "subreddit_name_prefixed": "r/AITAH", "controversiality": 0,
+        "depth": 0, "author_flair_background_color": null, "collapsed_because_crowd_control":
+        null, "mod_reports": [], "num_reports": null, "ups": 2}}, {"kind": "t1", "data":
+        {"subreddit_id": "t5_446kys", "approved_at_utc": null, "author_is_blocked":
+        false, "comment_type": null, "awarders": [], "mod_reason_by": null, "banned_by":
+        null, "author_flair_type": "text", "total_awards_received": 0, "subreddit":
+        "AITAH", "author_flair_template_id": null, "likes": null, "replies": "", "user_reports":
+        [], "saved": false, "id": "lrhn84e", "banned_at_utc": null, "mod_reason_title":
+        null, "gilded": 0, "archived": false, "collapsed_reason_code": null, "no_follow":
+        true, "author": "Wendel7171", "can_mod_post": false, "created_utc": 1728689260.0,
+        "send_replies": true, "parent_id": "t3_1g1m2eo", "score": 2, "author_fullname":
+        "t2_3yjhdmqw", "approved_by": null, "mod_note": null, "all_awardings": [],
+        "collapsed": false, "body": "Bye bye Tom", "edited": false, "top_awarded_type":
+        null, "author_flair_css_class": null, "name": "t1_lrhn84e", "is_submitter":
+        false, "downs": 0, "author_flair_richtext": [], "author_patreon_flair": false,
+        "body_html": "&lt;div class=\"md\"&gt;&lt;p&gt;Bye bye Tom&lt;/p&gt;\n&lt;/div&gt;",
+        "removal_reason": null, "collapsed_reason": null, "distinguished": null, "associated_award":
+        null, "stickied": false, "author_premium": false, "can_gild": false, "gildings":
+        {}, "unrepliable_reason": null, "author_flair_text_color": null, "score_hidden":
+        false, "permalink": "/r/AITAH/comments/1g1m2eo/aita_for_refusing_to_help_my_boyfriend_move_back/lrhn84e/",
+        "subreddit_type": "public", "locked": false, "report_reasons": null, "created":
+        1728689260.0, "author_flair_text": null, "treatment_tags": [], "link_id":
+        "t3_1g1m2eo", "subreddit_name_prefixed": "r/AITAH", "controversiality": 0,
+        "depth": 0, "author_flair_background_color": null, "collapsed_because_crowd_control":
+        null, "mod_reports": [], "num_reports": null, "ups": 2}}, {"kind": "t1", "data":
+        {"subreddit_id": "t5_446kys", "approved_at_utc": null, "author_is_blocked":
+        false, "comment_type": null, "awarders": [], "mod_reason_by": null, "banned_by":
+        null, "author_flair_type": "text", "total_awards_received": 0, "subreddit":
+        "AITAH", "author_flair_template_id": null, "likes": null, "replies": "", "user_reports":
+        [], "saved": false, "id": "lrhru5h", "banned_at_utc": null, "mod_reason_title":
+        null, "gilded": 0, "archived": false, "collapsed_reason_code": null, "no_follow":
+        true, "author": "rocketmn69_", "can_mod_post": false, "created_utc": 1728691148.0,
+        "send_replies": true, "parent_id": "t3_1g1m2eo", "score": 2, "author_fullname":
+        "t2_o46z8lljh", "approved_by": null, "mod_note": null, "all_awardings": [],
+        "collapsed": false, "body": "Help him load the u-haul with his stuff. Tell
+        him thar you have unfinished business that will take a couple of months and
+        you''ll join him then, once he has a new job.  Once he''s gone, so will your
+        stress. Find a new place for you that you can afford.  Once he''s gone, you
+        can start weaning him off the relationship", "edited": false, "top_awarded_type":
+        null, "author_flair_css_class": null, "name": "t1_lrhru5h", "is_submitter":
+        false, "downs": 0, "author_flair_richtext": [], "author_patreon_flair": false,
+        "body_html": "&lt;div class=\"md\"&gt;&lt;p&gt;Help him load the u-haul with
+        his stuff. Tell him thar you have unfinished business that will take a couple
+        of months and you&amp;#39;ll join him then, once he has a new job.  Once he&amp;#39;s
+        gone, so will your stress. Find a new place for you that you can afford.  Once
+        he&amp;#39;s gone, you can start weaning him off the relationship&lt;/p&gt;\n&lt;/div&gt;",
+        "removal_reason": null, "collapsed_reason": null, "distinguished": null, "associated_award":
+        null, "stickied": false, "author_premium": false, "can_gild": false, "gildings":
+        {}, "unrepliable_reason": null, "author_flair_text_color": null, "score_hidden":
+        false, "permalink": "/r/AITAH/comments/1g1m2eo/aita_for_refusing_to_help_my_boyfriend_move_back/lrhru5h/",
+        "subreddit_type": "public", "locked": false, "report_reasons": null, "created":
+        1728691148.0, "author_flair_text": null, "treatment_tags": [], "link_id":
+        "t3_1g1m2eo", "subreddit_name_prefixed": "r/AITAH", "controversiality": 0,
+        "depth": 0, "author_flair_background_color": null, "collapsed_because_crowd_control":
+        null, "mod_reports": [], "num_reports": null, "ups": 2}}, {"kind": "t1", "data":
+        {"subreddit_id": "t5_446kys", "approved_at_utc": null, "author_is_blocked":
+        false, "comment_type": null, "awarders": [], "mod_reason_by": null, "banned_by":
+        null, "author_flair_type": "text", "total_awards_received": 0, "subreddit":
+        "AITAH", "author_flair_template_id": null, "likes": null, "replies": "", "user_reports":
+        [], "saved": false, "id": "lrhge8m", "banned_at_utc": null, "mod_reason_title":
+        null, "gilded": 0, "archived": false, "collapsed_reason_code": null, "no_follow":
+        false, "author": "unpopular-dave", "can_mod_post": false, "created_utc": 1728686545.0,
+        "send_replies": true, "parent_id": "t3_1g1m2eo", "score": 5, "author_fullname":
+        "t2_n2rjugdvw", "approved_by": null, "mod_note": null, "all_awardings": [],
+        "collapsed": false, "body": "NAH.\n\nYou guys just want different things in
+        life and aren\u2019t compatible. It\u2019s a common tale.", "edited": false,
+        "top_awarded_type": null, "author_flair_css_class": null, "name": "t1_lrhge8m",
+        "is_submitter": false, "downs": 0, "author_flair_richtext": [], "author_patreon_flair":
+        false, "body_html": "&lt;div class=\"md\"&gt;&lt;p&gt;NAH.&lt;/p&gt;\n\n&lt;p&gt;You
+        guys just want different things in life and aren\u2019t compatible. It\u2019s
+        a common tale.&lt;/p&gt;\n&lt;/div&gt;", "removal_reason": null, "collapsed_reason":
+        null, "distinguished": null, "associated_award": null, "stickied": false,
+        "author_premium": false, "can_gild": false, "gildings": {}, "unrepliable_reason":
+        null, "author_flair_text_color": null, "score_hidden": false, "permalink":
+        "/r/AITAH/comments/1g1m2eo/aita_for_refusing_to_help_my_boyfriend_move_back/lrhge8m/",
+        "subreddit_type": "public", "locked": false, "report_reasons": null, "created":
+        1728686545.0, "author_flair_text": null, "treatment_tags": [], "link_id":
+        "t3_1g1m2eo", "subreddit_name_prefixed": "r/AITAH", "controversiality": 0,
+        "depth": 0, "author_flair_background_color": null, "collapsed_because_crowd_control":
+        null, "mod_reports": [], "num_reports": null, "ups": 5}}, {"kind": "t1", "data":
+        {"subreddit_id": "t5_446kys", "approved_at_utc": null, "author_is_blocked":
+        false, "comment_type": null, "awarders": [], "mod_reason_by": null, "banned_by":
+        null, "author_flair_type": "text", "total_awards_received": 0, "subreddit":
+        "AITAH", "author_flair_template_id": null, "likes": null, "replies": {"kind":
+        "Listing", "data": {"after": null, "dist": null, "modhash": "", "geo_filter":
+        "", "children": [{"kind": "t1", "data": {"subreddit_id": "t5_446kys", "approved_at_utc":
+        null, "author_is_blocked": false, "comment_type": null, "awarders": [], "mod_reason_by":
+        null, "banned_by": null, "author_flair_type": "text", "total_awards_received":
+        0, "subreddit": "AITAH", "author_flair_template_id": null, "likes": null,
+        "replies": "", "user_reports": [], "saved": false, "id": "lrhuz5y", "banned_at_utc":
+        null, "mod_reason_title": null, "gilded": 0, "archived": false, "collapsed_reason_code":
+        null, "no_follow": true, "author": "Sure-Ingenuity6714", "can_mod_post": false,
+        "created_utc": 1728692448.0, "send_replies": true, "parent_id": "t1_lrhgkdd",
+        "score": 1, "author_fullname": "t2_vu17ac1f0", "removal_reason": null, "approved_by":
+        null, "mod_note": null, "all_awardings": [], "body": "Fuck off bot!", "edited":
+        false, "top_awarded_type": null, "author_flair_css_class": null, "name": "t1_lrhuz5y",
+        "is_submitter": false, "downs": 0, "author_flair_richtext": [], "author_patreon_flair":
+        false, "body_html": "&lt;div class=\"md\"&gt;&lt;p&gt;Fuck off bot!&lt;/p&gt;\n&lt;/div&gt;",
+        "gildings": {}, "collapsed_reason": null, "distinguished": null, "associated_award":
+        null, "stickied": false, "author_premium": false, "can_gild": false, "link_id":
+        "t3_1g1m2eo", "unrepliable_reason": null, "author_flair_text_color": null,
+        "score_hidden": false, "permalink": "/r/AITAH/comments/1g1m2eo/aita_for_refusing_to_help_my_boyfriend_move_back/lrhuz5y/",
+        "subreddit_type": "public", "locked": false, "report_reasons": null, "created":
+        1728692448.0, "author_flair_text": null, "treatment_tags": [], "collapsed":
+        false, "subreddit_name_prefixed": "r/AITAH", "controversiality": 0, "depth":
+        1, "author_flair_background_color": null, "collapsed_because_crowd_control":
+        null, "mod_reports": [], "num_reports": null, "ups": 1}}], "before": null}},
+        "user_reports": [], "saved": false, "id": "lrhgkdd", "banned_at_utc": null,
+        "mod_reason_title": null, "gilded": 0, "archived": false, "collapsed_reason_code":
+        null, "no_follow": true, "author": "Jennyfrancis__", "can_mod_post": false,
+        "created_utc": 1728686611.0, "send_replies": true, "parent_id": "t3_1g1m2eo",
+        "score": 2, "author_fullname": "t2_124blnhzd6", "approved_by": null, "mod_note":
+        null, "all_awardings": [], "collapsed": false, "body": "You\u2019ve worked
+        hard to establish your career and just received a promotion. It\u2019s reasonable
+        to want to stay in a place where you\u2019re thriving, especially if Tom\u2019s
+        job loss is a temporary setback. Supporting him doesn\u2019t mean sacrificing
+        your own aspirations.", "edited": false, "top_awarded_type": null, "author_flair_css_class":
+        null, "name": "t1_lrhgkdd", "is_submitter": false, "downs": 0, "author_flair_richtext":
+        [], "author_patreon_flair": false, "body_html": "&lt;div class=\"md\"&gt;&lt;p&gt;You\u2019ve
+        worked hard to establish your career and just received a promotion. It\u2019s
+        reasonable to want to stay in a place where you\u2019re thriving, especially
+        if Tom\u2019s job loss is a temporary setback. Supporting him doesn\u2019t
+        mean sacrificing your own aspirations.&lt;/p&gt;\n&lt;/div&gt;", "removal_reason":
+        null, "collapsed_reason": null, "distinguished": null, "associated_award":
+        null, "stickied": false, "author_premium": false, "can_gild": false, "gildings":
+        {}, "unrepliable_reason": null, "author_flair_text_color": null, "score_hidden":
+        false, "permalink": "/r/AITAH/comments/1g1m2eo/aita_for_refusing_to_help_my_boyfriend_move_back/lrhgkdd/",
+        "subreddit_type": "public", "locked": false, "report_reasons": null, "created":
+        1728686611.0, "author_flair_text": null, "treatment_tags": [], "link_id":
+        "t3_1g1m2eo", "subreddit_name_prefixed": "r/AITAH", "controversiality": 0,
+        "depth": 0, "author_flair_background_color": null, "collapsed_because_crowd_control":
+        null, "mod_reports": [], "num_reports": null, "ups": 2}}, {"kind": "t1", "data":
+        {"subreddit_id": "t5_446kys", "approved_at_utc": null, "author_is_blocked":
+        false, "comment_type": null, "awarders": [], "mod_reason_by": null, "banned_by":
+        null, "author_flair_type": "text", "total_awards_received": 0, "subreddit":
+        "AITAH", "author_flair_template_id": null, "likes": null, "replies": "", "user_reports":
+        [], "saved": false, "id": "lrhmfk8", "banned_at_utc": null, "mod_reason_title":
+        null, "gilded": 0, "archived": false, "collapsed_reason_code": null, "no_follow":
+        true, "author": "Free-Place-3930", "can_mod_post": false, "created_utc": 1728688939.0,
+        "send_replies": true, "parent_id": "t3_1g1m2eo", "score": 1, "author_fullname":
+        "t2_12bb1qgffk", "approved_by": null, "mod_note": null, "all_awardings": [],
+        "collapsed": false, "body": "NTA. Give him money to move home. Like for gas
+        or bus. And then break up.", "edited": false, "top_awarded_type": null, "author_flair_css_class":
+        null, "name": "t1_lrhmfk8", "is_submitter": false, "downs": 0, "author_flair_richtext":
+        [], "author_patreon_flair": false, "body_html": "&lt;div class=\"md\"&gt;&lt;p&gt;NTA.
+        Give him money to move home. Like for gas or bus. And then break up.&lt;/p&gt;\n&lt;/div&gt;",
+        "removal_reason": null, "collapsed_reason": null, "distinguished": null, "associated_award":
+        null, "stickied": false, "author_premium": false, "can_gild": false, "gildings":
+        {}, "unrepliable_reason": null, "author_flair_text_color": null, "score_hidden":
+        false, "permalink": "/r/AITAH/comments/1g1m2eo/aita_for_refusing_to_help_my_boyfriend_move_back/lrhmfk8/",
+        "subreddit_type": "public", "locked": false, "report_reasons": null, "created":
+        1728688939.0, "author_flair_text": null, "treatment_tags": [], "link_id":
+        "t3_1g1m2eo", "subreddit_name_prefixed": "r/AITAH", "controversiality": 0,
+        "depth": 0, "author_flair_background_color": null, "collapsed_because_crowd_control":
+        null, "mod_reports": [], "num_reports": null, "ups": 1}}, {"kind": "t1", "data":
+        {"subreddit_id": "t5_446kys", "approved_at_utc": null, "author_is_blocked":
+        false, "comment_type": null, "awarders": [], "mod_reason_by": null, "banned_by":
+        null, "author_flair_type": "text", "total_awards_received": 0, "subreddit":
+        "AITAH", "author_flair_template_id": null, "likes": null, "replies": "", "user_reports":
+        [], "saved": false, "id": "lrhms0c", "banned_at_utc": null, "mod_reason_title":
+        null, "gilded": 0, "archived": false, "collapsed_reason_code": null, "no_follow":
+        true, "author": "writingmmromance2", "can_mod_post": false, "created_utc":
+        1728689079.0, "send_replies": true, "parent_id": "t3_1g1m2eo", "score": 1,
+        "author_fullname": "t2_15pmcxy8fe", "approved_by": null, "mod_note": null,
+        "all_awardings": [], "collapsed": false, "body": "I wonder who put the bug
+        in his ear? Do his parents have pretty traditional gender roles in their relationship?
+        (Ie: mom being a stay at home mom or something?)", "edited": false, "top_awarded_type":
+        null, "author_flair_css_class": null, "name": "t1_lrhms0c", "is_submitter":
+        false, "downs": 0, "author_flair_richtext": [], "author_patreon_flair": false,
+        "body_html": "&lt;div class=\"md\"&gt;&lt;p&gt;I wonder who put the bug in
+        his ear? Do his parents have pretty traditional gender roles in their relationship?
+        (Ie: mom being a stay at home mom or something?)&lt;/p&gt;\n&lt;/div&gt;",
+        "removal_reason": null, "collapsed_reason": null, "distinguished": null, "associated_award":
+        null, "stickied": false, "author_premium": false, "can_gild": false, "gildings":
+        {}, "unrepliable_reason": null, "author_flair_text_color": null, "score_hidden":
+        false, "permalink": "/r/AITAH/comments/1g1m2eo/aita_for_refusing_to_help_my_boyfriend_move_back/lrhms0c/",
+        "subreddit_type": "public", "locked": false, "report_reasons": null, "created":
+        1728689079.0, "author_flair_text": null, "treatment_tags": [], "link_id":
+        "t3_1g1m2eo", "subreddit_name_prefixed": "r/AITAH", "controversiality": 0,
+        "depth": 0, "author_flair_background_color": null, "collapsed_because_crowd_control":
+        null, "mod_reports": [], "num_reports": null, "ups": 1}}, {"kind": "t1", "data":
+        {"subreddit_id": "t5_446kys", "approved_at_utc": null, "author_is_blocked":
+        false, "comment_type": null, "awarders": [], "mod_reason_by": null, "banned_by":
+        null, "author_flair_type": "text", "total_awards_received": 0, "subreddit":
+        "AITAH", "author_flair_template_id": null, "likes": null, "replies": "", "user_reports":
+        [], "saved": false, "id": "lrhn31n", "banned_at_utc": null, "mod_reason_title":
+        null, "gilded": 0, "archived": false, "collapsed_reason_code": null, "no_follow":
+        true, "author": "bookishmama_76", "can_mod_post": false, "created_utc": 1728689204.0,
+        "send_replies": true, "parent_id": "t3_1g1m2eo", "score": 1, "author_fullname":
+        "t2_16ey7y5jka", "approved_by": null, "mod_note": null, "all_awardings": [],
+        "collapsed": false, "body": "NTA - he is not supporting you. And really, this
+        is a douche move, being pissy &amp; petty. Maybe a little distance will be
+        good for you to see if things really what you want", "edited": false, "top_awarded_type":
+        null, "author_flair_css_class": null, "name": "t1_lrhn31n", "is_submitter":
+        false, "downs": 0, "author_flair_richtext": [], "author_patreon_flair": false,
+        "body_html": "&lt;div class=\"md\"&gt;&lt;p&gt;NTA - he is not supporting
+        you. And really, this is a douche move, being pissy &amp;amp; petty. Maybe
+        a little distance will be good for you to see if things really what you want&lt;/p&gt;\n&lt;/div&gt;",
+        "removal_reason": null, "collapsed_reason": null, "distinguished": null, "associated_award":
+        null, "stickied": false, "author_premium": false, "can_gild": false, "gildings":
+        {}, "unrepliable_reason": null, "author_flair_text_color": null, "score_hidden":
+        false, "permalink": "/r/AITAH/comments/1g1m2eo/aita_for_refusing_to_help_my_boyfriend_move_back/lrhn31n/",
+        "subreddit_type": "public", "locked": false, "report_reasons": null, "created":
+        1728689204.0, "author_flair_text": null, "treatment_tags": [], "link_id":
+        "t3_1g1m2eo", "subreddit_name_prefixed": "r/AITAH", "controversiality": 0,
+        "depth": 0, "author_flair_background_color": null, "collapsed_because_crowd_control":
+        null, "mod_reports": [], "num_reports": null, "ups": 1}}, {"kind": "t1", "data":
+        {"subreddit_id": "t5_446kys", "approved_at_utc": null, "author_is_blocked":
+        false, "comment_type": null, "awarders": [], "mod_reason_by": null, "banned_by":
+        null, "author_flair_type": "text", "total_awards_received": 0, "subreddit":
+        "AITAH", "author_flair_template_id": null, "likes": null, "replies": "", "user_reports":
+        [], "saved": false, "id": "lrhnbjk", "banned_at_utc": null, "mod_reason_title":
+        null, "gilded": 0, "archived": false, "collapsed_reason_code": null, "no_follow":
+        true, "author": "Livid-You-4376", "can_mod_post": false, "created_utc": 1728689299.0,
+        "send_replies": true, "parent_id": "t3_1g1m2eo", "score": 1, "author_fullname":
+        "t2_dhkcglx2", "approved_by": null, "mod_note": null, "all_awardings": [],
+        "collapsed": false, "body": "NTA- OP you have excelled, and he\u2019s without
+        a job. He should stay there and hit the pavement looking; and physically look.  Don\u2019t
+        give up what you have earned, and he should support your success.", "edited":
+        false, "top_awarded_type": null, "author_flair_css_class": null, "name": "t1_lrhnbjk",
+        "is_submitter": false, "downs": 0, "author_flair_richtext": [], "author_patreon_flair":
+        false, "body_html": "&lt;div class=\"md\"&gt;&lt;p&gt;NTA- OP you have excelled,
+        and he\u2019s without a job. He should stay there and hit the pavement looking;
+        and physically look.  Don\u2019t give up what you have earned, and he should
+        support your success.&lt;/p&gt;\n&lt;/div&gt;", "removal_reason": null, "collapsed_reason":
+        null, "distinguished": null, "associated_award": null, "stickied": false,
+        "author_premium": false, "can_gild": false, "gildings": {}, "unrepliable_reason":
+        null, "author_flair_text_color": null, "score_hidden": false, "permalink":
+        "/r/AITAH/comments/1g1m2eo/aita_for_refusing_to_help_my_boyfriend_move_back/lrhnbjk/",
+        "subreddit_type": "public", "locked": false, "report_reasons": null, "created":
+        1728689299.0, "author_flair_text": null, "treatment_tags": [], "link_id":
+        "t3_1g1m2eo", "subreddit_name_prefixed": "r/AITAH", "controversiality": 0,
+        "depth": 0, "author_flair_background_color": null, "collapsed_because_crowd_control":
+        null, "mod_reports": [], "num_reports": null, "ups": 1}}, {"kind": "t1", "data":
+        {"subreddit_id": "t5_446kys", "approved_at_utc": null, "author_is_blocked":
+        false, "comment_type": null, "awarders": [], "mod_reason_by": null, "banned_by":
+        null, "author_flair_type": "text", "total_awards_received": 0, "subreddit":
+        "AITAH", "author_flair_template_id": null, "likes": null, "replies": "", "user_reports":
+        [], "saved": false, "id": "lrhnzw1", "banned_at_utc": null, "mod_reason_title":
+        null, "gilded": 0, "archived": false, "collapsed_reason_code": null, "no_follow":
+        true, "author": "Chance-Profile-8681", "can_mod_post": false, "created_utc":
+        1728689572.0, "send_replies": true, "parent_id": "t3_1g1m2eo", "score": 1,
+        "author_fullname": "t2_of2dn4lcw", "approved_by": null, "mod_note": null,
+        "all_awardings": [], "collapsed": false, "body": "Time to let Tom move back
+        home and you need to continue doing what you''re doing.   Not the AH here,
+        bad situation he''s put himself in is not on you.", "edited": false, "top_awarded_type":
+        null, "author_flair_css_class": null, "name": "t1_lrhnzw1", "is_submitter":
+        false, "downs": 0, "author_flair_richtext": [], "author_patreon_flair": false,
+        "body_html": "&lt;div class=\"md\"&gt;&lt;p&gt;Time to let Tom move back home
+        and you need to continue doing what you&amp;#39;re doing.   Not the AH here,
+        bad situation he&amp;#39;s put himself in is not on you.&lt;/p&gt;\n&lt;/div&gt;",
+        "removal_reason": null, "collapsed_reason": null, "distinguished": null, "associated_award":
+        null, "stickied": false, "author_premium": false, "can_gild": false, "gildings":
+        {}, "unrepliable_reason": null, "author_flair_text_color": null, "score_hidden":
+        false, "permalink": "/r/AITAH/comments/1g1m2eo/aita_for_refusing_to_help_my_boyfriend_move_back/lrhnzw1/",
+        "subreddit_type": "public", "locked": false, "report_reasons": null, "created":
+        1728689572.0, "author_flair_text": null, "treatment_tags": [], "link_id":
+        "t3_1g1m2eo", "subreddit_name_prefixed": "r/AITAH", "controversiality": 0,
+        "depth": 0, "author_flair_background_color": null, "collapsed_because_crowd_control":
+        null, "mod_reports": [], "num_reports": null, "ups": 1}}, {"kind": "t1", "data":
+        {"subreddit_id": "t5_446kys", "approved_at_utc": null, "author_is_blocked":
+        false, "comment_type": null, "awarders": [], "mod_reason_by": null, "banned_by":
+        null, "author_flair_type": "text", "total_awards_received": 0, "subreddit":
+        "AITAH", "author_flair_template_id": null, "likes": null, "replies": "", "user_reports":
+        [], "saved": false, "id": "lrhoil3", "banned_at_utc": null, "mod_reason_title":
+        null, "gilded": 0, "archived": false, "collapsed_reason_code": null, "no_follow":
+        true, "author": "Maximum_Overdrive", "can_mod_post": false, "created_utc":
+        1728689784.0, "send_replies": true, "parent_id": "t3_1g1m2eo", "score": 1,
+        "author_fullname": "t2_9dc4r", "approved_by": null, "mod_note": null, "all_awardings":
+        [], "collapsed": false, "body": "Nta, but do you know if he has been getting
+        financial help from his family?\u00a0 He maybe getting pressure from them
+        to come back home as their finances maybe stressed helping him.\n\n\nEither
+        way, you are still nta, but you just may have to go your separate ways.\u00a0
+        And he may be realizing that as well and is trying to salvage what he can.\n\n\nWhen
+        someone is on a sinking ship, they try to grasp for anything within reach.\n\n\nGood
+        luck with whatever you choose, but you moving back home with him doesn''t
+        seem like the best decision.", "edited": false, "top_awarded_type": null,
+        "author_flair_css_class": null, "name": "t1_lrhoil3", "is_submitter": false,
+        "downs": 0, "author_flair_richtext": [], "author_patreon_flair": false, "body_html":
+        "&lt;div class=\"md\"&gt;&lt;p&gt;Nta, but do you know if he has been getting
+        financial help from his family?\u00a0 He maybe getting pressure from them
+        to come back home as their finances maybe stressed helping him.&lt;/p&gt;\n\n&lt;p&gt;Either
+        way, you are still nta, but you just may have to go your separate ways.\u00a0
+        And he may be realizing that as well and is trying to salvage what he can.&lt;/p&gt;\n\n&lt;p&gt;When
+        someone is on a sinking ship, they try to grasp for anything within reach.&lt;/p&gt;\n\n&lt;p&gt;Good
+        luck with whatever you choose, but you moving back home with him doesn&amp;#39;t
+        seem like the best decision.&lt;/p&gt;\n&lt;/div&gt;", "removal_reason": null,
+        "collapsed_reason": null, "distinguished": null, "associated_award": null,
+        "stickied": false, "author_premium": false, "can_gild": false, "gildings":
+        {}, "unrepliable_reason": null, "author_flair_text_color": null, "score_hidden":
+        false, "permalink": "/r/AITAH/comments/1g1m2eo/aita_for_refusing_to_help_my_boyfriend_move_back/lrhoil3/",
+        "subreddit_type": "public", "locked": false, "report_reasons": null, "created":
+        1728689784.0, "author_flair_text": null, "treatment_tags": [], "link_id":
+        "t3_1g1m2eo", "subreddit_name_prefixed": "r/AITAH", "controversiality": 0,
+        "depth": 0, "author_flair_background_color": null, "collapsed_because_crowd_control":
+        null, "mod_reports": [], "num_reports": null, "ups": 1}}, {"kind": "t1", "data":
+        {"subreddit_id": "t5_446kys", "approved_at_utc": null, "author_is_blocked":
+        false, "comment_type": null, "awarders": [], "mod_reason_by": null, "banned_by":
+        null, "author_flair_type": "text", "total_awards_received": 0, "subreddit":
+        "AITAH", "author_flair_template_id": null, "likes": null, "replies": "", "user_reports":
+        [], "saved": false, "id": "lrhpoeq", "banned_at_utc": null, "mod_reason_title":
+        null, "gilded": 0, "archived": false, "collapsed_reason_code": null, "no_follow":
+        true, "author": "MamiZN", "can_mod_post": false, "created_utc": 1728690263.0,
+        "send_replies": true, "parent_id": "t3_1g1m2eo", "score": 1, "author_fullname":
+        "t2_gjazz713f", "approved_by": null, "mod_note": null, "all_awardings": [],
+        "collapsed": false, "body": "So if you agree to move, you would be moving
+        in with his parents? He is full of himself.\n\nYou quit and take your savings
+        to fund the movement? He has \u201c if I can\u2019t have you, no one will\u201d
+        mentality. I don\u2019t think he loves you.\n\nDo not move.", "edited": false,
+        "top_awarded_type": null, "author_flair_css_class": null, "name": "t1_lrhpoeq",
+        "is_submitter": false, "downs": 0, "author_flair_richtext": [], "author_patreon_flair":
+        false, "body_html": "&lt;div class=\"md\"&gt;&lt;p&gt;So if you agree to move,
+        you would be moving in with his parents? He is full of himself.&lt;/p&gt;\n\n&lt;p&gt;You
+        quit and take your savings to fund the movement? He has \u201c if I can\u2019t
+        have you, no one will\u201d mentality. I don\u2019t think he loves you.&lt;/p&gt;\n\n&lt;p&gt;Do
+        not move.&lt;/p&gt;\n&lt;/div&gt;", "removal_reason": null, "collapsed_reason":
+        null, "distinguished": null, "associated_award": null, "stickied": false,
+        "author_premium": false, "can_gild": false, "gildings": {}, "unrepliable_reason":
+        null, "author_flair_text_color": null, "score_hidden": false, "permalink":
+        "/r/AITAH/comments/1g1m2eo/aita_for_refusing_to_help_my_boyfriend_move_back/lrhpoeq/",
+        "subreddit_type": "public", "locked": false, "report_reasons": null, "created":
+        1728690263.0, "author_flair_text": null, "treatment_tags": [], "link_id":
+        "t3_1g1m2eo", "subreddit_name_prefixed": "r/AITAH", "controversiality": 0,
+        "depth": 0, "author_flair_background_color": null, "collapsed_because_crowd_control":
+        null, "mod_reports": [], "num_reports": null, "ups": 1}}, {"kind": "t1", "data":
+        {"subreddit_id": "t5_446kys", "approved_at_utc": null, "author_is_blocked":
+        false, "comment_type": null, "awarders": [], "mod_reason_by": null, "banned_by":
+        null, "author_flair_type": "text", "total_awards_received": 0, "subreddit":
+        "AITAH", "author_flair_template_id": null, "likes": null, "replies": "", "user_reports":
+        [], "saved": false, "id": "lrhq4ig", "banned_at_utc": null, "mod_reason_title":
+        null, "gilded": 0, "archived": false, "collapsed_reason_code": null, "no_follow":
+        true, "author": "StellaMitchell18", "can_mod_post": false, "created_utc":
+        1728690445.0, "send_replies": true, "parent_id": "t3_1g1m2eo", "score": 1,
+        "author_fullname": "t2_13w47scwng", "approved_by": null, "mod_note": null,
+        "all_awardings": [], "collapsed": false, "body": "While it\u2019s understandable
+        that Tom feels overwhelmed and wants a change, his reaction to your refusal
+        to move is concerning. It sounds like he\u2019s placing the burden of his
+        situation on you, which isn\u2019t fair. You\u2019ve offered to support him
+        financially while he looks for a new job, which shows you care, but uprooting
+        your life is a big deal and should be a mutual decision.", "edited": false,
+        "top_awarded_type": null, "author_flair_css_class": null, "name": "t1_lrhq4ig",
+        "is_submitter": false, "downs": 0, "author_flair_richtext": [], "author_patreon_flair":
+        false, "body_html": "&lt;div class=\"md\"&gt;&lt;p&gt;While it\u2019s understandable
+        that Tom feels overwhelmed and wants a change, his reaction to your refusal
+        to move is concerning. It sounds like he\u2019s placing the burden of his
+        situation on you, which isn\u2019t fair. You\u2019ve offered to support him
+        financially while he looks for a new job, which shows you care, but uprooting
+        your life is a big deal and should be a mutual decision.&lt;/p&gt;\n&lt;/div&gt;",
+        "removal_reason": null, "collapsed_reason": null, "distinguished": null, "associated_award":
+        null, "stickied": false, "author_premium": false, "can_gild": false, "gildings":
+        {}, "unrepliable_reason": null, "author_flair_text_color": null, "score_hidden":
+        false, "permalink": "/r/AITAH/comments/1g1m2eo/aita_for_refusing_to_help_my_boyfriend_move_back/lrhq4ig/",
+        "subreddit_type": "public", "locked": false, "report_reasons": null, "created":
+        1728690445.0, "author_flair_text": null, "treatment_tags": [], "link_id":
+        "t3_1g1m2eo", "subreddit_name_prefixed": "r/AITAH", "controversiality": 0,
+        "depth": 0, "author_flair_background_color": null, "collapsed_because_crowd_control":
+        null, "mod_reports": [], "num_reports": null, "ups": 1}}, {"kind": "t1", "data":
+        {"subreddit_id": "t5_446kys", "approved_at_utc": null, "author_is_blocked":
+        false, "comment_type": null, "awarders": [], "mod_reason_by": null, "banned_by":
+        null, "author_flair_type": "text", "total_awards_received": 0, "subreddit":
+        "AITAH", "author_flair_template_id": null, "likes": null, "replies": "", "user_reports":
+        [], "saved": false, "id": "lrhrm77", "banned_at_utc": null, "mod_reason_title":
+        null, "gilded": 0, "archived": false, "collapsed_reason_code": null, "no_follow":
+        true, "author": "Ok_Blackberry_284", "can_mod_post": false, "created_utc":
+        1728691057.0, "send_replies": true, "parent_id": "t3_1g1m2eo", "score": 1,
+        "author_fullname": "t2_aypc2iyb2", "approved_by": null, "mod_note": null,
+        "all_awardings": [], "collapsed": false, "body": "To put things bluntly, OP,
+        you should buy your BF a bus ticket and send him on his way.", "edited": false,
+        "top_awarded_type": null, "author_flair_css_class": null, "name": "t1_lrhrm77",
+        "is_submitter": false, "downs": 0, "author_flair_richtext": [], "author_patreon_flair":
+        false, "body_html": "&lt;div class=\"md\"&gt;&lt;p&gt;To put things bluntly,
+        OP, you should buy your BF a bus ticket and send him on his way.&lt;/p&gt;\n&lt;/div&gt;",
+        "removal_reason": null, "collapsed_reason": null, "distinguished": null, "associated_award":
+        null, "stickied": false, "author_premium": false, "can_gild": false, "gildings":
+        {}, "unrepliable_reason": null, "author_flair_text_color": null, "score_hidden":
+        false, "permalink": "/r/AITAH/comments/1g1m2eo/aita_for_refusing_to_help_my_boyfriend_move_back/lrhrm77/",
+        "subreddit_type": "public", "locked": false, "report_reasons": null, "created":
+        1728691057.0, "author_flair_text": null, "treatment_tags": [], "link_id":
+        "t3_1g1m2eo", "subreddit_name_prefixed": "r/AITAH", "controversiality": 0,
+        "depth": 0, "author_flair_background_color": null, "collapsed_because_crowd_control":
+        null, "mod_reports": [], "num_reports": null, "ups": 1}}, {"kind": "t1", "data":
+        {"subreddit_id": "t5_446kys", "approved_at_utc": null, "author_is_blocked":
+        false, "comment_type": null, "awarders": [], "mod_reason_by": null, "banned_by":
+        null, "author_flair_type": "text", "total_awards_received": 0, "subreddit":
+        "AITAH", "author_flair_template_id": null, "likes": null, "replies": "", "user_reports":
+        [], "saved": false, "id": "lrhvmk4", "banned_at_utc": null, "mod_reason_title":
+        null, "gilded": 0, "archived": false, "collapsed_reason_code": null, "no_follow":
+        true, "author": "HoshiJones", "can_mod_post": false, "created_utc": 1728692714.0,
+        "send_replies": true, "parent_id": "t3_1g1m2eo", "score": 1, "author_fullname":
+        "t2_gdlnyn1al", "approved_by": null, "mod_note": null, "all_awardings": [],
+        "collapsed": false, "body": "If he is showing zero concern for your happiness
+        and fulfillment, and even being angry at you over this, then he''s only making
+        it obvious why saying no was an excellent choice you made. Never uproot your
+        life and give up your dreams for someone who doesn''t truly love you. It rarely
+        ends well.\n\nNTA. You were wise to say no.", "edited": false, "top_awarded_type":
+        null, "author_flair_css_class": null, "name": "t1_lrhvmk4", "is_submitter":
+        false, "downs": 0, "author_flair_richtext": [], "author_patreon_flair": false,
+        "body_html": "&lt;div class=\"md\"&gt;&lt;p&gt;If he is showing zero concern
+        for your happiness and fulfillment, and even being angry at you over this,
+        then he&amp;#39;s only making it obvious why saying no was an excellent choice
+        you made. Never uproot your life and give up your dreams for someone who doesn&amp;#39;t
+        truly love you. It rarely ends well.&lt;/p&gt;\n\n&lt;p&gt;NTA. You were wise
+        to say no.&lt;/p&gt;\n&lt;/div&gt;", "removal_reason": null, "collapsed_reason":
+        null, "distinguished": null, "associated_award": null, "stickied": false,
+        "author_premium": false, "can_gild": false, "gildings": {}, "unrepliable_reason":
+        null, "author_flair_text_color": null, "score_hidden": false, "permalink":
+        "/r/AITAH/comments/1g1m2eo/aita_for_refusing_to_help_my_boyfriend_move_back/lrhvmk4/",
+        "subreddit_type": "public", "locked": false, "report_reasons": null, "created":
+        1728692714.0, "author_flair_text": null, "treatment_tags": [], "link_id":
+        "t3_1g1m2eo", "subreddit_name_prefixed": "r/AITAH", "controversiality": 0,
+        "depth": 0, "author_flair_background_color": null, "collapsed_because_crowd_control":
+        null, "mod_reports": [], "num_reports": null, "ups": 1}}, {"kind": "t1", "data":
+        {"subreddit_id": "t5_446kys", "approved_at_utc": null, "author_is_blocked":
+        false, "comment_type": null, "awarders": [], "mod_reason_by": null, "banned_by":
+        null, "author_flair_type": "text", "total_awards_received": 0, "subreddit":
+        "AITAH", "author_flair_template_id": null, "likes": null, "replies": "", "user_reports":
+        [], "saved": false, "id": "lrhvq5t", "banned_at_utc": null, "mod_reason_title":
+        null, "gilded": 0, "archived": false, "collapsed_reason_code": null, "no_follow":
+        true, "author": "Careless-Ability-748", "can_mod_post": false, "created_utc":
+        1728692756.0, "send_replies": true, "parent_id": "t3_1g1m2eo", "score": 1,
+        "author_fullname": "t2_7q1bhfvvl", "approved_by": null, "mod_note": null,
+        "all_awardings": [], "collapsed": false, "body": "Nta", "edited": false, "top_awarded_type":
+        null, "author_flair_css_class": null, "name": "t1_lrhvq5t", "is_submitter":
+        false, "downs": 0, "author_flair_richtext": [], "author_patreon_flair": false,
+        "body_html": "&lt;div class=\"md\"&gt;&lt;p&gt;Nta&lt;/p&gt;\n&lt;/div&gt;",
+        "removal_reason": null, "collapsed_reason": null, "distinguished": null, "associated_award":
+        null, "stickied": false, "author_premium": false, "can_gild": false, "gildings":
+        {}, "unrepliable_reason": null, "author_flair_text_color": null, "score_hidden":
+        false, "permalink": "/r/AITAH/comments/1g1m2eo/aita_for_refusing_to_help_my_boyfriend_move_back/lrhvq5t/",
+        "subreddit_type": "public", "locked": false, "report_reasons": null, "created":
+        1728692756.0, "author_flair_text": null, "treatment_tags": [], "link_id":
+        "t3_1g1m2eo", "subreddit_name_prefixed": "r/AITAH", "controversiality": 0,
+        "depth": 0, "author_flair_background_color": null, "collapsed_because_crowd_control":
+        null, "mod_reports": [], "num_reports": null, "ups": 1}}, {"kind": "t1", "data":
+        {"subreddit_id": "t5_446kys", "approved_at_utc": null, "author_is_blocked":
+        false, "comment_type": null, "awarders": [], "mod_reason_by": null, "banned_by":
+        null, "author_flair_type": "text", "total_awards_received": 0, "subreddit":
+        "AITAH", "author_flair_template_id": null, "likes": null, "replies": "", "user_reports":
+        [], "saved": false, "id": "lrhvzz5", "banned_at_utc": null, "mod_reason_title":
+        null, "gilded": 0, "archived": false, "collapsed_reason_code": null, "no_follow":
+        true, "author": "Careless-Ability-748", "can_mod_post": false, "created_utc":
+        1728692869.0, "send_replies": true, "parent_id": "t3_1g1m2eo", "score": 1,
+        "author_fullname": "t2_7q1bhfvvl", "approved_by": null, "mod_note": null,
+        "all_awardings": [], "collapsed": false, "body": "So did you resolve the parenting
+        issues with your husband before moving in with your bf? Enjoyed your previous
+        post lol", "edited": false, "top_awarded_type": null, "author_flair_css_class":
+        null, "name": "t1_lrhvzz5", "is_submitter": false, "downs": 0, "author_flair_richtext":
+        [], "author_patreon_flair": false, "body_html": "&lt;div class=\"md\"&gt;&lt;p&gt;So
+        did you resolve the parenting issues with your husband before moving in with
+        your bf? Enjoyed your previous post lol&lt;/p&gt;\n&lt;/div&gt;", "removal_reason":
+        null, "collapsed_reason": null, "distinguished": null, "associated_award":
+        null, "stickied": false, "author_premium": false, "can_gild": false, "gildings":
+        {}, "unrepliable_reason": null, "author_flair_text_color": null, "score_hidden":
+        false, "permalink": "/r/AITAH/comments/1g1m2eo/aita_for_refusing_to_help_my_boyfriend_move_back/lrhvzz5/",
+        "subreddit_type": "public", "locked": false, "report_reasons": null, "created":
+        1728692869.0, "author_flair_text": null, "treatment_tags": [], "link_id":
+        "t3_1g1m2eo", "subreddit_name_prefixed": "r/AITAH", "controversiality": 0,
+        "depth": 0, "author_flair_background_color": null, "collapsed_because_crowd_control":
+        null, "mod_reports": [], "num_reports": null, "ups": 1}}, {"kind": "t1", "data":
+        {"subreddit_id": "t5_446kys", "approved_at_utc": null, "author_is_blocked":
+        false, "comment_type": null, "awarders": [], "mod_reason_by": null, "banned_by":
+        null, "author_flair_type": "text", "total_awards_received": 0, "subreddit":
+        "AITAH", "author_flair_template_id": null, "likes": null, "replies": "", "user_reports":
+        [], "saved": false, "id": "lrhwlfe", "banned_at_utc": null, "mod_reason_title":
+        null, "gilded": 0, "archived": false, "collapsed_reason_code": null, "no_follow":
+        true, "author": "SnooWords4839", "can_mod_post": false, "created_utc": 1728693116.0,
+        "send_replies": true, "parent_id": "t3_1g1m2eo", "score": 1, "author_fullname":
+        "t2_75386z2f", "approved_by": null, "mod_note": null, "all_awardings": [],
+        "collapsed": false, "body": "He can move if he needs to. Do not give up you
+        job for him!", "edited": false, "top_awarded_type": null, "author_flair_css_class":
+        null, "name": "t1_lrhwlfe", "is_submitter": false, "downs": 0, "author_flair_richtext":
+        [], "author_patreon_flair": false, "body_html": "&lt;div class=\"md\"&gt;&lt;p&gt;He
+        can move if he needs to. Do not give up you job for him!&lt;/p&gt;\n&lt;/div&gt;",
+        "removal_reason": null, "collapsed_reason": null, "distinguished": null, "associated_award":
+        null, "stickied": false, "author_premium": true, "can_gild": false, "gildings":
+        {}, "unrepliable_reason": null, "author_flair_text_color": null, "score_hidden":
+        false, "permalink": "/r/AITAH/comments/1g1m2eo/aita_for_refusing_to_help_my_boyfriend_move_back/lrhwlfe/",
+        "subreddit_type": "public", "locked": false, "report_reasons": null, "created":
+        1728693116.0, "author_flair_text": null, "treatment_tags": [], "link_id":
+        "t3_1g1m2eo", "subreddit_name_prefixed": "r/AITAH", "controversiality": 0,
+        "depth": 0, "author_flair_background_color": null, "collapsed_because_crowd_control":
+        null, "mod_reports": [], "num_reports": null, "ups": 1}}, {"kind": "t1", "data":
+        {"subreddit_id": "t5_446kys", "approved_at_utc": null, "author_is_blocked":
+        false, "comment_type": null, "awarders": [], "mod_reason_by": null, "banned_by":
+        null, "author_flair_type": "text", "total_awards_received": 0, "subreddit":
+        "AITAH", "author_flair_template_id": null, "likes": null, "replies": "", "user_reports":
+        [], "saved": false, "id": "lrhwodn", "banned_at_utc": null, "mod_reason_title":
+        null, "gilded": 0, "archived": false, "collapsed_reason_code": null, "no_follow":
+        true, "author": "Mindless_Bother_2630", "can_mod_post": false, "created_utc":
+        1728693150.0, "send_replies": true, "parent_id": "t3_1g1m2eo", "score": 1,
+        "author_fullname": "t2_17jxcfa98s", "approved_by": null, "mod_note": null,
+        "all_awardings": [], "collapsed": false, "body": "Do not give up you to placate
+        anyone. Nta.", "edited": false, "top_awarded_type": null, "author_flair_css_class":
+        null, "name": "t1_lrhwodn", "is_submitter": false, "downs": 0, "author_flair_richtext":
+        [], "author_patreon_flair": false, "body_html": "&lt;div class=\"md\"&gt;&lt;p&gt;Do
+        not give up you to placate anyone. Nta.&lt;/p&gt;\n&lt;/div&gt;", "removal_reason":
+        null, "collapsed_reason": null, "distinguished": null, "associated_award":
+        null, "stickied": false, "author_premium": false, "can_gild": false, "gildings":
+        {}, "unrepliable_reason": null, "author_flair_text_color": null, "score_hidden":
+        false, "permalink": "/r/AITAH/comments/1g1m2eo/aita_for_refusing_to_help_my_boyfriend_move_back/lrhwodn/",
+        "subreddit_type": "public", "locked": false, "report_reasons": null, "created":
+        1728693150.0, "author_flair_text": null, "treatment_tags": [], "link_id":
+        "t3_1g1m2eo", "subreddit_name_prefixed": "r/AITAH", "controversiality": 0,
+        "depth": 0, "author_flair_background_color": null, "collapsed_because_crowd_control":
+        null, "mod_reports": [], "num_reports": null, "ups": 1}}, {"kind": "t1", "data":
+        {"subreddit_id": "t5_446kys", "approved_at_utc": null, "author_is_blocked":
+        false, "comment_type": null, "awarders": [], "mod_reason_by": null, "banned_by":
+        null, "author_flair_type": "text", "total_awards_received": 0, "subreddit":
+        "AITAH", "author_flair_template_id": null, "likes": null, "replies": "", "user_reports":
+        [], "saved": false, "id": "lrhyxe3", "banned_at_utc": null, "mod_reason_title":
+        null, "gilded": 0, "archived": false, "collapsed_reason_code": null, "no_follow":
+        true, "author": "recyclopath_", "can_mod_post": false, "created_utc": 1728694076.0,
+        "send_replies": true, "parent_id": "t3_1g1m2eo", "score": 1, "author_fullname":
+        "t2_jk77d", "approved_by": null, "mod_note": null, "all_awardings": [], "collapsed":
+        false, "body": "NTA\n\nHis career isn''t inherently more important than yours
+        just because he is the guy in the relationship.", "edited": false, "top_awarded_type":
+        null, "author_flair_css_class": null, "name": "t1_lrhyxe3", "is_submitter":
+        false, "downs": 0, "author_flair_richtext": [], "author_patreon_flair": false,
+        "body_html": "&lt;div class=\"md\"&gt;&lt;p&gt;NTA&lt;/p&gt;\n\n&lt;p&gt;His
+        career isn&amp;#39;t inherently more important than yours just because he
+        is the guy in the relationship.&lt;/p&gt;\n&lt;/div&gt;", "removal_reason":
+        null, "collapsed_reason": null, "distinguished": null, "associated_award":
+        null, "stickied": false, "author_premium": false, "can_gild": false, "gildings":
+        {}, "unrepliable_reason": null, "author_flair_text_color": null, "score_hidden":
+        false, "permalink": "/r/AITAH/comments/1g1m2eo/aita_for_refusing_to_help_my_boyfriend_move_back/lrhyxe3/",
+        "subreddit_type": "public", "locked": false, "report_reasons": null, "created":
+        1728694076.0, "author_flair_text": null, "treatment_tags": [], "link_id":
+        "t3_1g1m2eo", "subreddit_name_prefixed": "r/AITAH", "controversiality": 0,
+        "depth": 0, "author_flair_background_color": null, "collapsed_because_crowd_control":
+        null, "mod_reports": [], "num_reports": null, "ups": 1}}, {"kind": "t1", "data":
+        {"subreddit_id": "t5_446kys", "approved_at_utc": null, "author_is_blocked":
+        false, "comment_type": null, "awarders": [], "mod_reason_by": null, "banned_by":
+        null, "author_flair_type": "text", "total_awards_received": 0, "subreddit":
+        "AITAH", "author_flair_template_id": null, "likes": null, "replies": "", "user_reports":
+        [], "saved": false, "id": "lri45cj", "banned_at_utc": null, "mod_reason_title":
+        null, "gilded": 0, "archived": false, "collapsed_reason_code": null, "no_follow":
+        true, "author": "Dachshundmom5", "can_mod_post": false, "created_utc": 1728696287.0,
+        "send_replies": true, "parent_id": "t3_1g1m2eo", "score": 1, "author_fullname":
+        "t2_4su72ls4", "approved_by": null, "mod_note": null, "all_awardings": [],
+        "collapsed": false, "body": "The big question is why would you stay with someone
+        who expects and demands that you sabotage your life because his isn''t going
+        the way he wants?  \n\n\nHe wants to derail you and bring you down because
+        he can''t stand you succeeding when he isn''t. \n\n\nHe doesn''t want to be
+        a partner. He wants a loyal pet that does as she''s told. A doormat. That''s
+        no life for you.  \n\n\nHe''s not a good partner. Keep the job and lose the
+        guy.", "edited": false, "top_awarded_type": null, "author_flair_css_class":
+        null, "name": "t1_lri45cj", "is_submitter": false, "downs": 0, "author_flair_richtext":
+        [], "author_patreon_flair": false, "body_html": "&lt;div class=\"md\"&gt;&lt;p&gt;The
+        big question is why would you stay with someone who expects and demands that
+        you sabotage your life because his isn&amp;#39;t going the way he wants?  &lt;/p&gt;\n\n&lt;p&gt;He
+        wants to derail you and bring you down because he can&amp;#39;t stand you
+        succeeding when he isn&amp;#39;t. &lt;/p&gt;\n\n&lt;p&gt;He doesn&amp;#39;t
+        want to be a partner. He wants a loyal pet that does as she&amp;#39;s told.
+        A doormat. That&amp;#39;s no life for you.  &lt;/p&gt;\n\n&lt;p&gt;He&amp;#39;s
+        not a good partner. Keep the job and lose the guy.&lt;/p&gt;\n&lt;/div&gt;",
+        "removal_reason": null, "collapsed_reason": null, "distinguished": null, "associated_award":
+        null, "stickied": false, "author_premium": false, "can_gild": false, "gildings":
+        {}, "unrepliable_reason": null, "author_flair_text_color": null, "score_hidden":
+        false, "permalink": "/r/AITAH/comments/1g1m2eo/aita_for_refusing_to_help_my_boyfriend_move_back/lri45cj/",
+        "subreddit_type": "public", "locked": false, "report_reasons": null, "created":
+        1728696287.0, "author_flair_text": null, "treatment_tags": [], "link_id":
+        "t3_1g1m2eo", "subreddit_name_prefixed": "r/AITAH", "controversiality": 0,
+        "depth": 0, "author_flair_background_color": null, "collapsed_because_crowd_control":
+        null, "mod_reports": [], "num_reports": null, "ups": 1}}, {"kind": "t1", "data":
+        {"subreddit_id": "t5_446kys", "approved_at_utc": null, "author_is_blocked":
+        false, "comment_type": null, "awarders": [], "mod_reason_by": null, "banned_by":
+        null, "author_flair_type": "text", "total_awards_received": 0, "subreddit":
+        "AITAH", "author_flair_template_id": null, "likes": null, "replies": "", "user_reports":
+        [], "saved": false, "id": "lri4jez", "banned_at_utc": null, "mod_reason_title":
+        null, "gilded": 0, "archived": false, "collapsed_reason_code": null, "no_follow":
+        true, "author": "Dachshundmom5", "can_mod_post": false, "created_utc": 1728696456.0,
+        "send_replies": true, "parent_id": "t3_1g1m2eo", "score": 1, "author_fullname":
+        "t2_4su72ls4", "approved_by": null, "mod_note": null, "all_awardings": [],
+        "collapsed": false, "body": "UpdateMe!", "edited": false, "top_awarded_type":
+        null, "author_flair_css_class": null, "name": "t1_lri4jez", "is_submitter":
+        false, "downs": 0, "author_flair_richtext": [], "author_patreon_flair": false,
+        "body_html": "&lt;div class=\"md\"&gt;&lt;p&gt;UpdateMe!&lt;/p&gt;\n&lt;/div&gt;",
+        "removal_reason": null, "collapsed_reason": null, "distinguished": null, "associated_award":
+        null, "stickied": false, "author_premium": false, "can_gild": false, "gildings":
+        {}, "unrepliable_reason": null, "author_flair_text_color": null, "score_hidden":
+        false, "permalink": "/r/AITAH/comments/1g1m2eo/aita_for_refusing_to_help_my_boyfriend_move_back/lri4jez/",
+        "subreddit_type": "public", "locked": false, "report_reasons": null, "created":
+        1728696456.0, "author_flair_text": null, "treatment_tags": [], "link_id":
+        "t3_1g1m2eo", "subreddit_name_prefixed": "r/AITAH", "controversiality": 0,
+        "depth": 0, "author_flair_background_color": null, "collapsed_because_crowd_control":
+        null, "mod_reports": [], "num_reports": null, "ups": 1}}, {"kind": "t1", "data":
+        {"subreddit_id": "t5_446kys", "approved_at_utc": null, "author_is_blocked":
+        false, "comment_type": null, "awarders": [], "mod_reason_by": null, "banned_by":
+        null, "author_flair_type": "text", "total_awards_received": 0, "subreddit":
+        "AITAH", "author_flair_template_id": null, "likes": null, "replies": "", "user_reports":
+        [], "saved": false, "id": "lri4zsz", "banned_at_utc": null, "mod_reason_title":
+        null, "gilded": 0, "archived": false, "collapsed_reason_code": null, "no_follow":
+        true, "author": "p_0456", "can_mod_post": false, "created_utc": 1728696651.0,
+        "send_replies": true, "parent_id": "t3_1g1m2eo", "score": 1, "author_fullname":
+        "t2_voqpd6gz", "approved_by": null, "mod_note": null, "all_awardings": [],
+        "collapsed": false, "body": "NTA. It\u2019s completely unfair for your boyfriend
+        to expect you to uproot your life and everything you\u2019ve built because
+        he wants to move back in with his parents. If moving back is the only solution
+        for him, he should do it without dragging you down. There\u2019s no reason
+        for you to move other than just because he said so. But what you want matters.
+        You\u2019ll have your career for longer than this man. Your career will support
+        you more than he ever will", "edited": false, "top_awarded_type": null, "author_flair_css_class":
+        null, "name": "t1_lri4zsz", "is_submitter": false, "downs": 0, "author_flair_richtext":
+        [], "author_patreon_flair": false, "body_html": "&lt;div class=\"md\"&gt;&lt;p&gt;NTA.
+        It\u2019s completely unfair for your boyfriend to expect you to uproot your
+        life and everything you\u2019ve built because he wants to move back in with
+        his parents. If moving back is the only solution for him, he should do it
+        without dragging you down. There\u2019s no reason for you to move other than
+        just because he said so. But what you want matters. You\u2019ll have your
+        career for longer than this man. Your career will support you more than he
+        ever will&lt;/p&gt;\n&lt;/div&gt;", "removal_reason": null, "collapsed_reason":
+        null, "distinguished": null, "associated_award": null, "stickied": false,
+        "author_premium": false, "can_gild": false, "gildings": {}, "unrepliable_reason":
+        null, "author_flair_text_color": null, "score_hidden": false, "permalink":
+        "/r/AITAH/comments/1g1m2eo/aita_for_refusing_to_help_my_boyfriend_move_back/lri4zsz/",
+        "subreddit_type": "public", "locked": false, "report_reasons": null, "created":
+        1728696651.0, "author_flair_text": null, "treatment_tags": [], "link_id":
+        "t3_1g1m2eo", "subreddit_name_prefixed": "r/AITAH", "controversiality": 0,
+        "depth": 0, "author_flair_background_color": null, "collapsed_because_crowd_control":
+        null, "mod_reports": [], "num_reports": null, "ups": 1}}, {"kind": "t1", "data":
+        {"subreddit_id": "t5_446kys", "approved_at_utc": null, "author_is_blocked":
+        false, "comment_type": null, "awarders": [], "mod_reason_by": null, "banned_by":
+        null, "author_flair_type": "text", "total_awards_received": 0, "subreddit":
+        "AITAH", "author_flair_template_id": null, "likes": null, "replies": "", "user_reports":
+        [], "saved": false, "id": "lri51s1", "banned_at_utc": null, "mod_reason_title":
+        null, "gilded": 0, "archived": false, "collapsed_reason_code": null, "no_follow":
+        true, "author": "goldribbonbaby", "can_mod_post": false, "created_utc": 1728696675.0,
+        "send_replies": true, "parent_id": "t3_1g1m2eo", "score": 3, "author_fullname":
+        "t2_15c679t3ke", "approved_by": null, "mod_note": null, "all_awardings": [],
+        "collapsed": false, "body": "NTA for wanting to maintain your life and career.
+        It\u2019s important to be supportive, but that doesn\u2019t mean you should
+        sacrifice your own well-being or happiness in the process. Tom needs to understand
+        that both partners\u2019 needs and aspirations are important in a relationship.",
+        "edited": false, "top_awarded_type": null, "author_flair_css_class": null,
+        "name": "t1_lri51s1", "is_submitter": false, "downs": 0, "author_flair_richtext":
+        [], "author_patreon_flair": false, "body_html": "&lt;div class=\"md\"&gt;&lt;p&gt;NTA
+        for wanting to maintain your life and career. It\u2019s important to be supportive,
+        but that doesn\u2019t mean you should sacrifice your own well-being or happiness
+        in the process. Tom needs to understand that both partners\u2019 needs and
+        aspirations are important in a relationship.&lt;/p&gt;\n&lt;/div&gt;", "removal_reason":
+        null, "collapsed_reason": null, "distinguished": null, "associated_award":
+        null, "stickied": false, "author_premium": false, "can_gild": false, "gildings":
+        {}, "unrepliable_reason": null, "author_flair_text_color": null, "score_hidden":
+        false, "permalink": "/r/AITAH/comments/1g1m2eo/aita_for_refusing_to_help_my_boyfriend_move_back/lri51s1/",
+        "subreddit_type": "public", "locked": false, "report_reasons": null, "created":
+        1728696675.0, "author_flair_text": null, "treatment_tags": [], "link_id":
+        "t3_1g1m2eo", "subreddit_name_prefixed": "r/AITAH", "controversiality": 0,
+        "depth": 0, "author_flair_background_color": null, "collapsed_because_crowd_control":
+        null, "mod_reports": [], "num_reports": null, "ups": 3}}, {"kind": "t1", "data":
+        {"subreddit_id": "t5_446kys", "approved_at_utc": null, "author_is_blocked":
+        false, "comment_type": null, "awarders": [], "mod_reason_by": null, "banned_by":
+        null, "author_flair_type": "text", "total_awards_received": 0, "subreddit":
+        "AITAH", "author_flair_template_id": null, "likes": null, "replies": "", "user_reports":
+        [], "saved": false, "id": "lrhgmdp", "banned_at_utc": null, "mod_reason_title":
+        null, "gilded": 0, "archived": false, "collapsed_reason_code": null, "no_follow":
+        true, "author": "Turmeric_Ping", "can_mod_post": false, "created_utc": 1728686633.0,
+        "send_replies": true, "parent_id": "t3_1g1m2eo", "score": 1, "author_fullname":
+        "t2_nzurls3", "approved_by": null, "mod_note": null, "all_awardings": [],
+        "collapsed": false, "body": "NTA. Though I think that you might consider staying,
+        but offering to help him move alone. Let''s face it: his refusal to take your
+        needs seriously means that you''re pretty much done as a couple.", "edited":
+        false, "top_awarded_type": null, "author_flair_css_class": null, "name": "t1_lrhgmdp",
+        "is_submitter": false, "downs": 0, "author_flair_richtext": [], "author_patreon_flair":
+        false, "body_html": "&lt;div class=\"md\"&gt;&lt;p&gt;NTA. Though I think
+        that you might consider staying, but offering to help him move alone. Let&amp;#39;s
+        face it: his refusal to take your needs seriously means that you&amp;#39;re
+        pretty much done as a couple.&lt;/p&gt;\n&lt;/div&gt;", "removal_reason":
+        null, "collapsed_reason": null, "distinguished": null, "associated_award":
+        null, "stickied": false, "author_premium": false, "can_gild": false, "gildings":
+        {}, "unrepliable_reason": null, "author_flair_text_color": null, "score_hidden":
+        false, "permalink": "/r/AITAH/comments/1g1m2eo/aita_for_refusing_to_help_my_boyfriend_move_back/lrhgmdp/",
+        "subreddit_type": "public", "locked": false, "report_reasons": null, "created":
+        1728686633.0, "author_flair_text": null, "treatment_tags": [], "link_id":
+        "t3_1g1m2eo", "subreddit_name_prefixed": "r/AITAH", "controversiality": 0,
+        "depth": 0, "author_flair_background_color": null, "collapsed_because_crowd_control":
+        null, "mod_reports": [], "num_reports": null, "ups": 1}}, {"kind": "t1", "data":
+        {"subreddit_id": "t5_446kys", "approved_at_utc": null, "author_is_blocked":
+        false, "comment_type": null, "awarders": [], "mod_reason_by": null, "banned_by":
+        null, "author_flair_type": "text", "total_awards_received": 0, "subreddit":
+        "AITAH", "author_flair_template_id": null, "likes": null, "replies": {"kind":
+        "Listing", "data": {"after": null, "dist": null, "modhash": "", "geo_filter":
+        "", "children": [{"kind": "t1", "data": {"subreddit_id": "t5_446kys", "approved_at_utc":
+        null, "author_is_blocked": false, "comment_type": null, "awarders": [], "mod_reason_by":
+        null, "banned_by": null, "author_flair_type": "text", "total_awards_received":
+        0, "subreddit": "AITAH", "author_flair_template_id": null, "likes": null,
+        "replies": "", "user_reports": [], "saved": false, "id": "lrhkvui", "banned_at_utc":
+        null, "mod_reason_title": null, "gilded": 0, "archived": false, "collapsed_reason_code":
+        null, "no_follow": true, "author": "Grandmapatty64", "can_mod_post": false,
+        "created_utc": 1728688324.0, "send_replies": true, "parent_id": "t1_lrhglsh",
+        "score": 3, "author_fullname": "t2_n04g2537", "removal_reason": null, "approved_by":
+        null, "mod_note": null, "all_awardings": [], "body": "Screw that OP don\u2019t
+        you dare agree to marry that guy. It\u2019s ridiculous that anyone would suggest
+        that if he proposes that should make everything OK. It\u2019s not OK to throw
+        away what you\u2019ve worked for for him whether you\u2019re his fianc\u00e9,
+        girlfriend or wife it doesn\u2019t matter. You deserve better than that.",
+        "edited": false, "top_awarded_type": null, "author_flair_css_class": null,
+        "name": "t1_lrhkvui", "is_submitter": false, "downs": 0, "author_flair_richtext":
+        [], "author_patreon_flair": false, "body_html": "&lt;div class=\"md\"&gt;&lt;p&gt;Screw
+        that OP don\u2019t you dare agree to marry that guy. It\u2019s ridiculous
+        that anyone would suggest that if he proposes that should make everything
+        OK. It\u2019s not OK to throw away what you\u2019ve worked for for him whether
+        you\u2019re his fianc\u00e9, girlfriend or wife it doesn\u2019t matter. You
+        deserve better than that.&lt;/p&gt;\n&lt;/div&gt;", "gildings": {}, "collapsed_reason":
+        null, "distinguished": null, "associated_award": null, "stickied": false,
+        "author_premium": false, "can_gild": false, "link_id": "t3_1g1m2eo", "unrepliable_reason":
+        null, "author_flair_text_color": null, "score_hidden": false, "permalink":
+        "/r/AITAH/comments/1g1m2eo/aita_for_refusing_to_help_my_boyfriend_move_back/lrhkvui/",
+        "subreddit_type": "public", "locked": false, "report_reasons": null, "created":
+        1728688324.0, "author_flair_text": null, "treatment_tags": [], "collapsed":
+        false, "subreddit_name_prefixed": "r/AITAH", "controversiality": 0, "depth":
+        1, "author_flair_background_color": null, "collapsed_because_crowd_control":
+        null, "mod_reports": [], "num_reports": null, "ups": 3}}, {"kind": "t1", "data":
+        {"subreddit_id": "t5_446kys", "approved_at_utc": null, "author_is_blocked":
+        false, "comment_type": null, "awarders": [], "mod_reason_by": null, "banned_by":
+        null, "author_flair_type": "text", "total_awards_received": 0, "subreddit":
+        "AITAH", "author_flair_template_id": null, "likes": null, "replies": {"kind":
+        "Listing", "data": {"after": null, "dist": null, "modhash": "", "geo_filter":
+        "", "children": [{"kind": "t1", "data": {"subreddit_id": "t5_446kys", "approved_at_utc":
+        null, "author_is_blocked": false, "comment_type": null, "awarders": [], "mod_reason_by":
+        null, "banned_by": null, "author_flair_type": "text", "total_awards_received":
+        0, "subreddit": "AITAH", "author_flair_template_id": null, "likes": null,
+        "replies": "", "user_reports": [], "saved": false, "id": "lri4vy0", "banned_at_utc":
+        null, "mod_reason_title": null, "gilded": 0, "archived": false, "collapsed_reason_code":
+        null, "no_follow": true, "author": "Effective_While_8487", "can_mod_post":
+        false, "send_replies": true, "parent_id": "t1_lrhmpjt", "score": 1, "author_fullname":
+        "t2_7eswlafr", "removal_reason": null, "approved_by": null, "mod_note": null,
+        "all_awardings": [], "body": "Downvote for being condescending  and judgmental.",
+        "edited": false, "top_awarded_type": null, "downs": 0, "author_flair_css_class":
+        null, "name": "t1_lri4vy0", "is_submitter": false, "collapsed": false, "author_flair_richtext":
+        [], "author_patreon_flair": false, "body_html": "&lt;div class=\"md\"&gt;&lt;p&gt;Downvote
+        for being condescending  and judgmental.&lt;/p&gt;\n&lt;/div&gt;", "gildings":
+        {}, "collapsed_reason": null, "distinguished": null, "associated_award": null,
+        "stickied": false, "author_premium": false, "can_gild": false, "link_id":
+        "t3_1g1m2eo", "unrepliable_reason": null, "author_flair_text_color": null,
+        "score_hidden": false, "permalink": "/r/AITAH/comments/1g1m2eo/aita_for_refusing_to_help_my_boyfriend_move_back/lri4vy0/",
+        "subreddit_type": "public", "locked": false, "report_reasons": null, "created":
+        1728696605.0, "author_flair_text": null, "treatment_tags": [], "created_utc":
+        1728696605.0, "subreddit_name_prefixed": "r/AITAH", "controversiality": 0,
+        "depth": 2, "author_flair_background_color": null, "collapsed_because_crowd_control":
+        null, "mod_reports": [], "num_reports": null, "ups": 1}}], "before": null}},
+        "user_reports": [], "saved": false, "id": "lrhmpjt", "banned_at_utc": null,
+        "mod_reason_title": null, "gilded": 0, "archived": false, "collapsed_reason_code":
+        null, "no_follow": true, "author": "HeyYouGuyyyyyyys", "can_mod_post": false,
+        "created_utc": 1728689051.0, "send_replies": true, "parent_id": "t1_lrhglsh",
+        "score": 1, "author_fullname": "t2_mc9lrtgln", "removal_reason": null, "approved_by":
+        null, "mod_note": null, "all_awardings": [], "body": "Downvote for the awful
+        \"why buy the cow when you can get the milk for free\" cliche and attitude",
+        "edited": false, "top_awarded_type": null, "author_flair_css_class": null,
+        "name": "t1_lrhmpjt", "is_submitter": false, "downs": 0, "author_flair_richtext":
+        [], "author_patreon_flair": false, "body_html": "&lt;div class=\"md\"&gt;&lt;p&gt;Downvote
+        for the awful &amp;quot;why buy the cow when you can get the milk for free&amp;quot;
+        cliche and attitude&lt;/p&gt;\n&lt;/div&gt;", "gildings": {}, "collapsed_reason":
+        null, "distinguished": null, "associated_award": null, "stickied": false,
+        "author_premium": false, "can_gild": false, "link_id": "t3_1g1m2eo", "unrepliable_reason":
+        null, "author_flair_text_color": null, "score_hidden": false, "permalink":
+        "/r/AITAH/comments/1g1m2eo/aita_for_refusing_to_help_my_boyfriend_move_back/lrhmpjt/",
+        "subreddit_type": "public", "locked": false, "report_reasons": null, "created":
+        1728689051.0, "author_flair_text": null, "treatment_tags": [], "collapsed":
+        false, "subreddit_name_prefixed": "r/AITAH", "controversiality": 0, "depth":
+        1, "author_flair_background_color": null, "collapsed_because_crowd_control":
+        null, "mod_reports": [], "num_reports": null, "ups": 1}}], "before": null}},
+        "user_reports": [], "saved": false, "id": "lrhglsh", "banned_at_utc": null,
+        "mod_reason_title": null, "gilded": 0, "archived": false, "collapsed_reason_code":
+        null, "no_follow": true, "author": "Effective_While_8487", "can_mod_post":
+        false, "created_utc": 1728686626.0, "send_replies": true, "parent_id": "t3_1g1m2eo",
+        "score": -2, "author_fullname": "t2_7eswlafr", "approved_by": null, "mod_note":
+        null, "all_awardings": [], "collapsed": false, "body": "Tom needs to propose
+        marriage here and make yours permanent to justify the expectation you''ll
+        up and move bc he failed to find employment in the city you''re in.   Lacking
+        that, then you are free to live where you want, and he is out of line by being
+        \"Upset\" that he cannot get the milk w/o buying the cow.  He''s placing  a
+        higher value on his needs then yours, and that makes him an AH and reveals
+        you guys have been playing house all this time.", "edited": false, "top_awarded_type":
+        null, "author_flair_css_class": null, "name": "t1_lrhglsh", "is_submitter":
+        false, "downs": 0, "author_flair_richtext": [], "author_patreon_flair": false,
+        "body_html": "&lt;div class=\"md\"&gt;&lt;p&gt;Tom needs to propose marriage
+        here and make yours permanent to justify the expectation you&amp;#39;ll up
+        and move bc he failed to find employment in the city you&amp;#39;re in.   Lacking
+        that, then you are free to live where you want, and he is out of line by being
+        &amp;quot;Upset&amp;quot; that he cannot get the milk w/o buying the cow.  He&amp;#39;s
+        placing  a higher value on his needs then yours, and that makes him an AH
+        and reveals you guys have been playing house all this time.&lt;/p&gt;\n&lt;/div&gt;",
+        "removal_reason": null, "collapsed_reason": null, "distinguished": null, "associated_award":
+        null, "stickied": false, "author_premium": false, "can_gild": false, "gildings":
+        {}, "unrepliable_reason": null, "author_flair_text_color": null, "score_hidden":
+        false, "permalink": "/r/AITAH/comments/1g1m2eo/aita_for_refusing_to_help_my_boyfriend_move_back/lrhglsh/",
+        "subreddit_type": "public", "locked": false, "report_reasons": null, "created":
+        1728686626.0, "author_flair_text": null, "treatment_tags": [], "link_id":
+        "t3_1g1m2eo", "subreddit_name_prefixed": "r/AITAH", "controversiality": 0,
+        "depth": 0, "author_flair_background_color": null, "collapsed_because_crowd_control":
+        null, "mod_reports": [], "num_reports": null, "ups": -2}}], "before": null}}]'
+  recorded_at: Sat, 12 Oct 2024 01:42:42 GMT
+recorded_with: VCR 6.3.1

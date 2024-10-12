@@ -66,6 +66,7 @@ class FetchComments {
 
     if (this.rawComments === null) return;
 
+    debugger;
     const results: Comment[] = [];
     const stack: Stack = this.rawComments.map(comment => ({rawComment: comment, depth: 0}));
 
