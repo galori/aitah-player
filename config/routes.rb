@@ -7,12 +7,15 @@ Rails.application.routes.draw do
 
   get "up", to: "rails/health#show", as: :rails_health_check
 
-  root to: "posts#index"
+  # root to: "posts#index"
 
   namespace :api do
     resources :posts, only: [:index, :show] do
       resources :comments, only: [:index]
     end
   end
-  # root 'home#index'
+  root 'home#index'
+  get '*path', to: 'home#index', constraints: ->(request) do
+    !request.xhr? && request.format.html?
+  end
 end

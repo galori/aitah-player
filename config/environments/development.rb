@@ -33,6 +33,22 @@ Rails.application.configure do
     config.cache_store = :null_store
   end
 
+  config.public_file_server.enabled = true
+  # # config.public_file_server.paths << Rails.root.join("app", "assets", "builds")
+  # config.public_file_server.index_name = 'index.html'
+  #
+  # # Insert middleware to serve static files from app/assets/builds
+  # config.middleware.insert_before(
+  #   ActionDispatch::Static,
+  #   ActionDispatch::Static,
+  #   Rails.root.join('app/assets', 'builds').to_s
+  # )
+
+  # config.public_file_server.paths = [
+  #   Rails.root.join('public'),
+  #   Rails.root.join('app/assets/builds')
+  # ]
+
   # Store uploaded files on the local file system (see config/storage.yml for options).
   config.active_storage.service = :local
 
@@ -55,9 +71,9 @@ Rails.application.configure do
   config.active_job.verbose_enqueue_logs = true
 
   # Suppress logger output for asset requests.
-  config.assets.quiet = true
+  # config.assets.quiet = true
 
-  config.assets.digest = false
+  # config.assets.digest = false
 
   # Raises error for missing translations.
   # config.i18n.raise_on_missing_translations = true
