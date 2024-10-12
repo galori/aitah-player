@@ -34,6 +34,7 @@ Rails.application.configure do
   end
 
   config.public_file_server.enabled = true
+
   # # config.public_file_server.paths << Rails.root.join("app", "assets", "builds")
   # config.public_file_server.index_name = 'index.html'
   #
