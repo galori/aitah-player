@@ -34,21 +34,14 @@ Rails.application.configure do
   end
 
   config.public_file_server.enabled = true
-
-  # # config.public_file_server.paths << Rails.root.join("app", "assets", "builds")
-  # config.public_file_server.index_name = 'index.html'
-  #
-  # # Insert middleware to serve static files from app/assets/builds
-  # config.middleware.insert_before(
-  #   ActionDispatch::Static,
-  #   ActionDispatch::Static,
-  #   Rails.root.join('app/assets', 'builds').to_s
-  # )
-
-  # config.public_file_server.paths = [
-  #   Rails.root.join('public'),
-  #   Rails.root.join('app/assets/builds')
-  # ]
+  config.public_file_server.index_name = 'index.html'
+  config.middleware.insert_after(
+    ActionDispatch::Static,
+    Rack::Static,
+    urls: [ %r{\A(?!(/api))} ],
+    root: Rails.root.join('app/assets', 'builds').to_s,
+    index: 'index.html',
+  )
 
   # Store uploaded files on the local file system (see config/storage.yml for options).
   config.active_storage.service = :local
