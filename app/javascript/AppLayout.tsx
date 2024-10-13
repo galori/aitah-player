@@ -10,10 +10,7 @@ interface IAppLayoutSubComponentProps {
 }
 
 
-function AppLayout: React.FC<IAppLayoutProps> & {
-  Controls: React.FC<IAppLayoutSubComponentProps>;
-  Body: React.FC<IAppLayoutSubComponentProps>;
-} = ({ children }) => {
+function AppLayout:
   let controls = null;
   let body = null;
 
