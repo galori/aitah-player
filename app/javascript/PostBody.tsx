@@ -62,7 +62,7 @@ function PostBody({postId, currentlyReading, post, setPost}: PostPageProps) {
             currentlyReading={currentlyReading}
             sentenceIndex={sentenceIndex}
           >
-            {sentence}
+            {sentence}. 
           </Sentence>
         )})}
       </Typography>

@@ -47,7 +47,7 @@ function PostHeader({
           </Paper>
         </Toolbar>
       </AppBar>
-      <Paper sx={{ m: 1, px: 1, mt: 0, paddingTop: "129px" }}>
+      <Paper sx={{ m: 1, p: 2, mt: 0, paddingTop: "136px" }}>
         <PostTitle currentlyReading={currentlyReading} post={post} />
 
       </Paper>
