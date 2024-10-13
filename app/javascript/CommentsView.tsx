@@ -35,7 +35,7 @@ function CommentsView({currentlyReading, post}: CommentsViewProps) {
               return (
                 <Sentence key={sentenceIndex} indexInParent={index} currentlyReading={currentlyReading}
                           sentenceIndex={sentenceIndex}>
-                  {sentence.text}
+                  {sentence.text}.
                 </Sentence>
               );
             }
