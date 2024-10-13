@@ -2,36 +2,28 @@ import React from "react";
 import {Box} from "@mui/material";
 
 export interface IAppLayoutProps {
-  children: React.ReactNode;
+  header: React.ReactNode;
+  body: React.ReactNode;
 }
 
-interface IAppLayoutSubComponentProps {
-  children: React.ReactNode;
-}
-
-
-function AppLayout:
-  let controls = null;
-  let body = null;
-
-  React.Children.forEach(children, (child) => {
-    if (!React.isValidElement(child)) return;
-    if (child.type === AppLayout.Controls) controls = child;
-    if (child.type === AppLayout.Body) body = child;
-  });
+function AppLayout({header, body}: IAppLayoutProps) {
 
   return (
-    <Box sx={{ height: "100vh", display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: "center", p: 2 }}>
-      {controls}
-    </Box>
 
-    <Box sx={{flex: 1, overflowY: "auto", p: 2 }}>
-      {body}
+    <Box sx={{
+      height: "100vh",
+      display: 'flex',
+      flexDirection: 'column',
+    }}>
+      <Box sx={{ flex: "0 0 25%", display: "flex", alignItems: "center", justifyContent: "center", p: 2}}>
+        {header}
+      </Box>
+
+      <Box sx={{flex: 1, overflowY: "auto", p: 2}}>
+        {body}
+      </Box>
     </Box>
   );
 }
-
-AppLayout.Controls = ({ children }: IAppLayoutSubcomponent  => <>{children}</>;
-AppLayout.Body = ({ children }: { children: React.ReactNode }) => <>{children}</>;
 
 export default AppLayout;
