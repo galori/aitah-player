@@ -199,6 +199,13 @@ function SpeechControls({
 
       setCurrentlyReading((currentlyReading ?? 0) + 1);
     }
+
+    if (newPlaybackState === "fast-rewind") {
+      console.log('fast-rewind. currentlyReading:', currentlyReading);
+      setPlaybackState("play");
+
+      setCurrentlyReading((currentlyReading ?? 0) - 1);
+    }
   };
 
   useEffect(() => {
