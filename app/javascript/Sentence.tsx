@@ -1,4 +1,4 @@
-import React, {ReactNode} from "react";
+import React, {ReactNode, useEffect, useRef} from "react";
 import {Box, Container} from "@mui/material";
 import {DEBUG} from "./initialize/config";
 
@@ -10,17 +10,27 @@ interface SentenceProps {
 }
 
 function Sentence({ indexInParent, currentlyReading, children, sentenceIndex }: SentenceProps) {
-  const shouldHighlight = (currentlyReading === sentenceIndex);
+  const isCurrentlyBeingSpoken = (currentlyReading === sentenceIndex);
   const conditionalStyles = DEBUG ? { border: '1px black solid', padding: '1px !important' } : {};
+  const elementRef = useRef(null);
+
+  useEffect(() => {
+    if (isCurrentlyBeingSpoken && elementRef.current) {
+      const element = elementRef.current as HTMLElement;
+      element.scrollIntoView();
+    }
+  }, [isCurrentlyBeingSpoken]);
+
   return (
     <Box
+      ref={elementRef}
       className="sentence"
       key={`sentence-${sentenceIndex}`}
       data-sentence-index={sentenceIndex}
       sx={{
         px: indexInParent === 0 ? 0 : 0.3,
         display: "inline",
-        backgroundColor: shouldHighlight ? "lightgray" : "transparent",
+        backgroundColor: isCurrentlyBeingSpoken ? "lightgray" : "transparent",
         ...conditionalStyles
       }}
     >

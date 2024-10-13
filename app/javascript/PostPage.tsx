@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import { useParams } from "react-router-dom";
-import {Container, Box } from "@mui/material";
+import {Container, Box, Paper} from "@mui/material";
 import VoiceSelector from "./VoiceSelector";
 import PostBody from "./PostBody";
 import CommentsView from "./CommentsView";
 import PostHeader from "./PostHeader";
 import {Post} from "./types";
+import PostTitle from "./components/PostTitle";
 
 function PostPage({ version }: { version: React.MutableRefObject<string | null> }) {
   const { id } = useParams<{ id: string }>();
@@ -26,8 +27,13 @@ function PostPage({ version }: { version: React.MutableRefObject<string | null> 
           mx: 0,
           px: 0,
           display: showVoiceSelector ? "none" : "block",
+          flexGrow: 1,
+          overflow: 'auto',
         }}
       >
+        <Paper sx={{ m: 1, p: 2, mt: 0 }}>
+          <PostTitle currentlyReading={currentlyReading} post={post} />
+        </Paper>
         <PostBody postId={id} currentlyReading={currentlyReading} setPost={setPost} post={post} />
         <CommentsView currentlyReading={currentlyReading} post={post} />
       </Container>

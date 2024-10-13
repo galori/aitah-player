@@ -3,7 +3,6 @@ import { AppBar, Box, Paper, Toolbar } from "@mui/material";
 import SpeechControls from "./SpeechControls";
 import CurrentVoice from "./CurrentVoice";
 import { Post } from "./types";
-import PostTitle from "./components/PostTitle";
 
 export interface PostHeaderProps {
   setCurrentlyReading: (index: number | null) => void;
@@ -47,10 +46,7 @@ function PostHeader({
           </Paper>
         </Toolbar>
       </AppBar>
-      <Paper sx={{ m: 1, p: 2, mt: 0, paddingTop: "136px" }}>
-        <PostTitle currentlyReading={currentlyReading} post={post} />
-
-      </Paper>
+      <Toolbar />
     </>
   );
 }

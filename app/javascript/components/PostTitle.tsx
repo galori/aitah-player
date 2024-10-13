@@ -7,10 +7,12 @@ import {Post} from "../types";
 
 export interface IPostTitleProps {
   currentlyReading: number | null;
-  post: Post;
+  post: Post | null;
 }
 
 function PostTitle({currentlyReading, post}: IPostTitleProps) {
+  if (!post) return null;
+
   return (
     <>
       <Link to={post.url} target="_blank" rel="noreferrer">
