@@ -62,6 +62,18 @@ class FetchComments {
     });
   }
 
+  private static createFlatComment(rawComment: RawComment, depth: number): Comment {
+    const flatSentences = rawComment.sentences.map((sentence) => ({text: sentence, sentenceIndex: null}));
+    return {
+      sentences: flatSentences,
+      author: rawComment.author,
+      score: rawComment.score,
+      postedAt: rawComment.postedAt,
+      depth,
+      sentenceIndexForAuthor: null
+    }
+  }
+
   private flattenComments() {
 
     if (this.rawComments === null) return;
@@ -71,24 +83,14 @@ class FetchComments {
     const stack: Stack = this.rawComments.map(comment => ({rawComment: comment, depth: 0}));
 
     while (stack.length > 0) {
-      const item = stack.pop();
+      const item = stack.shift();
 
       if (item) {
         const {rawComment, depth} = item;
-
-        const flatSentences = rawComment.sentences.map((sentence) => ({text: sentence, sentenceIndex: null}));
-        const flatComment = {
-          sentences: flatSentences,
-          author: rawComment.author,
-          score: rawComment.score,
-          postedAt: rawComment.postedAt,
-          depth,
-          sentenceIndexForAuthor: null
-        }
-        results.unshift(flatComment);
+        results.push(FetchComments.createFlatComment(rawComment, depth));
 
         if (rawComment.replies) {
-          stack.push(...rawComment.replies.map(reply => ({rawComment: reply, depth: depth + 1})));
+          stack.unshift(...rawComment.replies.map(reply => ({rawComment: reply, depth: depth + 1})));
         }
       }
 

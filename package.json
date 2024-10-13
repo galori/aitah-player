@@ -39,6 +39,7 @@
     "start": "webpack serve --host 0.0.0.0 --mode development --config webpack.config.js",
     "build:dev": "yarn type-check && webpack --mode development",
     "build": "yarn type-check && webpack --mode production",
+    "build:test": "webpack --mode production --watch",
     "type-check": "tsc --noEmit",
     "lint": "eslint 'app/javascript/**/*.{js,jsx,ts,tsx}'",
     "lint:fix": "eslint 'app/javascript/**/*.{js,jsx,ts,tsx}' --fix",

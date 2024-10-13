@@ -19,9 +19,10 @@ function CommentsView({currentlyReading, post}: CommentsViewProps) {
   function renderComments() {
     if (!post) return <p>Loading..</p>
     const sentenceIndexOffset = post.sentences.length + 1;
-    return comments?.map((comment: Comment) => (
-      <Box key={Math.random()} sx={{
-        '&&': {marginLeft: `${comment.depth * NESTED_INDENT_PIXELS}px`} // the && increases specificity to override the default margin
+    return comments?.map((comment: Comment, commentIndex: number) => (
+      <Box key={Math.random()}
+           data-comment-index={commentIndex}
+           sx={{ '&&': {marginLeft: `${comment.depth * NESTED_INDENT_PIXELS}px`} // the && increases specificity to override the default margins
       }}>
 
         <Sentence indexInParent={0} currentlyReading={currentlyReading}
