@@ -41,5 +41,5 @@ console_command = '/rails/bin/rails console'
   cpus = 1
 
 [[statics]]
-  guest_path = '/rails/public'
+  guest_path = '/rails/app/assets/builds'
   url_prefix = '/'
