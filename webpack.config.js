@@ -59,6 +59,7 @@ module.exports = (env, argv) => {
       sourceMapFilename: '[name].js.map',
       path: path.resolve(__dirname, 'app/assets/builds'),
       publicPath: '/',
+      charset: true
     },
     plugins: [
       new webpack.optimize.LimitChunkCountPlugin({
