@@ -15,7 +15,7 @@ function AppLayout({header, body}: IAppLayoutProps) {
       display: 'flex',
       flexDirection: 'column',
     }}>
-      <Box sx={{ flex: "0 0 25%", display: "flex", alignItems: "center", justifyContent: "center", p: 2}}>
+      <Box sx={{ flex: "0 0 25%", display: "flex", alignItems: "center", justifyContent: "center", p: 2, backgroundColor: '#006DC9'}}>
         {header}
       </Box>
 
