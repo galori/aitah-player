@@ -5,14 +5,14 @@ import Sentence from "./Sentence";
 import {Post} from "./types";
 import FetchPost from "./fetch/FetchPost";
 
-export interface PostPageProps {
+export interface IPostPageProps {
   postId: string;
   currentlyReading: number | null;
   post: Post | null;
   setPost: (post:Post) => void;
 }
 
-function PostBody({postId, currentlyReading, post, setPost}: PostPageProps) {
+function PostBody({postId, currentlyReading, post, setPost}: IPostPageProps) {
 
   const [loading, setLoading] = useState(true);
   const [alreadyFetched, setAlreadyFetched] = useState<boolean>(false);
@@ -47,7 +47,6 @@ function PostBody({postId, currentlyReading, post, setPost}: PostPageProps) {
       sx={{
         // width: "100%",
         boxShadow: "none",
-        px: 2,
         py: 2,
         m: 1
       }}
