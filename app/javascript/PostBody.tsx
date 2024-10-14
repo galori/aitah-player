@@ -47,7 +47,6 @@ function PostBody({postId, currentlyReading, post, setPost}: IPostPageProps) {
       sx={{
         // width: "100%",
         boxShadow: "none",
-        px: 2,
         py: 2,
         m: 1
       }}

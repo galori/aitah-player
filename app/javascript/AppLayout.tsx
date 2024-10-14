@@ -15,11 +15,11 @@ function AppLayout({header, body}: IAppLayoutProps) {
       display: 'flex',
       flexDirection: 'column',
     }}>
-      <Box sx={{ flex: "0 0 25%", display: "flex", alignItems: "center", justifyContent: "center", p: 2, backgroundColor: '#006DC9'}}>
+      <Box sx={{ flex: "0 0 25%", display: "flex", alignItems: "center", justifyContent: "center", p: 1, backgroundColor: '#006DC9'}} id='app-header'>
         {header}
       </Box>
 
-      <Box sx={{flex: 1, overflowY: "auto", p: 2}}>
+      <Box sx={{flex: 1, overflowY: "auto", p: 1}} id='app-body'>
         {body}
       </Box>
     </Box>

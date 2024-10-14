@@ -37,7 +37,7 @@ function PostPageBody({
           overflow: "auto",
         }}
       >
-        <Paper sx={{ m: 1, p: 2, mt: 0 }}>
+        <Paper sx={{ m: 1, p: 1, mt: 0 }}>
           <PostTitle currentlyReading={currentlyReading} post={post} />
         </Paper>
         <PostBody
