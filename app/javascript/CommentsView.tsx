@@ -3,6 +3,7 @@ import {Box, Paper, Stack, Typography} from "@mui/material";
 import FetchComments, {Comment, FlatSentence} from "./fetch/FetchComments";
 import Sentence from "./Sentence";
 import {Post} from "./types";
+import roundUpvotes from "./lib/roundUpvotes";
 
 const NESTED_INDENT_PIXELS = 10;
 
@@ -27,7 +28,7 @@ function CommentsView({currentlyReading, post}: CommentsViewProps) {
 
         <Sentence indexInParent={0} currentlyReading={currentlyReading}
                   sentenceIndex={(comment.sentenceIndexForAuthor ?? 0) + sentenceIndexOffset}>
-          <strong>{comment.depth === 0 ? 'Top comment' : 'Reply'} by {comment.author}</strong> ({comment.score} votes):
+          <strong>{comment.depth === 0 ? 'Top comment' : 'Reply'} by {comment.author}</strong> ( {roundUpvotes(comment.score)} ):
         </Sentence>
         <Typography variant="body1" component="span">
           {comment.sentences.map((sentence: FlatSentence, index: number) => {
