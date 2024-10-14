@@ -4,7 +4,7 @@ import FetchComments, {Comment, FlatSentence} from "./fetch/FetchComments";
 import Sentence from "./Sentence";
 import {Post} from "./types";
 
-const NESTED_INDENT_PIXELS = 40;
+const NESTED_INDENT_PIXELS = 10;
 
 export interface CommentsViewProps {
   currentlyReading: number | null;
@@ -16,7 +16,7 @@ function CommentsView({currentlyReading, post}: CommentsViewProps) {
   const [alreadyFetched, setAlreadyFetched] = React.useState<boolean>(false);
   const [comments, setComments] = React.useState<Comment[] | undefined>(undefined);
 
-  function renderComments() {
+  function  renderComments() {
     if (!post) return <p>Loading..</p>
     const sentenceIndexOffset = post.sentences.length + 1;
     return comments?.map((comment: Comment, commentIndex: number) => (
