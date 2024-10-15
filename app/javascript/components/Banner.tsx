@@ -1,5 +1,6 @@
 import React from "react";
 import {Box, Typography} from "@mui/material";
+import SoundBars from "./SoundsBars";
 
 function Banner() {
   return (
@@ -9,10 +10,15 @@ function Banner() {
         height: "100%",
         width: "100%",
         borderRadius: "10px",
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'top',
       }}>
       <Typography variant="h3" sx={{color: "white", textAlign: "left", p: 2}}>
         r/aitah
       </Typography>
+      <SoundBars soundActive={false} />
 
     </Box>
   );
