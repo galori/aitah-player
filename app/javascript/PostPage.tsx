@@ -4,6 +4,7 @@ import Controls from "./Controls";
 import { Post } from "./types";
 import AppLayout from "./AppLayout";
 import PostPageBody from "./PostPageBody";
+import Banner from "./components/Banner";
 
 function PostPage() {
   const { id } = useParams<{ id: string }>();
@@ -17,26 +18,26 @@ function PostPage() {
 
   return (
     <AppLayout
-      header={ <p /> }
-      body={
-        <PostPageBody
-          postId={postId}
-          currentlyReading={currentlyReading}
-          setPost={setPost}
-          post={post}
-          showVoiceSelector={showVoiceSelector}
-          setShowVoiceSelector={setShowVoiceSelector}
+      header={<Banner/> }
+        body={
+          <PostPageBody
+            postId={postId}
+            currentlyReading={currentlyReading}
+            setPost={setPost}
+            post={post}
+            showVoiceSelector={showVoiceSelector}
+            setShowVoiceSelector={setShowVoiceSelector}
+          />
+        }
+        controls={
+          <Controls
+            setCurrentlyReading={setCurrentlyReading}
+            currentlyReading={currentlyReading}
+            post={post}
+          />
+        }
         />
-      }
-      controls={
-        <Controls
-          setCurrentlyReading={setCurrentlyReading}
-          currentlyReading={currentlyReading}
-          post={post}
-        />
-      }
-    />
-  );
-}
+        );
+        }
 
-export default PostPage;
+        export default PostPage;

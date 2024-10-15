@@ -3,6 +3,7 @@ const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 const ESLintPlugin = require('eslint-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const config = require('./app/javascript/initialize/config');
 
@@ -81,6 +82,18 @@ module.exports = (env, argv) => {
         extensions: ['js', 'jsx', 'ts', 'tsx'],
         files: './app/javascript/**/*',
         fix: true,
+      }),
+      new CopyWebpackPlugin({
+        patterns: [
+          {
+            from: path.resolve(__dirname, 'app/assets/images'), // Source folder
+            to: path.resolve(__dirname, 'app/assets/builds/images'), // Destination folder
+            noErrorOnMissing: true, // Optional: Ignore if the source folder doesn't exist
+            globOptions: {
+              ignore: ['**/.DS_Store'], // Optional: Ignore specific files
+            },
+          },
+        ],
       }),
     ],
     resolve: {
