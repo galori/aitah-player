@@ -150,14 +150,17 @@ function SpeechControls({
 
 
   const handlePlaybackChange = (newPlaybackState: PlaybackState) => {
+    console.log('handlePlaybackChange(). newPlaybackState=', newPlaybackState);
 
     if (newPlaybackState === prevPlaybackStateRef.current) {
+      console.log('returning due to no change. newPlaybackState=', newPlaybackState, 'prevPlaybackStateRef.current=', prevPlaybackStateRef.current);
       return;
     }
 
     setPlaybackState(newPlaybackState);
 
     if (newPlaybackState === "pause") {
+      console.log('handlePlaybackChange: pausing. newPlaybackState=', newPlaybackState, 'easySpeechState=', easySpeechState);
       if (easySpeechState === "playing") {
         if (iOS.isWebView()) {
           iOS.pause();
@@ -191,16 +194,17 @@ function SpeechControls({
 
   const skipForward = () => {
     setPlaybackState("play");
+    prevPlaybackStateRef.current = 'play';
     setCurrentlyReading((currentlyReading ?? 0) + 1);
   }
 
   const skipBackward = () => {
     setPlaybackState("play");
+    prevPlaybackStateRef.current = 'play';
     setCurrentlyReading((currentlyReading ?? 0) - 1);
   }
 
   useEffect(() => {
-    console.log('useEffect for currentlyReading = ', currentlyReading, 'prevCurrentlyReadingRef.current = ', prevCurrentlyReadingRef.current);
     if (currentlyReading && currentlyReading !== prevCurrentlyReadingRef.current) {
       if (currentlyReading >= sentences.length) {
         setPlaybackState("pause");
@@ -228,6 +232,7 @@ function SpeechControls({
         top: '2px'
       }}>{playbackState} | {easySpeechState} | {currentlyReading} </Container>}
 
+      <Box sx={{color: 'white'}}>{playbackState} | {easySpeechState} | ref = {prevPlaybackStateRef.current ?? 'null'}</Box>
       <Box sx={{display: 'flex', justifyContent: 'space-around', alignItems: 'center', p: 1}}>
         <Icon name='undo' circle size='2x' onClick={skipBackward}/>
         {playbackState === 'pause' && <Icon name='play' circle nudge={5} size='4x' onClick={() => {

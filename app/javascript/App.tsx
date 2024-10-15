@@ -63,7 +63,6 @@ function App() {
     if (!iosBridgeInitialized.current) {
       IOSBridge.setup();
       iosBridgeInitialized.current = true;
-      console.log('bridge   setup;');
     }
   }, [iosBridgeInitialized]);
 

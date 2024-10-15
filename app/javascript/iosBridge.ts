@@ -7,7 +7,6 @@ class IOSBridge {
 
   static setup() {
     window.nativeEvent = (name: string) => {
-      console.log("iosBridge.ts: ", name);
       const event = new Event(name);
       window.dispatchEvent(event);
     }
