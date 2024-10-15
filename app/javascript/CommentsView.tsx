@@ -60,14 +60,14 @@ function CommentsView({currentlyReading, post}: CommentsViewProps) {
   }
 
   return (
-    <Paper sx={{width: "100%", boxShadow: "none", py: 2}}>
+    <Box sx={{width: "100%", boxShadow: "none"}}>
       <Typography variant="h2">Comments</Typography>
       <Typography component="span" sx={{px: 0.2, display: "block"}}>
         <Stack spacing={2}>
           {comments && renderComments()}
         </Stack>
       </Typography>
-    </Paper>
+    </Box>
   )
 }
 

@@ -1,4 +1,4 @@
-import {Button, Paper, Typography} from "@mui/material";
+import {Box, Button, Paper, Typography} from "@mui/material";
 import React, {useEffect, useRef, useState} from "react";
 import {useNavigate} from "react-router-dom";
 import Sentence from "./Sentence";
@@ -43,14 +43,7 @@ function PostBody({postId, currentlyReading, post, setPost}: IPostPageProps) {
   if (!post) return <p>No post found</p>;
 
   return (
-    <Paper
-      sx={{
-        // width: "100%",
-        boxShadow: "none",
-        py: 2,
-        m: 1
-      }}
-    >
+    <Box sx={{ color: 'white' }}>
       <Typography component="span" sx={{px: 0.2, display: "block"}}>
         {post.sentences.map((sentence, index) => {
           const sentenceIndex = index + 2; // 1 is the title + author
@@ -68,7 +61,7 @@ function PostBody({postId, currentlyReading, post, setPost}: IPostPageProps) {
       <Button variant="contained" href="" sx={{mt: 2}} onClick={() => navigate('/')}>
         Home
       </Button>
-    </Paper>
+    </Box>
   )
 }
 

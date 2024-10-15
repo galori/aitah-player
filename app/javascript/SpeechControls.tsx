@@ -230,9 +230,7 @@ function SpeechControls({
         position: 'fixed',
         left: '2px',
         top: '2px'
-      }}>{playbackState} | {easySpeechState} | {currentlyReading} </Container>}
-
-      <Box sx={{color: 'white'}}>{playbackState} | {easySpeechState} | ref = {prevPlaybackStateRef.current ?? 'null'}</Box>
+      }}>{playbackState} | {easySpeechState} | {currentlyReading} | ref = {prevPlaybackStateRef.current ?? 'null'} | {voice.name}</Container>}
       <Box sx={{display: 'flex', justifyContent: 'space-around', alignItems: 'center', p: 1}}>
         <Icon name='undo' circle size='2x' onClick={skipBackward}/>
         {playbackState === 'pause' && <Icon name='play' circle nudge={5} size='4x' onClick={() => {

@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Paper } from "@mui/material";
+import {Box, Container, Paper} from "@mui/material";
 import PostTitle from "./components/PostTitle";
 import PostBody from "./PostBody";
 import CommentsView from "./CommentsView";
@@ -37,9 +37,9 @@ function PostPageBody({
           overflow: "auto",
         }}
       >
-        <Paper sx={{ m: 1, p: 1, mt: 0 }}>
+        <Box sx={{color: 'white'}}>
           <PostTitle currentlyReading={currentlyReading} post={post} />
-        </Paper>
+        </Box>
         <PostBody
           postId={postId}
           currentlyReading={currentlyReading}

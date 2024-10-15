@@ -49,7 +49,8 @@ function Sentence({ indexInParent, currentlyReading, children, sentenceIndex }: 
         px: indexInParent === 0 ? 0 : 0.3,
         display: "inline",
         backgroundColor: isCurrentlyBeingSpoken ? "lightgray" : "transparent",
-        ...conditionalStyles
+        color: isCurrentlyBeingSpoken ? "black" : "white",
+        ...conditionalStyles,
       }}
     >
       { DEBUG && <Container component="span" sx={{border: '1px black solid', padding: '1px !important'}}>{sentenceIndex}</Container>}
