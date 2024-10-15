@@ -13,6 +13,7 @@ import {Voice} from "./types";
 import {VoiceContext} from "./VoiceProvider";
 import SpeechCore from "./SpeechCore";
 import IOSBridge from './iosBridge';
+import 'font-awesome/css/font-awesome.min.css';
 
 const theme = createTheme();
 
@@ -75,7 +76,7 @@ function App() {
             <div>
               <Routes>
                 <Route path="/" element={<PostsPage version={version}/>}/>
-                <Route path="/post/:id" element={<PostPage version={version}/>}/>
+                <Route path="/post/:id" element={<PostPage />}/>
               </Routes>
             </div>
           </Router>

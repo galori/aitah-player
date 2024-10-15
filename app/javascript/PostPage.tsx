@@ -1,15 +1,11 @@
 import React, { useState } from "react";
 import { useParams } from "react-router-dom";
-import PostHeader from "./PostHeader";
+import Controls from "./Controls";
 import { Post } from "./types";
 import AppLayout from "./AppLayout";
 import PostPageBody from "./PostPageBody";
 
-function PostPage({
-  version,
-}: {
-  version: React.MutableRefObject<string | null>;
-}) {
+function PostPage() {
   const { id } = useParams<{ id: string }>();
   const [currentlyReading, setCurrentlyReading] = useState<number | null>(null);
   const [showVoiceSelector, setShowVoiceSelector] = useState(false);
@@ -21,15 +17,7 @@ function PostPage({
 
   return (
     <AppLayout
-      header={
-        <PostHeader
-          setCurrentlyReading={setCurrentlyReading}
-          currentlyReading={currentlyReading}
-          post={post}
-          setShowVoiceSelector={setShowVoiceSelector}
-          version={version}
-        />
-      }
+      header={ <p /> }
       body={
         <PostPageBody
           postId={postId}
@@ -38,6 +26,13 @@ function PostPage({
           post={post}
           showVoiceSelector={showVoiceSelector}
           setShowVoiceSelector={setShowVoiceSelector}
+        />
+      }
+      controls={
+        <Controls
+          setCurrentlyReading={setCurrentlyReading}
+          currentlyReading={currentlyReading}
+          post={post}
         />
       }
     />

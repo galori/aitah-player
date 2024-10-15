@@ -1,26 +1,24 @@
 import React, {useCallback, useEffect, useRef} from "react";
-import {
-  Box, Container,
-  SxProps,
-  Theme,
-  ToggleButton,
-  ToggleButtonGroup,
-} from "@mui/material";
+import {Box, Container, SxProps, Theme} from "@mui/material";
 import EasySpeech from "easy-speech";
-import {FastForward, FastRewind, Pause, PlayArrow} from "@mui/icons-material";
+import {
+  ArrowCircleLeft,
+  ArrowCircleRight,
+  SkipNext,
+  SkipPrevious,
+} from "@mui/icons-material";
+import PlayCircleFilledIcon from '@mui/icons-material/PlayCircleFilled';
 import {SHOULD_AUTO_PLAY, DEBUG} from "./initialize/config";
 import iOS from "./iOS";
-import {playbackButtonStyles, playbackIconStyles} from "./styles";
 import {Voice} from "./types";
 import useVoiceContext from "./UseVoiceContext";
-
+import Icon from "./components/Icon";
 
 interface SpeechProps {
   sx?: SxProps<Theme>;
   setCurrentlyReading: (index: number | null) => void;
   currentlyReading: number | null;
 }
-
 
 function SpeechControls({
                           sx = {},
@@ -29,7 +27,7 @@ function SpeechControls({
                         }: SpeechProps) {
 
   type EasySpeechState = "playing" | "paused" | "stopped";
-  type PlaybackState = "play" | "pause" | "fast-forward" | "fast-rewind";
+  type PlaybackState = "play" | "pause" | null;
 
   const [playbackState, setPlaybackState] =
     React.useState<PlaybackState>("play");
@@ -42,7 +40,8 @@ function SpeechControls({
   const {voice} = useVoiceContext();
   const prevCurrentlyReadingRef = useRef<number | null>(null);
   const prevVoiceRef = useRef<Voice | null>(null);
-  const latestReadTextIdRef = useRef<number>(0); // Ref to track the latest readText call
+  const latestReadTextIdRef = useRef<number>(0);
+  const prevPlaybackStateRef = useRef<PlaybackState>(null);
 
   if (!voice) {
     throw new Error("VoiceContext voice is null");
@@ -157,10 +156,7 @@ function SpeechControls({
   }, [currentlyReading, sentences, readText, setCurrentlyReading]);
 
 
-  const handlePlaybackChange = (
-    event: React.MouseEvent<HTMLElement>,
-    newPlaybackState: PlaybackState,
-  ) => {
+  const handlePlaybackChange = (newPlaybackState:PlaybackState) => {
 
     setPlaybackState(newPlaybackState);
 
@@ -192,21 +188,22 @@ function SpeechControls({
         }
       }
     }
+  }
 
-    if (newPlaybackState === "fast-forward") {
-      console.log('fast-forward. currentlyReading:', currentlyReading);
-      setPlaybackState("play");
-
-      setCurrentlyReading((currentlyReading ?? 0) + 1);
-    }
-
-    if (newPlaybackState === "fast-rewind") {
-      console.log('fast-rewind. currentlyReading:', currentlyReading);
-      setPlaybackState("play");
-
-      setCurrentlyReading((currentlyReading ?? 0) - 1);
-    }
-  };
+  //   if (newPlaybackState === "fast-forward") {
+  //     console.log('fast-forward. currentlyReading:', currentlyReading);
+  //     setPlaybackState("play");
+  //
+  //     setCurrentlyReading((currentlyReading ?? 0) + 1);
+  //   }
+  //
+  //   if (newPlaybackState === "fast-rewind") {
+  //     console.log('fast-rewind. currentlyReading:', currentlyReading);
+  //     setPlaybackState("play");
+  //
+  //     setCurrentlyReading((currentlyReading ?? 0) - 1);
+  //   }
+  // };
 
   useEffect(() => {
     console.log('useEffect for currentlyReading = ', currentlyReading, 'prevCurrentlyReadingRef.current = ', prevCurrentlyReadingRef.current);
@@ -236,24 +233,27 @@ function SpeechControls({
         left: '2px',
         top: '2px'
       }}>{playbackState} | {easySpeechState} | {currentlyReading} </Container>}
-      <ToggleButtonGroup
-        value={playbackState}
-        exclusive
-        onChange={handlePlaybackChange}
-      >
-        <ToggleButton value="fast-rewind" sx={playbackButtonStyles}>
-          <FastRewind sx={playbackIconStyles}/>
-        </ToggleButton>
-        <ToggleButton value="play" sx={playbackButtonStyles}>
-          <PlayArrow sx={playbackIconStyles}/>
-        </ToggleButton>
-        <ToggleButton value="pause" sx={playbackButtonStyles}>
-          <Pause sx={playbackIconStyles}/>
-        </ToggleButton>
-        <ToggleButton value="fast-forward" sx={playbackButtonStyles}>
-          <FastForward sx={playbackIconStyles}/>
-        </ToggleButton>
-      </ToggleButtonGroup>
+
+      <Box sx={{display: 'flex', justifyContent: 'space-around', alignItems: 'center', p: 1}}>
+        <Icon name='undo' circle size='2x' />
+        { playbackState === 'pause' && <Icon name='play' circle nudge={5} size='4x' onClick={() => {
+          setPlaybackState('play');
+          handlePlaybackChange('play')
+        }}/>}
+        { playbackState === 'play' && <Icon name='pause' circle size='4x' onClick={() => {
+          setPlaybackState('pause');
+          handlePlaybackChange('pause');
+        }}/>}
+        <Icon name='repeat' circle size='2x' />
+
+      </Box>
+
+      <Box sx={{display: 'flex', justifyContent: 'space-around', alignItems: 'center', p: 1}}>
+        <ArrowCircleLeft />
+        <SkipPrevious />
+        <SkipNext />
+        <ArrowCircleRight />
+      </Box>
     </Box>
   );
 }
