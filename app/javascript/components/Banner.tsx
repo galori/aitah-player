@@ -2,7 +2,11 @@ import React from "react";
 import {Box, Typography} from "@mui/material";
 import SoundBars from "./SoundsBars";
 
-function Banner() {
+export interface IBannerProps {
+  soundActive: boolean;
+}
+
+function Banner({soundActive}: IBannerProps) {
   return (
     <Box
       sx={{
@@ -18,7 +22,7 @@ function Banner() {
       <Typography variant="h3" sx={{color: "white", textAlign: "left", p: 2}}>
         r/aitah
       </Typography>
-      <SoundBars soundActive={false} />
+      <SoundBars soundActive={soundActive} />
 
     </Box>
   );

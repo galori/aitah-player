@@ -3,7 +3,7 @@ import {Box, Container, SxProps, Theme} from "@mui/material";
 import EasySpeech from "easy-speech";
 import {SHOULD_AUTO_PLAY, DEBUG} from "./initialize/config";
 import iOS from "./iOS";
-import {Voice} from "./types";
+import {EasySpeechState, Voice} from "./types";
 import useVoiceContext from "./UseVoiceContext";
 import Icon from "./components/Icon";
 
@@ -11,21 +11,22 @@ interface SpeechProps {
   sx?: SxProps<Theme>;
   setCurrentlyReading: (index: number | null) => void;
   currentlyReading: number | null;
+  easySpeechState: "playing" | "paused" | "stopped";
+  setEasySpeechState: (state: EasySpeechState) => void;
 }
 
 function SpeechControls({
                           sx = {},
                           setCurrentlyReading,
                           currentlyReading,
+                          easySpeechState,
+                          setEasySpeechState
                         }: SpeechProps) {
 
-  type EasySpeechState = "playing" | "paused" | "stopped";
   type PlaybackState = "play" | "pause" | null;
 
   const [playbackState, setPlaybackState] =
     React.useState<PlaybackState>("play");
-  const [easySpeechState, setEasySpeechState] =
-    React.useState<EasySpeechState>("stopped");
   const [initialized, setInitialized] = React.useState<boolean>(false);
   const [attemptedToAutoInitialize, setAttemptedToAutoInitialize] =
     React.useState<boolean>(false);
@@ -123,7 +124,7 @@ function SpeechControls({
     }
 
     prevVoiceRef.current = voice;
-  }, [voice, initialized, attemptedToAutoInitialize, initializeSpeech]);
+  }, [voice, initialized, attemptedToAutoInitialize, initializeSpeech, setEasySpeechState]);
 
 
   const playCurrentSentence = useCallback(async () => {
@@ -146,7 +147,7 @@ function SpeechControls({
       throw new Error("currentlyReading is null");
     }
 
-  }, [currentlyReading, sentences, readText, setCurrentlyReading]);
+  }, [currentlyReading, sentences, readText, setCurrentlyReading, setEasySpeechState]);
 
 
   const handlePlaybackChange = (newPlaybackState: PlaybackState) => {
@@ -221,7 +222,8 @@ function SpeechControls({
     playCurrentSentence,
     sentences.length,
     setCurrentlyReading,
-    playbackState
+    playbackState,
+    setEasySpeechState
   ]);
 
   return (
