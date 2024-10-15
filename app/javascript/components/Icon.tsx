@@ -5,7 +5,7 @@ export interface IconProps {
   name: string;
   circle?: boolean;
   nudge?: number;
-  size: "1x" | "2x" | "3x" | "4x" | "5x";
+  size?: "1x" | "2x" | "3x" | "4x" | "5x";
   onClick?: () => void;
 }
 
@@ -21,7 +21,7 @@ function Icon({ name, circle, nudge, size, onClick }: IconProps) {
           style={{
             color: "#DDEEFA",
             textShadow: "-6px 6px 15px rgba(0, 0, 0, 1)",
-            boxShadow: "0 5px 15px rgba(0, 0, 0, 0.2);",
+            boxShadow: "0 5px 15px rgba(0, 0, 0, 0.2)",
           }}
           onClick={onClick}
         />

@@ -1,13 +1,6 @@
 import React, {useCallback, useEffect, useRef} from "react";
 import {Box, Container, SxProps, Theme} from "@mui/material";
 import EasySpeech from "easy-speech";
-import {
-  ArrowCircleLeft,
-  ArrowCircleRight,
-  SkipNext,
-  SkipPrevious,
-} from "@mui/icons-material";
-import PlayCircleFilledIcon from '@mui/icons-material/PlayCircleFilled';
 import {SHOULD_AUTO_PLAY, DEBUG} from "./initialize/config";
 import iOS from "./iOS";
 import {Voice} from "./types";
@@ -75,10 +68,10 @@ function SpeechControls({
           });
           console.log('readText returning wasSuccessful:', wasSuccessful);
           return wasSuccessful;
-        } 
-          await EasySpeech.speak({text, voice});
-          return true;
-        
+        }
+        await EasySpeech.speak({text, voice});
+        return true;
+
       } catch (error) {
         const easySpeechError = error as EasySpeechError;
         if (easySpeechError.error === "not-allowed") {
@@ -156,7 +149,11 @@ function SpeechControls({
   }, [currentlyReading, sentences, readText, setCurrentlyReading]);
 
 
-  const handlePlaybackChange = (newPlaybackState:PlaybackState) => {
+  const handlePlaybackChange = (newPlaybackState: PlaybackState) => {
+
+    if (newPlaybackState === prevPlaybackStateRef.current) {
+      return;
+    }
 
     setPlaybackState(newPlaybackState);
 
@@ -188,30 +185,19 @@ function SpeechControls({
         }
       }
     }
+
+    prevPlaybackStateRef.current = newPlaybackState;
   }
 
   const skipForward = () => {
-        setPlaybackState("play");
-        setCurrentlyReading((currentlyReading ?? 0) + 1);
+    setPlaybackState("play");
+    setCurrentlyReading((currentlyReading ?? 0) + 1);
   }
 
   const skipBackward = () => {
-    console.log('skipBackward. currentlyReading:', currentlyReading);
     setPlaybackState("play");
     setCurrentlyReading((currentlyReading ?? 0) - 1);
   }
-
-  //   if (newPlaybackState === "fast-forward") {
-  //     console.log('fast-forward. currentlyReading:', currentlyReading);
-  //   }
-  //
-  //   if (newPlaybackState === "fast-rewind") {
-  //     console.log('fast-rewind. currentlyReading:', currentlyReading);
-  //     setPlaybackState("play");
-  //
-  //     setCurrentlyReading((currentlyReading ?? 0) - 1);
-  //   }
-  // };
 
   useEffect(() => {
     console.log('useEffect for currentlyReading = ', currentlyReading, 'prevCurrentlyReadingRef.current = ', prevCurrentlyReadingRef.current);
@@ -243,24 +229,24 @@ function SpeechControls({
       }}>{playbackState} | {easySpeechState} | {currentlyReading} </Container>}
 
       <Box sx={{display: 'flex', justifyContent: 'space-around', alignItems: 'center', p: 1}}>
-        <Icon name='undo' circle size='2x' onClick={skipBackward} />
-        { playbackState === 'pause' && <Icon name='play' circle nudge={5} size='4x' onClick={() => {
+        <Icon name='undo' circle size='2x' onClick={skipBackward}/>
+        {playbackState === 'pause' && <Icon name='play' circle nudge={5} size='4x' onClick={() => {
           setPlaybackState('play');
           handlePlaybackChange('play')
         }}/>}
-        { playbackState === 'play' && <Icon name='pause' circle size='4x' onClick={() => {
+        {playbackState === 'play' && <Icon name='pause' circle size='4x' onClick={() => {
           setPlaybackState('pause');
           handlePlaybackChange('pause');
         }}/>}
-        <Icon name='repeat' circle size='2x' onClick={skipForward} />
+        <Icon name='repeat' circle size='2x' onClick={skipForward}/>
 
       </Box>
 
       <Box sx={{display: 'flex', justifyContent: 'space-around', alignItems: 'center', p: 1}}>
-        <ArrowCircleLeft />
-        <SkipPrevious />
-        <SkipNext />
-        <ArrowCircleRight />
+        <Icon name='arrow-left' circle/>
+        <Icon name='step-backward' circle/>
+        <Icon name='step-forward' circle/>
+        <Icon name='arrow-right' circle/>
       </Box>
     </Box>
   );
