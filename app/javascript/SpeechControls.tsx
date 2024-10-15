@@ -190,11 +190,19 @@ function SpeechControls({
     }
   }
 
+  const skipForward = () => {
+        setPlaybackState("play");
+        setCurrentlyReading((currentlyReading ?? 0) + 1);
+  }
+
+  const skipBackward = () => {
+    console.log('skipBackward. currentlyReading:', currentlyReading);
+    setPlaybackState("play");
+    setCurrentlyReading((currentlyReading ?? 0) - 1);
+  }
+
   //   if (newPlaybackState === "fast-forward") {
   //     console.log('fast-forward. currentlyReading:', currentlyReading);
-  //     setPlaybackState("play");
-  //
-  //     setCurrentlyReading((currentlyReading ?? 0) + 1);
   //   }
   //
   //   if (newPlaybackState === "fast-rewind") {
@@ -235,7 +243,7 @@ function SpeechControls({
       }}>{playbackState} | {easySpeechState} | {currentlyReading} </Container>}
 
       <Box sx={{display: 'flex', justifyContent: 'space-around', alignItems: 'center', p: 1}}>
-        <Icon name='undo' circle size='2x' />
+        <Icon name='undo' circle size='2x' onClick={skipBackward} />
         { playbackState === 'pause' && <Icon name='play' circle nudge={5} size='4x' onClick={() => {
           setPlaybackState('play');
           handlePlaybackChange('play')
@@ -244,7 +252,7 @@ function SpeechControls({
           setPlaybackState('pause');
           handlePlaybackChange('pause');
         }}/>}
-        <Icon name='repeat' circle size='2x' />
+        <Icon name='repeat' circle size='2x' onClick={skipForward} />
 
       </Box>
 
