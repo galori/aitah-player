@@ -42,6 +42,7 @@ function Icon({ name, circle, nudge, size, onClick, rotate, color="black" }: Ico
       component="i"
       className={`fa fa-${name} ${rotateClass} fa-${sizeX}`}
       style={{ ...nudgeStyle, color }}
+      onClick={onClick}
     />
   )
 }

@@ -58,9 +58,6 @@ function PostBody({postId, currentlyReading, post, setPost}: IPostPageProps) {
           </Sentence>
         )})}
       </Typography>
-      <Button variant="contained" href="" sx={{mt: 2}} onClick={() => navigate('/')}>
-        Home
-      </Button>
     </Box>
   )
 }
