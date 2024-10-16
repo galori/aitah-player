@@ -7,12 +7,15 @@ export interface IconProps {
   nudge?: number;
   size?: "1x" | "2x" | "3x" | "4x" | "5x";
   onClick?: () => void;
+  rotate?: "90" | "180" | "270";
+  color?: "black" | "white";
 }
 
-function Icon({ name, circle, nudge, size, onClick }: IconProps) {
+function Icon({ name, circle, nudge, size, onClick, rotate, color="black" }: IconProps) {
+  const nudgeStyle = nudge ? { marginLeft: `${nudge}px` } : {};
   const sizeX = size ?? "1x";
+  const rotateClass = rotate ? `fa-rotate-${rotate}` : "";
   if (circle) {
-    const nudgeStyle = nudge ? { marginLeft: `${nudge}px` } : {};
     return (
       <Box component="span" className={`fa-stack fa-${sizeX}`}>
         <Box
@@ -28,13 +31,19 @@ function Icon({ name, circle, nudge, size, onClick }: IconProps) {
         <Box
           component="i"
           className={`fa fa-${name} fa-stack-1x fa-inverse`}
-          style={{ ...nudgeStyle, color: "black", pointerEvents: 'none' }}
+          style={{ ...nudgeStyle, color, pointerEvents: 'none' }}
 
         />
       </Box>
     );
   }
-  return <i className={`fa fa-${name}`} />;
+  return (
+    <Box
+      component="i"
+      className={`fa fa-${name} ${rotateClass} fa-${sizeX}`}
+      style={{ ...nudgeStyle, color }}
+    />
+  )
 }
 
 export default Icon;
