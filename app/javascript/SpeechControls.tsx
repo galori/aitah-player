@@ -1,6 +1,8 @@
-import React, {useCallback, useEffect, useRef} from "react";
+import React, {useContext, useCallback, useEffect, useRef} from "react";
 import {Box, Container, SxProps, Theme} from "@mui/material";
 import EasySpeech from "easy-speech";
+import {useNavigate} from "react-router-dom";
+import AppContext from "./contexts/AppContext";
 import {SHOULD_AUTO_PLAY, DEBUG} from "./initialize/config";
 import iOS from "./iOS";
 import {EasySpeechState, Voice} from "./types";
@@ -55,10 +57,8 @@ function SpeechControls({
           const wasSuccessful = await new Promise<boolean>((resolve) => {
             const handler = () => {
               if (currentReadId === latestReadTextIdRef.current) {
-                console.log('resolving readText with true');
                 resolve(true);
               } else {
-                console.log('resolving readText with false');
                 resolve(false);
               }
               window.removeEventListener("speech-done", handler);
@@ -67,7 +67,6 @@ function SpeechControls({
             if (DEBUG) console.log("speak: ", text);
             window.webkit.messageHandlers.speakHandler.postMessage(text);
           });
-          console.log('readText returning wasSuccessful:', wasSuccessful);
           return wasSuccessful;
         }
         await EasySpeech.speak({text, voice});
@@ -226,6 +225,33 @@ function SpeechControls({
     setEasySpeechState
   ]);
 
+  const appContext = useContext(AppContext);
+  if (!appContext) throw new Error('useAppContext must be used within a AppContextProvider');
+  const {setCurrentPostIndex, currentPostIndex, posts} = appContext;
+  const navigate = useNavigate();
+
+  const handleNextPost = () => {
+    setPlaybackState("pause");
+    setEasySpeechState("stopped");
+    setCurrentlyReading(null);
+
+    console.log('handleNextPost: ',posts)
+    const newPostIndex = (currentPostIndex ?? 0) + 1;
+    const newPostId = posts[newPostIndex].id;
+    setCurrentPostIndex(newPostIndex);
+    navigate(`/post/${newPostId}`);
+  }
+
+  const handlePrevPost = () => {
+    setPlaybackState("pause");
+    setEasySpeechState("stopped");
+    setCurrentlyReading(null);
+    const newPostIndex = (currentPostIndex ?? 0) - 1;
+    const newPostId = posts[newPostIndex].id;
+    setCurrentPostIndex(newPostIndex);
+    navigate(`/post/${newPostId}`);
+  }
+
   return (
     <Box sx={sx}>
       {DEBUG && <Container sx={{
@@ -248,10 +274,10 @@ function SpeechControls({
       </Box>
 
       <Box sx={{display: 'flex', justifyContent: 'space-around', alignItems: 'center', p: 1}}>
-        <Icon name='arrow-left' circle/>
+        <Icon name='arrow-left' circle onClick={handlePrevPost}/>
         <Icon name='step-backward' circle/>
         <Icon name='step-forward' circle/>
-        <Icon name='arrow-right' circle/>
+        <Icon name='arrow-right' circle onClick={handleNextPost}/>
       </Box>
     </Box>
   );

@@ -15,12 +15,12 @@ interface VoiceProviderProps {
 function VoiceProvider({ children }: VoiceProviderProps) {
   const [voice, setVoice] = React.useState<Voice | null>(null);
 
-  const oiceContextMemo = useMemo(
+  const voiceContextMemo = useMemo(
     () => ({ voice, setVoice }),
     [voice, setVoice],
   );
   return (
-    <VoiceContext.Provider value={oiceContextMemo}>
+    <VoiceContext.Provider value={voiceContextMemo}>
       {children}
     </VoiceContext.Provider>
   );

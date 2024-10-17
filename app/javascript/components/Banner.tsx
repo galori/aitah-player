@@ -1,5 +1,5 @@
 import React from "react";
-import {Box, Button, Typography} from "@mui/material";
+import {Box, Typography} from "@mui/material";
 import {useNavigate} from "react-router-dom";
 import SoundBars from "./SoundsBars";
 import Icon from "./Icon";

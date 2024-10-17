@@ -1,6 +1,6 @@
 import {Box, Button, Paper, Typography} from "@mui/material";
 import React, {useEffect, useRef, useState} from "react";
-import {useNavigate} from "react-router-dom";
+import {useLocation, useNavigate} from "react-router-dom";
 import Sentence from "./Sentence";
 import {Post} from "./types";
 import FetchPost from "./fetch/FetchPost";
@@ -17,7 +17,11 @@ function PostBody({postId, currentlyReading, post, setPost}: IPostPageProps) {
   const [loading, setLoading] = useState(true);
   const [alreadyFetched, setAlreadyFetched] = useState<boolean>(false);
   const prevPostRef = useRef<Post | null>(null);
-  const navigate = useNavigate();
+  const location = useLocation();
+
+  useEffect(() => {
+    setAlreadyFetched(false);
+  },[location]);
 
   useEffect(() => {
     if (alreadyFetched || !postId) return;

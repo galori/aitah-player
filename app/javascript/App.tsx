@@ -1,4 +1,4 @@
-import React, {useState, useMemo, useRef, useEffect} from "react";
+import React, {useContext, useState, useMemo, useRef, useEffect} from "react";
 import ReactDOM from "react-dom";
 import {ThemeProvider, createTheme} from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -9,8 +9,9 @@ import "@fontsource/roboto/700.css";
 import {BrowserRouter as Router, Route, Routes} from "react-router-dom";
 import PostsPage from "./PostsPage";
 import PostPage from "./PostPage";
-import {Voice} from "./types";
+import {Post, Voice} from "./types";
 import {VoiceContext} from "./VoiceProvider";
+import AppContext from "./contexts/AppContext";
 import SpeechCore from "./SpeechCore";
 import IOSBridge from './iosBridge';
 import 'font-awesome/css/font-awesome.min.css';
@@ -35,6 +36,19 @@ function App() {
   const [speechReady, setSpeechReady] = useState<boolean>(false);
   const version = useRef<string | null>(null);
   const iosBridgeInitialized = useRef<boolean>(false);
+  const [currentPostIndex, setCurrentPostIndex] = useState<number | null>(null);
+  const [posts, setPosts] = useState<Post[]>([]);
+
+
+  const appContextValue = useMemo(
+    () => ({
+      currentPostIndex,
+      setCurrentPostIndex,
+      posts,
+      setPosts
+    }),
+    [currentPostIndex, setCurrentPostIndex, posts, setPosts],
+  );
 
   const voiceProviderValue = useMemo(
     () => ({
@@ -68,20 +82,22 @@ function App() {
 
   return (
     <React.StrictMode>
-      <VoiceContext.Provider value={voiceProviderValue}>
-        <ThemeProvider theme={theme}>
-          <CssBaseline/>
-          <Router>
-            <div>
-              <Routes>
-                <Route path="/" element={<PostsPage version={version}/>}/>
-                <Route path="/post/:id" element={<PostPage />}/>
-              </Routes>
-            </div>
-          </Router>
-        </ThemeProvider>
-        <SpeechCore/>
-      </VoiceContext.Provider>
+      <AppContext.Provider value={appContextValue}>
+        <VoiceContext.Provider value={voiceProviderValue}>
+          <ThemeProvider theme={theme}>
+            <CssBaseline/>
+            <Router>
+              <div>
+                <Routes>
+                  <Route path="/" element={<PostsPage version={version}/>}/>
+                  <Route path="/post/:id" element={<PostPage/>}/>
+                </Routes>
+              </div>
+            </Router>
+          </ThemeProvider>
+          <SpeechCore/>
+        </VoiceContext.Provider>
+      </AppContext.Provider>
     </React.StrictMode>
   );
 }

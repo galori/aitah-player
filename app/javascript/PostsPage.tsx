@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {
   ListItemButton,
@@ -11,16 +11,21 @@ import {
   Toolbar,
   Box,
 } from '@mui/material';
+import AppContext from './contexts/AppContext';
 import { Post } from './types';
 
 function PostsPage({version}: {version: React.MutableRefObject<string | null>}) {
   const navigate = useNavigate();
-  const [posts, setPost] = React.useState<Post[]>([]);
   const [loading, setLoading] = React.useState(true);
   const [error, setError] = React.useState<string | null>(null);
   const [alreadyFetched, setAlreadyFetched] = React.useState<boolean>(false);
+  const appContext = useContext(AppContext);
 
-  const handlePostClick = (postId: number) => {
+  if (!appContext) throw new Error('useAppContext must be used within a AppContextProvider');
+  const { setCurrentPostIndex, currentPostIndex, posts, setPosts } = appContext;
+
+  const handlePostClick = (postId: number, index: number) => {
+    setCurrentPostIndex(index);
     navigate(`/post/${postId}`);
   };
 
@@ -34,7 +39,7 @@ function PostsPage({version}: {version: React.MutableRefObject<string | null>}) 
         return response.json();
       })
       .then((data) => {
-        setPost(data);
+        setPosts(data);
         setLoading(false);
       })
       .catch((err) => {
@@ -42,7 +47,7 @@ function PostsPage({version}: {version: React.MutableRefObject<string | null>}) 
         setLoading(false);
       });
     setAlreadyFetched(true);
-  }, [setPost, setLoading, setError, alreadyFetched]);
+  }, [setPosts, setLoading, setError, alreadyFetched]);
 
   if (loading) return <p>Loading...</p>;
   if (error) {
@@ -77,7 +82,7 @@ function PostsPage({version}: {version: React.MutableRefObject<string | null>}) 
                   borderBottom: index < posts.length - 1 ? '1px solid' : 'none',
                   borderColor: 'grey.300',
                 }}
-                onClick={() => handlePostClick(post.id)}
+                onClick={() => handlePostClick(post.id, index)}
               >
                 <ListItemText
                   primary={(

@@ -1,7 +1,7 @@
-import React, { useState } from "react";
-import { useParams } from "react-router-dom";
+import React, {useEffect, useState} from "react";
+import {useLocation, useParams} from "react-router-dom";
 import Controls from "./Controls";
-import {EasySpeechState, Post} from "./types";
+import { EasySpeechState, Post } from "./types";
 import AppLayout from "./AppLayout";
 import PostPageBody from "./PostPageBody";
 import Banner from "./components/Banner";
@@ -13,6 +13,14 @@ function PostPage() {
   const [post, setPost] = useState<Post | null>(null);
   const [easySpeechState, setEasySpeechState] =
     React.useState<EasySpeechState>("stopped");
+  const location = useLocation();
+
+  useEffect(() => {
+    setCurrentlyReading(null);
+    setShowVoiceSelector(false);
+    setPost(null);
+    setEasySpeechState("stopped");
+  }, [location]);
 
   const postId = id;
 
@@ -20,28 +28,28 @@ function PostPage() {
 
   return (
     <AppLayout
-      header={ <Banner soundActive={easySpeechState === 'playing'}/> }
-        body={
-          <PostPageBody
-            postId={postId}
-            currentlyReading={currentlyReading}
-            setPost={setPost}
-            post={post}
-            showVoiceSelector={showVoiceSelector}
-            setShowVoiceSelector={setShowVoiceSelector}
-          />
-        }
-        controls={
-          <Controls
-            setCurrentlyReading={setCurrentlyReading}
-            currentlyReading={currentlyReading}
-            easySpeechState={easySpeechState}
-            setEasySpeechState={setEasySpeechState}
-            post={post}
-          />
-        }
+      header={<Banner soundActive={easySpeechState === "playing"} />}
+      body={
+        <PostPageBody
+          postId={postId}
+          currentlyReading={currentlyReading}
+          setPost={setPost}
+          post={post}
+          showVoiceSelector={showVoiceSelector}
+          setShowVoiceSelector={setShowVoiceSelector}
         />
-        );
-        }
+      }
+      controls={
+        <Controls
+          setCurrentlyReading={setCurrentlyReading}
+          currentlyReading={currentlyReading}
+          easySpeechState={easySpeechState}
+          setEasySpeechState={setEasySpeechState}
+          post={post}
+        />
+      }
+    />
+  );
+}
 
-        export default PostPage;
+export default PostPage;
