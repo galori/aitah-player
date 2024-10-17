@@ -263,23 +263,23 @@ function SpeechControls({
         top: '2px'
       }}>{playbackState} | {easySpeechState} | {currentlyReading} | ref = {prevPlaybackStateRef.current ?? 'null'} | {voice.name}</Container>}
       <Box sx={{display: 'flex', justifyContent: 'space-around', alignItems: 'center', p: 1}}>
-        <Icon name='undo' circle size='2x' onClick={skipBackward} ariaLabel='Rewind'/>
-        {playbackState === 'pause' && <Icon name='play' circle nudge={5} size='4x' onClick={() => {
+        <Icon ariaLabel='Rewind' name='undo' circle size='2x' onClick={skipBackward} />
+        {playbackState === 'pause' && <Icon ariaLabel='Play' name='play' circle nudge={5} size='4x' onClick={() => {
           setPlaybackState('play');
           handlePlaybackChange('play')
         }}/>}
-        {playbackState === 'play' && <Icon name='pause' circle size='4x' onClick={() => {
+        {playbackState === 'play' && <Icon ariaLabel='Pause' name='pause' circle size='4x' onClick={() => {
           setPlaybackState('pause');
           handlePlaybackChange('pause');
         }}/>}
-        <Icon name='repeat' circle size='2x' onClick={skipForward} ariaLabel='Fast Forward'/>
+        <Icon ariaLabel='Fast Forward' name='repeat' circle size='2x' onClick={skipForward}/>
 
       </Box>
 
       <Box sx={{display: 'flex', justifyContent: 'space-around', alignItems: 'center', p: 1}}>
         <Icon name='arrow-left' circle onClick={handlePrevPost} ariaLabel='Previous Post'/>
-        <Icon name='step-backward' circle/>
-        <Icon name='step-forward' circle/>
+        <Icon name='step-backward' circle ariaLabel='Next Comment Thread'/>
+        <Icon name='step-forward' circle ariaLabel='Previous Comment Thread'/>
         <Icon name='arrow-right' circle onClick={handleNextPost} ariaLabel='Next Post'/>
       </Box>
     </Box>
