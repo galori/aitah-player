@@ -15,7 +15,7 @@ class FetchPostsService
       begin
         FetchCommentsService.new(post).perform
       rescue URI::InvalidURIError => e
-        Rails.logger.info(e, "Invalid URI for post: #{post.id}")
+        Rails.logger.info("Invalid URI for post: #{post.id} #{e}")
       end
 
     end

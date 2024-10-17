@@ -19,11 +19,16 @@ Rails.application.configure do
   # loading is working properly before deploying your code.
   config.eager_load = ENV["CI"].present?
 
-  # Configure public file server for tests with Cache-Control for performance.
   config.public_file_server.enabled = true
-  config.public_file_server.headers = {
-    "Cache-Control" => "public, max-age=#{1.hour.to_i}"
-  }
+  config.public_file_server.index_name = 'index.html'
+  config.middleware.insert_after(
+    ActionDispatch::Static,
+    Rack::Static,
+    urls: [ %r{\A(?!(/api))} ],
+    root: Rails.root.join('app/assets', 'builds').to_s,
+    index: 'index.html',
+    )
+
 
   # Show full error reports and disable caching.
   config.consider_all_requests_local = true
