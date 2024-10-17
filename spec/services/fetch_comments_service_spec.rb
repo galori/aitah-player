@@ -14,7 +14,7 @@ RSpec.describe FetchCommentsService, vcr: { record: :none, cassette_name: 'Fetch
     before do
       fast_retry = Retry.new(overall_multiplier: 0)
       allow(Retry).to receive(:new).and_return(fast_retry)
-      FetchCommentsService.new(post).perform
+      FetchCommentsService.new(post: post, limit: 100).perform
     end
 
     it 'downloads all comments' do
@@ -54,8 +54,12 @@ RSpec.describe FetchCommentsService, vcr: { record: :none, cassette_name: 'Fetch
   end
   describe 'limiting the # of comments fetched' do
     it 'supports limiting comments' do
-      FetchCommentsService.new(post, limit: 10).perform
-      expect(post.reload.comments.count).to eq(10)
+      FetchCommentsService.new(post: post, limit: 3).perform
+      expect(post.reload.comments.count).to eq(3)
+    end
+    it 'defaults when to 5 when no limit is provided' do
+      FetchCommentsService.new(post: post, limit: nil).perform
+      expect(post.reload.comments.count).to eq(5)
     end
   end
 end

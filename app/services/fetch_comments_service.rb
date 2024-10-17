@@ -1,6 +1,8 @@
 class FetchCommentsService
-  def initialize(post)
+  def initialize(post:, limit: nil)
     @post = post
+    @comments_count = 0
+    @limit = limit || 5
   end
 
   def perform
@@ -19,10 +21,12 @@ class FetchCommentsService
 
   def add_comments(comments, parent = nil)
     comments.each do |comment|
+      break if @comments_count >= @limit
       next if comment['kind'] == 'more'
       body = comment['data']['body']
       author = comment['data']['author']
       score = comment['data']['score']
+      @comments_count += 1
       new_comment = Comment.create!(body: body, author: author, post: post, parent: parent, score: score)
       replies = comment.dig('data','replies')
       if replies.present?
@@ -32,5 +36,5 @@ class FetchCommentsService
     end
   end
 
-  attr_reader :post
+  attr_reader :post, :comments_count, :limit
 end

@@ -93,7 +93,7 @@ function PostsPage({version}: {version: React.MutableRefObject<string | null>}) 
                       {' '}
                       <Typography variant="body2" component="span" color="text.secondary">
                         by /u/
-                        {post.author}
+                        {post.author} ({post.score} upvotes)
                       </Typography>
                     </>
                   )}

@@ -231,6 +231,7 @@ function SpeechControls({
   const navigate = useNavigate();
 
   const handleNextPost = () => {
+    if (currentPostIndex === posts.length - 1) return;
     setPlaybackState("pause");
     setEasySpeechState("stopped");
     setCurrentlyReading(null);
@@ -243,6 +244,8 @@ function SpeechControls({
   }
 
   const handlePrevPost = () => {
+    if (currentPostIndex === null || currentPostIndex === 0) return;
+
     setPlaybackState("pause");
     setEasySpeechState("stopped");
     setCurrentlyReading(null);
@@ -260,7 +263,7 @@ function SpeechControls({
         top: '2px'
       }}>{playbackState} | {easySpeechState} | {currentlyReading} | ref = {prevPlaybackStateRef.current ?? 'null'} | {voice.name}</Container>}
       <Box sx={{display: 'flex', justifyContent: 'space-around', alignItems: 'center', p: 1}}>
-        <Icon name='undo' circle size='2x' onClick={skipBackward}/>
+        <Icon name='undo' circle size='2x' onClick={skipBackward} ariaLabel='Rewind'/>
         {playbackState === 'pause' && <Icon name='play' circle nudge={5} size='4x' onClick={() => {
           setPlaybackState('play');
           handlePlaybackChange('play')
@@ -269,15 +272,15 @@ function SpeechControls({
           setPlaybackState('pause');
           handlePlaybackChange('pause');
         }}/>}
-        <Icon name='repeat' circle size='2x' onClick={skipForward}/>
+        <Icon name='repeat' circle size='2x' onClick={skipForward} ariaLabel='Fast Forward'/>
 
       </Box>
 
       <Box sx={{display: 'flex', justifyContent: 'space-around', alignItems: 'center', p: 1}}>
-        <Icon name='arrow-left' circle onClick={handlePrevPost}/>
+        <Icon name='arrow-left' circle onClick={handlePrevPost} ariaLabel='Previous Post'/>
         <Icon name='step-backward' circle/>
         <Icon name='step-forward' circle/>
-        <Icon name='arrow-right' circle onClick={handleNextPost}/>
+        <Icon name='arrow-right' circle onClick={handleNextPost} ariaLabel='Next Post'/>
       </Box>
     </Box>
   );

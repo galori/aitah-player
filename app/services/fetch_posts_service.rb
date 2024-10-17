@@ -1,6 +1,12 @@
 class FetchPostsService
-  def perform(limit: 25)
-    response = RestClient.get("https://www.reddit.com/r/aitah/top.json?limit=#{limit}")
+
+  def initialize(limit: 25, comment_limit: nil)
+    @limit = limit
+    @comment_limit = comment_limit
+  end
+
+  def perform
+    response = RestClient.get("https://www.reddit.com/r/aitah/top.json?limit=#{@limit}")
     json = JSON::parse(response.body)
     json['data']['children'].each do |child|
       data = child['data']
@@ -13,7 +19,7 @@ class FetchPostsService
       )
 
       begin
-        FetchCommentsService.new(post).perform
+        FetchCommentsService.new(post: post, limit: @comment_limit).perform
       rescue URI::InvalidURIError => e
         Rails.logger.info("Invalid URI for post: #{post.id} #{e}")
       end
@@ -21,4 +27,9 @@ class FetchPostsService
     end
     'done'
   end
+
+  private
+
+  attr_reader :limit, :comment_limit
+
 end
