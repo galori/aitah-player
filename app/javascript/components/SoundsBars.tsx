@@ -14,11 +14,11 @@ const SoundBarsContainer = styled(Box)`
     height: 30px; /* Adjusted height for better visibility */
 `;
 
-const Bar = styled.div<{ height: number; $isActive: boolean }>`
+const Bar = styled.div<{ $height: number; $isActive: boolean }>`
     width: 3px;
     margin-left: 3px;
     background-color: ${({ $isActive }) => ($isActive ? '#3f51b5' : '#3f51b5')}; /* Maintains active color */
-    height: ${({ height }) => height}px;
+    height: ${({ $height }) => $height}px;
     transition: height 0.3s ease;
 `;
 
@@ -67,7 +67,7 @@ function SoundBars({ soundActive } : {soundActive: boolean}) {
         const reverseIndex = 9 - index;
         const isActive = activeBars.includes(reverseIndex);
         const height = barHeights[reverseIndex];
-        return <Bar key={Math.random()} height={height} $isActive={isActive} />;
+        return <Bar key={Math.random()} $height={height} $isActive={isActive} />;
       })}
     </SoundBarsContainer>
   );
