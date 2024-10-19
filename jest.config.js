@@ -8,14 +8,11 @@ module.exports = {
 
   // Add this section for TypeScript transformation and source maps support
   transform: {
-    '^.+\\.(ts|tsx)$': 'ts-jest',  // Use ts-jest for handling TypeScript files
-  },
-  globals: {
-    'ts-jest': {
-      tsconfig: 'tsconfig.json',    // Use your TypeScript configuration
+    '^.+\\.(ts|tsx)$': ['ts-jest', {
+      tsconfig: 'tsconfig.json',
       diagnostics: {
-        warnOnly: true,             // Prevent TypeScript errors from breaking tests
+        warnOnly: true,
       },
-    },
+    }],
   },
 };

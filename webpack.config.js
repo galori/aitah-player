@@ -8,14 +8,34 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const config = require('./app/javascript/initialize/config');
 
 module.exports = (env, argv) => {
-  const isProduction = argv.mode === 'production';
+  let APP_ENV;
+  if (env.development) {
+    APP_ENV = 'development';
+  } else if (env.test) {
+    APP_ENV = 'test';
+  } else if (env.production) {
+    APP_ENV = 'development';
+  } else {
+    throw new Error(`Invalid env: ${JSON.stringify(env)}`);
+  }
+
+  console.log('************************************');
+  console.log(`APP_ENV: ${APP_ENV}`);
+  console.log(`Webpack mode: ${argv.mode}`);
+  console.log('************************************');
+
+  const Env = {
+    isDevelopment: APP_ENV === 'development',
+    isTest: APP_ENV === 'test',
+    isProduction: APP_ENV === 'production'
+  };
 
   return {
     entry: {
       application: '/app/javascript/App.tsx'
     },
-    mode: isProduction ? 'production' : 'development',
-    devtool: isProduction ? 'source-map' : 'eval-source-map',
+    mode: argv.mode,
+    devtool: Env.isProduction  ? 'source-map' : 'eval-source-map',
     module: {
       rules: [
         {
@@ -26,7 +46,7 @@ module.exports = (env, argv) => {
             options: {
               cacheDirectory: true,
               cacheCompression: false,
-              envName: isProduction ? 'production' : 'development'
+              envName: process.env.APP_ENV
             }
           }
         },
@@ -67,7 +87,7 @@ module.exports = (env, argv) => {
         maxChunks: 1
       }),
       new webpack.DefinePlugin({
-        'process.env.NODE_ENV': JSON.stringify(isProduction ? 'production' : 'development'),
+        'process.env.APP_ENV': JSON.stringify(APP_ENV),
       }),
       new HtmlWebpackPlugin({
         template: 'app/javascript/templates/index.html',
@@ -99,6 +119,10 @@ module.exports = (env, argv) => {
     resolve: {
       alias: {
         '@fontsource': path.resolve(__dirname, 'node_modules/@fontsource'),
+
+        ...(APP_ENV === 'test' && {
+          'Speech$': path.resolve(__dirname, 'src/__mocks__/SpeechMock.ts'),
+        }),
       },
       extensions: ['.js', '.jsx', '.ts', '.tsx'],
     },

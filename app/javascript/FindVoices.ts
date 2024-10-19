@@ -3,12 +3,13 @@ import _ from 'lodash';
 import type EasySpeechType from "./types/easy-speech-extension";
 import {Voice} from "./types";
 import {VoiceContextType} from "./UseVoiceContext";
+import Speech from "./speech/Speech";
 
 interface SpeechInitProps {
   voiceContext: VoiceContextType;
 }
 
-class Speech {
+class FindVoices {
   private countries: Set<string> = new Set();
 
   private country: string | null = null;
@@ -16,7 +17,7 @@ class Speech {
   private voicesByCountry: { [key: string]: Set<Voice> } = {};
 
   public async init({voiceContext}: SpeechInitProps) {
-    await EasySpeech.init({maxTimeout: 1000, interval: 100});
+    await Speech.init();
 
     const {setCountry, setVoice, setCountries, setVoicesByCountry, setSpeechReady} =
       voiceContext;
@@ -54,4 +55,4 @@ class Speech {
 
 }
 
-export default Speech;
+export default FindVoices;

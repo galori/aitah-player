@@ -34,13 +34,14 @@
     "url-loader": "^4.1.1",
     "webpack": "^5.94.0",
     "webpack-cli": "^5.1.4",
-    "webpack-dev-server": "^5.1.0"
+    "webpack-dev-server": "^5.1.0",
+    "webpack-merge": "^6.0.1"
   },
   "scripts": {
     "start": "webpack serve --host 0.0.0.0 --mode development --config webpack.config.js",
     "build:dev": "yarn type-check && webpack --mode development",
     "build": "yarn type-check && webpack --mode production",
-    "build:test": "webpack --mode production --watch",
+    "build:test": "webpack --env test --mode development --watch",
     "type-check": "tsc --noEmit",
     "lint": "eslint 'app/javascript/**/*.{js,jsx,ts,tsx}'",
     "lint:fix": "eslint 'app/javascript/**/*.{js,jsx,ts,tsx}' --fix",

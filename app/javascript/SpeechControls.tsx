@@ -1,7 +1,7 @@
 import React, {useContext, useCallback, useEffect, useRef} from "react";
 import {Box, Container, SxProps, Theme} from "@mui/material";
-import EasySpeech from "easy-speech";
 import {useNavigate} from "react-router-dom";
+import Speech from "./speech/Speech";
 import AppContext from "./contexts/AppContext";
 import {SHOULD_AUTO_PLAY, DEBUG} from "./initialize/config";
 import iOS from "./iOS";
@@ -69,7 +69,7 @@ function SpeechControls({
           });
           return wasSuccessful;
         }
-        await EasySpeech.speak({text, voice});
+        await Speech.speak({text, voice});
         return true;
 
       } catch (error) {
@@ -162,11 +162,12 @@ function SpeechControls({
     if (newPlaybackState === "pause") {
       console.log('handlePlaybackChange: pausing. newPlaybackState=', newPlaybackState, 'easySpeechState=', easySpeechState);
       if (easySpeechState === "playing") {
-        if (iOS.isWebView()) {
-          iOS.pause();
-        } else {
-          EasySpeech.pause();
-        }
+        Speech.pause();
+        // if (iOS.isWebView()) {
+        //   iOS.pause();
+        // } else {
+        //   EasySpeech.pause();
+        // }
         setEasySpeechState("paused");
       }
     }
@@ -179,11 +180,12 @@ function SpeechControls({
           playCurrentSentence().catch(console.error);
         }
         if (easySpeechState === "paused") {
-          if (iOS.isWebView()) {
-            iOS.continue();
-          } else {
-            EasySpeech.resume();
-          }
+          // if (iOS.isWebView()) {
+          //   iOS.continue();
+          // } else {
+          //   EasySpeech.resume();
+          // }
+          Speech.resume();
           setEasySpeechState("playing");
         }
       }

@@ -12,7 +12,8 @@ module CapybaraHelpers
   end
 
   def find_by_text(text, wait: 1)
-    xpath = "//*[contains(text(), '#{text}')]"
+    escaped_text = text.gsub("'", %q(\\\'))
+    xpath = "//*[contains(text(), \"#{escaped_text}\")]"
     node = find(:xpath, xpath)
     node
   end

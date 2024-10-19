@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import Speech from "./speech";
+import FindVoices from "./FindVoices";
 import useVoiceContext from "./UseVoiceContext";
 
 function SpeechCore() {
@@ -9,7 +9,7 @@ function SpeechCore() {
   useEffect(() => {
     if (!initialized) {
       const init = async () => {
-        const speech = new Speech();
+        const speech = new FindVoices();
         await speech.init({ voiceContext });
       };
       init().catch(console.error);

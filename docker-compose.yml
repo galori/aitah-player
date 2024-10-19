@@ -1,0 +1,13 @@
+services:
+  aitah-player-db:
+    image: postgres:16.4
+    environment:
+      POSTGRES_USER: aitah_player
+      POSTGRES_PASSWORD: password
+    volumes:
+      - postgresql_16:/var/lib/postgresql/data
+    ports:
+      - 5433:5432
+
+volumes:
+  postgresql_16:
