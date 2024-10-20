@@ -18,7 +18,10 @@ class PostPresenter < SimpleDelegator
 
     clean_body = TextUtil.find_sentences(clean_body)
 
-    clean_body.split('[SPLIT]')
+    result = clean_body.split('[SPLIT]').map do |segment|
+      segment.strip
+    end
+    result
   end
 
   alias_method :sentences, :body_as_speech_segments
@@ -27,10 +30,10 @@ class PostPresenter < SimpleDelegator
   def as_json
     {
       id: id,
-      aaa: title,
+      title: title,
       sentences: sentences,
-      aaaaa: 'aaa',
-      score: score
+      score: score,
+      author: author
     }
   end
 end
