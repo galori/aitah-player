@@ -25,6 +25,9 @@ require 'capybara/rails'
 #
 Rails.root.glob('spec/support/**/*.rb').sort.each { |f| require f }
 
+logger = Selenium::WebDriver.logger
+logger.ignore(:logger_info, :clear_session_storage, :clear_local_storage)
+
 # Checks for pending migrations and applies them before tests are run.
 # If you are not using ActiveRecord, you can remove these lines.
 begin

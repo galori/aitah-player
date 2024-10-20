@@ -21,7 +21,7 @@ group :development, :test do
   gem "debug", platforms: %i[ mri windows ]
   gem 'rspec-rails'
   gem 'vcr'
-  gem 'capybara'
+  gem 'capybara', '>= 3.40'
   gem 'capybara-inline-screenshot'
   gem 'selenium-webdriver'
   gem 'webmock'
