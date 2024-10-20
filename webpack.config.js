@@ -121,7 +121,7 @@ module.exports = (env, argv) => {
         '@fontsource': path.resolve(__dirname, 'node_modules/@fontsource'),
 
         ...(APP_ENV === 'test' && {
-          'Speech$': path.resolve(__dirname, 'src/__mocks__/SpeechMock.ts'),
+          './speech/Speech$': path.resolve(__dirname, 'app/javascript/__mocks__/SpeechMock.ts'),
         }),
       },
       extensions: ['.js', '.jsx', '.ts', '.tsx'],

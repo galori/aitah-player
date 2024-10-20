@@ -1,6 +1,6 @@
 import EasySpeech from 'easy-speech';
 import {Voice} from "../types";
-
+import {} from "../types/window";
 
 class Speech {
 
@@ -22,5 +22,6 @@ class Speech {
   }
 }
 
+window.Speech = Speech;
 
 export default Speech;

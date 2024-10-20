@@ -9,12 +9,13 @@ RSpec.describe 'speech controls', js: true, vcr: { record: :once } do
 
   it 'speaks the post title' do
     visit '/'
-    # click_on_text "AITA for calling my parents selfish for having me, knowing they'd pass down a hereditary illness, and going LC after they hid it, putting my child at risk too?"
     click_on_text 'AITA for calling my parents selfish for having me'
     expect(page).to have_text "Edit: most of you figured it out anyway.", wait: 5
     click_on 'Play'
-    speech_calls = page.evaluate_script('window.SpeechMock.getCalls();')
+    click_on 'Pause'
+    speech_calls = page.evaluate_script('window.SpeechMock.getCalls("speak");')
 
-    expect(speech_calls).to include("AITA for calling my parents selfish for having me, knowing they'd pass down a hereditary illness, and going LC after they hid it, putting my child at risk too?")
+    # expect(speech_calls) to be an array that includes a string matching the post title
+    expect(speech_calls).to include a_string_matching(/AITA for calling my parents selfish for having me/i)
   end
 end

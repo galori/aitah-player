@@ -1,4 +1,6 @@
 import EasySpeech from "easy-speech";
+import Speech from "../speech/Speech";
+import SpeechMock from "../__mocks__/SpeechMock";
 
 declare global {
   interface Window {
@@ -21,6 +23,8 @@ declare global {
     };
     speechDone: () => void;
     nativeEvent: (message: string) => void;
+    Speech: typeof Speech;
+    SpeechMock: typeof SpeechMock;
   }
 }
 

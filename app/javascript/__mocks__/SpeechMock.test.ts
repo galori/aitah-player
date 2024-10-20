@@ -8,7 +8,7 @@ describe('SpeechMock', () => {
     const voice:Voice = {lang: 'en-US', voiceURI: 'test', name: 'test', default: true, localService: true};
     await SpeechMock.speak({text: 'Hello', voice: voice});
 
-    const calls = SpeechMock.getCalls();
+    const calls = SpeechMock.getCalls('speak');
     expect(calls.length).toBe(1);
     expect(calls[0]).toBe('Hello');
   });
