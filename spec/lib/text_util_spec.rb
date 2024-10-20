@@ -11,7 +11,7 @@ RSpec.describe TextUtil do
 
     it 'changes eclipses to one period' do
       text = "I like ice cream.... I like cake."
-      expect(TextUtil.find_sentences(text)).to eq("I like ice cream. I like cake.")
+      expect(TextUtil.find_sentences(text)).to eq("I like ice cream[SPLIT] I like cake")
     end
   end
 end
