@@ -22,7 +22,6 @@ RSpec.describe 'speech controls', js: true, vcr: { record: :once } do
 
     finish_utterance
 
-    # sleep 2
 
     expect("Edit: most of you figured it out anyway").to have_been_spoken
 

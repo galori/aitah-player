@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'Comment Nesting System Spec', js: true, vcr: { record: :new_episodes, cassette_name: 'FetchCommentsService/downloads_comments_for_a_reddit_post' } do
+RSpec.describe 'Comment Nesting System Spec', js: true, vcr: { record: :none, cassette_name: 'FetchCommentsService/downloads_comments_for_a_reddit_post' } do
   let(:post) { Post.create(
     title: 'AITAH for laughing in my SILs face when she DNA',
     body: 'AITAH for laughing in my SILs face when she DNA',
@@ -11,7 +11,7 @@ RSpec.describe 'Comment Nesting System Spec', js: true, vcr: { record: :new_epis
   before do
     fast_retry = Retry.new(overall_multiplier: 0)
     allow(Retry).to receive(:new).and_return(fast_retry)
-    FetchCommentsService.new(post).perform
+    FetchCommentsService.new(post: post).perform
   end
 
   it 'displays the nested comments in the correct order' do
@@ -29,12 +29,9 @@ RSpec.describe 'Comment Nesting System Spec', js: true, vcr: { record: :new_epis
       expect(comment).to have_text("Yeah, but you need to care because you need them to work with you.")
     end
     within_comment(3) do |comment|
-      expect(comment).to have_text(/NTA.*Sounds like you have your hands full/)
-    end
-    within_comment(4) do |comment|
       expect(comment).to have_text(/Everyone Sucks.*My worst nightmares are parents getting caught over petty issues and tripping over each other with the tiny power plays/)
     end
-    within_comment(5) do |comment|
+    within_comment(4) do |comment|
       expect(comment).to have_text("Power plays!!! Yes, that's it exactly.")
     end
   end

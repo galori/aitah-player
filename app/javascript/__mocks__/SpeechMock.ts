@@ -28,7 +28,7 @@ class SpeechMock {
     return new Promise<void>((resolve) => {
       const waitForUtterance = async () => {
         if (this.isSpeaking) {
-          setTimeout(waitForUtterance, 300);
+          setTimeout(waitForUtterance, 100);
         } else {
           resolve();
         }
@@ -57,7 +57,7 @@ class SpeechMock {
     this.isSpeaking = false;
     setTimeout(() => {
       callback();
-    }, 100);
+    }, 300);
   }
 
   public static finishSpeakingImmediately(trueOrFalse: boolean): void {

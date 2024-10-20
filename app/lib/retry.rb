@@ -24,20 +24,20 @@ class Retry
     rescue => e
       raise e unless e.class.name =~ /ratelimit|throttl|toomanyrequests|transmission/i
 
-      puts "Retry.backoff retrying for #{caller[1]}: #{e.message}"
+      Rails.logger.info "Retry.backoff retrying for #{caller[1]}: #{e.message}"
 
       if retries <= max_retries
         retries += 1
         sleep_time = (base_delay + exponential_multiplier ** retries + rand(extra_delay)) * overall_multiplier
-        puts "sleeping for #{sleep_time}s and retrying"
+        Rails.logger.info "sleeping for #{sleep_time}s and retrying"
         sleep sleep_time
         retry
       else raise "Giving up on the server after #{retries} retries. Got error: #{e.message}"
       end
 
     rescue StandardError => e
-      puts "Retry.backoff got error: #{e.class} #{e.inspect} #{e.message} - not retrying"
-      puts e.backtrace.reject { |e| e =~ /\.rbenv/ }[0]
+      Rails.logger.info "Retry.backoff got error: #{e.class} #{e.inspect} #{e.message} - not retrying"
+      Rails.logger.info e.backtrace.reject { |e| e =~ /\.rbenv/ }[0]
     end
   end
 
