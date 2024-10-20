@@ -18,7 +18,7 @@ class FetchOnePostService
     post = Post.create(title: title, body: body, author: author, url: url, score: score)
 
     begin
-      FetchCommentsService.new(post).perform
+      FetchCommentsService.new(post: post).perform
     rescue URI::InvalidURIError => e
       Rails.logger.info(e, "Invalid URI for post: #{post.id}")
     end
