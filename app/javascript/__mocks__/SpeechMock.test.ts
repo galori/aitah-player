@@ -6,6 +6,9 @@ describe('SpeechMock', () => {
     await SpeechMock.init();
 
     const voice:Voice = {lang: 'en-US', voiceURI: 'test', name: 'test', default: true, localService: true};
+
+    SpeechMock.finishSpeakingImmediately(true);
+
     await SpeechMock.speak({text: 'Hello', voice: voice});
 
     const calls = SpeechMock.getCalls('speak');

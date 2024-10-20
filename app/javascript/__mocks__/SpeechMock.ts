@@ -10,10 +10,32 @@ interface IMockCalls {
 class SpeechMock {
   private static calls:IMockCalls = {speak: [], pause: [], resume: []};
 
+  private static isSpeaking: boolean = false;
+
+  private static shouldFinishSpeakingImmediately: boolean = false;
+
   public static async speak({text, voice}: {text: string, voice: Voice}): Promise<void> {
     this.calls.speak.push(text);
-    await sleep(2000);
-  }
+
+    if (this.shouldFinishSpeakingImmediately) {
+      return new Promise<void>((resolve) => {
+        resolve();
+      });
+    }
+
+    this.isSpeaking = true;
+
+    return new Promise<void>((resolve) => {
+      const waitForUtterance = async () => {
+        if (this.isSpeaking) {
+          setTimeout(waitForUtterance, 300);
+        } else {
+          resolve();
+        }
+      }
+      waitForUtterance();
+    });
+  };
 
   public static async init(): Promise<void> {
     // do nothing
@@ -29,6 +51,17 @@ class SpeechMock {
 
   public static getCalls(name: "speak" | "pause" | "resume"): string[] {
     return this.calls[name];
+  }
+
+  public static async finishCurrentUtterance(callback: () => void) {
+    this.isSpeaking = false;
+    setTimeout(() => {
+      callback();
+    }, 100);
+  }
+
+  public static finishSpeakingImmediately(trueOrFalse: boolean): void {
+    this.shouldFinishSpeakingImmediately = trueOrFalse;
   }
 }
 
